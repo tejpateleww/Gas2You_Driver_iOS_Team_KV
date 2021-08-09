@@ -70,7 +70,7 @@ class ThemeButton: UIButton {
     @IBInspectable public var fontColor: UIColor = UIColor.appColor(ThemeColor.themeButtonBlue)
     @IBInspectable public var shadowColor: UIColor = UIColor.lightGray
     @IBInspectable public var radius: CGFloat = 0.0
-    @IBInspectable public var shadow: Bool = false
+//    @IBInspectable public var shadow: Bool = false
 
     
     override func awakeFromNib() {
@@ -81,12 +81,13 @@ class ThemeButton: UIButton {
         self.tintColor = fontColor
         self.layer.cornerRadius = radius
         
+        
         if isbordered {
             self.setunderline(title: self.titleLabel?.text ?? "", color: UIColor.appColor(ThemeColor.themeButtonBlue), font: CustomFont.PoppinsRegular.returnFont(Font_Size))
         }
-        if shadow {
-            addShadow(view: self, shadowColor: shadowColor)
-        }
+//        if shadow {
+//            addShadow(view: self, shadowColor: shadowColor)
+//        }
         
         
     

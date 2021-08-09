@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8aY-jl-1yo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EhW-xr-LH3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -13,7 +13,7 @@
         <!--Log InVC-->
         <scene sceneID="gPt-Mv-cNz">
             <objects>
-                <viewController storyboardIdentifier="LogInVC" id="sEc-BL-JAs" customClass="LogInVC" customModule="Gas_2_You" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogInVC" id="sEc-BL-JAs" customClass="LogInVC" customModule="Gas_2_You_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DIR-mm-pBT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -33,7 +33,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="re0-Fh-Dkb">
                                                 <rect key="frame" x="20" y="253" width="374" height="198"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CGF-z1-UEY" customClass="themeTextfield" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CGF-z1-UEY" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="Zt3-Tc-qHR"/>
@@ -59,7 +59,7 @@
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kg7-of-NQx" customClass="themeTextfield" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kg7-of-NQx" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="74" width="374" height="50"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -83,7 +83,7 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="rightButton" value="Forget?"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTC-r5-jva" customClass="ThemeButton" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTC-r5-jva" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="148" width="374" height="50"/>
                                                         <state key="normal" title="Log In"/>
                                                         <userDefinedRuntimeAttributes>
@@ -112,7 +112,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="qL3-fm-fn0">
                                                         <rect key="frame" x="64.5" y="0.0" width="245.5" height="27"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41u-AV-kes" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41u-AV-kes" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="163.5" height="27"/>
                                                                 <string key="text">By Logging in, you agree to our 
 and Pr</string>
@@ -129,7 +129,7 @@ and Pr</string>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="am5-41-DjP" customClass="themeButton" customModule="Gas_2_You" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="am5-41-DjP" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="167.5" y="0.0" width="78" height="27"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <state key="normal" title="Terms Of Use"/>
@@ -148,7 +148,7 @@ and Pr</string>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="71j-5O-PsI">
                                                         <rect key="frame" x="136" y="22" width="102.5" height="27"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHj-qQ-2zD" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHj-qQ-2zD" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="27"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                                 <nil key="textColor"/>
@@ -163,7 +163,7 @@ and Pr</string>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NC-jd-5In" customClass="themeButton" customModule="Gas_2_You" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NC-jd-5In" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="23.5" y="0.0" width="79" height="27"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <state key="normal" title="Privacy Policy"/>
@@ -191,7 +191,7 @@ and Pr</string>
                                                             <constraint firstAttribute="height" constant="1" id="EtI-ub-ph1"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAb-rz-tus" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAb-rz-tus" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="110" y="0.0" width="23.5" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -223,7 +223,7 @@ and Pr</string>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YiU-aw-eC7">
                                                 <rect key="frame" x="104.5" y="609" width="205.5" height="42"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fog-0v-lkx" customClass="themeRoundBtn" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fog-0v-lkx" customClass="themeRoundBtn" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -232,7 +232,7 @@ and Pr</string>
                                                         </constraints>
                                                         <state key="normal" image="FB_LOGO"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sU2-Xc-4X3" customClass="themeRoundBtn" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sU2-Xc-4X3" customClass="themeRoundBtn" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="81.5" y="0.0" width="42" height="42"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -240,7 +240,7 @@ and Pr</string>
                                                         </constraints>
                                                         <state key="normal" image="GOOGLE_LOGO"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdI-gX-qBb" customClass="themeRoundBtn" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdI-gX-qBb" customClass="themeRoundBtn" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="163.5" y="0.0" width="42" height="42"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -256,7 +256,7 @@ and Pr</string>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="RjS-ZA-i2y">
                                                         <rect key="frame" x="89" y="0.0" width="196.5" height="27"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an Account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dp4-Pv-fdG" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an Account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dp4-Pv-fdG" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="124.5" height="27"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                                 <nil key="textColor"/>
@@ -271,7 +271,7 @@ and Pr</string>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqa-ua-tDr" customClass="themeButton" customModule="Gas_2_You" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqa-ua-tDr" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="128.5" y="0.0" width="68" height="27"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <state key="normal" title="Signup Now"/>
@@ -350,7 +350,7 @@ and Pr</string>
         <!--Sign UpVC-->
         <scene sceneID="J8b-cv-hS4">
             <objects>
-                <viewController storyboardIdentifier="SignUpVC" id="j5k-it-05k" customClass="SignUpVC" customModule="Gas_2_You" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpVC" id="j5k-it-05k" customClass="SignUpVC" customModule="Gas_2_You_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F0R-d4-gcM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -370,7 +370,7 @@ and Pr</string>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="lVc-NJ-bfH">
                                                 <rect key="frame" x="20" y="183" width="374" height="494"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OmA-6K-mG5" customClass="themeTextfield" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OmA-6K-mG5" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="r4A-RW-aBr"/>
@@ -396,7 +396,7 @@ and Pr</string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l6L-x1-SiR" customClass="themeTextfield" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="l6L-x1-SiR" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="74" width="374" height="50"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -419,7 +419,7 @@ and Pr</string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2yy-5M-Q3v" customClass="themeTextfield" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2yy-5M-Q3v" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="148" width="374" height="50"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -442,7 +442,7 @@ and Pr</string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile No (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HT8-fe-Nsa" customClass="themeTextfield" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile No (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HT8-fe-Nsa" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="222" width="374" height="50"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -465,7 +465,7 @@ and Pr</string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GPm-K7-KhD" customClass="themeTextfield" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GPm-K7-KhD" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="296" width="374" height="50"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -488,7 +488,7 @@ and Pr</string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FdZ-p7-oJa" customClass="themeTextfield" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FdZ-p7-oJa" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="370" width="374" height="50"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -511,7 +511,7 @@ and Pr</string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wz-h1-ryI" customClass="ThemeButton" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5wz-h1-ryI" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="444" width="374" height="50"/>
                                                         <state key="normal" title="Sign Up"/>
                                                         <userDefinedRuntimeAttributes>
@@ -537,7 +537,7 @@ and Pr</string>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="xAs-Gl-7gq">
                                                         <rect key="frame" x="64.5" y="0.0" width="245.5" height="27"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9e-9Q-3oA" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k9e-9Q-3oA" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="163.5" height="27"/>
                                                                 <string key="text">By Logging in, you agree to our 
 and Pr</string>
@@ -554,7 +554,7 @@ and Pr</string>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7FR-ei-LJd" customClass="themeButton" customModule="Gas_2_You" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7FR-ei-LJd" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="167.5" y="0.0" width="78" height="27"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <state key="normal" title="Terms Of Use"/>
@@ -573,7 +573,7 @@ and Pr</string>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="FtP-eM-Dbk">
                                                         <rect key="frame" x="136" y="22" width="102.5" height="27"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aef-aX-ymP" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aef-aX-ymP" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="19.5" height="27"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                                 <nil key="textColor"/>
@@ -588,7 +588,7 @@ and Pr</string>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85T-cb-njB" customClass="themeButton" customModule="Gas_2_You" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="85T-cb-njB" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="23.5" y="0.0" width="79" height="27"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <state key="normal" title="Privacy Policy"/>
@@ -616,7 +616,7 @@ and Pr</string>
                                                             <constraint firstAttribute="height" constant="1" id="dYU-C4-3sx"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYm-Nw-hKw" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IYm-Nw-hKw" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="110" y="0.0" width="23.5" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
@@ -651,7 +651,7 @@ and Pr</string>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Gd5-Fv-ZJx">
                                                         <rect key="frame" x="87.5" y="0.0" width="199.5" height="27"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an Account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cwq-cI-1tx" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Already have an Account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cwq-cI-1tx" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="135.5" height="27"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                                 <nil key="textColor"/>
@@ -666,7 +666,7 @@ and Pr</string>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1A-8G-AI3" customClass="themeButton" customModule="Gas_2_You" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L1A-8G-AI3" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="139.5" y="0.0" width="60" height="27"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <state key="normal" title="Login Now"/>
@@ -690,7 +690,7 @@ and Pr</string>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="19C-BI-2cX">
                                                 <rect key="frame" x="104.5" y="815" width="205.5" height="42"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHR-MN-SoR" customClass="themeRoundBtn" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHR-MN-SoR" customClass="themeRoundBtn" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -699,7 +699,7 @@ and Pr</string>
                                                         </constraints>
                                                         <state key="normal" image="FB_LOGO"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zY-OF-j2J" customClass="themeRoundBtn" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9zY-OF-j2J" customClass="themeRoundBtn" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="81.5" y="0.0" width="42" height="42"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -707,7 +707,7 @@ and Pr</string>
                                                         </constraints>
                                                         <state key="normal" image="GOOGLE_LOGO"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZl-Qd-64E" customClass="themeRoundBtn" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QZl-Qd-64E" customClass="themeRoundBtn" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="163.5" y="0.0" width="42" height="42"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -775,7 +775,7 @@ and Pr</string>
         <!--HomeVC-->
         <scene sceneID="A4d-sS-m44">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" id="Jey-3g-G0V" customClass="HomeVC" customModule="Gas_2_You" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="Jey-3g-G0V" customClass="HomeVC" customModule="Gas_2_You_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XO8-rf-dep">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -789,13 +789,13 @@ and Pr</string>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="ZiQ-JQ-PNf">
                                                 <rect key="frame" x="20" y="20" width="374" height="668"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPQ-Bc-80m" customClass="ThemeView" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yPQ-Bc-80m" customClass="ThemeView" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="86"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xbK-EW-8a6">
                                                                 <rect key="frame" x="20" y="20" width="87" height="46"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3Y-bf-8BC" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3Y-bf-8BC" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="87" height="16"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                         <nil key="textColor"/>
@@ -820,7 +820,7 @@ and Pr</string>
                                                                                     <constraint firstAttribute="width" constant="20" id="vDC-g8-msL"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaP-m5-73s" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OaP-m5-73s" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="28" y="0.0" width="34.5" height="20"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                                 <nil key="textColor"/>
@@ -872,7 +872,7 @@ and Pr</string>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="z4v-cU-k6w">
                                                                 <rect key="frame" x="20" y="0.0" width="334" height="94.5"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="select grade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cog-Xs-jG0" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="select grade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cog-Xs-jG0" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="129.5" y="0.0" width="75.5" height="28"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                         <nil key="textColor"/>
@@ -890,7 +890,7 @@ and Pr</string>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="nMb-Xu-MaJ">
                                                                         <rect key="frame" x="69" y="38" width="196" height="18"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8Q-1s-5R5" customClass="themeButton" customModule="Gas_2_You" customModuleProvider="target">
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8Q-1s-5R5" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="85" height="18"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="18" id="lGH-yW-sAo"/>
@@ -911,7 +911,7 @@ and Pr</string>
                                                                                     <action selector="octaneButtonPressed:" destination="Jey-3g-G0V" eventType="touchUpInside" id="aSK-tU-5Uv"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xT3-BV-cSv" customClass="themeButton" customModule="Gas_2_You" customModuleProvider="target">
+                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xT3-BV-cSv" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="111" y="0.0" width="85" height="18"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                                 <state key="normal" title="   93 octane" image="IC_selectedCheckGray">
@@ -941,7 +941,7 @@ and Pr</string>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="T3m-NZ-u1J">
                                                                         <rect key="frame" x="71.5" y="76.5" width="191" height="18"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="93 Octane" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mq4-rv-pHS" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="93 Octane" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mq4-rv-pHS" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="72.5" height="18"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                 <nil key="textColor"/>
@@ -956,7 +956,7 @@ and Pr</string>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$11.11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6G8-rN-Lxd" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$11.11" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6G8-rN-Lxd" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="76.5" y="0.0" width="40" height="18"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                 <nil key="textColor"/>
@@ -971,7 +971,7 @@ and Pr</string>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Per Gallon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdB-d5-0bN" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Per Gallon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zdB-d5-0bN" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="120.5" y="0.0" width="70.5" height="18"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                                 <nil key="textColor"/>
@@ -1002,13 +1002,13 @@ and Pr</string>
                                                             <constraint firstAttribute="trailing" secondItem="z4v-cU-k6w" secondAttribute="trailing" constant="20" symbolic="YES" id="k2Q-ak-khu"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0d-QG-cen" customClass="ThemeView" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0d-QG-cen" customClass="ThemeView" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="216.5" width="374" height="86"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dlo-05-6Dm">
                                                                 <rect key="frame" x="20" y="20" width="296" height="46"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select car parking location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWu-EZ-iPz" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select car parking location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DWu-EZ-iPz" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="161.5" height="16"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                         <nil key="textColor"/>
@@ -1033,7 +1033,7 @@ and Pr</string>
                                                                                     <constraint firstAttribute="height" constant="20" id="PWi-en-phJ"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123. West St, 46203" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3w-Tn-gL6" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123. West St, 46203" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3w-Tn-gL6" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="28" y="0.0" width="179" height="20"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                                 <nil key="textColor"/>
@@ -1080,7 +1080,7 @@ and Pr</string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7W-ei-wqD" customClass="ThemeView" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B7W-ei-wqD" customClass="ThemeView" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="316.5" width="374" height="142"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="sYg-Wx-WJI">
@@ -1089,7 +1089,7 @@ and Pr</string>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ozc-rD-Tg1">
                                                                         <rect key="frame" x="0.0" y="0.0" width="334" height="50"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select date &amp; time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKn-aU-IZ4" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select date &amp; time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TKn-aU-IZ4" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="111.5" height="16"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                                 <nil key="textColor"/>
@@ -1114,7 +1114,7 @@ and Pr</string>
                                                                                             <constraint firstAttribute="width" constant="20" id="jl7-FQ-OyC"/>
                                                                                         </constraints>
                                                                                     </imageView>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aug 12, 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vs-2o-ITg" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aug 12, 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vs-2o-ITg" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                         <rect key="frame" x="28" y="0.0" width="116.5" height="24"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                                         <nil key="textColor"/>
@@ -1140,7 +1140,7 @@ and Pr</string>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="PJU-PZ-zhj">
                                                                         <rect key="frame" x="0.0" y="70" width="334" height="40"/>
                                                                         <subviews>
-                                                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tF-jK-xqs" customClass="themeButton" customModule="Gas_2_You" customModuleProvider="target">
+                                                                            <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1tF-jK-xqs" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="45" height="40"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="40" id="A0D-B8-4pU"/>
@@ -1154,7 +1154,7 @@ and Pr</string>
                                                                                     <action selector="timeSlotButtonPressed:" destination="Jey-3g-G0V" eventType="touchUpInside" id="hut-Rj-aBw"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14d-gk-kjN" customClass="themeButton" customModule="Gas_2_You" customModuleProvider="target">
+                                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14d-gk-kjN" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="93.5" y="0.0" width="48" height="40"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                                                 <color key="tintColor" red="0.10980392156862745" green="0.45882352941176469" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1165,7 +1165,7 @@ and Pr</string>
                                                                                     <action selector="timeSlotButtonPressed:" destination="Jey-3g-G0V" eventType="touchUpInside" id="nLw-9i-TN3"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7p-ie-q8G" customClass="themeButton" customModule="Gas_2_You" customModuleProvider="target">
+                                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7p-ie-q8G" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="190.5" y="0.0" width="48" height="40"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                                                 <color key="tintColor" red="0.10980392156862745" green="0.45882352941176469" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1176,7 +1176,7 @@ and Pr</string>
                                                                                     <action selector="timeSlotButtonPressed:" destination="Jey-3g-G0V" eventType="touchUpInside" id="dSV-5P-ZPR"/>
                                                                                 </connections>
                                                                             </button>
-                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFg-sp-iVg" customClass="themeButton" customModule="Gas_2_You" customModuleProvider="target">
+                                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFg-sp-iVg" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="287" y="0.0" width="47" height="40"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                                                 <color key="tintColor" red="0.10980392156862745" green="0.45882352941176469" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1206,13 +1206,13 @@ and Pr</string>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="86o-Qh-WQ9" customClass="ThemeView" customModule="Gas_2_You" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="86o-Qh-WQ9" customClass="ThemeView" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="472.5" width="374" height="86"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KWZ-Lp-dOb">
                                                                 <rect key="frame" x="20" y="20" width="296" height="46"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Vehicle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxy-hv-Rly" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Vehicle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gxy-hv-Rly" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="86" height="16"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                         <nil key="textColor"/>
@@ -1237,7 +1237,7 @@ and Pr</string>
                                                                                     <constraint firstAttribute="width" constant="20" id="qGl-Cs-k3J"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW (MD 0245)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzf-tu-ryK" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW (MD 0245)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzf-tu-ryK" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="28" y="0.0" width="149.5" height="20"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                                                 <nil key="textColor"/>
@@ -1290,7 +1290,7 @@ and Pr</string>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="tc1-Qe-rfx">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="95.5"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add-ons" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKp-v7-E9c" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add-ons" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mKp-v7-E9c" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="32.5"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                                         <nil key="textColor"/>
@@ -1308,7 +1308,7 @@ and Pr</string>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="vGN-0Q-ANa">
                                                                         <rect key="frame" x="0.0" y="42.5" width="374" height="21"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="check Tire Pressure  - " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzZ-po-Dxl" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="check Tire Pressure  - " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YzZ-po-Dxl" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="171" height="21"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
@@ -1323,7 +1323,7 @@ and Pr</string>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" $2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDq-Yq-Xca" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" $2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YDq-Yq-Xca" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="212.5" y="0.0" width="24.5" height="21"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
@@ -1354,7 +1354,7 @@ and Pr</string>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="iDj-FW-IgS">
                                                                         <rect key="frame" x="0.0" y="73.5" width="374" height="22"/>
                                                                         <subviews>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="windshield washer Fluid Refill  -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="VTQ-RF-Lcv" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="windshield washer Fluid Refill  -" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="VTQ-RF-Lcv" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="238.5" height="22"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
@@ -1369,7 +1369,7 @@ and Pr</string>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" $3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wd5-Oo-HfK" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" $3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wd5-Oo-HfK" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="238.5" y="0.0" width="25" height="22"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
@@ -1409,7 +1409,7 @@ and Pr</string>
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJo-HB-NF7" customClass="ThemeButton" customModule="Gas_2_You" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bJo-HB-NF7" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="708" width="374" height="64"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="64" id="O0I-rk-yQl"/>
@@ -1496,7 +1496,7 @@ and Pr</string>
         <!--Car Parking LocationVC-->
         <scene sceneID="LXK-kz-m6J">
             <objects>
-                <viewController storyboardIdentifier="CarParkingLocationVC" id="1c2-bF-Yjb" customClass="CarParkingLocationVC" customModule="Gas_2_You" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CarParkingLocationVC" id="1c2-bF-Yjb" customClass="CarParkingLocationVC" customModule="Gas_2_You_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6D6-s1-JF3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1508,7 +1508,7 @@ and Pr</string>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="sYd-Js-Ce4">
                                 <rect key="frame" x="20" y="54" width="374" height="50"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4SF-x3-ID5" customClass="ThemeView" customModule="Gas_2_You" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4SF-x3-ID5" customClass="ThemeView" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="310" height="50"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC_search" translatesAutoresizingMaskIntoConstraints="NO" id="5Pu-X6-MeD">
@@ -1537,7 +1537,7 @@ and Pr</string>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isShadow" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DqM-iy-HBp" customClass="ThemeView" customModule="Gas_2_You" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DqM-iy-HBp" customClass="ThemeView" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                         <rect key="frame" x="324" y="0.0" width="50" height="50"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXl-2y-DHj">
@@ -1588,7 +1588,7 @@ and Pr</string>
         <!--Add AddressVC-->
         <scene sceneID="nJf-v7-SnA">
             <objects>
-                <viewController storyboardIdentifier="AddAddressVC" id="8aY-jl-1yo" customClass="AddAddressVC" customModule="Gas_2_You" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddAddressVC" id="8aY-jl-1yo" customClass="AddAddressVC" customModule="Gas_2_You_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dwX-xk-I8U">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1597,14 +1597,14 @@ and Pr</string>
                                 <rect key="frame" x="0.0" y="16" width="414" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="ugE-NY-Mox" customClass="AddressCell" customModule="Gas_2_You" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="ugE-NY-Mox" customClass="AddressCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="83"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ugE-NY-Mox" id="A3K-5Y-z50">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="83"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P82-JN-baN" customClass="ThemeView" customModule="Gas_2_You" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P82-JN-baN" customClass="ThemeView" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="14" width="374" height="55"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC_pinMark" translatesAutoresizingMaskIntoConstraints="NO" id="Av0-n2-pg3">
@@ -1617,7 +1617,7 @@ and Pr</string>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="4m4-ex-YA4">
                                                             <rect key="frame" x="54" y="10" width="300" height="35"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1819 S Western Ave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79L-HF-6mA" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1819 S Western Ave" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79L-HF-6mA" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="17"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <nil key="textColor"/>
@@ -1632,7 +1632,7 @@ and Pr</string>
                                                                         </userDefinedRuntimeAttribute>
                                                                     </userDefinedRuntimeAttributes>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Los Angeles, CA 90006" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Toj-MB-8BW" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Los Angeles, CA 90006" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Toj-MB-8BW" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="19" width="300" height="16"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                     <nil key="textColor"/>
@@ -1681,7 +1681,7 @@ and Pr</string>
                                     <outlet property="delegate" destination="8aY-jl-1yo" id="QkQ-Yj-ijJ"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCL-dy-biX" customClass="ThemeButton" customModule="Gas_2_You" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCL-dy-biX" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                 <rect key="frame" x="20" y="743" width="374" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="57" id="RU1-ic-Rrl"/>
@@ -1731,7 +1731,7 @@ and Pr</string>
         <!--Chat ListVC-->
         <scene sceneID="ff2-TS-1Dz">
             <objects>
-                <viewController storyboardIdentifier="ChatListVC" id="DQA-ls-emk" customClass="ChatListVC" customModule="Gas_2_You" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatListVC" id="DQA-ls-emk" customClass="ChatListVC" customModule="Gas_2_You_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e4w-Ph-88A">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1740,7 +1740,7 @@ and Pr</string>
                                 <rect key="frame" x="0.0" y="16" width="414" height="792"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="e3l-d4-5kw" customClass="ChatListCell" customModule="Gas_2_You" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="e3l-d4-5kw" customClass="ChatListCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e3l-d4-5kw" id="Gb5-p7-sYx">
@@ -1763,7 +1763,7 @@ and Pr</string>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="UWb-zY-HNj">
                                                                     <rect key="frame" x="0.0" y="0.0" width="306" height="20.5"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ellen Lambert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGH-eL-jLv" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ellen Lambert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YGH-eL-jLv" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="105" height="20.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
@@ -1775,7 +1775,7 @@ and Pr</string>
                                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
                                                                             </userDefinedRuntimeAttributes>
                                                                         </label>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04:04AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdw-09-jv9" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="04:04AM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdw-09-jv9" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                             <rect key="frame" x="234" y="0.0" width="72" height="20.5"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
@@ -1792,7 +1792,7 @@ and Pr</string>
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey! How's it going?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6J-OM-kdy" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hey! How's it going?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6J-OM-kdy" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="28.5" width="306" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -1867,7 +1867,7 @@ and Pr</string>
         <!--My EarningsVC-->
         <scene sceneID="70S-eL-UYH">
             <objects>
-                <viewController storyboardIdentifier="MyEarningsVC" id="EhW-xr-LH3" customClass="MyEarningsVC" customModule="Gas_2_You" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyEarningsVC" id="EhW-xr-LH3" customClass="MyEarningsVC" customModule="Gas_2_You_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x4H-Ct-qSB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1877,17 +1877,90 @@ and Pr</string>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wMA-IQ-Pie">
                                         <rect key="frame" x="24" y="16" width="366" height="178"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgBlueBackGround" translatesAutoresizingMaskIntoConstraints="NO" id="M5X-AD-d6G">
+                                                <rect key="frame" x="0.0" y="0.0" width="366" height="178"/>
+                                            </imageView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="VY1-BT-DkE">
+                                                <rect key="frame" x="5" y="64.5" width="356" height="49"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Earning" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YoX-db-eOW" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="356" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                <real key="value" value="29"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSemibold" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$2500.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="onZ-zJ-Z2s" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="28.5" width="356" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                <real key="value" value="25"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isBold" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="178" id="Hm4-KY-eWf"/>
+                                            <constraint firstItem="M5X-AD-d6G" firstAttribute="leading" secondItem="wMA-IQ-Pie" secondAttribute="leading" id="Ik2-cf-m9o"/>
+                                            <constraint firstItem="VY1-BT-DkE" firstAttribute="leading" secondItem="wMA-IQ-Pie" secondAttribute="leading" constant="5" id="LTk-A8-WR9"/>
+                                            <constraint firstItem="M5X-AD-d6G" firstAttribute="top" secondItem="wMA-IQ-Pie" secondAttribute="top" id="VGd-ue-al0"/>
+                                            <constraint firstItem="VY1-BT-DkE" firstAttribute="centerY" secondItem="wMA-IQ-Pie" secondAttribute="centerY" id="bn7-wM-280"/>
+                                            <constraint firstAttribute="trailing" secondItem="VY1-BT-DkE" secondAttribute="trailing" constant="5" id="ieF-X7-hFD"/>
+                                            <constraint firstAttribute="trailing" secondItem="M5X-AD-d6G" secondAttribute="trailing" id="uRc-x3-YtF"/>
+                                            <constraint firstAttribute="bottom" secondItem="M5X-AD-d6G" secondAttribute="bottom" id="vW2-tL-x8s"/>
+                                            <constraint firstItem="VY1-BT-DkE" firstAttribute="centerX" secondItem="wMA-IQ-Pie" secondAttribute="centerX" id="yRD-ql-bmb"/>
                                         </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnW-aa-x5C" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                        <rect key="frame" x="24" y="219" width="54.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                <real key="value" value="16"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IFA-Zd-1an">
+                                        <rect key="frame" x="19" y="251.5" width="366" height="554.5"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="wMA-IQ-Pie" firstAttribute="top" secondItem="IVX-by-xFm" secondAttribute="top" constant="16" id="0h4-Il-IJA"/>
+                                    <constraint firstItem="IFA-Zd-1an" firstAttribute="leading" secondItem="vnW-aa-x5C" secondAttribute="leading" constant="-5" id="1Hf-8m-UhM"/>
+                                    <constraint firstItem="vnW-aa-x5C" firstAttribute="leading" secondItem="M5X-AD-d6G" secondAttribute="leading" id="9le-FB-Yzh"/>
+                                    <constraint firstItem="vnW-aa-x5C" firstAttribute="top" secondItem="wMA-IQ-Pie" secondAttribute="bottom" constant="25" id="JGu-wB-t5k"/>
+                                    <constraint firstAttribute="bottom" secondItem="IFA-Zd-1an" secondAttribute="bottom" constant="12" id="Q4b-XT-qVz"/>
+                                    <constraint firstItem="IFA-Zd-1an" firstAttribute="top" secondItem="vnW-aa-x5C" secondAttribute="bottom" constant="12" id="XVl-ub-eZq"/>
                                     <constraint firstItem="wMA-IQ-Pie" firstAttribute="leading" secondItem="IVX-by-xFm" secondAttribute="leading" constant="24" id="eQy-Il-5X6"/>
                                     <constraint firstAttribute="trailing" secondItem="wMA-IQ-Pie" secondAttribute="trailing" constant="24" id="rnZ-Nt-5tG"/>
+                                    <constraint firstItem="IFA-Zd-1an" firstAttribute="trailing" secondItem="M5X-AD-d6G" secondAttribute="trailing" constant="-5" id="ug3-bn-Uiy"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1900,10 +1973,18 @@ and Pr</string>
                             <constraint firstItem="IVX-by-xFm" firstAttribute="top" secondItem="5CJ-wS-xNn" secondAttribute="top" id="ftR-ck-5qa"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="imgBackground" destination="M5X-AD-d6G" id="W84-IU-ldy"/>
+                        <outlet property="lblHistory" destination="vnW-aa-x5C" id="rRP-zS-xmS"/>
+                        <outlet property="lblTotalEarnings" destination="YoX-db-eOW" id="yTB-N4-LM4"/>
+                        <outlet property="lblTotalEarningsPrice" destination="onZ-zJ-Z2s" id="sHL-DV-vC7"/>
+                        <outlet property="tblMyEarnings" destination="IFA-Zd-1an" id="JGu-MC-vCG"/>
+                        <outlet property="vwTotalEarning" destination="wMA-IQ-Pie" id="SCy-pT-amE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qLc-ei-r8V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5151" y="92"/>
+            <point key="canvasLocation" x="5386.9565217391309" y="91.741071428571431"/>
         </scene>
     </scenes>
     <resources>
@@ -1923,6 +2004,7 @@ and Pr</string>
         <image name="IC_unselectedGray" width="17" height="16"/>
         <image name="Logo_image-1" width="158" height="123"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="imgBlueBackGround" width="327" height="169.5"/>
         <image name="splash-screen - 5" width="375" height="812"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
