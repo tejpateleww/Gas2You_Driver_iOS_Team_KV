@@ -1,0 +1,6 @@
+framework module Pods_Gas_2_You_Driver {
+  umbrella header "Pods-Gas 2 You Driver-umbrella.h"
+
+  export *
+  module * { export * }
+}

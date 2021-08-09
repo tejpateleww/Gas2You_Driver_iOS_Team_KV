@@ -1,0 +1,24 @@
+PODS:
+  - GoogleMaps (5.1.0):
+    - GoogleMaps/Maps (= 5.1.0)
+  - GoogleMaps/Base (5.1.0)
+  - GoogleMaps/Maps (5.1.0):
+    - GoogleMaps/Base
+  - IQKeyboardManagerSwift (6.5.6)
+
+DEPENDENCIES:
+  - GoogleMaps
+  - IQKeyboardManagerSwift
+
+SPEC REPOS:
+  trunk:
+    - GoogleMaps
+    - IQKeyboardManagerSwift
+
+SPEC CHECKSUMS:
+  GoogleMaps: 086ae1dab659eaa7339bdb30fc88e2f44e7c597c
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+
+PODFILE CHECKSUM: 6451e63a7591a2a202912b2b1b6470243b92a42f
+
+COCOAPODS: 1.10.1
