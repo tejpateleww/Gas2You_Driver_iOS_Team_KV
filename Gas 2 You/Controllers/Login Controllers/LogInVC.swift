@@ -10,6 +10,8 @@ import UIKit
 class LogInVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var firstTF: themeTextfield!
+    @IBOutlet weak var btnSignUp: themeButton!
+    @IBOutlet weak var btnLogin: ThemeButton!
     
     
     override func viewWillAppear(_ animated: Bool) {

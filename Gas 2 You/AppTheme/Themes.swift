@@ -35,8 +35,6 @@ class themeLabel: UILabel{
                 self.font = CustomFont.PoppinsMedium.returnFont(Font_Size)
             } else if isLight {
                 self.font = CustomFont.PoppinsLight.returnFont(Font_Size)
-            } else if isRegular {
-                self.font = CustomFont.PoppinsRegular.returnFont(Font_Size)
             } else {
                 self.font = CustomFont.PoppinsRegular.returnFont(Font_Size)
             }
@@ -65,6 +63,11 @@ class themeLabel: UILabel{
 class ThemeButton: UIButton {
     
     @IBInspectable public var Font_Size: CGFloat = FontSize.size19.rawValue
+    @IBInspectable public var isBold: Bool = false
+    @IBInspectable public var isSemibold: Bool = false
+    @IBInspectable public var isLight: Bool = false
+    @IBInspectable public var isMedium: Bool = false
+    @IBInspectable public var isRegular: Bool = false
     @IBInspectable public var isbordered: Bool = false
     @IBInspectable public var background : UIColor = UIColor.appColor(ThemeColor.themeButtonBlue)
     @IBInspectable public var fontColor: UIColor = UIColor.appColor(ThemeColor.themeButtonBlue)
@@ -80,6 +83,20 @@ class ThemeButton: UIButton {
         self.backgroundColor = background
         self.tintColor = fontColor
         self.layer.cornerRadius = radius
+        
+        if isBold {
+            self.titleLabel?.font = CustomFont.PoppinsBold.returnFont(Font_Size)
+        } else if isSemibold {
+            self.titleLabel?.font = CustomFont.PoppinsSemiBold.returnFont(Font_Size)
+        } else if isMedium {
+            self.titleLabel?.font = CustomFont.PoppinsMedium.returnFont(Font_Size)
+        } else if isLight {
+            self.titleLabel?.font = CustomFont.PoppinsLight.returnFont(Font_Size)
+        } else if isRegular {
+            self.titleLabel?.font = CustomFont.PoppinsRegular.returnFont(Font_Size)
+        } else {
+            self.titleLabel?.font = CustomFont.PoppinsRegular.returnFont(Font_Size)
+        }
         
         
         if isbordered {

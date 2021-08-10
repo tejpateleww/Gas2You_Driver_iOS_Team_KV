@@ -42,7 +42,10 @@ class MyEarningsVC: BaseVC {
     }
     
     //MARK:- Custom Methods
-
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        vwTotalEarning.addBlueShadow()
+//    }
 }
 //MARK:- UITableView Delegate and Data Sourse Methods
 extension MyEarningsVC : UITableViewDelegate, UITableViewDataSource {

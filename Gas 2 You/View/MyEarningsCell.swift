@@ -45,8 +45,30 @@ extension UIView{
                    }
                }
            }
+    @IBInspectable var blueShadow: Bool {
+               get {
+                   return layer.shadowOpacity > 0.0
+               }
+               set {
+                   self.addBlueShadow()
+                   if newValue == true {
+                    self.addBlueShadow()
+                   }else{
+                       self.layer.shadowOpacity = 0.0
+                   }
+               }
+           }
     func addShadow(shadowColor: CGColor = UIColor.black.withAlphaComponent(0.7).cgColor,
                                shadowOffset: CGSize = CGSize(width: 1.0, height: 2.0),
+                               shadowOpacity: Float = 0.4,
+                               shadowRadius: CGFloat = 3.0) {
+                layer.shadowColor = shadowColor
+                layer.shadowOffset = shadowOffset
+                layer.shadowOpacity = shadowOpacity
+                layer.shadowRadius = shadowRadius
+            }
+    func addBlueShadow(shadowColor: CGColor = UIColor.init(hexString: "#468DE5").withAlphaComponent(0.7).cgColor,
+                       shadowOffset: CGSize = CGSize(width: 0.0, height: 0.0),
                                shadowOpacity: Float = 0.4,
                                shadowRadius: CGFloat = 3.0) {
                 layer.shadowColor = shadowColor

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EhW-xr-LH3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="SSp-vX-qg4">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -21,331 +21,341 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-screen - 5" translatesAutoresizingMaskIntoConstraints="NO" id="uzJ-qg-zBa">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dsm-Mn-mcB">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ETv-mQ-tQU">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ETv-mQ-tQU">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="722"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_image-1" translatesAutoresizingMaskIntoConstraints="NO" id="MnX-TJ-fSM">
+                                        <rect key="frame" x="111.5" y="70" width="191" height="149"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="re0-Fh-Dkb">
+                                        <rect key="frame" x="20" y="279" width="374" height="198"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_image-1" translatesAutoresizingMaskIntoConstraints="NO" id="MnX-TJ-fSM">
-                                                <rect key="frame" x="128" y="70" width="158" height="123"/>
-                                            </imageView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="re0-Fh-Dkb">
-                                                <rect key="frame" x="20" y="253" width="374" height="198"/>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CGF-z1-UEY" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="Zt3-Tc-qHR"/>
+                                                </constraints>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="Corner_Radius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="Border_Width">
+                                                        <real key="value" value="1.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="Border_Color">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kg7-of-NQx" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="74" width="374" height="50"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="Corner_Radius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="Border_Width">
+                                                        <real key="value" value="1.5"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="Border_Color">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="rightButton" value="Forget?"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTC-r5-jva" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="148" width="374" height="50"/>
+                                                <state key="normal" title="Log In"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="background">
+                                                        <color key="value" red="0.10980392156862745" green="0.45882352941176469" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                        <color key="value" systemColor="systemBackgroundColor"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                        <real key="value" value="8"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="logInButtonPreesed:" destination="sEc-BL-JAs" eventType="touchUpInside" id="TLv-6d-0P1"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="QR8-Ta-a2p">
+                                        <rect key="frame" x="20" y="517" width="374" height="61.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="qL3-fm-fn0">
+                                                <rect key="frame" x="66.5" y="0.0" width="241.5" height="39.5"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CGF-z1-UEY" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="Zt3-Tc-qHR"/>
-                                                        </constraints>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="Corner_Radius">
-                                                                <real key="value" value="8"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="Border_Width">
-                                                                <real key="value" value="1.5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="Border_Color">
-                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Kg7-of-NQx" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="74" width="374" height="50"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="Corner_Radius">
-                                                                <real key="value" value="8"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="Border_Width">
-                                                                <real key="value" value="1.5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="Border_Color">
-                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="rightButton" value="Forget?"/>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTC-r5-jva" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="148" width="374" height="50"/>
-                                                        <state key="normal" title="Log In"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                                <real key="value" value="16"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="background">
-                                                                <color key="value" red="0.10980392156862745" green="0.45882352941176469" blue="0.73333333333333328" alpha="1" colorSpace="calibratedRGB"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                                                <color key="value" systemColor="systemBackgroundColor"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="radius">
-                                                                <real key="value" value="8"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="logInButtonPreesed:" destination="sEc-BL-JAs" eventType="touchUpInside" id="TLv-6d-0P1"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="QR8-Ta-a2p">
-                                                <rect key="frame" x="20" y="491" width="374" height="49"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="qL3-fm-fn0">
-                                                        <rect key="frame" x="64.5" y="0.0" width="245.5" height="27"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41u-AV-kes" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="163.5" height="27"/>
-                                                                <string key="text">By Logging in, you agree to our 
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41u-AV-kes" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="163.5" height="39.5"/>
+                                                        <string key="text">By Logging in, you agree to our 
 and Pr</string>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRegular" value="YES"/>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                                        <real key="value" value="11"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                                                        <color key="value" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="am5-41-DjP" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                <rect key="frame" x="167.5" y="0.0" width="78" height="27"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                <state key="normal" title="Terms Of Use"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="IsUnderline" value="YES"/>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                                        <real key="value" value="11"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                                                        <color key="value" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </button>
-                                                        </subviews>
-                                                    </stackView>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="71j-5O-PsI">
-                                                        <rect key="frame" x="136" y="22" width="102.5" height="27"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHj-qQ-2zD" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="19.5" height="27"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRegular" value="YES"/>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                                        <real key="value" value="11"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                                                        <color key="value" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NC-jd-5In" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                <rect key="frame" x="23.5" y="0.0" width="79" height="27"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                <state key="normal" title="Privacy Policy"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="IsUnderline" value="YES"/>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                                        <real key="value" value="11"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                                                        <color key="value" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </button>
-                                                        </subviews>
-                                                    </stackView>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cyv-kX-0kp">
-                                                <rect key="frame" x="84.5" y="562" width="245.5" height="21"/>
-                                                <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Ty-2c-6yA">
-                                                        <rect key="frame" x="0.0" y="10" width="102" height="1"/>
-                                                        <color key="backgroundColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="1" id="EtI-ub-ph1"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OR" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAb-rz-tus" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                        <rect key="frame" x="110" y="0.0" width="23.5" height="21"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                         <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRegular" value="YES"/>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                                <real key="value" value="18"/>
+                                                                <real key="value" value="11"/>
                                                             </userDefinedRuntimeAttribute>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
                                                             <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="value" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ub6-bb-esO">
-                                                        <rect key="frame" x="141.5" y="10" width="104" height="1"/>
-                                                        <color key="backgroundColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="1" id="lYL-h5-a3Z"/>
-                                                        </constraints>
-                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="am5-41-DjP" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                        <rect key="frame" x="167.5" y="0.0" width="74" height="39.5"/>
+                                                        <state key="normal">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="Terms Of Use">
+                                                                    <attributes>
+                                                                        <color key="NSColor" red="0.61309999999999998" green="0.61931999999999998" blue="0.62455000000000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <font key="NSFont" size="12" name="Helvetica"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                            <tabStops>
+                                                                                <textTab alignment="left" location="28.299999237060547">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="56.650001525878906">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="85">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="113.34999847412109">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="141.69999694824219">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="170.05000305175781">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="198.39999389648438">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="226.75">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="255.10000610351562">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="283.45001220703125">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="311.79998779296875">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="340.14999389648438">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                            </tabStops>
+                                                                        </paragraphStyle>
+                                                                        <integer key="NSUnderline" value="1"/>
+                                                                        <color key="NSUnderlineColor" red="0.61309999999999998" green="0.61931999999999998" blue="0.62455000000000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                                <fragment>
+                                                                    <string key="content" base64-UTF8="YES">
+Cg
+</string>
+                                                                    <attributes>
+                                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <font key="NSFont" size="12" name="Helvetica"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                                            <tabStops>
+                                                                                <textTab alignment="left" location="28.299999237060547">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="56.650001525878906">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="85">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="113.34999847412109">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="141.69999694824219">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="170.05000305175781">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="198.39999389648438">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="226.75">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="255.10000610351562">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="283.45001220703125">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="311.79998779296875">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                                <textTab alignment="left" location="340.14999389648438">
+                                                                                    <options/>
+                                                                                </textTab>
+                                                                            </tabStops>
+                                                                        </paragraphStyle>
+                                                                        <integer key="NSUnderline" value="1"/>
+                                                                        <color key="NSUnderlineColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                        </state>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="IsUnderline" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                <real key="value" value="11"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                                <color key="value" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </button>
                                                 </subviews>
-                                                <constraints>
-                                                    <constraint firstItem="WAb-rz-tus" firstAttribute="top" secondItem="cyv-kX-0kp" secondAttribute="top" id="RNT-ak-aUh"/>
-                                                    <constraint firstItem="WAb-rz-tus" firstAttribute="leading" secondItem="cyv-kX-0kp" secondAttribute="leading" constant="110" id="eOT-bk-wKx"/>
-                                                    <constraint firstItem="7Ty-2c-6yA" firstAttribute="top" secondItem="cyv-kX-0kp" secondAttribute="top" constant="10" id="j5f-1q-7Mq"/>
-                                                </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YiU-aw-eC7">
-                                                <rect key="frame" x="104.5" y="609" width="205.5" height="42"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="71j-5O-PsI">
+                                                <rect key="frame" x="136" y="34.5" width="102.5" height="27"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fog-0v-lkx" customClass="themeRoundBtn" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="42" id="13w-Mq-8Cv"/>
-                                                            <constraint firstAttribute="width" constant="42" id="QlR-f1-OQj"/>
-                                                        </constraints>
-                                                        <state key="normal" image="FB_LOGO"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="and" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iHj-qQ-2zD" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="19.5" height="27"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRegular" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                <real key="value" value="11"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                                <color key="value" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4NC-jd-5In" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                        <rect key="frame" x="23.5" y="0.0" width="79" height="27"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <state key="normal" title="Privacy Policy"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="IsUnderline" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                <real key="value" value="11"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                                <color key="value" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sU2-Xc-4X3" customClass="themeRoundBtn" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                        <rect key="frame" x="81.5" y="0.0" width="42" height="42"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="42" id="TKf-7C-ugS"/>
-                                                        </constraints>
-                                                        <state key="normal" image="GOOGLE_LOGO"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdI-gX-qBb" customClass="themeRoundBtn" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                        <rect key="frame" x="163.5" y="0.0" width="42" height="42"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="42" id="Gux-B7-qJS"/>
-                                                        </constraints>
-                                                        <state key="normal" image="APPlE_LOGO"/>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="01R-fN-qr3">
-                                                <rect key="frame" x="20" y="695" width="374" height="27"/>
-                                                <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="RjS-ZA-i2y">
-                                                        <rect key="frame" x="89" y="0.0" width="196.5" height="27"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an Account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dp4-Pv-fdG" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="27"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                                        <real key="value" value="16"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </label>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqa-ua-tDr" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                <rect key="frame" x="128.5" y="0.0" width="68" height="27"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                <state key="normal" title="Signup Now"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="IsUnderline" value="YES"/>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                                        <real key="value" value="16"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <action selector="signUpButtonPressed:" destination="sEc-BL-JAs" eventType="touchUpInside" id="kqA-yt-cor"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                    </stackView>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="cyv-kX-0kp" firstAttribute="leading" secondItem="41u-AV-kes" secondAttribute="leading" id="3wr-30-VXb"/>
-                                            <constraint firstItem="01R-fN-qr3" firstAttribute="top" secondItem="YiU-aw-eC7" secondAttribute="bottom" constant="44" id="3y2-Tl-K4v"/>
-                                            <constraint firstItem="01R-fN-qr3" firstAttribute="leading" secondItem="ETv-mQ-tQU" secondAttribute="leading" constant="20" symbolic="YES" id="7FI-BA-hTL"/>
-                                            <constraint firstAttribute="trailing" secondItem="01R-fN-qr3" secondAttribute="trailing" constant="20" symbolic="YES" id="7Vh-3l-PMI"/>
-                                            <constraint firstItem="QR8-Ta-a2p" firstAttribute="leading" secondItem="ETv-mQ-tQU" secondAttribute="leading" constant="20" symbolic="YES" id="9bk-wd-nJ3"/>
-                                            <constraint firstItem="MnX-TJ-fSM" firstAttribute="centerX" secondItem="ETv-mQ-tQU" secondAttribute="centerX" id="DIQ-5u-GqQ"/>
-                                            <constraint firstAttribute="bottom" secondItem="01R-fN-qr3" secondAttribute="bottom" id="MnH-1W-99a"/>
-                                            <constraint firstItem="YiU-aw-eC7" firstAttribute="leading" secondItem="41u-AV-kes" secondAttribute="leading" constant="20" id="W8z-HJ-ufA"/>
-                                            <constraint firstItem="re0-Fh-Dkb" firstAttribute="leading" secondItem="ETv-mQ-tQU" secondAttribute="leading" constant="20" symbolic="YES" id="WWM-xt-OiH"/>
-                                            <constraint firstItem="cyv-kX-0kp" firstAttribute="trailing" secondItem="am5-41-DjP" secondAttribute="trailing" id="abX-L9-kuG"/>
-                                            <constraint firstAttribute="trailing" secondItem="QR8-Ta-a2p" secondAttribute="trailing" constant="20" symbolic="YES" id="bjt-w5-og3"/>
-                                            <constraint firstItem="cyv-kX-0kp" firstAttribute="top" secondItem="QR8-Ta-a2p" secondAttribute="bottom" constant="22" id="dWW-Gb-PfC"/>
-                                            <constraint firstItem="YiU-aw-eC7" firstAttribute="trailing" secondItem="am5-41-DjP" secondAttribute="trailing" constant="-20" id="eQV-Nt-s1R"/>
-                                            <constraint firstItem="re0-Fh-Dkb" firstAttribute="top" secondItem="MnX-TJ-fSM" secondAttribute="bottom" constant="60" id="l8O-xp-vjX"/>
-                                            <constraint firstAttribute="trailing" secondItem="re0-Fh-Dkb" secondAttribute="trailing" constant="20" symbolic="YES" id="p4D-VC-HLZ"/>
-                                            <constraint firstItem="YiU-aw-eC7" firstAttribute="top" secondItem="cyv-kX-0kp" secondAttribute="bottom" constant="26" id="vdk-fP-joO"/>
-                                            <constraint firstItem="MnX-TJ-fSM" firstAttribute="width" secondItem="MnX-TJ-fSM" secondAttribute="height" multiplier="158:123" id="vla-l9-Zd7"/>
-                                            <constraint firstItem="QR8-Ta-a2p" firstAttribute="top" secondItem="re0-Fh-Dkb" secondAttribute="bottom" constant="40" id="wdW-sQ-p69"/>
-                                            <constraint firstItem="MnX-TJ-fSM" firstAttribute="top" secondItem="ETv-mQ-tQU" secondAttribute="top" constant="70" id="wnR-OC-Lgc"/>
-                                        </constraints>
-                                    </view>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="9H5-na-ICv">
+                                        <rect key="frame" x="109" y="717" width="196.5" height="27"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an Account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vEM-Ia-2if" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="124.5" height="27"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ida-4y-f8U" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                <rect key="frame" x="128.5" y="0.0" width="68" height="27"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <state key="normal" title="Signup Now"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="IsUnderline" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="IsSubmit" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="signUpButtonPressed:" destination="sEc-BL-JAs" eventType="touchUpInside" id="abm-2B-cHL"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="ETv-mQ-tQU" firstAttribute="leading" secondItem="dsm-Mn-mcB" secondAttribute="leading" id="Ag9-pr-94X"/>
-                                    <constraint firstAttribute="trailing" secondItem="ETv-mQ-tQU" secondAttribute="trailing" id="KEY-ay-2rO"/>
-                                    <constraint firstItem="ETv-mQ-tQU" firstAttribute="top" secondItem="dsm-Mn-mcB" secondAttribute="top" id="Kep-9i-1hM"/>
-                                    <constraint firstAttribute="bottom" secondItem="ETv-mQ-tQU" secondAttribute="bottom" id="M6c-JB-7uA"/>
-                                    <constraint firstItem="ETv-mQ-tQU" firstAttribute="width" secondItem="dsm-Mn-mcB" secondAttribute="width" id="aZs-km-US6"/>
+                                    <constraint firstItem="QR8-Ta-a2p" firstAttribute="leading" secondItem="ETv-mQ-tQU" secondAttribute="leading" constant="20" symbolic="YES" id="9bk-wd-nJ3"/>
+                                    <constraint firstItem="MnX-TJ-fSM" firstAttribute="centerX" secondItem="ETv-mQ-tQU" secondAttribute="centerX" id="DIQ-5u-GqQ"/>
+                                    <constraint firstItem="9H5-na-ICv" firstAttribute="centerX" secondItem="ETv-mQ-tQU" secondAttribute="centerX" id="Lgj-ka-jZc"/>
+                                    <constraint firstAttribute="bottom" secondItem="9H5-na-ICv" secondAttribute="bottom" constant="30" id="UAO-Ra-RXE"/>
+                                    <constraint firstItem="re0-Fh-Dkb" firstAttribute="leading" secondItem="ETv-mQ-tQU" secondAttribute="leading" constant="20" symbolic="YES" id="WWM-xt-OiH"/>
+                                    <constraint firstAttribute="trailing" secondItem="QR8-Ta-a2p" secondAttribute="trailing" constant="20" symbolic="YES" id="bjt-w5-og3"/>
+                                    <constraint firstItem="re0-Fh-Dkb" firstAttribute="top" secondItem="MnX-TJ-fSM" secondAttribute="bottom" constant="60" id="l8O-xp-vjX"/>
+                                    <constraint firstAttribute="trailing" secondItem="re0-Fh-Dkb" secondAttribute="trailing" constant="20" symbolic="YES" id="p4D-VC-HLZ"/>
+                                    <constraint firstItem="MnX-TJ-fSM" firstAttribute="width" secondItem="MnX-TJ-fSM" secondAttribute="height" multiplier="158:123" id="vla-l9-Zd7"/>
+                                    <constraint firstItem="QR8-Ta-a2p" firstAttribute="top" secondItem="re0-Fh-Dkb" secondAttribute="bottom" constant="40" id="wdW-sQ-p69"/>
+                                    <constraint firstItem="MnX-TJ-fSM" firstAttribute="top" secondItem="ETv-mQ-tQU" secondAttribute="top" constant="70" id="wnR-OC-Lgc"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="R8x-mf-gsU"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="BYq-LM-s9b"/>
-                            </scrollView>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jOS-xN-m02"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="uzJ-qg-zBa" firstAttribute="trailing" secondItem="jOS-xN-m02" secondAttribute="trailing" id="1wn-wy-vE1"/>
-                            <constraint firstItem="dsm-Mn-mcB" firstAttribute="leading" secondItem="jOS-xN-m02" secondAttribute="leading" id="7sq-h0-Lq4"/>
-                            <constraint firstItem="dsm-Mn-mcB" firstAttribute="bottom" secondItem="jOS-xN-m02" secondAttribute="bottom" id="CVc-zK-5Mh"/>
+                            <constraint firstItem="ETv-mQ-tQU" firstAttribute="top" secondItem="jOS-xN-m02" secondAttribute="top" id="7Dq-13-xPA"/>
                             <constraint firstAttribute="bottom" secondItem="uzJ-qg-zBa" secondAttribute="bottom" id="Ku7-0b-ROM"/>
-                            <constraint firstItem="dsm-Mn-mcB" firstAttribute="trailing" secondItem="jOS-xN-m02" secondAttribute="trailing" id="OGh-En-9s4"/>
                             <constraint firstItem="uzJ-qg-zBa" firstAttribute="leading" secondItem="jOS-xN-m02" secondAttribute="leading" id="Rx6-Ao-AzE"/>
+                            <constraint firstItem="jOS-xN-m02" firstAttribute="bottom" secondItem="ETv-mQ-tQU" secondAttribute="bottom" id="hpB-Md-dP6"/>
                             <constraint firstItem="uzJ-qg-zBa" firstAttribute="top" secondItem="DIR-mm-pBT" secondAttribute="top" id="jli-o3-qQq"/>
-                            <constraint firstItem="dsm-Mn-mcB" firstAttribute="top" secondItem="jOS-xN-m02" secondAttribute="top" id="m52-7X-SuQ"/>
+                            <constraint firstItem="ETv-mQ-tQU" firstAttribute="trailing" secondItem="jOS-xN-m02" secondAttribute="trailing" id="mcv-ja-7bV"/>
+                            <constraint firstItem="ETv-mQ-tQU" firstAttribute="leading" secondItem="jOS-xN-m02" secondAttribute="leading" id="z3M-S0-v68"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="CDp-1N-f1E"/>
+                    <connections>
+                        <outlet property="btnLogin" destination="OTC-r5-jva" id="WAZ-62-Bdb"/>
+                        <outlet property="btnSignUp" destination="ida-4y-f8U" id="RwW-Ib-ODi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SVP-9V-6HJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="576.81159420289862" y="91.741071428571431"/>
+            <point key="canvasLocation" x="1486.9565217391305" y="91.741071428571431"/>
         </scene>
         <!--Sign UpVC-->
         <scene sceneID="J8b-cv-hS4">
@@ -362,13 +372,13 @@ and Pr</string>
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PkU-QC-tQ0">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="948"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="974"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_image-1" translatesAutoresizingMaskIntoConstraints="NO" id="yJ7-vN-G4y">
-                                                <rect key="frame" x="128" y="40" width="158" height="123"/>
+                                                <rect key="frame" x="111.5" y="40" width="191" height="149"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="lVc-NJ-bfH">
-                                                <rect key="frame" x="20" y="183" width="374" height="494"/>
+                                                <rect key="frame" x="20" y="209" width="374" height="494"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OmA-6K-mG5" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
@@ -532,7 +542,7 @@ and Pr</string>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="8uo-Pb-Htq">
-                                                <rect key="frame" x="20" y="699" width="374" height="49"/>
+                                                <rect key="frame" x="20" y="725" width="374" height="49"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="xAs-Gl-7gq">
                                                         <rect key="frame" x="64.5" y="0.0" width="245.5" height="27"/>
@@ -607,7 +617,7 @@ and Pr</string>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xDZ-RG-C2k">
-                                                <rect key="frame" x="84.5" y="768" width="245.5" height="21"/>
+                                                <rect key="frame" x="84.5" y="794" width="245.5" height="21"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rj4-gs-P5p">
                                                         <rect key="frame" x="0.0" y="10" width="102" height="1"/>
@@ -646,7 +656,7 @@ and Pr</string>
                                                 </constraints>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CWd-9v-qTM">
-                                                <rect key="frame" x="20" y="901" width="374" height="27"/>
+                                                <rect key="frame" x="20" y="927" width="374" height="27"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Gd5-Fv-ZJx">
                                                         <rect key="frame" x="87.5" y="0.0" width="199.5" height="27"/>
@@ -688,7 +698,7 @@ and Pr</string>
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="19C-BI-2cX">
-                                                <rect key="frame" x="104.5" y="815" width="205.5" height="42"/>
+                                                <rect key="frame" x="104.5" y="841" width="205.5" height="42"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xHR-MN-SoR" customClass="themeRoundBtn" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="42" height="42"/>
@@ -770,12 +780,12 @@ and Pr</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CWd-Pv-W7k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1385.5072463768117" y="91.741071428571431"/>
+            <point key="canvasLocation" x="2295.6521739130435" y="91.741071428571431"/>
         </scene>
-        <!--HomeVC-->
+        <!--View Controller-->
         <scene sceneID="A4d-sS-m44">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" id="Jey-3g-G0V" customClass="HomeVC" customModule="Gas_2_You_Driver" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Jey-3g-G0V" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XO8-rf-dep">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -846,9 +856,6 @@ and Pr</string>
                                                                     <constraint firstAttribute="width" constant="30" id="MPN-P9-LQy"/>
                                                                 </constraints>
                                                                 <state key="normal" image="IC_arrowDown"/>
-                                                                <connections>
-                                                                    <action selector="selectServiceButtonPressed:" destination="Jey-3g-G0V" eventType="touchUpInside" id="Mpo-Q4-8K5"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -907,9 +914,6 @@ and Pr</string>
                                                                                         <real key="value" value="12"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
-                                                                                <connections>
-                                                                                    <action selector="octaneButtonPressed:" destination="Jey-3g-G0V" eventType="touchUpInside" id="aSK-tU-5Uv"/>
-                                                                                </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xT3-BV-cSv" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="111" y="0.0" width="85" height="18"/>
@@ -925,9 +929,6 @@ and Pr</string>
                                                                                         <color key="value" red="0.51764705882352935" green="0.51764705882352935" blue="0.51764705882352935" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                     </userDefinedRuntimeAttribute>
                                                                                 </userDefinedRuntimeAttributes>
-                                                                                <connections>
-                                                                                    <action selector="octaneButtonPressed:" destination="Jey-3g-G0V" eventType="touchUpInside" id="naT-FH-wlN"/>
-                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
@@ -1059,9 +1060,6 @@ and Pr</string>
                                                                     <constraint firstAttribute="height" constant="30" id="r0U-Ez-pWt"/>
                                                                 </constraints>
                                                                 <state key="normal" image="IC_arrowRight"/>
-                                                                <connections>
-                                                                    <action selector="parkingLocatioButtonPressed:" destination="Jey-3g-G0V" eventType="touchUpInside" id="Cnk-CM-IVf"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1150,9 +1148,6 @@ and Pr</string>
                                                                                 <state key="normal" title="11:00">
                                                                                     <color key="titleColor" systemColor="labelColor"/>
                                                                                 </state>
-                                                                                <connections>
-                                                                                    <action selector="timeSlotButtonPressed:" destination="Jey-3g-G0V" eventType="touchUpInside" id="hut-Rj-aBw"/>
-                                                                                </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14d-gk-kjN" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="93.5" y="0.0" width="48" height="40"/>
@@ -1161,9 +1156,6 @@ and Pr</string>
                                                                                 <state key="normal" title="13:30">
                                                                                     <color key="titleColor" systemColor="labelColor"/>
                                                                                 </state>
-                                                                                <connections>
-                                                                                    <action selector="timeSlotButtonPressed:" destination="Jey-3g-G0V" eventType="touchUpInside" id="nLw-9i-TN3"/>
-                                                                                </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7p-ie-q8G" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="190.5" y="0.0" width="48" height="40"/>
@@ -1172,9 +1164,6 @@ and Pr</string>
                                                                                 <state key="normal" title="15:00">
                                                                                     <color key="titleColor" systemColor="labelColor"/>
                                                                                 </state>
-                                                                                <connections>
-                                                                                    <action selector="timeSlotButtonPressed:" destination="Jey-3g-G0V" eventType="touchUpInside" id="dSV-5P-ZPR"/>
-                                                                                </connections>
                                                                             </button>
                                                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VFg-sp-iVg" customClass="themeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="287" y="0.0" width="47" height="40"/>
@@ -1183,9 +1172,6 @@ and Pr</string>
                                                                                 <state key="normal" title="17:30">
                                                                                     <color key="titleColor" systemColor="labelColor"/>
                                                                                 </state>
-                                                                                <connections>
-                                                                                    <action selector="timeSlotButtonPressed:" destination="Jey-3g-G0V" eventType="touchUpInside" id="KHF-Xj-PuY"/>
-                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
@@ -1263,9 +1249,6 @@ and Pr</string>
                                                                     <constraint firstAttribute="height" constant="30" id="S5Y-Hj-JaM"/>
                                                                 </constraints>
                                                                 <state key="normal" image="IC_arrowDown"/>
-                                                                <connections>
-                                                                    <action selector="selectVehicleButtonPressed:" destination="Jey-3g-G0V" eventType="touchUpInside" id="qhF-lG-peW"/>
-                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1345,9 +1328,6 @@ and Pr</string>
                                                                                     <constraint firstAttribute="width" constant="21" id="qkE-za-rCW"/>
                                                                                 </constraints>
                                                                                 <state key="normal" image="IC_unselectedBlue"/>
-                                                                                <connections>
-                                                                                    <action selector="tirePressureButtonPressed:" destination="Jey-3g-G0V" eventType="touchUpInside" id="foG-NE-l5e"/>
-                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
@@ -1390,9 +1370,6 @@ and Pr</string>
                                                                                     <constraint firstAttribute="width" secondItem="hSg-GG-quF" secondAttribute="height" multiplier="1:1" id="y9O-gt-gsQ"/>
                                                                                 </constraints>
                                                                                 <state key="normal" image="IC_unselectedBlue"/>
-                                                                                <connections>
-                                                                                    <action selector="windShieldRefillButtonPressed:" destination="Jey-3g-G0V" eventType="touchUpInside" id="3wi-v4-T2E"/>
-                                                                                </connections>
                                                                             </button>
                                                                         </subviews>
                                                                     </stackView>
@@ -1434,9 +1411,6 @@ and Pr</string>
                                                         <color key="value" red="0.10980392156862745" green="0.45882352941176469" blue="0.73333333333333328" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
-                                                <connections>
-                                                    <action selector="fillItUpButtonPressed:" destination="Jey-3g-G0V" eventType="touchUpInside" id="buj-8L-0bU"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1471,27 +1445,10 @@ and Pr</string>
                             <constraint firstItem="PtC-Ea-dox" firstAttribute="bottom" secondItem="nFE-yg-nuh" secondAttribute="bottom" id="bxj-bI-2cM"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="checkTirePressureButton" destination="ZAe-zu-Chn" id="nsU-rs-gS3"/>
-                        <outlet property="gasServiceView" destination="MHh-oK-2N4" id="rfX-FX-cym"/>
-                        <outlet property="locationLabel" destination="J3w-Tn-gL6" id="utP-pb-9jO"/>
-                        <outlet property="priceTagLabel" destination="6G8-rN-Lxd" id="YUd-mb-NSK"/>
-                        <outlet property="selectDateButton" destination="OIq-km-p0X" id="rsj-7l-wn6"/>
-                        <outlet property="selectParkingLocationButton" destination="1UP-oj-5rQ" id="HR4-Zh-0li"/>
-                        <outlet property="selectServiceButton" destination="zeY-bJ-CF1" id="Fg4-Rx-9l9"/>
-                        <outlet property="selectVehicleButton" destination="pin-QS-ESV" id="AqX-Vl-yQ0"/>
-                        <outlet property="windshieldRefillButton" destination="hSg-GG-quF" id="l8R-P4-8Ro"/>
-                        <outletCollection property="timeSlotButtons" destination="1tF-jK-xqs" collectionClass="NSMutableArray" id="SgC-mB-m4J"/>
-                        <outletCollection property="timeSlotButtons" destination="14d-gk-kjN" collectionClass="NSMutableArray" id="UAn-yo-ZNR"/>
-                        <outletCollection property="timeSlotButtons" destination="D7p-ie-q8G" collectionClass="NSMutableArray" id="9ty-lZ-4gi"/>
-                        <outletCollection property="timeSlotButtons" destination="VFg-sp-iVg" collectionClass="NSMutableArray" id="CTj-8M-kHC"/>
-                        <outletCollection property="octaneButtons" destination="b8Q-1s-5R5" collectionClass="NSMutableArray" id="UOs-CS-Drq"/>
-                        <outletCollection property="octaneButtons" destination="xT3-BV-cSv" collectionClass="NSMutableArray" id="fh9-ea-b8V"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OOm-zq-HQk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2186.9565217391305" y="91.741071428571431"/>
+            <point key="canvasLocation" x="3097.1014492753625" y="91.741071428571431"/>
         </scene>
         <!--Car Parking LocationVC-->
         <scene sceneID="LXK-kz-m6J">
@@ -1583,7 +1540,7 @@ and Pr</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vbe-eq-Pud" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2913.04347826087" y="91.741071428571431"/>
+            <point key="canvasLocation" x="3823.188405797102" y="91.741071428571431"/>
         </scene>
         <!--Add AddressVC-->
         <scene sceneID="nJf-v7-SnA">
@@ -1726,7 +1683,7 @@ and Pr</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tI7-QF-aLT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3685.507246376812" y="91.741071428571431"/>
+            <point key="canvasLocation" x="4595.652173913044" y="91.741071428571431"/>
         </scene>
         <!--Chat ListVC-->
         <scene sceneID="ff2-TS-1Dz">
@@ -1862,7 +1819,7 @@ and Pr</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="irw-o9-CDU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4443.4782608695659" y="91.741071428571431"/>
+            <point key="canvasLocation" x="5353.6231884057979" y="91.741071428571431"/>
         </scene>
         <!--My EarningsVC-->
         <scene sceneID="70S-eL-UYH">
@@ -1930,7 +1887,8 @@ and Pr</string>
                                             <constraint firstItem="VY1-BT-DkE" firstAttribute="centerX" secondItem="wMA-IQ-Pie" secondAttribute="centerX" id="yRD-ql-bmb"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="blueshadow" value="YES"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="blueShadow" value="YES"/>
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnW-aa-x5C" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
@@ -1984,25 +1942,484 @@ and Pr</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qLc-ei-r8V" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5386.9565217391309" y="91.741071428571431"/>
+            <point key="canvasLocation" x="6297.1014492753629" y="91.741071428571431"/>
+        </scene>
+        <!--HomeVC-->
+        <scene sceneID="gcL-3r-gBR">
+            <objects>
+                <viewController storyboardIdentifier="HomeVC" id="lJe-8r-pRX" customClass="HomeVC" customModule="Gas_2_You_Driver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LUA-3H-f8Y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CZi-Hy-5Fp">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="m5Y-HB-vKq">
+                                        <rect key="frame" x="20" y="11" width="374" height="32"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YCe-ul-mwC">
+                                                <rect key="frame" x="0.0" y="0.0" width="187" height="32"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e56-TZ-Xgn">
+                                                        <rect key="frame" x="0.0" y="30" width="187" height="2"/>
+                                                        <color key="backgroundColor" red="0.12156862745098039" green="0.47450980392156861" blue="0.80392156862745101" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="2" id="0bj-rs-Lyb"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jlo-U3-Oyj" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                                                        <state key="normal" title="REQUESTS"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                <real key="value" value="14"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isBold" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="background">
+                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="btnRequestTap:" destination="lJe-8r-pRX" eventType="touchUpInside" id="cbV-TD-dnb"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="e56-TZ-Xgn" firstAttribute="top" secondItem="jlo-U3-Oyj" secondAttribute="bottom" id="4am-2W-AT9"/>
+                                                    <constraint firstItem="jlo-U3-Oyj" firstAttribute="leading" secondItem="YCe-ul-mwC" secondAttribute="leading" id="4hf-1D-TGK"/>
+                                                    <constraint firstAttribute="height" constant="32" id="8nl-4t-Tag"/>
+                                                    <constraint firstAttribute="bottom" secondItem="e56-TZ-Xgn" secondAttribute="bottom" id="Ki0-T5-jBy"/>
+                                                    <constraint firstItem="e56-TZ-Xgn" firstAttribute="leading" secondItem="YCe-ul-mwC" secondAttribute="leading" id="bY6-Go-sdl"/>
+                                                    <constraint firstItem="jlo-U3-Oyj" firstAttribute="top" secondItem="YCe-ul-mwC" secondAttribute="top" id="qJ8-OW-9ui"/>
+                                                    <constraint firstAttribute="trailing" secondItem="e56-TZ-Xgn" secondAttribute="trailing" id="qzZ-aC-4rw"/>
+                                                    <constraint firstAttribute="trailing" secondItem="jlo-U3-Oyj" secondAttribute="trailing" id="y8u-13-lsk"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQ4-hg-pO6">
+                                                <rect key="frame" x="187" y="0.0" width="187" height="32"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vA6-BY-dLC">
+                                                        <rect key="frame" x="0.0" y="30" width="187" height="2"/>
+                                                        <color key="backgroundColor" red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" systemColor="systemBlueColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="2" id="7kj-nn-udz"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dU2-gw-Eu7" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="187" height="30"/>
+                                                        <state key="normal" title="IN-PROGRESS"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                <real key="value" value="14"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSemibold" value="YES"/>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="background">
+                                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="btnInprogressTap:" destination="lJe-8r-pRX" eventType="touchUpInside" id="bXc-fk-WbX"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="vA6-BY-dLC" firstAttribute="top" secondItem="dU2-gw-Eu7" secondAttribute="bottom" id="1EY-eO-lfv"/>
+                                                    <constraint firstAttribute="trailing" secondItem="vA6-BY-dLC" secondAttribute="trailing" id="8OC-RC-77O"/>
+                                                    <constraint firstAttribute="bottom" secondItem="vA6-BY-dLC" secondAttribute="bottom" id="Ltd-MA-Cwd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="dU2-gw-Eu7" secondAttribute="trailing" id="OYQ-VT-MWP"/>
+                                                    <constraint firstItem="vA6-BY-dLC" firstAttribute="leading" secondItem="BQ4-hg-pO6" secondAttribute="leading" id="UWV-KU-fE2"/>
+                                                    <constraint firstItem="dU2-gw-Eu7" firstAttribute="leading" secondItem="BQ4-hg-pO6" secondAttribute="leading" id="he9-1V-Krr"/>
+                                                    <constraint firstItem="dU2-gw-Eu7" firstAttribute="top" secondItem="BQ4-hg-pO6" secondAttribute="top" id="qUY-3C-58D"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xpD-6G-Vh6">
+                                        <rect key="frame" x="15" y="58" width="384" height="760"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="xpD-6G-Vh6" secondAttribute="bottom" id="1qe-2q-3oB"/>
+                                    <constraint firstItem="xpD-6G-Vh6" firstAttribute="top" secondItem="m5Y-HB-vKq" secondAttribute="bottom" constant="15" id="b3v-s6-XRr"/>
+                                    <constraint firstItem="m5Y-HB-vKq" firstAttribute="leading" secondItem="CZi-Hy-5Fp" secondAttribute="leading" constant="20" id="cu4-jx-Swe"/>
+                                    <constraint firstAttribute="trailing" secondItem="m5Y-HB-vKq" secondAttribute="trailing" constant="20" id="dqa-tb-Wcj"/>
+                                    <constraint firstItem="m5Y-HB-vKq" firstAttribute="top" secondItem="CZi-Hy-5Fp" secondAttribute="top" constant="11" id="nNQ-eL-3N9"/>
+                                    <constraint firstItem="xpD-6G-Vh6" firstAttribute="leading" secondItem="m5Y-HB-vKq" secondAttribute="leading" constant="-5" id="vh7-3I-qAF"/>
+                                    <constraint firstItem="xpD-6G-Vh6" firstAttribute="trailing" secondItem="m5Y-HB-vKq" secondAttribute="trailing" constant="5" id="wxh-UO-CDD"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Qco-Fn-qPa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CZi-Hy-5Fp" firstAttribute="top" secondItem="Qco-Fn-qPa" secondAttribute="top" id="G5G-mE-q3W"/>
+                            <constraint firstItem="CZi-Hy-5Fp" firstAttribute="leading" secondItem="Qco-Fn-qPa" secondAttribute="leading" id="UVE-hs-HTT"/>
+                            <constraint firstItem="Qco-Fn-qPa" firstAttribute="trailing" secondItem="CZi-Hy-5Fp" secondAttribute="trailing" id="cLV-ok-w33"/>
+                            <constraint firstItem="Qco-Fn-qPa" firstAttribute="bottom" secondItem="CZi-Hy-5Fp" secondAttribute="bottom" id="tkj-oN-HGW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnInProgress" destination="dU2-gw-Eu7" id="iw7-Ty-HfK"/>
+                        <outlet property="btnRequest" destination="jlo-U3-Oyj" id="oXn-vy-OyY"/>
+                        <outlet property="tblHome" destination="xpD-6G-Vh6" id="351-vU-KT2"/>
+                        <outlet property="vwInprogress" destination="vA6-BY-dLC" id="ky6-cw-pY4"/>
+                        <outlet property="vwRequest" destination="e56-TZ-Xgn" id="9W2-WR-v0e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hSD-XS-ASO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6971.0144927536239" y="92.410714285714278"/>
+        </scene>
+        <!--NotificationVC-->
+        <scene sceneID="x42-Ce-PTQ">
+            <objects>
+                <viewController storyboardIdentifier="NotificationVC" id="0JQ-y8-ZdI" customClass="NotificationVC" customModule="Gas_2_You_Driver" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Hfc-Oa-pxB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Si-0q-vl5">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bJk-FX-9eC">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="bJk-FX-9eC" secondAttribute="trailing" id="JaV-fE-mgc"/>
+                                    <constraint firstItem="bJk-FX-9eC" firstAttribute="top" secondItem="0Si-0q-vl5" secondAttribute="top" id="Lk6-LK-LHh"/>
+                                    <constraint firstItem="bJk-FX-9eC" firstAttribute="leading" secondItem="0Si-0q-vl5" secondAttribute="leading" id="hVf-u0-8d1"/>
+                                    <constraint firstAttribute="bottom" secondItem="bJk-FX-9eC" secondAttribute="bottom" id="vo9-Pn-ueE"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="aU7-BL-Kku"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aU7-BL-Kku" firstAttribute="trailing" secondItem="0Si-0q-vl5" secondAttribute="trailing" id="EMi-wd-lKP"/>
+                            <constraint firstItem="0Si-0q-vl5" firstAttribute="top" secondItem="aU7-BL-Kku" secondAttribute="top" id="hzg-al-MTL"/>
+                            <constraint firstItem="0Si-0q-vl5" firstAttribute="leading" secondItem="aU7-BL-Kku" secondAttribute="leading" id="oEs-ul-95H"/>
+                            <constraint firstItem="aU7-BL-Kku" firstAttribute="bottom" secondItem="0Si-0q-vl5" secondAttribute="bottom" id="wlV-BE-X1P"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tblNotification" destination="bJk-FX-9eC" id="gQO-YF-fJZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="amp-PW-mso" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7697.1014492753629" y="101.78571428571428"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lBQ-zf-8dO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3l0-oA-Cum" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="snA-UQ-Pmk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="sEc-BL-JAs" kind="relationship" relationship="rootViewController" id="UJ1-nS-8Vn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EbX-F2-HOq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="576.81159420289862" y="91.741071428571431"/>
+        </scene>
+        <!--SettingsVC-->
+        <scene sceneID="mWK-lf-8Rt">
+            <objects>
+                <viewController storyboardIdentifier="SettingsVC" id="SSp-vX-qg4" customClass="SettingsVC" customModule="Gas_2_You" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4NB-MH-ih3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="3iF-nx-K1M">
+                                <rect key="frame" x="20" y="70" width="374" height="288"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g2s-y1-Fwf">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="AXt-Qn-1QA">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC_bellNotification" translatesAutoresizingMaskIntoConstraints="NO" id="aoT-ex-4sq">
+                                                        <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="32" id="3N9-P2-xit"/>
+                                                            <constraint firstAttribute="width" constant="32" id="ZBh-j6-fML"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zzs-xT-NvB" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                        <rect key="frame" x="46" y="0.0" width="265" height="32"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                <real key="value" value="14"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D3U-wk-tPH">
+                                                        <rect key="frame" x="325" y="0.0" width="51" height="32"/>
+                                                        <color key="onTintColor" red="0.92281931640000003" green="0.98555260899999997" blue="0.96523100139999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="thumbTintColor" red="0.18019399050000001" green="0.83544534439999996" blue="0.66155499220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </switch>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="AXt-Qn-1QA" secondAttribute="bottom" id="44g-EY-9yL"/>
+                                            <constraint firstItem="AXt-Qn-1QA" firstAttribute="leading" secondItem="g2s-y1-Fwf" secondAttribute="leading" id="aKa-Q2-YvV"/>
+                                            <constraint firstItem="AXt-Qn-1QA" firstAttribute="top" secondItem="g2s-y1-Fwf" secondAttribute="top" id="iyj-4U-it5"/>
+                                            <constraint firstAttribute="trailing" secondItem="AXt-Qn-1QA" secondAttribute="trailing" id="phb-z4-wUK"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t1O-dq-j2R">
+                                        <rect key="frame" x="0.0" y="64" width="374" height="32"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="VdY-IK-OUd">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC_aboutUS" translatesAutoresizingMaskIntoConstraints="NO" id="huu-g2-guz">
+                                                        <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="32" id="uwV-BD-pEf"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3I3-nj-udJ" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                        <rect key="frame" x="46" y="0.0" width="307.5" height="32"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                <real key="value" value="14"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC_arrowRightBlack" translatesAutoresizingMaskIntoConstraints="NO" id="qCr-dN-fds">
+                                                        <rect key="frame" x="367.5" y="0.0" width="6.5" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="6.5" id="78g-kj-W7j"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hb7-OI-eu7">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="hb7-OI-eu7" secondAttribute="bottom" id="1iw-BN-DTR"/>
+                                            <constraint firstAttribute="trailing" secondItem="VdY-IK-OUd" secondAttribute="trailing" id="NeU-Kg-NYF"/>
+                                            <constraint firstItem="hb7-OI-eu7" firstAttribute="top" secondItem="t1O-dq-j2R" secondAttribute="top" id="O1u-No-JUY"/>
+                                            <constraint firstItem="hb7-OI-eu7" firstAttribute="leading" secondItem="t1O-dq-j2R" secondAttribute="leading" id="YrT-6M-cJy"/>
+                                            <constraint firstItem="VdY-IK-OUd" firstAttribute="leading" secondItem="t1O-dq-j2R" secondAttribute="leading" id="ZwE-Ud-ngI"/>
+                                            <constraint firstItem="VdY-IK-OUd" firstAttribute="top" secondItem="t1O-dq-j2R" secondAttribute="top" id="sQw-Ku-kz7"/>
+                                            <constraint firstAttribute="trailing" secondItem="hb7-OI-eu7" secondAttribute="trailing" id="sSZ-jx-sFL"/>
+                                            <constraint firstAttribute="bottom" secondItem="VdY-IK-OUd" secondAttribute="bottom" id="yXv-B8-aW5"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gxp-e5-GVh">
+                                        <rect key="frame" x="0.0" y="128" width="374" height="32"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="6x3-N4-R1p">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC_termsIcon" translatesAutoresizingMaskIntoConstraints="NO" id="QUG-X7-k7E">
+                                                        <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="32" id="caR-tq-5k9"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms &amp; Conditions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCZ-JY-EBz" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                        <rect key="frame" x="46" y="0.0" width="307.5" height="32"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                <real key="value" value="14"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC_arrowRightBlack" translatesAutoresizingMaskIntoConstraints="NO" id="XM4-P3-kC2">
+                                                        <rect key="frame" x="367.5" y="0.0" width="6.5" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="6.5" id="E1g-yZ-mfG"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iS4-Ds-W5X">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="6x3-N4-R1p" secondAttribute="bottom" id="4As-OJ-Ym5"/>
+                                            <constraint firstItem="6x3-N4-R1p" firstAttribute="top" secondItem="Gxp-e5-GVh" secondAttribute="top" id="7wh-Uq-KG2"/>
+                                            <constraint firstItem="6x3-N4-R1p" firstAttribute="leading" secondItem="Gxp-e5-GVh" secondAttribute="leading" id="Nvq-12-9DU"/>
+                                            <constraint firstAttribute="trailing" secondItem="iS4-Ds-W5X" secondAttribute="trailing" id="Zft-FI-cKq"/>
+                                            <constraint firstAttribute="bottom" secondItem="iS4-Ds-W5X" secondAttribute="bottom" id="e8e-K6-Mdp"/>
+                                            <constraint firstAttribute="trailing" secondItem="6x3-N4-R1p" secondAttribute="trailing" id="juB-HU-0bT"/>
+                                            <constraint firstItem="iS4-Ds-W5X" firstAttribute="top" secondItem="Gxp-e5-GVh" secondAttribute="top" id="uYl-cD-dbG"/>
+                                            <constraint firstItem="iS4-Ds-W5X" firstAttribute="leading" secondItem="Gxp-e5-GVh" secondAttribute="leading" id="v5o-ED-BiZ"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SBs-nU-3oL">
+                                        <rect key="frame" x="0.0" y="192" width="374" height="32"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="lX8-r6-OZh">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC_privacy" translatesAutoresizingMaskIntoConstraints="NO" id="vCq-yF-ma6">
+                                                        <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="32" id="bHu-Zm-QuL"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Privacy Policy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CEw-Xn-39F" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                        <rect key="frame" x="46" y="0.0" width="307.5" height="32"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                <real key="value" value="14"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC_arrowRightBlack" translatesAutoresizingMaskIntoConstraints="NO" id="3iS-TP-Vha">
+                                                        <rect key="frame" x="367.5" y="0.0" width="6.5" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="6.5" id="alu-aM-Or2"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OT-6j-9PK">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="4OT-6j-9PK" firstAttribute="leading" secondItem="SBs-nU-3oL" secondAttribute="leading" id="4CQ-WN-LOu"/>
+                                            <constraint firstItem="lX8-r6-OZh" firstAttribute="leading" secondItem="SBs-nU-3oL" secondAttribute="leading" id="8aq-Yd-SW2"/>
+                                            <constraint firstAttribute="trailing" secondItem="4OT-6j-9PK" secondAttribute="trailing" id="WiT-UH-5vU"/>
+                                            <constraint firstItem="4OT-6j-9PK" firstAttribute="top" secondItem="SBs-nU-3oL" secondAttribute="top" id="beg-Nn-xyR"/>
+                                            <constraint firstAttribute="bottom" secondItem="4OT-6j-9PK" secondAttribute="bottom" id="iB0-d9-Ze3"/>
+                                            <constraint firstAttribute="bottom" secondItem="lX8-r6-OZh" secondAttribute="bottom" id="mm2-Uf-v1o"/>
+                                            <constraint firstItem="lX8-r6-OZh" firstAttribute="top" secondItem="SBs-nU-3oL" secondAttribute="top" id="oZa-c0-G9x"/>
+                                            <constraint firstAttribute="trailing" secondItem="lX8-r6-OZh" secondAttribute="trailing" id="qTl-dc-YI9"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="whH-aL-1y5">
+                                        <rect key="frame" x="0.0" y="256" width="374" height="32"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="oy9-Oa-nEJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC_logout" translatesAutoresizingMaskIntoConstraints="NO" id="0qc-7y-J9h">
+                                                        <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="32" id="ZKd-OX-mX9"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5cn-XE-lb8" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                        <rect key="frame" x="46" y="0.0" width="328" height="32"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                <real key="value" value="14"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dop-BA-GkS">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="oy9-Oa-nEJ" secondAttribute="bottom" id="0pQ-xP-HIf"/>
+                                            <constraint firstItem="oy9-Oa-nEJ" firstAttribute="top" secondItem="whH-aL-1y5" secondAttribute="top" id="Pfd-xP-RBT"/>
+                                            <constraint firstItem="Dop-BA-GkS" firstAttribute="leading" secondItem="whH-aL-1y5" secondAttribute="leading" id="a6n-Te-OHk"/>
+                                            <constraint firstAttribute="trailing" secondItem="Dop-BA-GkS" secondAttribute="trailing" id="ejT-VB-fEE"/>
+                                            <constraint firstItem="Dop-BA-GkS" firstAttribute="top" secondItem="whH-aL-1y5" secondAttribute="top" id="fW1-E3-piC"/>
+                                            <constraint firstAttribute="trailing" secondItem="oy9-Oa-nEJ" secondAttribute="trailing" id="tzx-5S-lGp"/>
+                                            <constraint firstAttribute="bottom" secondItem="Dop-BA-GkS" secondAttribute="bottom" id="vvO-2N-8fG"/>
+                                            <constraint firstItem="oy9-Oa-nEJ" firstAttribute="leading" secondItem="whH-aL-1y5" secondAttribute="leading" id="ykE-3o-ZtE"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="UTY-wJ-UMK"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="3iF-nx-K1M" firstAttribute="top" secondItem="UTY-wJ-UMK" secondAttribute="top" constant="26" id="4OF-sM-FCO"/>
+                            <constraint firstItem="UTY-wJ-UMK" firstAttribute="trailing" secondItem="3iF-nx-K1M" secondAttribute="trailing" constant="20" id="ZKD-BK-tNs"/>
+                            <constraint firstItem="3iF-nx-K1M" firstAttribute="leading" secondItem="UTY-wJ-UMK" secondAttribute="leading" constant="20" id="if7-cB-GlA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="OhS-Dw-hAv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CPc-lq-GtU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8401" y="110"/>
         </scene>
     </scenes>
     <resources>
         <image name="APPlE_LOGO" width="18" height="21"/>
         <image name="FB_LOGO" width="10.5" height="21"/>
         <image name="GOOGLE_LOGO" width="21" height="21"/>
+        <image name="IC_aboutUS" width="31" height="31"/>
         <image name="IC_arrowDown" width="18.5" height="10.5"/>
         <image name="IC_arrowRight" width="10.5" height="18.5"/>
+        <image name="IC_arrowRightBlack" width="6.5" height="11"/>
+        <image name="IC_bellNotification" width="31" height="31"/>
         <image name="IC_car" width="20.5" height="16.5"/>
         <image name="IC_gasPump" width="19" height="20.5"/>
         <image name="IC_locationTarget" width="28" height="28"/>
         <image name="IC_locoations" width="18.5" height="21"/>
+        <image name="IC_logout" width="31" height="31"/>
         <image name="IC_pinMark" width="15" height="21"/>
+        <image name="IC_privacy" width="31" height="31"/>
         <image name="IC_search" width="19.5" height="19.5"/>
         <image name="IC_selectedCheckGray" width="17" height="16"/>
+        <image name="IC_termsIcon" width="31" height="31"/>
         <image name="IC_unselectedBlue" width="21" height="21"/>
         <image name="IC_unselectedGray" width="17" height="16"/>
-        <image name="Logo_image-1" width="158" height="123"/>
+        <image name="Logo_image-1" width="176" height="149"/>
         <image name="calendar" catalog="system" width="128" height="106"/>
         <image name="imgBlueBackGround" width="327" height="169.5"/>
         <image name="splash-screen - 5" width="375" height="812"/>
@@ -2011,6 +2428,9 @@ and Pr</string>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
