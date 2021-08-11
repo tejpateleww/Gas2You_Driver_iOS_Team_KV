@@ -11,6 +11,7 @@
 		1802707F26C28683003337F1 /* NotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1802707D26C28683003337F1 /* NotificationCell.xib */; };
 		1802708226C2988B003337F1 /* NotificationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802708126C2988B003337F1 /* NotificationVC.swift */; };
 		1802708426C2B1ED003337F1 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802708326C2B1ED003337F1 /* SettingsVC.swift */; };
+		1836326026C3984E00D2C170 /* SendInvoiceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1836325F26C3984E00D2C170 /* SendInvoiceVC.swift */; };
 		184658A826C152EB00958397 /* MyEarningsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184658A726C152EB00958397 /* MyEarningsVC.swift */; };
 		184658AB26C15E4900958397 /* MyEarningsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184658A926C15E4900958397 /* MyEarningsCell.swift */; };
 		184658AC26C15E4900958397 /* MyEarningsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184658AA26C15E4900958397 /* MyEarningsCell.xib */; };
@@ -82,6 +83,7 @@
 		1802707D26C28683003337F1 /* NotificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationCell.xib; sourceTree = "<group>"; };
 		1802708126C2988B003337F1 /* NotificationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationVC.swift; sourceTree = "<group>"; };
 		1802708326C2B1ED003337F1 /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
+		1836325F26C3984E00D2C170 /* SendInvoiceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendInvoiceVC.swift; sourceTree = "<group>"; };
 		184658A726C152EB00958397 /* MyEarningsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEarningsVC.swift; sourceTree = "<group>"; };
 		184658A926C15E4900958397 /* MyEarningsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEarningsCell.swift; sourceTree = "<group>"; };
 		184658AA26C15E4900958397 /* MyEarningsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyEarningsCell.xib; sourceTree = "<group>"; };
@@ -374,6 +376,7 @@
 				9A81083626B963B5003DE6CC /* CarParkingLocationVC.swift */,
 				9A3A912326C128E90041D7D9 /* AddAddressVC.swift */,
 				9A3A913C26C141700041D7D9 /* ChatListVC.swift */,
+				1836325F26C3984E00D2C170 /* SendInvoiceVC.swift */,
 			);
 			path = "Home Controllers";
 			sourceTree = "<group>";
@@ -593,6 +596,7 @@
 				9A3A913326C133AC0041D7D9 /* SideMenuItemContent.swift in Sources */,
 				9A5B093A26B2788500BA0CB4 /* Date+Extension.swift in Sources */,
 				9A3A913926C13B860041D7D9 /* AddressCell.swift in Sources */,
+				1836326026C3984E00D2C170 /* SendInvoiceVC.swift in Sources */,
 				9A3A913B26C140AA0041D7D9 /* ChatListCell.swift in Sources */,
 				9AC568C226B7C0B70039FCCF /* BaseVC.swift in Sources */,
 				9A5B094226B279AE00BA0CB4 /* Storyboards.swift in Sources */,

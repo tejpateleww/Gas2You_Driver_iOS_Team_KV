@@ -19,6 +19,7 @@ class JobsCell: UITableViewCell {
     @IBOutlet weak var lblAddress: themeLabel!
     @IBOutlet weak var vwButtons: UIView!
     @IBOutlet weak var lblDateAndTime: themeLabel!
+    @IBOutlet weak var vwButtonsHeight: NSLayoutConstraint!
     
     //MARK:- Variables and Properties
 
@@ -26,6 +27,7 @@ class JobsCell: UITableViewCell {
         super.awakeFromNib()
         vwMain.layer.cornerRadius = 15
         vwButtons.layer.masksToBounds = true
+//        vwButtonsHeight.constant = 0
 //        vwMain.layer.masksToBounds = true
         
         // Initialization code

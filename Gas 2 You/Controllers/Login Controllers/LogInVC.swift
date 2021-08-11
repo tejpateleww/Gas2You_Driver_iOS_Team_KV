@@ -27,14 +27,14 @@ class LogInVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func logInButtonPreesed(_ sender: ThemeButton) {
         
-        let homeVC = storyboard?.instantiateViewController(identifier: "HomeVC") as! HomeVC
+        let homeVC = storyboard?.instantiateViewController(identifier: HomeVC.className) as! HomeVC
         navigationController?.pushViewController(homeVC, animated: true)
         
     }
     
     @IBAction func signUpButtonPressed(_ sender: themeButton) {
         
-        let signUpVC = storyboard?.instantiateViewController(identifier: "SignUpVC") as! SignUpVC
+        let signUpVC = storyboard?.instantiateViewController(identifier: SignUpVC.className) as! SignUpVC
         navigationController?.pushViewController(signUpVC, animated: true)
     }
     
