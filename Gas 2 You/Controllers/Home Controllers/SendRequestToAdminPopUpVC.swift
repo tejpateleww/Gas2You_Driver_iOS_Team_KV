@@ -26,7 +26,7 @@ class SendRequestToAdminPopUpVC: BaseVC {
     
     //MARK:- IBActions
     @IBAction func btnCloseTap(_ sender: UIButton) {
-        
+        self.dismiss(animated: false, completion: nil)
     }
     
 }

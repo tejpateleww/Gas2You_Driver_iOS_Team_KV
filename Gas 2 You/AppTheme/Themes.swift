@@ -23,6 +23,7 @@ class themeLabel: UILabel{
     @IBInspectable public var isThemeColour : Bool = false
     @IBInspectable public var is50Oppacity : Bool = false
     @IBInspectable public var is8ppacity : Bool = false
+    @IBInspectable public var IsUnderLine : Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,6 +39,12 @@ class themeLabel: UILabel{
             } else {
                 self.font = CustomFont.PoppinsRegular.returnFont(Font_Size)
             }
+        
+        if IsUnderLine {
+            let attributedString = NSMutableAttributedString(string: self.text ?? "", attributes:  [.foregroundColor: fontColor,.underlineStyle: NSUnderlineStyle.single.rawValue])
+            
+                 self.attributedText = attributedString
+        }
     }
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -618,4 +625,9 @@ class ThemeView : UIView {
         
     }
     
+}
+class RoundedImageView: UIImageView {
+    override func awakeFromNib() {
+        self.layer.cornerRadius = self.frame.height / 2
+    }
 }

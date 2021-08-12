@@ -8,12 +8,12 @@
 import Foundation
 import UIKit
 
-class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate {
+class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate,SideMenuItemContent {
     
     //MARK:- Properties
     var onTxtBtnPressed: ( (Int) -> () )?
     var pushToRoot = false
-    
+    let NavBackButton = UIButton()
     //MARK:- Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,75 +83,154 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
         
         
     }
-    
-    
-    
-    func NavBarTitle(isOnlyTitle : Bool = true, isMenuButton: Bool = false, title : String, controller:UIViewController) {
-        
+    func setNavigationBarInViewController (controller : UIViewController,naviColor : UIColor, naviTitle : String, leftImage : String , rightImages : [String], isTranslucent : Bool, ShowShadow:Bool? = false)
+    {
         UIApplication.shared.statusBarStyle = .lightContent
         controller.navigationController?.isNavigationBarHidden = false
         controller.navigationController?.navigationBar.isOpaque = false;
-        controller.navigationController?.view.backgroundColor = .clear
-        controller.navigationController?.navigationBar.isTranslucent = true
         
-        controller.navigationController?.navigationBar.barTintColor = colors.white.value;
-        controller.navigationController?.navigationBar.tintColor = colors.white.value;
+        controller.navigationController?.navigationBar.isTranslucent = isTranslucent
+        
+        controller.navigationController?.navigationBar.barTintColor = naviColor;
+        controller.navigationController?.navigationBar.tintColor = .clear
+        controller.navigationController?.navigationBar.backgroundColor = .clear
+        controller.navigationController?.navigationBar.clipsToBounds = true
         controller.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         controller.navigationController?.navigationBar.shadowImage = UIImage()
-        
-        if isOnlyTitle {
-            //            self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: CustomFont.QuicksandBold.returnFont(22.0)]
-            let customView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 44.0))
-            customView.backgroundColor = UIColor.clear
-            let label = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: 300.0, height: 44.0))
-            //SJ_Change : was not localize.
-            label.text = title
-            label.textColor = colors.black.value
-            label.textAlignment = NSTextAlignment.left
-            label.backgroundColor = UIColor.clear
-            label.font = CustomFont.PoppinsMedium.returnFont(16.0)
-            customView.addSubview(label)
-            
-            let leftButton = UIBarButtonItem(customView: customView)
-            self.navigationItem.leftBarButtonItem = leftButton
-        }else{
-            self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: CustomFont.PoppinsMedium.returnFont(16.0)]
-            let customView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.width - 40 - 40, height: 40.0))
-            customView.backgroundColor = UIColor.clear
-            
-            
-            let button = UIButton.init(type: .custom)
-            button.backgroundColor = .white
-            button.layer.cornerRadius = 10
-            button.addShadow(view: button, shadowColor: nil)
-            button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-            button.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
-            
-            if isMenuButton {
-                button.setImage(#imageLiteral(resourceName: "IC_menu"), for: .normal)
-                button.addTarget(self, action: #selector(menuButtonPressed(button:)), for: .touchUpInside)
-            } else {
-                button.setImage(#imageLiteral(resourceName: "IC_back"), for: .normal)
-                button.addTarget(self, action: #selector(BackButtonWithTitle(button:)), for: .touchUpInside)
-            }
-            
-            
-            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 40)) // width: 250
-            label.center.x = customView.center.x + 18
-            label.center.y = customView.center.y
-            label.textAlignment = .center
-            
-            //SJ_Change :
-            label.text = title
-            label.textColor = .label
-            label.font = CustomFont.PoppinsMedium.returnFont(16)
-            customView.addSubview(label)
-            customView.addSubview(button)
-            
-            let leftButton = UIBarButtonItem(customView: customView)
-            self.navigationItem.leftBarButtonItem = leftButton
+      
+        if naviTitle == "" {
+            controller.navigationItem.titleView = UIView()
+        } else {
+            let lblNavTitle = UILabel()
+            lblNavTitle.font = CustomFont.PoppinsMedium.returnFont(18)
+            lblNavTitle.backgroundColor = UIColor.clear
+            lblNavTitle.textColor = colors.black.value
+            lblNavTitle.numberOfLines = 0
+            lblNavTitle.text = naviTitle
+
+         
+            self.navigationItem.titleView = lblNavTitle
+           
         }
+            if leftImage != "" {
+                if leftImage == "Back" {
+                    
+                    NavBackButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+                   // let btnLeft = UIButton(frame: )
+                    NavBackButton.setImage(UIImage.init(named: "IC_back"), for: .normal)
+                    NavBackButton.layer.setValue(controller, forKey: "controller")
+                    
+                    let LeftView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+                    LeftView.addSubview(NavBackButton)
+                    LeftView.backgroundColor = .white
+                    addNormalShaddow(view: LeftView)
+                    LeftView.layer.cornerRadius = 5
+                    NavBackButton.isExclusiveTouch = true
+                    NavBackButton.isMultipleTouchEnabled = false
+                    let btnLeftBar : UIBarButtonItem = UIBarButtonItem.init(customView: LeftView)
+                    btnLeftBar.style = .plain
+                    controller.navigationItem.leftBarButtonItem = btnLeftBar
+                } else if leftImage == "Menu" {
+                    
+                    NavBackButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+                   // let btnLeft = UIButton(frame: )
+                    NavBackButton.setImage(UIImage.init(named: "ic_menu"), for: .normal)
+                    NavBackButton.layer.setValue(controller, forKey: "controller")
+                    NavBackButton.addTarget(self, action: #selector(self.menuButtonPressed), for: .touchUpInside)
+                    let LeftView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+                    LeftView.addSubview(NavBackButton)
+                    NavBackButton.isExclusiveTouch = true
+                    NavBackButton.isMultipleTouchEnabled = false
+                    let btnLeftBar : UIBarButtonItem = UIBarButtonItem.init(customView: LeftView)
+                    btnLeftBar.style = .plain
+                    controller.navigationItem.leftBarButtonItem = btnLeftBar
+                }
+            } else {
+                let emptyView = UIView()
+                let btnLeftBar : UIBarButtonItem = UIBarButtonItem.init(customView: emptyView)
+                btnLeftBar.style = .plain
+                controller.navigationItem.leftBarButtonItem = btnLeftBar
+            }
+           
+            if rightImages.count != 0 {
+                var arrButtons = [UIBarButtonItem]()
+                rightImages.forEach { (title) in
+                    
+                   
+                }
+                controller.navigationItem.rightBarButtonItems = arrButtons
+            }
+        
     }
+    
+    
+    
+//    func NavBarTitle(isOnlyTitle : Bool = true, isMenuButton: Bool = false, title : String, controller:UIViewController) {
+//        
+//        UIApplication.shared.statusBarStyle = .lightContent
+//        controller.navigationController?.isNavigationBarHidden = false
+//        controller.navigationController?.navigationBar.isOpaque = false;
+//        controller.navigationController?.view.backgroundColor = .clear
+//        controller.navigationController?.navigationBar.isTranslucent = true
+//        
+//        controller.navigationController?.navigationBar.barTintColor = colors.white.value;
+//        controller.navigationController?.navigationBar.tintColor = colors.white.value;
+//        controller.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        controller.navigationController?.navigationBar.shadowImage = UIImage()
+//        
+//        if isOnlyTitle {
+//            //            self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: CustomFont.QuicksandBold.returnFont(22.0)]
+//            let customView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 44.0))
+//            customView.backgroundColor = UIColor.clear
+//            let label = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: 300.0, height: 44.0))
+//            //SJ_Change : was not localize.
+//            label.text = title
+//            label.textColor = colors.black.value
+//            label.textAlignment = NSTextAlignment.left
+//            label.backgroundColor = UIColor.clear
+//            label.font = CustomFont.PoppinsMedium.returnFont(16.0)
+//            customView.addSubview(label)
+//            
+//            let leftButton = UIBarButtonItem(customView: customView)
+//            self.navigationItem.leftBarButtonItem = leftButton
+//        }else{
+//            self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: CustomFont.PoppinsMedium.returnFont(16.0)]
+//            let customView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.width - 40 - 40, height: 40.0))
+//            customView.backgroundColor = UIColor.clear
+//            
+//            
+//            let button = UIButton.init(type: .custom)
+//            button.backgroundColor = .white
+//            button.layer.cornerRadius = 10
+//            button.addShadow(view: button, shadowColor: nil)
+//            button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+//            button.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
+//            
+//            if isMenuButton {
+//                button.setImage(#imageLiteral(resourceName: "IC_menu"), for: .normal)
+//                button.addTarget(self, action: #selector(menuButtonPressed(button:)), for: .touchUpInside)
+//            } else {
+//                button.setImage(#imageLiteral(resourceName: "IC_back"), for: .normal)
+//                button.addTarget(self, action: #selector(BackButtonWithTitle(button:)), for: .touchUpInside)
+//            }
+//            
+//            
+//            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 40)) // width: 250
+//            label.center.x = customView.center.x + 18
+//            label.center.y = customView.center.y
+//            label.textAlignment = .center
+//            
+//            //SJ_Change :
+//            label.text = title
+//            label.textColor = .label
+//            label.font = CustomFont.PoppinsMedium.returnFont(16)
+//            customView.addSubview(label)
+//            customView.addSubview(button)
+//            
+//            let leftButton = UIBarButtonItem(customView: customView)
+//            self.navigationItem.leftBarButtonItem = leftButton
+//        }
+//    }
     
     
     
@@ -163,7 +242,8 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
      controller.navigationController?.view.backgroundColor = .clear
      controller.navigationController?.navigationBar.isTranslucent = true
      
-     controller.navigationController?.navigationBar.barTintColor = colors.white.value;
+     controller.navigationController?.navigationBar.barTintColor = colors
+     .value;
      controller.navigationController?.navigationBar.tintColor = colors.white.value;
      controller.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
      controller.navigationController?.navigationBar.shadowImage = UIImage()
@@ -302,9 +382,34 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
         }
         
     }
-    
-    @objc func menuButtonPressed(button: UIButton) {
+    func addNormalShaddow(view:UIView) {
         
+//        let shadowPath = UIBezierPath(rect: self.bounds)
+//        self.layer.shadowRadius = self.frame.height/2
+//        self.layer.masksToBounds = false
+//        self.layer.shadowColor = UIColor.black.cgColor
+//        self.layer.shadowOffset = CGSize(width: 10.0, height: 10.0)
+//        self.layer.shadowOpacity = 0.4
+//        self.layer.shadowPath = shadowPath.cgPath
+
+        /* let shadowPath = UIBezierPath(rect: self.bounds)
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.lightGray.cgColor
+        self.layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
+        self.layer.shadowOpacity = 0.2
+        // self.layer.shadowRadius =
+        self.layer.shadowPath = shadowPath.cgPath
+        */
+        view.layer.masksToBounds = false
+        view.layer.shadowRadius = view.frame.height/2
+        view.layer.shadowColor = UIColor.gray.cgColor
+        view.layer.shadowOffset = CGSize(width: 1.0, height: 2.0)
+        view.layer.shadowOpacity = 0.4
+        view.layer.shadowRadius = 3.0
+        
+    }
+    @objc func menuButtonPressed() {
+        self.showSideMenu()
         print("menu button pressed")
         
     }

@@ -14,7 +14,7 @@ class AddAddressVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NavBarTitle(isOnlyTitle: false, isMenuButton: false, title: "Address", controller: self)
+        //NavBarTitle(isOnlyTitle: false, isMenuButton: false, title: "Address", controller: self)
     }
     
     @IBAction func addAdressBtnPressed(_ sender: ThemeButton) {

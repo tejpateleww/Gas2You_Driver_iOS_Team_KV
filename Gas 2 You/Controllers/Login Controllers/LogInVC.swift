@@ -27,11 +27,10 @@ class LogInVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func logInButtonPreesed(_ sender: ThemeButton) {
         
-//        let homeVC = storyboard?.instantiateViewController(identifier: HomeVC.className) as! HomeVC
-//        navigationController?.pushViewController(homeVC, animated: true)
+        AppDel.navigateToHome()
         
-        let vc : SendInvoiceVC = SendInvoiceVC.instantiate(fromAppStoryboard: .Main)
-        self.present(vc, animated: false, completion: nil)
+//        let vc : SendInvoiceVC = SendInvoiceVC.instantiate(fromAppStoryboard: .Main)
+//        self.present(vc, animated: false, completion: nil)
         
     }
     

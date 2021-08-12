@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EnterQuentityVC: BaseVC {
+class EnterQuentityVC: BaseVC,UITextFieldDelegate{
     
     //MARK:-IBOutlets
     @IBOutlet weak var vwMain: UIView!
@@ -22,7 +22,7 @@ class EnterQuentityVC: BaseVC {
         super.viewDidLoad()
         vwMain.layer.cornerRadius = 20
         vwMain.layer.masksToBounds = true
-
+        txtPrice.addTarget(self, action: #selector(myTextFieldDidChange), for: .editingChanged)
     }
     
     //MARK:- Custom Methods
@@ -32,5 +32,42 @@ class EnterQuentityVC: BaseVC {
     }
     @IBAction func btnCancelTap(_ sender: Any) {
     }
-    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        textField.StopWrittingAtCharactorLimit(CharLimit: 6, range: range, string: string)
+    }
+    @objc func myTextFieldDidChange(_ textField: UITextField) {
+
+        if let amountString = textField.text?.currencyInputFormatting(textfield: txtPrice) {
+            txtPrice.text = amountString
+        }
+    }
+}
+extension String {
+
+    // formatting text for currency textField
+    func currencyInputFormatting(textfield : UITextField) -> String {
+
+        var number: NSNumber!
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currencyAccounting
+        formatter.currencySymbol = ""//SingletonClass.sharedInstance.currency
+        formatter.maximumFractionDigits = 3
+        formatter.minimumFractionDigits = 3
+
+        var amountWithPrefix = self
+
+        // remove from String: "$", ".", ","
+        let regex = try! NSRegularExpression(pattern: "[^0-9]", options: .caseInsensitive)
+        amountWithPrefix = regex.stringByReplacingMatches(in: amountWithPrefix, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, textfield.text?.count ?? 0), withTemplate: "")
+
+        let double = (amountWithPrefix as NSString).doubleValue
+        number = NSNumber(value: (double / 1000))
+
+        // if first number is 0 or all numbers were deleted
+        guard number != 0 as NSNumber else {
+            return ""
+        }
+
+        return formatter.string(from: number)!
+    }
 }

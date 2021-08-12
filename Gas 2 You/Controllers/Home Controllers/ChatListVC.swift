@@ -14,7 +14,7 @@ class ChatListVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NavBarTitle(isOnlyTitle: false, isMenuButton: false, title: "Chat", controller: self)
+        //NavBarTitle(isOnlyTitle: false, isMenuButton: false, title: "Chat", controller: self)
     }
     
 

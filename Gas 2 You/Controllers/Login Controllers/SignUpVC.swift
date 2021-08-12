@@ -49,6 +49,9 @@ class SignUpVC: BaseVC {
         
     }
     @IBAction func btnSignupTap(_ sender: Any) {
+        
+
+        
         let vc : HomeVC = HomeVC.instantiate(fromAppStoryboard: .Main)
         self.navigationController?.pushViewController(vc, animated: true)
     }
