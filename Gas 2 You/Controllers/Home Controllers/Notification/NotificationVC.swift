@@ -21,6 +21,7 @@ class NotificationVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Notifications", leftImage: "", rightImages: [], isTranslucent: true)
         tblNotification.delegate = self
         tblNotification.dataSource = self
         let nib = UINib(nibName: NotificationCell.className, bundle: nil)
