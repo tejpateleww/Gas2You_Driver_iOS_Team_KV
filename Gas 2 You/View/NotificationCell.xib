@@ -22,7 +22,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="605" height="111"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="D3L-CG-FGC">
-                                <rect key="frame" x="23" y="43.5" width="24" height="24"/>
+                                <rect key="frame" x="23" y="55.5" width="24" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="D3L-CG-FGC" secondAttribute="height" multiplier="1:1" id="LdI-g8-eWU"/>
                                     <constraint firstAttribute="height" constant="24" id="kSN-hd-ujJ"/>
@@ -51,12 +51,12 @@
                         <constraints>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="iKy-Tr-bT0" secondAttribute="trailing" constant="10" id="F1k-31-rFt"/>
                             <constraint firstItem="D3L-CG-FGC" firstAttribute="leading" secondItem="hPE-KE-Vhc" secondAttribute="leading" constant="23" id="HeX-3o-eqW"/>
-                            <constraint firstItem="iKy-Tr-bT0" firstAttribute="centerY" secondItem="D3L-CG-FGC" secondAttribute="centerY" id="R8J-Mw-gnr"/>
                             <constraint firstItem="5M9-BE-2ZX" firstAttribute="leading" secondItem="hPE-KE-Vhc" secondAttribute="leading" id="SpW-Ob-CI6"/>
-                            <constraint firstItem="D3L-CG-FGC" firstAttribute="centerY" secondItem="hPE-KE-Vhc" secondAttribute="centerY" id="YCd-dU-TU4"/>
+                            <constraint firstItem="iKy-Tr-bT0" firstAttribute="centerY" secondItem="hPE-KE-Vhc" secondAttribute="centerY" id="j8o-1k-KBf"/>
                             <constraint firstItem="iKy-Tr-bT0" firstAttribute="leading" secondItem="D3L-CG-FGC" secondAttribute="trailing" constant="20" id="jFw-Vw-8OE"/>
                             <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="iKy-Tr-bT0" secondAttribute="bottom" constant="10" id="msp-6w-yXw"/>
                             <constraint firstAttribute="trailing" secondItem="5M9-BE-2ZX" secondAttribute="trailing" id="u8M-DQ-w4x"/>
+                            <constraint firstItem="D3L-CG-FGC" firstAttribute="top" secondItem="iKy-Tr-bT0" secondAttribute="top" id="voV-tz-CgX"/>
                             <constraint firstAttribute="bottom" secondItem="5M9-BE-2ZX" secondAttribute="bottom" id="xNf-Ya-8FG"/>
                         </constraints>
                     </view>

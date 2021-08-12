@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="w9P-ta-NjX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="prH-tG-wut">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -3170,8 +3170,20 @@ Send to Admin</string>
                     <view key="view" contentMode="scaleToFill" id="69Z-2d-8Im">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GOx-YY-K0i">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="AFU-mU-Ei8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="GOx-YY-K0i" firstAttribute="top" secondItem="AFU-mU-Ei8" secondAttribute="top" id="1ic-xG-ZLm"/>
+                            <constraint firstItem="AFU-mU-Ei8" firstAttribute="bottom" secondItem="GOx-YY-K0i" secondAttribute="bottom" id="8KL-dW-beE"/>
+                            <constraint firstItem="GOx-YY-K0i" firstAttribute="leading" secondItem="AFU-mU-Ei8" secondAttribute="leading" id="X7p-wn-45u"/>
+                            <constraint firstItem="AFU-mU-Ei8" firstAttribute="trailing" secondItem="GOx-YY-K0i" secondAttribute="trailing" id="lZg-hK-Ods"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yye-i4-SqN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -3208,7 +3220,7 @@ Send to Admin</string>
                                 <rect key="frame" x="0.0" y="60" width="414" height="732"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="62q-ou-fpg">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="848.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="652.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="yMd-rC-UuE">
                                                 <rect key="frame" x="20" y="250" width="374" height="244.5"/>
@@ -3234,16 +3246,21 @@ Send to Admin</string>
                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8t-gb-sSW">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="John Doe" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JjD-Z3-6SR">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="354" height="48"/>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="John Doe" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JjD-Z3-6SR" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="48"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="48" id="JdE-DE-Lnd"/>
                                                                         </constraints>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                                <real key="value" value="17"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
                                                                     </textField>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC_premiumImg" translatesAutoresizingMaskIntoConstraints="NO" id="qWU-Yp-hUo">
-                                                                        <rect key="frame" x="354" y="0.0" width="20" height="48"/>
+                                                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC_premiumImg" translatesAutoresizingMaskIntoConstraints="NO" id="qWU-Yp-hUo">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="48"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="20" id="I6n-i5-jbh"/>
                                                                         </constraints>
@@ -3277,13 +3294,19 @@ Send to Admin</string>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="johndoe@domain.com" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="idq-IP-Fsk">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="johndoe@domain.com" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="idq-IP-Fsk" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="14.5" width="374" height="48"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="VIo-dF-waz"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                        <real key="value" value="17"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRegular" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </textField>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tHB-UU-0FV">
                                                                 <rect key="frame" x="0.0" y="62.5" width="374" height="1"/>
@@ -3312,13 +3335,19 @@ Send to Admin</string>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+1 656 656 6584" placeholder="Mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="blf-7Y-vbO">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="+1     656 656 6584" placeholder="Mobile Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="blf-7Y-vbO" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="14.5" width="374" height="48"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="48" id="IZN-h5-5VK"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                                        <real key="value" value="17"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRegular" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
                                                             </textField>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deX-xZ-inE">
                                                                 <rect key="frame" x="0.0" y="62.5" width="374" height="1"/>
@@ -3337,14 +3366,14 @@ Send to Admin</string>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="JLf-J0-0Jb">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC_carWithBG" translatesAutoresizingMaskIntoConstraints="NO" id="gBA-36-uaE">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgMyEarnings" translatesAutoresizingMaskIntoConstraints="NO" id="gBA-36-uaE">
                                                                 <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="32" id="ImU-aD-A3a"/>
                                                                     <constraint firstAttribute="width" constant="32" id="tbT-Mb-9My"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Garage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6m-Q0-jw2" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Earning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6m-Q0-jw2" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="46" y="0.0" width="307.5" height="32"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <nil key="textColor"/>
@@ -3366,6 +3395,9 @@ Send to Admin</string>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51r-VX-09g">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="32"/>
+                                                        <connections>
+                                                            <action selector="btnMyEarningTap:" destination="prH-tG-wut" eventType="touchUpInside" id="gYb-C0-wtt"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -3380,49 +3412,86 @@ Send to Admin</string>
                                                     <constraint firstItem="51r-VX-09g" firstAttribute="top" secondItem="fcl-6V-wln" secondAttribute="top" id="yVM-Uc-mqO"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC_planImg" translatesAutoresizingMaskIntoConstraints="NO" id="Fg7-7Z-cXK">
-                                                <rect key="frame" x="89" y="632.5" width="236" height="170"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="170" id="80P-xc-jVn"/>
-                                                    <constraint firstAttribute="width" constant="236" id="bJc-Qc-A8l"/>
-                                                </constraints>
-                                            </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OU2-oy-yV7">
-                                                <rect key="frame" x="109" y="788.5" width="196" height="40"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="gyE-0S-nHp"/>
-                                                </constraints>
-                                                <state key="normal" title="Change Password"/>
-                                            </button>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1mp-7G-3QZ">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgDummyProfile" translatesAutoresizingMaskIntoConstraints="NO" id="1mp-7G-3QZ">
                                                 <rect key="frame" x="140" y="32" width="134" height="134"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="134" id="EXG-JB-yrd"/>
                                                     <constraint firstAttribute="width" secondItem="1mp-7G-3QZ" secondAttribute="height" multiplier="1:1" id="ZaO-e1-zxF"/>
                                                 </constraints>
                                             </imageView>
-                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPo-LE-kQF">
-                                                <rect key="frame" x="184" y="194" width="46" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Button"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPo-LE-kQF" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                <rect key="frame" x="165" y="180" width="84" height="28"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="28" id="1Ne-0l-YJp"/>
+                                                    <constraint firstAttribute="width" secondItem="FPo-LE-kQF" secondAttribute="height" multiplier="3:1" id="Rlr-sK-3sr"/>
+                                                </constraints>
+                                                <state key="normal" title="Edit Picture"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.5 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oGA-VS-mU2" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                <rect key="frame" x="129.5" y="184" width="28.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                        <real key="value" value="12"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgRatingFilledStar" translatesAutoresizingMaskIntoConstraints="NO" id="fZu-sp-beB">
+                                                <rect key="frame" x="115.5" y="189" width="10" height="10"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="10" id="Jzp-iz-OWF"/>
+                                                    <constraint firstAttribute="width" secondItem="fZu-sp-beB" secondAttribute="height" multiplier="1:1" id="gP6-MA-0tf"/>
+                                                </constraints>
+                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6F-EH-9lB" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                <rect key="frame" x="122" y="602.5" width="170" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="JBZ-eE-9vr"/>
+                                                    <constraint firstAttribute="width" constant="170" id="ROE-bp-Pl7"/>
+                                                </constraints>
+                                                <state key="normal" title="Change Password"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                        <real key="value" value="14"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isMedium" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                        <color key="value" red="0.10980392160000001" green="0.45882352939999999" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnChangePasswordTap:" destination="prH-tG-wut" eventType="touchUpInside" id="4be-uB-EQo"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="OU2-oy-yV7" firstAttribute="top" secondItem="Fg7-7Z-cXK" secondAttribute="bottom" constant="-14" id="3zi-ha-p6Q"/>
                                             <constraint firstItem="fcl-6V-wln" firstAttribute="leading" secondItem="62q-ou-fpg" secondAttribute="leading" constant="20" symbolic="YES" id="D9R-Rp-pdF"/>
                                             <constraint firstAttribute="trailing" secondItem="yMd-rC-UuE" secondAttribute="trailing" constant="20" symbolic="YES" id="G1z-NH-W4E"/>
+                                            <constraint firstItem="oGA-VS-mU2" firstAttribute="centerY" secondItem="FPo-LE-kQF" secondAttribute="centerY" id="JWW-Rg-MCl"/>
+                                            <constraint firstItem="oGA-VS-mU2" firstAttribute="leading" secondItem="fZu-sp-beB" secondAttribute="trailing" constant="4" id="N7J-DY-nVn"/>
+                                            <constraint firstItem="FPo-LE-kQF" firstAttribute="top" secondItem="1mp-7G-3QZ" secondAttribute="bottom" constant="14" id="QJl-6B-OSy"/>
                                             <constraint firstAttribute="trailing" secondItem="fcl-6V-wln" secondAttribute="trailing" constant="20" symbolic="YES" id="TPf-iZ-UgJ"/>
+                                            <constraint firstItem="FPo-LE-kQF" firstAttribute="centerX" secondItem="62q-ou-fpg" secondAttribute="centerX" id="UkZ-nt-C8O"/>
+                                            <constraint firstItem="x6F-EH-9lB" firstAttribute="top" secondItem="fcl-6V-wln" secondAttribute="bottom" constant="40" id="dHd-19-iWe"/>
                                             <constraint firstItem="fcl-6V-wln" firstAttribute="top" secondItem="yMd-rC-UuE" secondAttribute="bottom" constant="36" id="dVu-N3-IMv"/>
-                                            <constraint firstItem="OU2-oy-yV7" firstAttribute="leading" secondItem="Fg7-7Z-cXK" secondAttribute="leading" constant="20" id="llK-Cd-LYG"/>
-                                            <constraint firstItem="Fg7-7Z-cXK" firstAttribute="centerX" secondItem="62q-ou-fpg" secondAttribute="centerX" id="mmF-bm-Ppv"/>
-                                            <constraint firstItem="Fg7-7Z-cXK" firstAttribute="top" secondItem="fcl-6V-wln" secondAttribute="bottom" constant="70" id="nIP-Wa-eyC"/>
+                                            <constraint firstItem="FPo-LE-kQF" firstAttribute="leading" secondItem="oGA-VS-mU2" secondAttribute="trailing" constant="7" id="eUX-KU-Jua"/>
+                                            <constraint firstItem="fZu-sp-beB" firstAttribute="centerY" secondItem="oGA-VS-mU2" secondAttribute="centerY" id="lLt-zW-ESL"/>
                                             <constraint firstItem="yMd-rC-UuE" firstAttribute="top" secondItem="62q-ou-fpg" secondAttribute="top" constant="250" id="o8s-Og-g0e"/>
                                             <constraint firstItem="1mp-7G-3QZ" firstAttribute="centerX" secondItem="62q-ou-fpg" secondAttribute="centerX" id="qfp-8L-z8B"/>
-                                            <constraint firstItem="OU2-oy-yV7" firstAttribute="trailing" secondItem="Fg7-7Z-cXK" secondAttribute="trailing" constant="-20" id="u1b-Ro-prF"/>
+                                            <constraint firstAttribute="bottom" secondItem="x6F-EH-9lB" secondAttribute="bottom" constant="10" id="t3N-bK-sMO"/>
+                                            <constraint firstItem="x6F-EH-9lB" firstAttribute="centerX" secondItem="62q-ou-fpg" secondAttribute="centerX" id="tTi-TJ-L8y"/>
                                             <constraint firstItem="yMd-rC-UuE" firstAttribute="leading" secondItem="62q-ou-fpg" secondAttribute="leading" constant="20" symbolic="YES" id="wTb-Eb-4em"/>
                                             <constraint firstItem="1mp-7G-3QZ" firstAttribute="top" secondItem="62q-ou-fpg" secondAttribute="top" constant="32" id="zZu-An-LHg"/>
-                                            <constraint firstAttribute="bottom" secondItem="OU2-oy-yV7" secondAttribute="bottom" constant="20" symbolic="YES" id="zbg-WJ-aPj"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -3444,7 +3513,7 @@ Send to Admin</string>
                                 <state key="normal" title="Save"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                        <real key="value" value="9"/>
+                                        <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="background">
                                         <color key="value" red="0.10980392160000001" green="0.45882352939999999" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
@@ -3455,6 +3524,7 @@ Send to Admin</string>
                                     <userDefinedRuntimeAttribute type="number" keyPath="radius">
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSemibold" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
@@ -3472,12 +3542,14 @@ Send to Admin</string>
                     </view>
                     <navigationItem key="navigationItem" id="v56-iS-DLE"/>
                     <connections>
-                        <outlet property="changePassButton" destination="OU2-oy-yV7" id="uB8-9C-Uz0"/>
+                        <outlet property="btnChangePassword" destination="x6F-EH-9lB" id="swr-4X-cqs"/>
+                        <outlet property="btnEditProfileTap" destination="FPo-LE-kQF" id="UnN-Hp-q6L"/>
+                        <outlet property="imgProfile" destination="1mp-7G-3QZ" id="pP4-Rk-u1K"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xeg-Sx-fA5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="12606" y="110"/>
+            <point key="canvasLocation" x="12605.797101449276" y="109.82142857142857"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="56Y-Qe-Lwe">
@@ -4763,13 +4835,11 @@ Send to Admin</string>
         <image name="IC_arrowRightBlack" width="6.5" height="11"/>
         <image name="IC_bellNotification" width="31" height="31"/>
         <image name="IC_car" width="20.5" height="16.5"/>
-        <image name="IC_carWithBG" width="31" height="31"/>
         <image name="IC_gasPump" width="19" height="20.5"/>
         <image name="IC_locationTarget" width="28" height="28"/>
         <image name="IC_locoations" width="18.5" height="21"/>
         <image name="IC_logout" width="31" height="31"/>
         <image name="IC_pinMark" width="15" height="21"/>
-        <image name="IC_planImg" width="291" height="187.5"/>
         <image name="IC_premiumImg" width="20" height="20"/>
         <image name="IC_privacy" width="31" height="31"/>
         <image name="IC_search" width="19.5" height="19.5"/>
@@ -4793,7 +4863,10 @@ Send to Admin</string>
         <image name="ic_logout" width="26" height="26"/>
         <image name="imgBlueBackGround" width="327" height="169.5"/>
         <image name="imgCloseBtn" width="23" height="23"/>
+        <image name="imgDummyProfile" width="120" height="120"/>
         <image name="imgLocation" width="18.5" height="21"/>
+        <image name="imgMyEarnings" width="31" height="31"/>
+        <image name="imgRatingFilledStar" width="10" height="9.5"/>
         <image name="imgarreroBlue" width="84" height="83.5"/>
         <image name="logo_image" width="222" height="171"/>
         <image name="splash-screen - 5" width="375" height="812"/>
