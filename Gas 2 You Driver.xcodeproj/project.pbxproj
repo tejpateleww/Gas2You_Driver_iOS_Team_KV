@@ -43,6 +43,9 @@
 		187CE6E826C512B100C8E765 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CE6DC26C512B100C8E765 /* NavigationController.swift */; };
 		187CE6F126C514B800C8E765 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CE6F026C514B700C8E765 /* MainViewController.swift */; };
 		18E5E46D26C535A0004E79C4 /* MyProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5E46C26C535A0004E79C4 /* MyProfileVC.swift */; };
+		18E5E46F26C54C28004E79C4 /* CompletedJobsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5E46E26C54C28004E79C4 /* CompletedJobsVC.swift */; };
+		18E5E47226C54C73004E79C4 /* CompletedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E5E47026C54C73004E79C4 /* CompletedCell.xib */; };
+		18E5E47326C54C73004E79C4 /* CompletedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5E47126C54C73004E79C4 /* CompletedCell.swift */; };
 		9A3A912426C128E90041D7D9 /* AddAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3A912326C128E90041D7D9 /* AddAddressVC.swift */; };
 		9A3A912F26C133AC0041D7D9 /* SideMenuItemOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3A912626C133AB0041D7D9 /* SideMenuItemOptions.swift */; };
 		9A3A913026C133AC0041D7D9 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3A912726C133AB0041D7D9 /* Options.swift */; };
@@ -121,6 +124,9 @@
 		187CE6DC26C512B100C8E765 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		187CE6F026C514B700C8E765 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		18E5E46C26C535A0004E79C4 /* MyProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileVC.swift; sourceTree = "<group>"; };
+		18E5E46E26C54C28004E79C4 /* CompletedJobsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedJobsVC.swift; sourceTree = "<group>"; };
+		18E5E47026C54C73004E79C4 /* CompletedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompletedCell.xib; sourceTree = "<group>"; };
+		18E5E47126C54C73004E79C4 /* CompletedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedCell.swift; sourceTree = "<group>"; };
 		23FBE9F64945D7195FB03CB0 /* Pods-Gas 2 You.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gas 2 You.release.xcconfig"; path = "Target Support Files/Pods-Gas 2 You/Pods-Gas 2 You.release.xcconfig"; sourceTree = "<group>"; };
 		3EC1E0F1665E6CA6F8419210 /* Pods-Gas 2 You.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gas 2 You.debug.xcconfig"; path = "Target Support Files/Pods-Gas 2 You/Pods-Gas 2 You.debug.xcconfig"; sourceTree = "<group>"; };
 		5EF54FFA5D877A8A791918B3 /* Pods_Gas_2_You_Driver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gas_2_You_Driver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -221,6 +227,8 @@
 		9A3A913726C13B540041D7D9 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				18E5E47126C54C73004E79C4 /* CompletedCell.swift */,
+				18E5E47026C54C73004E79C4 /* CompletedCell.xib */,
 				9A3A913826C13B860041D7D9 /* AddressCell.swift */,
 				9A3A913A26C140AA0041D7D9 /* ChatListCell.swift */,
 				184658A926C15E4900958397 /* MyEarningsCell.swift */,
@@ -388,6 +396,7 @@
 				1802708326C2B1ED003337F1 /* SettingsVC.swift */,
 				1802708026C2986E003337F1 /* Notification */,
 				184658A626C152B700958397 /* MyEarnings */,
+				18E5E46E26C54C28004E79C4 /* CompletedJobsVC.swift */,
 				9AC568C526B7C25C0039FCCF /* HomeVC.swift */,
 				9A81083626B963B5003DE6CC /* CarParkingLocationVC.swift */,
 				9A3A912326C128E90041D7D9 /* AddAddressVC.swift */,
@@ -501,6 +510,7 @@
 				184658EF26C1633600958397 /* Poppins-Thin.ttf in Resources */,
 				184658E926C1633600958397 /* Poppins-ExtraBoldItalic.ttf in Resources */,
 				184658F826C1633600958397 /* Poppins-Italic.ttf in Resources */,
+				18E5E47226C54C73004E79C4 /* CompletedCell.xib in Resources */,
 				184658F126C1633600958397 /* Poppins-Bold.ttf in Resources */,
 				184658EE26C1633600958397 /* Poppins-BoldItalic.ttf in Resources */,
 				184658E726C1633600958397 /* Poppins-ExtraLight.ttf in Resources */,
@@ -618,6 +628,7 @@
 				9A5B093A26B2788500BA0CB4 /* Date+Extension.swift in Sources */,
 				9A3A913926C13B860041D7D9 /* AddressCell.swift in Sources */,
 				1836326026C3984E00D2C170 /* SendInvoiceVC.swift in Sources */,
+				18E5E46F26C54C28004E79C4 /* CompletedJobsVC.swift in Sources */,
 				9A3A913B26C140AA0041D7D9 /* ChatListCell.swift in Sources */,
 				9AC568C226B7C0B70039FCCF /* BaseVC.swift in Sources */,
 				187CE6D826C4DAA800C8E765 /* EnterQuentityVC.swift in Sources */,
@@ -630,6 +641,7 @@
 				187CE6F126C514B800C8E765 /* MainViewController.swift in Sources */,
 				9A3A913D26C141700041D7D9 /* ChatListVC.swift in Sources */,
 				9A5B093C26B2788500BA0CB4 /* UIImage+Extension.swift in Sources */,
+				18E5E47326C54C73004E79C4 /* CompletedCell.swift in Sources */,
 				9A5B08E826B26C7800BA0CB4 /* Themes.swift in Sources */,
 				9A3A913226C133AC0041D7D9 /* MenuAnimator.swift in Sources */,
 				9A5B08F226B2718500BA0CB4 /* Colors.swift in Sources */,

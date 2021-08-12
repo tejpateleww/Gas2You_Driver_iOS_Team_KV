@@ -28,10 +28,8 @@ class LogInVC: UIViewController, UITextFieldDelegate {
     @IBAction func logInButtonPreesed(_ sender: ThemeButton) {
         
         AppDel.navigateToHome()
-        
 //        let vc : SendInvoiceVC = SendInvoiceVC.instantiate(fromAppStoryboard: .Main)
 //        self.present(vc, animated: false, completion: nil)
-        
     }
     
     @IBAction func signUpButtonPressed(_ sender: themeButton) {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="prH-tG-wut">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0JQ-y8-ZdI">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -3163,17 +3163,21 @@ Send to Admin</string>
             </objects>
             <point key="canvasLocation" x="11295.652173913044" y="109.82142857142857"/>
         </scene>
-        <!--View Controller-->
+        <!--Completed JobsVC-->
         <scene sceneID="wRF-fd-Ble">
             <objects>
-                <viewController id="LO5-df-fgo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CompletedJobsVC" id="LO5-df-fgo" customClass="CompletedJobsVC" customModule="Gas_2_You_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="69Z-2d-8Im">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GOx-YY-K0i">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GOx-YY-K0i">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="LO5-df-fgo" id="oax-d0-lWJ"/>
+                                    <outlet property="delegate" destination="LO5-df-fgo" id="BI3-R6-Mhq"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="AFU-mU-Ei8"/>
@@ -3185,6 +3189,9 @@ Send to Admin</string>
                             <constraint firstItem="AFU-mU-Ei8" firstAttribute="trailing" secondItem="GOx-YY-K0i" secondAttribute="trailing" id="lZg-hK-Ods"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tblCompletedJobs" destination="GOx-YY-K0i" id="ZXq-A3-2r2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yye-i4-SqN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3259,7 +3266,7 @@ Send to Admin</string>
                                                                             </userDefinedRuntimeAttribute>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </textField>
-                                                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC_premiumImg" translatesAutoresizingMaskIntoConstraints="NO" id="qWU-Yp-hUo">
+                                                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qWU-Yp-hUo">
                                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="48"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="20" id="I6n-i5-jbh"/>
@@ -4840,7 +4847,6 @@ Send to Admin</string>
         <image name="IC_locoations" width="18.5" height="21"/>
         <image name="IC_logout" width="31" height="31"/>
         <image name="IC_pinMark" width="15" height="21"/>
-        <image name="IC_premiumImg" width="20" height="20"/>
         <image name="IC_privacy" width="31" height="31"/>
         <image name="IC_search" width="19.5" height="19.5"/>
         <image name="IC_selectedCheckGray" width="17" height="16"/>
