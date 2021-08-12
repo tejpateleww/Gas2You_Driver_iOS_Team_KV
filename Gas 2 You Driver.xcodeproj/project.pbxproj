@@ -177,13 +177,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1802707B26C26E77003337F1 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		1802708026C2986E003337F1 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,7 +384,6 @@
 			children = (
 				1802708326C2B1ED003337F1 /* SettingsVC.swift */,
 				1802708026C2986E003337F1 /* Notification */,
-				1802707B26C26E77003337F1 /* New Group */,
 				184658A626C152B700958397 /* MyEarnings */,
 				9AC568C526B7C25C0039FCCF /* HomeVC.swift */,
 				9A81083626B963B5003DE6CC /* CarParkingLocationVC.swift */,

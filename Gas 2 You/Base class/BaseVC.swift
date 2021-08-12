@@ -22,6 +22,8 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         if pushToRoot {
             self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        } else {
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         }
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: CustomFont.PoppinsMedium.returnFont(16)]
@@ -119,28 +121,28 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
                    // let btnLeft = UIButton(frame: )
                     NavBackButton.setImage(UIImage.init(named: "IC_back"), for: .normal)
                     NavBackButton.layer.setValue(controller, forKey: "controller")
-                    
+                    NavBackButton.addTarget(self, action: #selector(self.BackButtonWithTitle), for: .touchUpInside)
                     let LeftView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
                     LeftView.addSubview(NavBackButton)
                     LeftView.backgroundColor = .white
                     addNormalShaddow(view: LeftView)
-                    LeftView.layer.cornerRadius = 5
+                    LeftView.layer.cornerRadius = 9
                     NavBackButton.isExclusiveTouch = true
                     NavBackButton.isMultipleTouchEnabled = false
                     let btnLeftBar : UIBarButtonItem = UIBarButtonItem.init(customView: LeftView)
                     btnLeftBar.style = .plain
                     controller.navigationItem.leftBarButtonItem = btnLeftBar
                 } else if leftImage == "Menu" {
-                    
-                    NavBackButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+                    let MenuButton = UIButton()
+                    MenuButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
                    // let btnLeft = UIButton(frame: )
-                    NavBackButton.setImage(UIImage.init(named: "ic_menu"), for: .normal)
-                    NavBackButton.layer.setValue(controller, forKey: "controller")
-                    NavBackButton.addTarget(self, action: #selector(self.menuButtonPressed), for: .touchUpInside)
+                    MenuButton.setImage(UIImage.init(named: "ic_menu"), for: .normal)
+                    MenuButton.layer.setValue(controller, forKey: "controller")
+                    MenuButton.addTarget(self, action: #selector(self.menuButtonPressed), for: .touchUpInside)
                     let LeftView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-                    LeftView.addSubview(NavBackButton)
-                    NavBackButton.isExclusiveTouch = true
-                    NavBackButton.isMultipleTouchEnabled = false
+                    LeftView.addSubview(MenuButton)
+                    MenuButton.isExclusiveTouch = true
+                    MenuButton.isMultipleTouchEnabled = false
                     let btnLeftBar : UIBarButtonItem = UIBarButtonItem.init(customView: LeftView)
                     btnLeftBar.style = .plain
                     controller.navigationItem.leftBarButtonItem = btnLeftBar
@@ -367,7 +369,7 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
     //        }
     //    }
     
-    @objc func BackButtonWithTitle(button: UIButton) {
+    @objc func BackButtonWithTitle() {
         
         if pushToRoot {
             self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true

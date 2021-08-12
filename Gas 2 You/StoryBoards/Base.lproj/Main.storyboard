@@ -3855,13 +3855,13 @@ Send to Admin</string>
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBe-No-inP">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="273" height="45"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sMn-yK-IjB">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="273" height="45"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H3r-kq-g9G">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="273" height="45"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
                                                                                         <subviews>
                                                                                             <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="GSm-Yd-6by">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="87" height="45"/>
@@ -3913,17 +3913,18 @@ Send to Admin</string>
                                                                         </subviews>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <constraints>
-                                                                            <constraint firstAttribute="trailing" secondItem="sMn-yK-IjB" secondAttribute="trailing" id="S0N-aU-OuN"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="sMn-yK-IjB" secondAttribute="trailing" id="7VA-qY-77M"/>
+                                                                            <constraint firstItem="sMn-yK-IjB" firstAttribute="leading" secondItem="NBe-No-inP" secondAttribute="leading" id="GEi-aV-DbX"/>
                                                                             <constraint firstItem="sMn-yK-IjB" firstAttribute="top" secondItem="NBe-No-inP" secondAttribute="top" id="bjT-pA-HfE"/>
                                                                             <constraint firstItem="sMn-yK-IjB" firstAttribute="leading" secondItem="NBe-No-inP" secondAttribute="leading" id="osd-NC-AOL"/>
                                                                             <constraint firstAttribute="bottom" secondItem="sMn-yK-IjB" secondAttribute="bottom" id="udR-Dc-0Ye"/>
                                                                         </constraints>
                                                                     </view>
-                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xHf-9q-7wO">
-                                                                        <rect key="frame" x="273" y="0.0" width="101" height="45"/>
+                                                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xHf-9q-7wO">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="45"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12 Aug, 2020 11:00 AM" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="MpD-SR-AJf" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="101" height="45"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="45"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -4307,6 +4308,16 @@ Send to Admin</string>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiy-Y0-TeP">
+                                                                <rect key="frame" x="0.0" y="248" width="374" height="1"/>
+                                                                <color key="backgroundColor" red="0.10980392160000001" green="0.45882352939999999" blue="0.73333333329999995" alpha="0.070000000000000007" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="1" id="H1X-5l-Uag"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pF5-Xi-xlf">
                                                                 <rect key="frame" x="0.0" y="10" width="374" height="239"/>
                                                                 <subviews>
@@ -4314,7 +4325,7 @@ Send to Admin</string>
                                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="189"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mOA-ku-HoV" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="265.5" height="189"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="189"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
@@ -4325,11 +4336,11 @@ Send to Admin</string>
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isBold" value="YES"/>
                                                                                 </userDefinedRuntimeAttributes>
                                                                             </label>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECB-DP-E66">
-                                                                                <rect key="frame" x="265.5" y="0.0" width="108.5" height="189"/>
+                                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ECB-DP-E66">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="4" height="189"/>
                                                                                 <subviews>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.000 Gallon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ukl-HV-nf1" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                                        <rect key="frame" x="2" y="2" width="104.5" height="184"/>
+                                                                                        <rect key="frame" x="2" y="2" width="0.0" height="184"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
                                                                                         <nil key="highlightedColor"/>
@@ -4344,7 +4355,7 @@ Send to Admin</string>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqM-KJ-9Kt">
-                                                                                        <rect key="frame" x="2" y="188" width="104.5" height="1"/>
+                                                                                        <rect key="frame" x="2" y="188" width="0.0" height="1"/>
                                                                                         <color key="backgroundColor" red="0.047058823530000002" green="0.47843137250000001" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="1" id="jmB-cN-rPJ"/>
@@ -4379,7 +4390,7 @@ Send to Admin</string>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S6k-3v-Mtp">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                                                                                 <subviews>
-                                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_checkBoxUnSelected" translatesAutoresizingMaskIntoConstraints="NO" id="SfM-4T-Wee">
+                                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_checkBoxSelected" translatesAutoresizingMaskIntoConstraints="NO" id="SfM-4T-Wee">
                                                                                                         <rect key="frame" x="0.0" y="5" width="35" height="25"/>
                                                                                                     </imageView>
                                                                                                 </subviews>
@@ -4430,7 +4441,7 @@ Send to Admin</string>
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Su3-ak-LfZ">
                                                                                                 <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
                                                                                                 <subviews>
-                                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_checkBoxSelected" translatesAutoresizingMaskIntoConstraints="NO" id="E1s-5S-R2O">
+                                                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_checkBoxUnSelected" translatesAutoresizingMaskIntoConstraints="NO" id="E1s-5S-R2O">
                                                                                                         <rect key="frame" x="0.0" y="5" width="35" height="25"/>
                                                                                                     </imageView>
                                                                                                 </subviews>
@@ -4481,8 +4492,11 @@ Send to Admin</string>
                                                         <constraints>
                                                             <constraint firstItem="pF5-Xi-xlf" firstAttribute="leading" secondItem="lWJ-Pt-s5c" secondAttribute="leading" id="5dy-tH-OA7"/>
                                                             <constraint firstAttribute="trailing" secondItem="A32-iG-btx" secondAttribute="trailing" id="JYE-w5-4A5"/>
+                                                            <constraint firstAttribute="trailing" secondItem="hiy-Y0-TeP" secondAttribute="trailing" id="MNo-CN-g9c"/>
                                                             <constraint firstAttribute="bottom" secondItem="pF5-Xi-xlf" secondAttribute="bottom" id="Pg4-YY-Fuv"/>
+                                                            <constraint firstItem="hiy-Y0-TeP" firstAttribute="leading" secondItem="lWJ-Pt-s5c" secondAttribute="leading" id="WWd-CJ-R9U"/>
                                                             <constraint firstItem="A32-iG-btx" firstAttribute="top" secondItem="lWJ-Pt-s5c" secondAttribute="top" id="Za1-KO-ZsR"/>
+                                                            <constraint firstAttribute="bottom" secondItem="hiy-Y0-TeP" secondAttribute="bottom" id="b8z-1u-RH1"/>
                                                             <constraint firstItem="A32-iG-btx" firstAttribute="leading" secondItem="lWJ-Pt-s5c" secondAttribute="leading" id="cB1-G8-yco"/>
                                                             <constraint firstItem="pF5-Xi-xlf" firstAttribute="top" secondItem="lWJ-Pt-s5c" secondAttribute="top" constant="10" id="mvv-dl-PWg"/>
                                                             <constraint firstAttribute="trailing" secondItem="pF5-Xi-xlf" secondAttribute="trailing" id="ywC-Vr-XZT"/>
@@ -4622,7 +4636,7 @@ Send to Admin</string>
                                                                     <constraint firstAttribute="height" constant="32" id="8vl-BY-qgo"/>
                                                                 </constraints>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
-                                                                <state key="normal" title="Complete Job">
+                                                                <state key="normal" title="Start Job">
                                                                     <color key="titleColor" red="0.21960784310000001" green="0.70980392160000005" blue="0.1647058824" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <userDefinedRuntimeAttributes>
@@ -4640,6 +4654,9 @@ Send to Admin</string>
                                                                         <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="BtnStartJob:" destination="QuX-Ic-leq" eventType="touchUpInside" id="Ial-l3-ilo"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -4692,6 +4709,15 @@ Send to Admin</string>
                             <constraint firstItem="tT7-0g-Aee" firstAttribute="trailing" secondItem="fai-9M-zSG" secondAttribute="trailing" id="y4P-CI-iVw"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="BtnStartJob" destination="Zqs-fc-Aaz" id="dlE-jA-f9l"/>
+                        <outlet property="ImgViewJobDone" destination="E1s-5S-R2O" id="fJU-Uj-UA6"/>
+                        <outlet property="ImgViewOntheway" destination="SfM-4T-Wee" id="r5F-Xg-IGJ"/>
+                        <outlet property="LblDateTime" destination="MpD-SR-AJf" id="D8M-L1-vea"/>
+                        <outlet property="LblFilledGallon" destination="Ukl-HV-nf1" id="smR-U2-IMj"/>
+                        <outlet property="ViewDateTime" destination="xHf-9q-7wO" id="Me4-Cs-P4y"/>
+                        <outlet property="ViewFilledGallon" destination="ECB-DP-E66" id="BMZ-Yh-8gy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TGx-dz-22v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
