@@ -37,6 +37,12 @@
 		184658FB26C16E7800958397 /* JobsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184658F926C16E7800958397 /* JobsCell.swift */; };
 		184658FC26C16E7800958397 /* JobsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184658FA26C16E7800958397 /* JobsCell.xib */; };
 		186D4A6326C3DE3900ABAE19 /* SendRequestToAdminPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186D4A6226C3DE3900ABAE19 /* SendRequestToAdminPopUpVC.swift */; };
+		1872B6D626C5A96E009B88EF /* RceiverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1872B6D526C5A96E009B88EF /* RceiverCell.xib */; };
+		1872B6D826C5AFF2009B88EF /* ChatHeaderXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1872B6D726C5AFF2009B88EF /* ChatHeaderXib.xib */; };
+		1872B6DA26C5B11A009B88EF /* SenderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1872B6D926C5B11A009B88EF /* SenderCell.xib */; };
+		1872B6DC26C5B53A009B88EF /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1872B6DB26C5B53A009B88EF /* ChatMessageCell.swift */; };
+		1872B6DE26C5B55E009B88EF /* ChatHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1872B6DD26C5B55E009B88EF /* ChatHeaderCell.swift */; };
+		1872B6E126C5B8DE009B88EF /* ChatVc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1872B6E026C5B8DE009B88EF /* ChatVc.swift */; };
 		187CE6D826C4DAA800C8E765 /* EnterQuentityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CE6D726C4DAA800C8E765 /* EnterQuentityVC.swift */; };
 		187CE6E626C512B100C8E765 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CE6DA26C512B100C8E765 /* LeftViewController.swift */; };
 		187CE6E726C512B100C8E765 /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CE6DB26C512B100C8E765 /* JobDetailsViewController.swift */; };
@@ -118,6 +124,12 @@
 		184658F926C16E7800958397 /* JobsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsCell.swift; sourceTree = "<group>"; };
 		184658FA26C16E7800958397 /* JobsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JobsCell.xib; sourceTree = "<group>"; };
 		186D4A6226C3DE3900ABAE19 /* SendRequestToAdminPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendRequestToAdminPopUpVC.swift; sourceTree = "<group>"; };
+		1872B6D526C5A96E009B88EF /* RceiverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RceiverCell.xib; sourceTree = "<group>"; };
+		1872B6D726C5AFF2009B88EF /* ChatHeaderXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatHeaderXib.xib; sourceTree = "<group>"; };
+		1872B6D926C5B11A009B88EF /* SenderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SenderCell.xib; sourceTree = "<group>"; };
+		1872B6DB26C5B53A009B88EF /* ChatMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
+		1872B6DD26C5B55E009B88EF /* ChatHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeaderCell.swift; sourceTree = "<group>"; };
+		1872B6E026C5B8DE009B88EF /* ChatVc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVc.swift; sourceTree = "<group>"; };
 		187CE6D726C4DAA800C8E765 /* EnterQuentityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterQuentityVC.swift; sourceTree = "<group>"; };
 		187CE6DA26C512B100C8E765 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		187CE6DB26C512B100C8E765 /* JobDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +213,44 @@
 			path = MyEarnings;
 			sourceTree = "<group>";
 		};
+		1872B6D326C5A90A009B88EF /* View Class */ = {
+			isa = PBXGroup;
+			children = (
+				18E5E47126C54C73004E79C4 /* CompletedCell.swift */,
+				9A3A913826C13B860041D7D9 /* AddressCell.swift */,
+				9A3A913A26C140AA0041D7D9 /* ChatListCell.swift */,
+				184658A926C15E4900958397 /* MyEarningsCell.swift */,
+				184658F926C16E7800958397 /* JobsCell.swift */,
+				1802707C26C28683003337F1 /* NotificationCell.swift */,
+				1872B6DB26C5B53A009B88EF /* ChatMessageCell.swift */,
+				1872B6DD26C5B55E009B88EF /* ChatHeaderCell.swift */,
+			);
+			path = "View Class";
+			sourceTree = "<group>";
+		};
+		1872B6D426C5A92D009B88EF /* Xib */ = {
+			isa = PBXGroup;
+			children = (
+				18E5E47026C54C73004E79C4 /* CompletedCell.xib */,
+				184658AA26C15E4900958397 /* MyEarningsCell.xib */,
+				184658FA26C16E7800958397 /* JobsCell.xib */,
+				1802707D26C28683003337F1 /* NotificationCell.xib */,
+				1872B6D526C5A96E009B88EF /* RceiverCell.xib */,
+				1872B6D726C5AFF2009B88EF /* ChatHeaderXib.xib */,
+				1872B6D926C5B11A009B88EF /* SenderCell.xib */,
+			);
+			path = Xib;
+			sourceTree = "<group>";
+		};
+		1872B6DF26C5B8B5009B88EF /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				9A3A913C26C141700041D7D9 /* ChatListVC.swift */,
+				1872B6E026C5B8DE009B88EF /* ChatVc.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		187CE6D926C512B100C8E765 /* Left ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,16 +277,8 @@
 		9A3A913726C13B540041D7D9 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				18E5E47126C54C73004E79C4 /* CompletedCell.swift */,
-				18E5E47026C54C73004E79C4 /* CompletedCell.xib */,
-				9A3A913826C13B860041D7D9 /* AddressCell.swift */,
-				9A3A913A26C140AA0041D7D9 /* ChatListCell.swift */,
-				184658A926C15E4900958397 /* MyEarningsCell.swift */,
-				184658AA26C15E4900958397 /* MyEarningsCell.xib */,
-				184658F926C16E7800958397 /* JobsCell.swift */,
-				184658FA26C16E7800958397 /* JobsCell.xib */,
-				1802707C26C28683003337F1 /* NotificationCell.swift */,
-				1802707D26C28683003337F1 /* NotificationCell.xib */,
+				1872B6D426C5A92D009B88EF /* Xib */,
+				1872B6D326C5A90A009B88EF /* View Class */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -399,8 +441,8 @@
 				18E5E46E26C54C28004E79C4 /* CompletedJobsVC.swift */,
 				9AC568C526B7C25C0039FCCF /* HomeVC.swift */,
 				9A81083626B963B5003DE6CC /* CarParkingLocationVC.swift */,
+				1872B6DF26C5B8B5009B88EF /* Chat */,
 				9A3A912326C128E90041D7D9 /* AddAddressVC.swift */,
-				9A3A913C26C141700041D7D9 /* ChatListVC.swift */,
 				1836325F26C3984E00D2C170 /* SendInvoiceVC.swift */,
 				186D4A6226C3DE3900ABAE19 /* SendRequestToAdminPopUpVC.swift */,
 				187CE6D726C4DAA800C8E765 /* EnterQuentityVC.swift */,
@@ -505,6 +547,7 @@
 			files = (
 				184658F226C1633600958397 /* OFL.txt in Resources */,
 				184658F426C1633600958397 /* Poppins-SemiBoldItalic.ttf in Resources */,
+				1872B6D626C5A96E009B88EF /* RceiverCell.xib in Resources */,
 				184658ED26C1633600958397 /* Poppins-Black.ttf in Resources */,
 				1802707F26C28683003337F1 /* NotificationCell.xib in Resources */,
 				184658EF26C1633600958397 /* Poppins-Thin.ttf in Resources */,
@@ -520,6 +563,7 @@
 				184658F526C1633600958397 /* Poppins-Light.ttf in Resources */,
 				184658F626C1633600958397 /* Poppins-ThinItalic.ttf in Resources */,
 				184658F726C1633600958397 /* Poppins-SemiBold.ttf in Resources */,
+				1872B6D826C5AFF2009B88EF /* ChatHeaderXib.xib in Resources */,
 				9A5B08B526B266EA00BA0CB4 /* Assets.xcassets in Resources */,
 				184658F026C1633600958397 /* Poppins-Medium.ttf in Resources */,
 				184658EB26C1633600958397 /* Poppins-ExtraBold.ttf in Resources */,
@@ -527,6 +571,7 @@
 				184658FC26C16E7800958397 /* JobsCell.xib in Resources */,
 				184658EC26C1633600958397 /* Poppins-Regular.ttf in Resources */,
 				184658E826C1633600958397 /* Poppins-MediumItalic.ttf in Resources */,
+				1872B6DA26C5B11A009B88EF /* SenderCell.xib in Resources */,
 				184658F326C1633600958397 /* Poppins-BlackItalic.ttf in Resources */,
 				9A5B08B026B266E800BA0CB4 /* Main.storyboard in Resources */,
 			);
@@ -617,6 +662,7 @@
 				9AC568C626B7C25C0039FCCF /* HomeVC.swift in Sources */,
 				9A3A912426C128E90041D7D9 /* AddAddressVC.swift in Sources */,
 				9A5B094026B278B800BA0CB4 /* Validation.swift in Sources */,
+				1872B6E126C5B8DE009B88EF /* ChatVc.swift in Sources */,
 				9A3A913026C133AC0041D7D9 /* Options.swift in Sources */,
 				9A81083726B963B5003DE6CC /* CarParkingLocationVC.swift in Sources */,
 				186D4A6326C3DE3900ABAE19 /* SendRequestToAdminPopUpVC.swift in Sources */,
@@ -634,6 +680,8 @@
 				187CE6D826C4DAA800C8E765 /* EnterQuentityVC.swift in Sources */,
 				9A5B094226B279AE00BA0CB4 /* Storyboards.swift in Sources */,
 				9A5B08A926B266E800BA0CB4 /* AppDelegate.swift in Sources */,
+				1872B6DE26C5B55E009B88EF /* ChatHeaderCell.swift in Sources */,
+				1872B6DC26C5B53A009B88EF /* ChatMessageCell.swift in Sources */,
 				187CE6E726C512B100C8E765 /* JobDetailsViewController.swift in Sources */,
 				187CE6E626C512B100C8E765 /* LeftViewController.swift in Sources */,
 				9A5B08EB26B26CEF00BA0CB4 /* Fonts.swift in Sources */,

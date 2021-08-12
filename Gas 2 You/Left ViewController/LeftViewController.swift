@@ -54,6 +54,22 @@ extension LeftViewController : UITableViewDelegate, UITableViewDataSource {
         cell.ImageViewMenuIcon.image = UIImage(named: titlesArray[indexPath.row].1)
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if titlesArray[indexPath.row].0 == "Home" {
+            
+        }else if titlesArray[indexPath.row].0 == "My Orders"{
+            
+        }else if titlesArray[indexPath.row].0 == "My Profile"{
+            
+        }else if titlesArray[indexPath.row].0 == "Membership"{
+            
+        }else if titlesArray[indexPath.row].0 == "Settings"{
+            
+        }else{
+            let vc : NotificationVC = NotificationVC.instantiate(fromAppStoryboard: .Main)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
     
 }

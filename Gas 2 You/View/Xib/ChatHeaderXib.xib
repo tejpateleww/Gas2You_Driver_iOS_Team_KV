@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TimeHeader" id="Kg0-Zq-CgH" customClass="chatHeaderCell" customModule="PickARide_User" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="37.5"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kg0-Zq-CgH" id="2NC-KX-Oer" customClass="ChatHeaderCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="37.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JNZ-MA-c9c">
+                        <rect key="frame" x="156.5" y="8" width="62.5" height="25"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="May 2" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n5M-SG-HWp" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                <rect key="frame" x="8" y="3" width="46.5" height="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" name="ChatHederColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="lblHeader" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                        <real key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRegular" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                        <color key="value" name="ChatHederColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="CommonBGColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="BDX-pd-Kbv"/>
+                            <constraint firstItem="n5M-SG-HWp" firstAttribute="leading" secondItem="JNZ-MA-c9c" secondAttribute="leading" constant="8" id="XT8-wN-nZD"/>
+                            <constraint firstAttribute="trailing" secondItem="n5M-SG-HWp" secondAttribute="trailing" constant="8" id="fPv-Bb-leM"/>
+                            <constraint firstItem="n5M-SG-HWp" firstAttribute="top" secondItem="JNZ-MA-c9c" secondAttribute="top" constant="3" id="oBF-Sw-KvF"/>
+                            <constraint firstAttribute="bottom" secondItem="n5M-SG-HWp" secondAttribute="bottom" constant="3" id="v7N-dk-r3V"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRound" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstItem="JNZ-MA-c9c" firstAttribute="centerX" secondItem="2NC-KX-Oer" secondAttribute="centerX" id="bej-8l-FvU"/>
+                    <constraint firstAttribute="bottom" secondItem="JNZ-MA-c9c" secondAttribute="bottom" constant="3" id="hGs-q4-AeV"/>
+                    <constraint firstItem="JNZ-MA-c9c" firstAttribute="top" secondItem="2NC-KX-Oer" secondAttribute="top" constant="8" id="z8A-mm-LwG"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="lblDateTime" destination="n5M-SG-HWp" id="C4m-Br-QPi"/>
+                <outlet property="lblTime" destination="n5M-SG-HWp" id="z4M-b2-lFN"/>
+                <outlet property="mainVW" destination="JNZ-MA-c9c" id="JdB-Mn-4RZ"/>
+            </connections>
+            <point key="canvasLocation" x="31" y="-188"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="ChatHederColor">
+            <color red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CommonBGColor">
+            <color red="0.93725490196078431" green="0.93725490196078431" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
