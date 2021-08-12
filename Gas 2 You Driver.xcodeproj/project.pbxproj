@@ -36,6 +36,8 @@
 		184658F826C1633600958397 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 184658E526C1633600958397 /* Poppins-Italic.ttf */; };
 		184658FB26C16E7800958397 /* JobsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184658F926C16E7800958397 /* JobsCell.swift */; };
 		184658FC26C16E7800958397 /* JobsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184658FA26C16E7800958397 /* JobsCell.xib */; };
+		186D4A6326C3DE3900ABAE19 /* SendRequestToAdminPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186D4A6226C3DE3900ABAE19 /* SendRequestToAdminPopUpVC.swift */; };
+		187CE6D826C4DAA800C8E765 /* EnterQuentityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CE6D726C4DAA800C8E765 /* EnterQuentityVC.swift */; };
 		9A3A912426C128E90041D7D9 /* AddAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3A912326C128E90041D7D9 /* AddAddressVC.swift */; };
 		9A3A912F26C133AC0041D7D9 /* SideMenuItemOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3A912626C133AB0041D7D9 /* SideMenuItemOptions.swift */; };
 		9A3A913026C133AC0041D7D9 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3A912726C133AB0041D7D9 /* Options.swift */; };
@@ -108,6 +110,8 @@
 		184658E526C1633600958397 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		184658F926C16E7800958397 /* JobsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsCell.swift; sourceTree = "<group>"; };
 		184658FA26C16E7800958397 /* JobsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JobsCell.xib; sourceTree = "<group>"; };
+		186D4A6226C3DE3900ABAE19 /* SendRequestToAdminPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendRequestToAdminPopUpVC.swift; sourceTree = "<group>"; };
+		187CE6D726C4DAA800C8E765 /* EnterQuentityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterQuentityVC.swift; sourceTree = "<group>"; };
 		23FBE9F64945D7195FB03CB0 /* Pods-Gas 2 You.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gas 2 You.release.xcconfig"; path = "Target Support Files/Pods-Gas 2 You/Pods-Gas 2 You.release.xcconfig"; sourceTree = "<group>"; };
 		3EC1E0F1665E6CA6F8419210 /* Pods-Gas 2 You.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Gas 2 You.debug.xcconfig"; path = "Target Support Files/Pods-Gas 2 You/Pods-Gas 2 You.debug.xcconfig"; sourceTree = "<group>"; };
 		5EF54FFA5D877A8A791918B3 /* Pods_Gas_2_You_Driver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gas_2_You_Driver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -377,6 +381,8 @@
 				9A3A912326C128E90041D7D9 /* AddAddressVC.swift */,
 				9A3A913C26C141700041D7D9 /* ChatListVC.swift */,
 				1836325F26C3984E00D2C170 /* SendInvoiceVC.swift */,
+				186D4A6226C3DE3900ABAE19 /* SendRequestToAdminPopUpVC.swift */,
+				187CE6D726C4DAA800C8E765 /* EnterQuentityVC.swift */,
 			);
 			path = "Home Controllers";
 			sourceTree = "<group>";
@@ -589,6 +595,7 @@
 				9A5B094026B278B800BA0CB4 /* Validation.swift in Sources */,
 				9A3A913026C133AC0041D7D9 /* Options.swift in Sources */,
 				9A81083726B963B5003DE6CC /* CarParkingLocationVC.swift in Sources */,
+				186D4A6326C3DE3900ABAE19 /* SendRequestToAdminPopUpVC.swift in Sources */,
 				9A3A912F26C133AC0041D7D9 /* SideMenuItemOptions.swift in Sources */,
 				9A5B093B26B2788500BA0CB4 /* userDefaults+Extension.swift in Sources */,
 				9A5B093D26B2788500BA0CB4 /* Extension+CLLocation.swift in Sources */,
@@ -599,6 +606,7 @@
 				1836326026C3984E00D2C170 /* SendInvoiceVC.swift in Sources */,
 				9A3A913B26C140AA0041D7D9 /* ChatListCell.swift in Sources */,
 				9AC568C226B7C0B70039FCCF /* BaseVC.swift in Sources */,
+				187CE6D826C4DAA800C8E765 /* EnterQuentityVC.swift in Sources */,
 				9A5B094226B279AE00BA0CB4 /* Storyboards.swift in Sources */,
 				9A5B08A926B266E800BA0CB4 /* AppDelegate.swift in Sources */,
 				9A5B08AB26B266E800BA0CB4 /* SceneDelegate.swift in Sources */,

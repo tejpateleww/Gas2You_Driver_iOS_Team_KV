@@ -331,6 +331,13 @@ class themeTextfield : UITextField{
     @IBInspectable public var Border_Width: CGFloat = 1.0
     @IBInspectable public var Border_Color: UIColor = .clear
     @IBInspectable public var Corner_Radius: CGFloat = 1
+    @IBInspectable public var isBold: Bool = false
+    @IBInspectable public var isSemibold: Bool = false
+    @IBInspectable public var isLight: Bool = false
+    @IBInspectable public var isMedium: Bool = false
+    @IBInspectable public var isRegular: Bool = false
+    @IBInspectable public var fontColor: UIColor = .black
+    @IBInspectable public var placeholderColor: UIColor = .white
     
     @IBInspectable var rightButton: String? {
         didSet {
@@ -376,8 +383,20 @@ class themeTextfield : UITextField{
     }
     override func awakeFromNib() {
         super.awakeFromNib()
+        if isBold {
+            self.font = CustomFont.PoppinsBold.returnFont(Font_Size)
+        } else if isSemibold {
+            self.font = CustomFont.PoppinsSemiBold.returnFont(Font_Size)
+        } else if isMedium {
+            self.font = CustomFont.PoppinsMedium.returnFont(Font_Size)
+        } else if isLight {
+            self.font = CustomFont.PoppinsLight.returnFont(Font_Size)
+        } else {
+            self.font = CustomFont.PoppinsRegular.returnFont(Font_Size)
+        }
+        self.textColor = fontColor
        
-        self.font = FontBook.regular.of(size : Font_Size)
+//        self.font = FontBook.regular.of(size : Font_Size)
         
         self.layer.borderWidth = Border_Width
         self.layer.borderColor = Border_Color.cgColor
@@ -385,7 +404,7 @@ class themeTextfield : UITextField{
         
         
         self.attributedPlaceholder = NSAttributedString(string: self.placeholder ?? "",
-                                                        attributes: [NSAttributedString.Key.foregroundColor: UIColor.white] )
+                                                        attributes: [NSAttributedString.Key.foregroundColor: placeholderColor] )
         
     }
     

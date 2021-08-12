@@ -15,4 +15,7 @@ class SettingsVC: BaseVC {
 //        NavBarTitle(isOnlyTitle: false, isMenuButton: false, title: "Settings", controller: self)
     }
     
+    @IBAction func btnPrivacyTap(_ sender: Any) {
+        
+    }
 }
