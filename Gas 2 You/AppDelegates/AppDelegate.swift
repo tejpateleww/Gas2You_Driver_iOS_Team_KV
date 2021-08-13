@@ -25,8 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.shared.enable = true
         GMSServices.provideAPIKey("AIzaSyAsK4EKl6GkGqELS8YySwoIWVjNjAwR7dg")
-        
-//        navigateToLogin()
+        navigateToLogin()
         return true
     }
 

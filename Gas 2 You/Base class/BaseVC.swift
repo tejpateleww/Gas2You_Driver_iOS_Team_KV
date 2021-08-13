@@ -85,7 +85,7 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
         
         
     }
-    func setNavigationBarInViewController (controller : UIViewController,naviColor : UIColor, naviTitle : String, leftImage : String , rightImages : [String], isTranslucent : Bool, ShowShadow:Bool? = false)
+    func setNavigationBarInViewController (controller : UIViewController,naviColor : UIColor, naviTitle : String, leftImage : String , rightImages : [String], isTranslucent : Bool, ShowShadow:Bool? = false, iswhiteTitle : Bool = false)
     {
         UIApplication.shared.statusBarStyle = .lightContent
         controller.navigationController?.isNavigationBarHidden = false
@@ -106,7 +106,7 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
             let lblNavTitle = UILabel()
             lblNavTitle.font = CustomFont.PoppinsMedium.returnFont(18)
             lblNavTitle.backgroundColor = UIColor.clear
-            lblNavTitle.textColor = colors.black.value
+            lblNavTitle.textColor =  iswhiteTitle ? .white : colors.black.value
             lblNavTitle.numberOfLines = 0
             lblNavTitle.text = naviTitle
 

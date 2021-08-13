@@ -12,6 +12,8 @@ class LogInVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var firstTF: themeTextfield!
     @IBOutlet weak var btnSignUp: themeButton!
     @IBOutlet weak var btnLogin: ThemeButton!
+    @IBOutlet weak var txtEmail: themeTextfield!
+    @IBOutlet weak var txtPassword: themeTextfield!
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -21,7 +23,23 @@ class LogInVC: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTextfields(textfield: txtPassword)
+    }
+    func setupTextfields(textfield : UITextField) {
         
+        textfield.rightViewMode = .always
+        let button = UIButton(frame: CGRect(x: 10, y: 0, width: 60, height: 40))
+        button.setTitle("Forgot?", for: .normal)
+        button.setColorFont(color: .gray , font: CustomFont.PoppinsMedium.returnFont(14))
+        button.addTarget(self, action: #selector(navigateToForgotPassword), for: .touchUpInside)
+        let view = UIView(frame : CGRect(x: 0, y: 0, width: 80, height: 40))
+        view.addSubview(button)
+        textfield.rightView = view
+    }
+    @objc func navigateToForgotPassword(){
+        let loginStory = UIStoryboard(name: "Main", bundle: nil)
+        let forgotpassVC = loginStory.instantiateViewController(identifier: ForgotPasswordVC.className) as! ForgotPasswordVC
+        navigationController?.pushViewController(forgotpassVC, animated: true)
     }
     
     

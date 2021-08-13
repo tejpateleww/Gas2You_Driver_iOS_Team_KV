@@ -11,7 +11,7 @@ class SettingsVC: BaseVC {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setNavigationBarInViewController(controller: self, naviColor: .white, naviTitle: "Settings", leftImage: "Back", rightImages: [], isTranslucent: true)
 //        NavBarTitle(isOnlyTitle: false, isMenuButton: false, title: "Settings", controller: self)
     }
     

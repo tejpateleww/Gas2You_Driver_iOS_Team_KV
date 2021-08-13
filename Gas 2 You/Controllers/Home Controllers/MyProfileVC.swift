@@ -16,7 +16,7 @@ class MyProfileVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        NavBarTitle(isOnlyTitle: false, isMenuButton: false, title: "My Profile", controller: self)
+        setNavigationBarInViewController(controller: self, naviColor: .white, naviTitle: "My Profile", leftImage: "Back", rightImages: [], isTranslucent: true)
         imgProfile.layer.cornerRadius = imgProfile.frame.height/2
         btnChangePassword.layer.cornerRadius = btnChangePassword.frame.height/2
         btnChangePassword.layer.borderWidth = 2
@@ -33,8 +33,12 @@ class MyProfileVC: BaseVC {
     }
     
     @IBAction func btnChangePasswordTap(_ sender: Any) {
+        let vc : ChangePasswordVC = ChangePasswordVC.instantiate(fromAppStoryboard: .Main)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func btnMyEarningTap(_ sender: Any) {
+        let vc : MyEarningsVC = MyEarningsVC.instantiate(fromAppStoryboard: .Main)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     

@@ -48,6 +48,9 @@
 		187CE6E726C512B100C8E765 /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CE6DB26C512B100C8E765 /* JobDetailsViewController.swift */; };
 		187CE6E826C512B100C8E765 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CE6DC26C512B100C8E765 /* NavigationController.swift */; };
 		187CE6F126C514B800C8E765 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CE6F026C514B700C8E765 /* MainViewController.swift */; };
+		18C2FAD426C69300005E1D07 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C2FAD326C69300005E1D07 /* ForgotPasswordVC.swift */; };
+		18C2FAD626C69330005E1D07 /* ChangePasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C2FAD526C69330005E1D07 /* ChangePasswordVC.swift */; };
+		18C2FAD826C6AE27005E1D07 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C2FAD726C6AE26005E1D07 /* ChatViewController.swift */; };
 		18E5E46D26C535A0004E79C4 /* MyProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5E46C26C535A0004E79C4 /* MyProfileVC.swift */; };
 		18E5E46F26C54C28004E79C4 /* CompletedJobsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5E46E26C54C28004E79C4 /* CompletedJobsVC.swift */; };
 		18E5E47226C54C73004E79C4 /* CompletedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18E5E47026C54C73004E79C4 /* CompletedCell.xib */; };
@@ -135,6 +138,9 @@
 		187CE6DB26C512B100C8E765 /* JobDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
 		187CE6DC26C512B100C8E765 /* NavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		187CE6F026C514B700C8E765 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		18C2FAD326C69300005E1D07 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		18C2FAD526C69330005E1D07 /* ChangePasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangePasswordVC.swift; sourceTree = "<group>"; };
+		18C2FAD726C6AE26005E1D07 /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		18E5E46C26C535A0004E79C4 /* MyProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileVC.swift; sourceTree = "<group>"; };
 		18E5E46E26C54C28004E79C4 /* CompletedJobsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletedJobsVC.swift; sourceTree = "<group>"; };
 		18E5E47026C54C73004E79C4 /* CompletedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CompletedCell.xib; sourceTree = "<group>"; };
@@ -427,6 +433,7 @@
 			children = (
 				9A5B094926B2C9FC00BA0CB4 /* LogInVC.swift */,
 				9AC568BE26B7B1020039FCCF /* SignUpVC.swift */,
+				18C2FAD526C69330005E1D07 /* ChangePasswordVC.swift */,
 			);
 			path = "Login Controllers";
 			sourceTree = "<group>";
@@ -434,7 +441,9 @@
 		9AC568C426B7C2450039FCCF /* Home Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				18C2FAD326C69300005E1D07 /* ForgotPasswordVC.swift */,
 				18E5E46C26C535A0004E79C4 /* MyProfileVC.swift */,
+				18C2FAD726C6AE26005E1D07 /* ChatViewController.swift */,
 				1802708326C2B1ED003337F1 /* SettingsVC.swift */,
 				1802708026C2986E003337F1 /* Notification */,
 				184658A626C152B700958397 /* MyEarnings */,
@@ -653,10 +662,12 @@
 				9A5B093726B2788500BA0CB4 /* UIViewController+Extension.swift in Sources */,
 				184658A826C152EB00958397 /* MyEarningsVC.swift in Sources */,
 				9AC568CA26B7C8020039FCCF /* Constants.swift in Sources */,
+				18C2FAD826C6AE27005E1D07 /* ChatViewController.swift in Sources */,
 				187CE6E826C512B100C8E765 /* NavigationController.swift in Sources */,
 				9A3A913126C133AC0041D7D9 /* MenuContainerViewController.swift in Sources */,
 				18E5E46D26C535A0004E79C4 /* MyProfileVC.swift in Sources */,
 				9AC568BF26B7B1020039FCCF /* SignUpVC.swift in Sources */,
+				18C2FAD426C69300005E1D07 /* ForgotPasswordVC.swift in Sources */,
 				9A5B094626B27AB400BA0CB4 /* ThemeShadow.swift in Sources */,
 				1802708426C2B1ED003337F1 /* SettingsVC.swift in Sources */,
 				9AC568C626B7C25C0039FCCF /* HomeVC.swift in Sources */,
@@ -689,6 +700,7 @@
 				187CE6F126C514B800C8E765 /* MainViewController.swift in Sources */,
 				9A3A913D26C141700041D7D9 /* ChatListVC.swift in Sources */,
 				9A5B093C26B2788500BA0CB4 /* UIImage+Extension.swift in Sources */,
+				18C2FAD626C69330005E1D07 /* ChangePasswordVC.swift in Sources */,
 				18E5E47326C54C73004E79C4 /* CompletedCell.swift in Sources */,
 				9A5B08E826B26C7800BA0CB4 /* Themes.swift in Sources */,
 				9A3A913226C133AC0041D7D9 /* MenuAnimator.swift in Sources */,

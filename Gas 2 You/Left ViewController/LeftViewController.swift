@@ -23,7 +23,6 @@ class LeftViewController: MenuViewController {
     private let titlesArray : [(String,String)] = [("Home","ic_Home"),
                                                    ("My Orders","ic_MyOrders"),
                                                    ("My Profile","ic_MyProfile"),
-                                                   ("Membership","ic_Membership"),
                                                    ("Settings","ic_Settings"),
                                                    ("Notifications","ic_Notifications")]
     
@@ -55,25 +54,44 @@ extension LeftViewController : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let menuContainerViewController = self.menuContainerViewController else {
+                       return
+                   }
+//                   let vc : NotificationVC = NotificationVC.instantiate(fromAppStoryboard: .Main)
+//                   (menuContainerViewController.contentViewControllers[0] as? NavigationController)?.pushViewController(vc, animated: false)
+//
+//                   menuContainerViewController.hideSideMenu()
         if titlesArray[indexPath.row].0 == "Home" {
             
         }else if titlesArray[indexPath.row].0 == "My Orders"{
+            let vc : CompletedJobsVC = CompletedJobsVC.instantiate(fromAppStoryboard: .Main)
+            (menuContainerViewController.contentViewControllers[0] as? NavigationController)?.pushViewController(vc, animated: false)
             
+            menuContainerViewController.hideSideMenu()
+            self.navigationController?.pushViewController(vc, animated: true)
         }else if titlesArray[indexPath.row].0 == "My Profile"{
+            let vc : MyProfileVC = MyProfileVC.instantiate(fromAppStoryboard: .Main)
+            (menuContainerViewController.contentViewControllers[0] as? NavigationController)?.pushViewController(vc, animated: false)
             
+            menuContainerViewController.hideSideMenu()
+            self.navigationController?.pushViewController(vc, animated: true)
         }else if titlesArray[indexPath.row].0 == "Membership"{
             
         }else if titlesArray[indexPath.row].0 == "Settings"{
+            let vc : SettingsVC = SettingsVC.instantiate(fromAppStoryboard: .Main)
+            (menuContainerViewController.contentViewControllers[0] as? NavigationController)?.pushViewController(vc, animated: false)
             
+            menuContainerViewController.hideSideMenu()
+            self.navigationController?.pushViewController(vc, animated: true)
         }else{
             let vc : NotificationVC = NotificationVC.instantiate(fromAppStoryboard: .Main)
+            (menuContainerViewController.contentViewControllers[0] as? NavigationController)?.pushViewController(vc, animated: false)
+            
+            menuContainerViewController.hideSideMenu()
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
-    
 }
-
 extension LeftViewController : MPMediaPickerControllerDelegate {
     
     func mediaPicker(_ mediaPicker: MPMediaPickerController,

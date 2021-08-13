@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import IQKeyboardManagerSwift
 
 //==========================
 //MARK:- === Label ===
@@ -629,5 +630,72 @@ class ThemeView : UIView {
 class RoundedImageView: UIImageView {
     override func awakeFromNib() {
         self.layer.cornerRadius = self.frame.height / 2
+    }
+}
+class chatScreenLabel : UILabel {
+    @IBInspectable var lblSender : Bool = false
+    @IBInspectable var lblReciver : Bool = false
+    @IBInspectable var lblHeader : Bool = false
+    
+    override func awakeFromNib() {
+        self.numberOfLines = 0
+        if lblSender {
+            self.font = CustomFont.PoppinsMedium.returnFont(17)
+            self.textColor = colors.white.value
+            self.textAlignment = .right
+        } else if lblReciver {
+            self.font = CustomFont.PoppinsMedium.returnFont(17)
+            self.textColor = colors.loginPlaceHolderColor.value
+            self.textAlignment = .left
+        } else if lblHeader {
+            self.font = CustomFont.PoppinsRegular.returnFont(14)
+            self.textColor = UIColor(hexString: "#ACB1C0")
+            self.textAlignment = .center
+        }
+    }
+}
+class chatScreenView : UIView {
+    
+    @IBInspectable var isSenderView : Bool = false
+    @IBInspectable var isReciverView : Bool = false
+    
+    override func awakeFromNib() {
+     //   self.roundCorners(corners: [.layerMinXMinYCorner,.layerMaxXMinYCorner,.layerMinXMaxYCorner,.layerMaxXMaxYCorner], radius: 12)
+//        if isSenderView {
+//            self.backgroundColor = UIColor(hexString: "#00AA7E")
+//        } else if isReciverView {
+//            self.backgroundColor = UIColor(hexString: "#DEE2EA")
+//        }
+    }
+    
+    override func layoutSubviews() {
+    super.layoutSubviews()
+        if isSenderView {
+            self.backgroundColor = UIColor(hexString: "#00AA7E")
+            let bounds: CGRect = self.bounds
+            let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: ([ .topLeft, .topRight, .bottomLeft]), cornerRadii: CGSize(width: 12.0, height: 12.0))
+            let maskLayer = CAShapeLayer()
+            maskLayer.frame = bounds
+            maskLayer.path = maskPath.cgPath
+            self.layer.mask = maskLayer
+        } else if isReciverView {
+            self.backgroundColor = UIColor(hexString: "#DEE2EA")
+            let bounds: CGRect = self.bounds
+            let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: ([.topLeft, .bottomRight, .topRight]), cornerRadii: CGSize(width: 12.0, height: 12.0))
+            let maskLayer = CAShapeLayer()
+            maskLayer.frame = bounds
+            maskLayer.path = maskPath.cgPath
+            self.layer.mask = maskLayer
+        }
+        
+    }
+}
+class ratingTextview : IQTextView{
+    override func awakeFromNib() {
+        self.layer.borderWidth = 1
+        self.layer.borderColor = UIColor.init(hexString: "#E4E9F2").cgColor
+        self.layer.cornerRadius = 5
+        self.clipsToBounds = true
+        self.textContainerInset = UIEdgeInsets(top: 13, left: 13, bottom: 13, right: 13)
     }
 }

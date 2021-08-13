@@ -181,6 +181,9 @@
                                                 <color key="value" red="0.20392156862745098" green="0.5607843137254902" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="btnDownloadTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6XE-wy-Wo1"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

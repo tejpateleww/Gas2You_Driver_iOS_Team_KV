@@ -98,6 +98,7 @@
                 <outlet property="lblMessage" destination="67V-du-yR2" id="rrt-BS-bbU"/>
                 <outlet property="lblSenderMessage" destination="67V-du-yR2" id="oGN-88-Z0q"/>
                 <outlet property="lblSenderView" destination="NHg-rh-lcR" id="t8t-VI-FD7"/>
+                <outlet property="lblTime" destination="FVg-kp-g8J" id="lcA-s9-8CP"/>
                 <outlet property="mainVW" destination="REU-vS-d7N" id="xNT-kO-c4f"/>
             </connections>
             <point key="canvasLocation" x="34.782608695652179" y="-6.3616071428571423"/>

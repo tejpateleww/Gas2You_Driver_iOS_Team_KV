@@ -18,7 +18,7 @@ class CompletedJobsVC: BaseVC {
         
         NavbarrightButton()
         
-        
+        setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Complete Jobs", leftImage: "Back", rightImages: [], isTranslucent: true)
         let completedCellNib = UINib(nibName: CompletedCell.className, bundle: nil)
         tblCompletedJobs.register(completedCellNib, forCellReuseIdentifier: CompletedCell.className)
     }
@@ -34,11 +34,18 @@ extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
         
      
             let completedCell = tblCompletedJobs.dequeueReusableCell(withIdentifier: CompletedCell.className) as! CompletedCell
-            
+        completedCell.btnDownloadTapCousure = {
+            let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
+            vc.isfromhome = false
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
             return completedCell
         
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         
 //        return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 }

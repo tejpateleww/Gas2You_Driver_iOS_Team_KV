@@ -9,7 +9,12 @@ import UIKit
 
 class CompletedCell: UITableViewCell {
 
+    //MARK:- IBOutlets
     @IBOutlet weak var lblTopHalf: themeLabel!
+    
+    
+    //MARK:- Variables
+    var btnDownloadTapCousure : (()->())?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,4 +28,9 @@ class CompletedCell: UITableViewCell {
       
     }
     
+    @IBAction func btnDownloadTap(_ sender: UIButton) {
+        if let obj = self.btnDownloadTapCousure{
+            obj()
+        }
+    }
 }

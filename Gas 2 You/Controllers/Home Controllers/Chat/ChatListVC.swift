@@ -13,7 +13,7 @@ class ChatListVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Chat", leftImage: "Back", rightImages: [], isTranslucent: true)
         //NavBarTitle(isOnlyTitle: false, isMenuButton: false, title: "Chat", controller: self)
     }
     
@@ -31,5 +31,9 @@ extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
         let cell = chatListTV.dequeueReusableCell(withIdentifier: "cell") as! ChatListCell
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc : ChatVc = ChatVc.instantiate(fromAppStoryboard: .Main)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

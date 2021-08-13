@@ -17,6 +17,7 @@ class EnterQuentityVC: BaseVC,UITextFieldDelegate{
     @IBOutlet weak var lblEnterQuentity: themeLabel!
     
     //MARK:- Variables
+    var btnSubmitClosure : ((String)->())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +30,14 @@ class EnterQuentityVC: BaseVC,UITextFieldDelegate{
     
     //MARK:- IBActions
     @IBAction func btnSubmitTap(_ sender: Any) {
+        self.dismiss(animated: false, completion: {
+            if let obj = self.btnSubmitClosure{
+                obj(self.txtPrice.text ?? "12.000")
+            }
+        })
     }
     @IBAction func btnCancelTap(_ sender: Any) {
+        self.dismiss(animated: false, completion: nil)
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         textField.StopWrittingAtCharactorLimit(CharLimit: 6, range: range, string: string)
@@ -49,8 +56,8 @@ extension String {
 
         var number: NSNumber!
         let formatter = NumberFormatter()
-        formatter.numberStyle = .currencyAccounting
-        formatter.currencySymbol = ""//SingletonClass.sharedInstance.currency
+        formatter.numberStyle = .currencyPlural
+        formatter.currencySymbol = "Gallon"//SingletonClass.sharedInstance.currency
         formatter.maximumFractionDigits = 3
         formatter.minimumFractionDigits = 3
 

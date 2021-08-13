@@ -27,8 +27,6 @@ class MessageAllData {
     }
 }
 
-
-
 class ChatVc: UIViewController {
 
     @IBOutlet weak var tblChat: UITableView!
@@ -45,8 +43,8 @@ class ChatVc: UIViewController {
 //MARK:- Methods
 extension ChatVc{
     func setUpTableFormatting(){
-        self.tblChat.register(UINib(nibName: "SenderCell", bundle: nil), forCellReuseIdentifier: "SenderCell")
-        self.tblChat.register(UINib(nibName: "ReceiverCell", bundle: nil), forCellReuseIdentifier: "ReceiverCell")
+        self.tblChat.register(UINib(nibName: "ChatMessageCell", bundle: nil), forCellReuseIdentifier: "SenderCell")
+        self.tblChat.register(UINib(nibName: "ChatMessageCell", bundle: nil), forCellReuseIdentifier: "ReceiverCell")
     }
     
     func setUpMessage() {
