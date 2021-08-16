@@ -1451,9 +1451,6 @@ and Pr</string>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VXl-2y-DHj">
                                                 <rect key="frame" x="11" y="11" width="28" height="28"/>
                                                 <state key="normal" image="IC_locationTarget"/>
-                                                <connections>
-                                                    <segue destination="8aY-jl-1yo" kind="show" id="weA-bO-hCT"/>
-                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1498,11 +1495,11 @@ and Pr</string>
             <objects>
                 <viewController storyboardIdentifier="AddAddressVC" id="8aY-jl-1yo" customClass="AddAddressVC" customModule="Gas_2_You_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dwX-xk-I8U">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IPg-l4-ukc">
-                                <rect key="frame" x="0.0" y="16" width="414" height="715"/>
+                                <rect key="frame" x="0.0" y="60" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="ugE-NY-Mox" customClass="AddressCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
@@ -1590,7 +1587,7 @@ and Pr</string>
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OCL-dy-biX" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                <rect key="frame" x="20" y="743" width="374" height="57"/>
+                                <rect key="frame" x="20" y="797" width="374" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="57" id="RU1-ic-Rrl"/>
                                 </constraints>
@@ -1611,7 +1608,6 @@ and Pr</string>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="addAdressBtnPressed:" destination="8aY-jl-1yo" eventType="touchUpInside" id="9oa-4f-Nm7"/>
-                                    <segue destination="DQA-ls-emk" kind="show" id="nZ2-YZ-Tmc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1641,11 +1637,11 @@ and Pr</string>
             <objects>
                 <viewController storyboardIdentifier="ChatListVC" id="DQA-ls-emk" customClass="ChatListVC" customModule="Gas_2_You_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="e4w-Ph-88A">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cf0-yg-o1M">
-                                <rect key="frame" x="0.0" y="16" width="414" height="792"/>
+                                <rect key="frame" x="0.0" y="60" width="414" height="802"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="e3l-d4-5kw" customClass="ChatListCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
@@ -1995,15 +1991,17 @@ and Pr</string>
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xpD-6G-Vh6">
-                                        <rect key="frame" x="15" y="58" width="384" height="760"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xpD-6G-Vh6">
+                                        <rect key="frame" x="5" y="58" width="404" height="760"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="xpD-6G-Vh6" secondAttribute="bottom" id="1qe-2q-3oB"/>
+                                    <constraint firstAttribute="trailing" secondItem="xpD-6G-Vh6" secondAttribute="trailing" constant="5" id="MZw-2Q-MOM"/>
                                     <constraint firstItem="xpD-6G-Vh6" firstAttribute="top" secondItem="m5Y-HB-vKq" secondAttribute="bottom" constant="15" id="b3v-s6-XRr"/>
+                                    <constraint firstItem="xpD-6G-Vh6" firstAttribute="leading" secondItem="CZi-Hy-5Fp" secondAttribute="leading" constant="5" id="c6P-K6-CFM"/>
                                     <constraint firstItem="m5Y-HB-vKq" firstAttribute="leading" secondItem="CZi-Hy-5Fp" secondAttribute="leading" constant="20" id="cu4-jx-Swe"/>
                                     <constraint firstAttribute="trailing" secondItem="m5Y-HB-vKq" secondAttribute="trailing" constant="20" id="dqa-tb-Wcj"/>
                                     <constraint firstItem="m5Y-HB-vKq" firstAttribute="top" secondItem="CZi-Hy-5Fp" secondAttribute="top" constant="11" id="nNQ-eL-3N9"/>
@@ -5187,7 +5185,7 @@ Send to Admin</string>
         <!--Forgot PasswordVC-->
         <scene sceneID="etk-pa-kdq">
             <objects>
-                <viewController storyboardIdentifier="ForgotPasswordVC" id="rLw-9c-ezM" customClass="ForgotPasswordVC" customModule="Gas_2_You" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ForgotPasswordVC" id="rLw-9c-ezM" customClass="ForgotPasswordVC" customModule="Gas_2_You_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Spb-SA-pmS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5198,7 +5196,7 @@ Send to Admin</string>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="t7P-eM-C2j">
                                 <rect key="frame" x="20" y="331.5" width="374" height="124"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1sy-dv-oF3" customClass="themeTextfield" customModule="Gas_2_You" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1sy-dv-oF3" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="hkh-zi-02c"/>
@@ -5224,7 +5222,7 @@ Send to Admin</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIx-dT-YtE" customClass="ThemeButton" customModule="Gas_2_You" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIx-dT-YtE" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="74" width="374" height="50"/>
                                         <state key="normal" title="Submit"/>
                                         <userDefinedRuntimeAttributes>
@@ -5276,7 +5274,7 @@ Send to Admin</string>
         <!--Change PasswordVC-->
         <scene sceneID="M35-gZ-UmH">
             <objects>
-                <viewController storyboardIdentifier="ChangePasswordVC" id="p4T-Cg-Zse" customClass="ChangePasswordVC" customModule="Gas_2_You" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChangePasswordVC" id="p4T-Cg-Zse" customClass="ChangePasswordVC" customModule="Gas_2_You_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lci-Ie-Wfa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5290,7 +5288,7 @@ Send to Admin</string>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="z1k-nk-EDN">
                                 <rect key="frame" x="20" y="331.5" width="374" height="272"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Current Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5qw-mY-yks" customClass="themeTextfield" customModule="Gas_2_You" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Current Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5qw-mY-yks" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="O9i-em-f7C"/>
@@ -5316,7 +5314,7 @@ Send to Admin</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="26f-mC-ESr" customClass="themeTextfield" customModule="Gas_2_You" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="26f-mC-ESr" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="74" width="374" height="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -5339,7 +5337,7 @@ Send to Admin</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AqH-MO-wWg" customClass="themeTextfield" customModule="Gas_2_You" customModuleProvider="target">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-Enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AqH-MO-wWg" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="148" width="374" height="50"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -5362,7 +5360,7 @@ Send to Admin</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBK-nC-xDT" customClass="ThemeButton" customModule="Gas_2_You" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kBK-nC-xDT" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="222" width="374" height="50"/>
                                         <state key="normal" title="Save"/>
                                         <userDefinedRuntimeAttributes>
@@ -5419,7 +5417,7 @@ Send to Admin</string>
         <!--Chat View Controller-->
         <scene sceneID="7qB-wG-aXI">
             <objects>
-                <viewController storyboardIdentifier="ChatViewController" id="eqq-cr-tUs" customClass="ChatViewController" customModule="Gas_2_You" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ChatViewController" id="eqq-cr-tUs" customClass="ChatViewController" customModule="Gas_2_You_Driver" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dmf-oe-Sqd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5431,7 +5429,7 @@ Send to Admin</string>
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="758"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatHeaderCell" id="Z0h-gy-DFb" customClass="chatHeaderCell" customModule="Gas_2_You" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatHeaderCell" id="Z0h-gy-DFb" customClass="chatHeaderCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="24.5" width="414" height="39"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Z0h-gy-DFb" id="Nue-7u-bSW">
@@ -5441,7 +5439,7 @@ Send to Admin</string>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQM-1M-I5N">
                                                             <rect key="frame" x="132.5" y="8" width="149.5" height="26.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today at 5:03 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ru-Ab-MfT" customClass="chatScreenLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today at 5:03 PM" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ru-Ab-MfT" customClass="chatScreenLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                     <rect key="frame" x="8" y="3" width="133.5" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
@@ -5480,7 +5478,7 @@ Send to Admin</string>
                                                     <outlet property="lblDateTime" destination="8ru-Ab-MfT" id="OX2-2y-XPM"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatSenderCell" id="Mji-7R-SlN" customClass="chatSenderCell" customModule="Gas_2_You" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatSenderCell" id="Mji-7R-SlN" customClass="chatSenderCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="63.5" width="414" height="76"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mji-7R-SlN" id="RKr-nB-yc8">
@@ -5493,10 +5491,10 @@ Send to Admin</string>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ecZ-J9-5HP">
                                                                     <rect key="frame" x="0.0" y="0.0" width="318" height="60"/>
                                                                     <subviews>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bAA-fn-1ix" customClass="chatScreenView" customModule="Gas_2_You" customModuleProvider="target">
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bAA-fn-1ix" customClass="chatScreenView" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="318" height="50"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yd-Xh-RHu" customClass="chatScreenLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8yd-Xh-RHu" customClass="chatScreenLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                     <rect key="frame" x="15" y="13" width="288" height="24"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
@@ -5562,7 +5560,7 @@ Send to Admin</string>
                                                     <outlet property="lblSenderView" destination="bAA-fn-1ix" id="Afo-Zj-yFk"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatReciverCell" id="NIN-9W-E3q" customClass="chatReciverCell" customModule="Gas_2_You" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatReciverCell" id="NIN-9W-E3q" customClass="chatReciverCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="139.5" width="414" height="80"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NIN-9W-E3q" id="gag-4I-c9h">
@@ -5575,10 +5573,10 @@ Send to Admin</string>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mRw-wF-2IZ">
                                                                     <rect key="frame" x="0.0" y="0.0" width="318" height="60"/>
                                                                     <subviews>
-                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1P-8E-eWn" customClass="chatScreenView" customModule="Gas_2_You" customModuleProvider="target">
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h1P-8E-eWn" customClass="chatScreenView" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="318" height="50"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDX-26-LMb" customClass="chatScreenLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TDX-26-LMb" customClass="chatScreenLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                     <rect key="frame" x="15" y="10" width="288" height="30"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
@@ -5673,7 +5671,7 @@ Send to Admin</string>
                                                 </constraints>
                                                 <state key="normal" image="IC_sendBtn"/>
                                             </button>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type a message..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="S1a-p5-X4l" customClass="ratingTextview" customModule="Gas_2_You" customModuleProvider="target">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Type a message..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="S1a-p5-X4l" customClass="ratingTextview" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="352" height="40"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
@@ -5732,7 +5730,7 @@ Send to Admin</string>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="fFa-G5-ZZa">
                             <rect key="frame" x="99.5" y="44" width="41.5" height="36"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnm-Ds-1VT" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hnm-Ds-1VT" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="0.0" width="41.5" height="18"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="18" id="wbg-0h-JNB"/>
@@ -5748,7 +5746,7 @@ Send to Admin</string>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9q1-Ph-CtZ" customClass="themeLabel" customModule="Gas_2_You" customModuleProvider="target">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9q1-Ph-CtZ" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="18" width="41.5" height="18"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>

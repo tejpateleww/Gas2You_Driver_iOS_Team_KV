@@ -40,7 +40,7 @@ class EnterQuentityVC: BaseVC,UITextFieldDelegate{
         self.dismiss(animated: false, completion: nil)
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        textField.StopWrittingAtCharactorLimit(CharLimit: 6, range: range, string: string)
+        textField.StopWrittingAtCharactorLimit(CharLimit: 13, range: range, string: string)
     }
     @objc func myTextFieldDidChange(_ textField: UITextField) {
 
@@ -56,7 +56,7 @@ extension String {
 
         var number: NSNumber!
         let formatter = NumberFormatter()
-        formatter.numberStyle = .currencyPlural
+        formatter.numberStyle = .currency
         formatter.currencySymbol = "Gallon"//SingletonClass.sharedInstance.currency
         formatter.maximumFractionDigits = 3
         formatter.minimumFractionDigits = 3

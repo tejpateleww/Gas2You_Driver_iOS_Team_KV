@@ -197,6 +197,7 @@ extension JobDetailsViewController{
             self.LblFilledGallon.text = name
             self.ImgViewJobDone.image = UIImage(named: "ic_checkBoxSelected")
             self.BtnStartJob.setTitle(StartJobButtonTitle.CompleteJob.Name, for: .normal)
+            self.btnJobDone.isHidden = true
             self.BtnStartJob.isUserInteractionEnabled = true
         }
         vc.modalPresentationStyle = .overFullScreen
