@@ -62,8 +62,8 @@
             filePath = "Gas 2 You/JobDetailsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "isFromMyOrders()"
             landmarkType = "7">
          </BreakpointContent>

@@ -127,6 +127,14 @@ class JobDetailsViewController: BaseVC {
     @IBAction func btnJobDoneTap(_ sender: UIButton) {
         isFromJobDone()
     }
+    @IBAction func btnChatTap(_ sender: Any) {
+        let vc : ChatListVC = ChatListVC.instantiate(fromAppStoryboard: .Main)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    @IBAction func btnCallTap(_ sender: Any) {
+        guard let number = URL(string: "tel://" + "0123456789") else { return }
+        UIApplication.shared.open(number)
+    }
     
     // ----------------------------------------------------
     // MARK: - --------- Webservice Methods ---------
