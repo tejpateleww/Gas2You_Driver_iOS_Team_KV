@@ -35,7 +35,7 @@ class HomeVC: BaseVC {
     func rightNavBarButton(){
         let button = UIButton(type: UIButton.ButtonType.custom)
         button.setImage(UIImage(named: "ic_chat"), for: .normal)
-        button.addTarget(self, action:#selector(callMethod), for: .touchDragInside)
+        button.addTarget(self, action:#selector(callMethod), for: .touchUpInside)
         button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         let barButton = UIBarButtonItem(customView: button)
         self.navigationItem.rightBarButtonItems = [barButton]
@@ -76,7 +76,16 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
         let cell = tblHome.dequeueReusableCell(withIdentifier: JobsCell.className) as! JobsCell
         cell.btnReject.isHidden = isInProcess ? true : false
         cell.btnAccept.setTitle(isInProcess ? "Start Job" : "ACCEPT", for: .normal)
-        
+        cell.btnAcceptTapClosure = {
+            HomeVC.showAlertWithTitleFromVC(vc: self, title: "Gas2YouDriver", message: "Are you sure you want to start job ?", buttons: ["Cancel", "OK"]) { index in
+                if index == 1{
+                    let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
+                    vc.isFromStartJob = true
+                    vc.isfrom = .InProcess
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+        }
         cell.vwButtons.isHidden = isInProcess ? false : true
         cell.stackButtomHeight.constant = cell.vwButtons.isHidden ? 17 : 0
         return cell

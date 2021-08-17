@@ -1654,7 +1654,7 @@ and Pr</string>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjR-Cf-jj7">
                                                     <rect key="frame" x="12" y="6" width="390" height="89"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-screen - 5" translatesAutoresizingMaskIntoConstraints="NO" id="3HS-2m-WH9">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Customer" translatesAutoresizingMaskIntoConstraints="NO" id="3HS-2m-WH9">
                                                             <rect key="frame" x="0.0" y="14.5" width="60" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="60" id="VWR-6s-5cq"/>
@@ -3068,10 +3068,9 @@ Send to Admin</string>
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Quantity (Gallon)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j5j-hM-FVl" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="108" y="154.5" width="162" height="45"/>
+                                                <rect key="frame" x="115" y="154.5" width="148" height="45"/>
                                                 <color key="tintColor" red="0.10980392160000001" green="0.45882352939999999" blue="0.73333333329999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="162" id="ByK-qb-QzN"/>
                                                     <constraint firstAttribute="height" constant="45" id="ggi-nv-a2u"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -4979,7 +4978,7 @@ Send to Admin</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvt-wV-oyv">
                                                         <rect key="frame" x="0.0" y="600" width="374" height="33"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4HJ-Sm-cHx">
+                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4HJ-Sm-cHx">
                                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="1"/>
                                                                 <color key="backgroundColor" red="0.10980392160000001" green="0.45882352939999999" blue="0.73333333329999995" alpha="0.070000000000000007" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                 <constraints>
@@ -5123,6 +5122,7 @@ Send to Admin</string>
                         <outlet property="btnDownload" destination="QnR-vI-IRo" id="zQu-2m-5oa"/>
                         <outlet property="btnJobDone" destination="gHZ-Sc-Ddt" id="FCr-bH-l0r"/>
                         <outlet property="imgCompleted" destination="lRi-Es-6Pe" id="gbh-4p-4KR"/>
+                        <outlet property="lblLine" destination="4HJ-Sm-cHx" id="4ju-qm-8qh"/>
                         <outlet property="lblplateNumberDashLineHeight" destination="Jbs-TD-0jY" id="WQg-3U-SfG"/>
                         <outlet property="stackItem" destination="Jyk-w7-0Xm" id="rmF-9r-bbU"/>
                         <outlet property="stackJobDetails" destination="pF5-Xi-xlf" id="TO4-fP-v2o"/>
@@ -5780,6 +5780,7 @@ Send to Admin</string>
         </scene>
     </scenes>
     <resources>
+        <image name="Customer" width="1024" height="1024"/>
         <image name="IC_aboutUS" width="31" height="31"/>
         <image name="IC_arrowDown" width="18.5" height="10.5"/>
         <image name="IC_arrowRight" width="10.5" height="18.5"/>
@@ -5813,7 +5814,7 @@ Send to Admin</string>
         <image name="ic_color" width="20" height="20"/>
         <image name="ic_downloadInvoice" width="13" height="13"/>
         <image name="ic_gas" width="34.5" height="37"/>
-        <image name="ic_location" width="18.5" height="21"/>
+        <image name="ic_location" width="28" height="28"/>
         <image name="ic_logout" width="26" height="26"/>
         <image name="imgBlueBackGround" width="327" height="169.5"/>
         <image name="imgCloseBtn" width="23" height="23"/>

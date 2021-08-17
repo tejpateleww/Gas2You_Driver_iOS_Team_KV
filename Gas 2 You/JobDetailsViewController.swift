@@ -51,10 +51,12 @@ class JobDetailsViewController: BaseVC {
     var isfrom = isFromHome.Request
     var price = ""
     var isfromhome = true
+    var isFromStartJob = false
     
     // ----------------------------------------------------
     // MARK: - --------- IBOutlets ---------
     // ----------------------------------------------------
+    @IBOutlet weak var lblLine: UILabel!
     @IBOutlet weak var LblFilledGallon: themeLabel!
     @IBOutlet weak var ViewFilledGallon: UIView!
     @IBOutlet weak var stackUpdateStatus: UIStackView!
@@ -93,12 +95,14 @@ class JobDetailsViewController: BaseVC {
         case .InProcess:
             vwGasPriceDetail.isHidden = true
 //            vwUpdateStatus.isHidden = true
+            
             stackItem.isHidden = true
             vwGasPriceDetail.isHidden = true
             btnJobDone.isHidden = true
+            if isFromStartJob{
+            BtnStartJob(BtnStartJob)
+            }
         case .Request:
-            self.isFromRequest()
-        default:
             self.isFromRequest()
         }
         }else{
@@ -154,6 +158,7 @@ extension JobDetailsViewController{
         self.vwUpdateStatus.isHidden = false
         stackUpdateStatus.isHidden = true
         BtnStartJob.isHidden = true
+        lblLine.isHidden = false
         btnDownload.isHidden = false
         vwChatCall.isHidden = true
         lblplateNumberDashLineHeight.constant = 0
@@ -188,6 +193,7 @@ extension JobDetailsViewController{
                 }
                 self.present(vc, animated: false, completion: nil)
               }
+        
     }
     func isFromRequest(){
         vwStartJob.isHidden = true

@@ -39,8 +39,8 @@ class ChatViewController: BaseVC {
         MessageArray.append(ChatConversation(date: "5:33 PM", Data: [MessageAllData(fromSender: false, message: "Sorry , I'm stuck in traffic. Please give me a moment.", lastMessage: true)
                                                                         ]))
         
-        setNavigationBarInViewController(controller: self, naviColor: .white, naviTitle: "Elen Glibert", leftImage: "", rightImages: [], isTranslucent: true)
-        navBarRightImage()
+        setNavigationBarInViewController(controller: self, naviColor: .white, naviTitle: "Elen Glibert", leftImage: "Back", rightImages: [], isTranslucent: true)
+//        navBarRightImage()
         
         txtviewComment.font = CustomFont.PoppinsRegular.returnFont(16)
 //        self.setNavigationBarInViewController(controller: self, naviColor: colors.white.value, naviTitle: "", leftImage: #imageLiteral(resourceName: "IC_backButton"), rightImages: [], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)

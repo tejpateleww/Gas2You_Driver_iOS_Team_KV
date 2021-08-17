@@ -22,6 +22,7 @@ class JobsCell: UITableViewCell {
     @IBOutlet weak var stackButtomHeight: NSLayoutConstraint!
     
     //MARK:- Variables and Properties
+    var btnAcceptTapClosure : (()->())?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -45,6 +46,9 @@ class JobsCell: UITableViewCell {
         // Configure the view for the selected state
     }
     @IBAction func btnAcceptTap(_ sender: Any) {
+        if let obj = btnAcceptTapClosure{
+            obj()
+        }
         
     }
     @IBAction func btnRejectTap(_ sender: Any) {

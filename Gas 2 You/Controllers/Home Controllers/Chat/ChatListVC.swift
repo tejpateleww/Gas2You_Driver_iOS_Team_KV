@@ -33,7 +33,7 @@ extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc : ChatVc = ChatVc.instantiate(fromAppStoryboard: .Main)
+        let vc : ChatViewController = ChatViewController.instantiate(fromAppStoryboard: .Main)
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

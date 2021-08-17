@@ -121,7 +121,16 @@ class ThemeButton: UIButton {
     
 }
 
-
+class writeTextView: UIView {
+    
+    override func awakeFromNib() {
+        self.layer.borderWidth = 1
+        self.layer.borderColor = #colorLiteral(red: 0.1098039216, green: 0.4588235294, blue: 0.7333333333, alpha: 0.3)
+        self.layer.cornerRadius = 9
+        self.clipsToBounds = true
+    }
+    
+}
 
 class themeButton: UIButton {
     @IBInspectable public var Font_Size: CGFloat = FontSize.size19.rawValue

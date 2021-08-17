@@ -18,6 +18,7 @@ struct ScreenSize {
 }
 
 
+
 struct DeviceType {
 
 

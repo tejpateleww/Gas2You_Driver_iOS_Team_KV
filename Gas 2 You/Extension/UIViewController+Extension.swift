@@ -18,6 +18,25 @@ extension NSObject {
 extension UIViewController {
     
     
+    //MARK:- SET_ALERT
+    static func showAlertWithTitleFromVC(vc:UIViewController, title:String?, message:String?, buttons:[String], completion:((_ index:Int) -> Void)!) -> Void{
+
+    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    for index in 0..<buttons.count {
+
+    let action = UIAlertAction(title: buttons[index], style: .default, handler: { (alert: UIAlertAction!) in
+    if(completion != nil) {
+    completion(index)
+    }
+    })
+    alertController.addAction(action)
+    }
+    DispatchQueue.main.async {
+    vc.present(alertController, animated: true, completion: nil)
+    }
+    }
+    
+    
     // MARK: IS SWIPABLE - FUNCTION
     func isSwipable(view:UIView) {
          //self.view.addGestureRecognizer(UIPanGestureRecognizer(target: self, action: #selector(onDrage(_:))))
