@@ -30,7 +30,7 @@ extension UITextField {
     func AddLeftView(str : String){
         let leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 30))
         let lbl = UILabel(frame: CGRect(x:0, y: 0, width: 20, height: 30))
-        lbl.textColor = UIColor.appColor(ThemeColor.themeGold)
+        lbl.textColor = UIColor.appColor(ThemeColor.themeBlue)
         lbl.font = FontBook.regular.of(size: 28.0)
         lbl.text = str
         

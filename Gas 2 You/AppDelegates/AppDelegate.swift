@@ -23,9 +23,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        Thread.sleep(forTimeInterval: 3.0)
+        
         IQKeyboardManager.shared.enable = true
         GMSServices.provideAPIKey("AIzaSyAsK4EKl6GkGqELS8YySwoIWVjNjAwR7dg")
-        navigateToLogin()
+        
+        window?.makeKeyAndVisible()
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") == false {
+            navigateToLogin()
+        } else {
+            navigateToHome()
+        }
+        
         return true
     }
 

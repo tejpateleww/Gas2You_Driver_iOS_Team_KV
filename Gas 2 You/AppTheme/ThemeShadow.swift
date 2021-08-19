@@ -18,6 +18,14 @@ extension UIView {
         view.layer.shadowRadius = 4
         
     }
+    func NavaddShadow(view: UIView, shadowColor: UIColor?) {
+        
+        view.layer.shadowColor = shadowColor?.cgColor ?? UIColor.lightGray.cgColor
+        view.layer.shadowOpacity = 0.7
+        view.layer.shadowOffset = CGSize.zero
+        view.layer.shadowRadius = 2
+        
+    }
     
     func addPaticularCornerRadius(view: UIView, cornerRadius: CGFloat) {
         

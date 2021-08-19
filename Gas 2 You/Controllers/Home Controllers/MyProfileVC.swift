@@ -12,6 +12,9 @@ class MyProfileVC: BaseVC {
     @IBOutlet weak var btnChangePassword: ThemeButton!
     @IBOutlet weak var btnEditProfileTap: ThemeButton!
     @IBOutlet weak var imgProfile: UIImageView!
+    @IBOutlet weak var txtName: themeTextfield!
+    @IBOutlet weak var txtEmail: themeTextfield!
+    @IBOutlet weak var txtPhone: themeTextfield!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,10 @@ class MyProfileVC: BaseVC {
             .frame.height/2
         btnEditProfileTap.layer.borderWidth = 2
         btnEditProfileTap.layer.borderColor = UIColor.init(hexString: "#1C75BB").cgColor
+        
+        txtName.fontColor = .black
+        txtEmail.fontColor = .black
+        txtPhone.fontColor = .black
 //        changePassButton.layer.borderColor = UIColor.appColor(.themeBlue).cgColor
 //        btnChangePassword.titleLabel?.font = CustomFont.PoppinsMedium.returnFont(14)
 //        changePassButton.setTitleColor(UIColor.appColor(.themeBlue), for: .normal)

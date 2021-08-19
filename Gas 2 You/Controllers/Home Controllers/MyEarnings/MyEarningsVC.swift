@@ -24,6 +24,8 @@ class MyEarningsVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "My Earnings", leftImage: "Back", rightImages: [], isTranslucent: true)
+        
         tblMyEarnings.delegate = self
         tblMyEarnings.dataSource = self
         let uinib = UINib(nibName: MyEarningsCell.className, bundle: nil)

@@ -18,4 +18,16 @@ class SettingsVC: BaseVC {
     @IBAction func btnPrivacyTap(_ sender: Any) {
         
     }
+    @IBAction func btnLogoutTap(_ sender: UIButton) {
+        
+        SettingsVC.showAlertWithTitleFromVC(vc: self, title: "Logout", message: "Are you sure want to Logout?", buttons: ["Cancel", "Logout"]) { index in
+            if index == 1 {
+                UserDefaults.standard.set(false, forKey: "isLoggedIn")
+                AppDel.navigateToLogin()
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        
+    }
 }

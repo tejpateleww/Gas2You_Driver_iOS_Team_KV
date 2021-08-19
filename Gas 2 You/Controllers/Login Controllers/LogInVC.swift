@@ -9,11 +9,12 @@ import UIKit
 
 class LogInVC: UIViewController, UITextFieldDelegate {
 
-    @IBOutlet weak var firstTF: themeTextfield!
-    @IBOutlet weak var btnSignUp: themeButton!
+    
     @IBOutlet weak var btnLogin: ThemeButton!
     @IBOutlet weak var txtEmail: themeTextfield!
     @IBOutlet weak var txtPassword: themeTextfield!
+    @IBOutlet weak var btnSignUp: themeButton!
+    
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -24,6 +25,7 @@ class LogInVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextfields(textfield: txtPassword)
+        btnSignUp.setunderline(title: btnSignUp.titleLabel?.text ?? "", color: .white, font: CustomFont.PoppinsSemiBold.returnFont(16))
     }
     func setupTextfields(textfield : UITextField) {
         
@@ -44,10 +46,8 @@ class LogInVC: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func logInButtonPreesed(_ sender: ThemeButton) {
-        
+        UserDefaults.standard.set(true, forKey: "isLoggedIn")
         AppDel.navigateToHome()
-//        let vc : SendInvoiceVC = SendInvoiceVC.instantiate(fromAppStoryboard: .Main)
-//        self.present(vc, animated: false, completion: nil)
     }
     
     @IBAction func signUpButtonPressed(_ sender: themeButton) {

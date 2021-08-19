@@ -2,9 +2,9 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,25 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash-screen - 5" translatesAutoresizingMaskIntoConstraints="NO" id="Qch-3K-0Fp">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                            </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_image-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZLp-7T-p04">
-                                <rect key="frame" x="125" y="386.5" width="164" height="123"/>
+                                <rect key="frame" x="107.5" y="373.5" width="199" height="149"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ZLp-7T-p04" secondAttribute="height" multiplier="4:3" id="ZtY-7h-Gca"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ZLp-7T-p04" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="PTh-Iu-0pG"/>
                             <constraint firstItem="ZLp-7T-p04" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Z4k-mu-peV"/>
-                            <constraint firstItem="Qch-3K-0Fp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bFv-2K-qV7"/>
-                            <constraint firstAttribute="bottom" secondItem="Qch-3K-0Fp" secondAttribute="bottom" id="fdJ-Kx-GeY"/>
-                            <constraint firstItem="Qch-3K-0Fp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tPG-ui-cOZ"/>
-                            <constraint firstItem="Qch-3K-0Fp" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="wV1-PZ-Eyz"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -44,10 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo_image-1" width="158" height="123"/>
-        <image name="splash-screen - 5" width="375" height="812"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="Logo_image-1" width="176" height="149"/>
     </resources>
 </document>

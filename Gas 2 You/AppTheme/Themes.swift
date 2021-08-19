@@ -57,7 +57,7 @@ class themeLabel: UILabel{
                 self.textColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha:0.13)
             }
             else {
-                self.textColor = isThemeColour == true ? UIColor.appColor(ThemeColor.themeGold) : fontColor
+                self.textColor = isThemeColour == true ? UIColor.appColor(ThemeColor.themeBlue) : fontColor
             }
     }
 }
@@ -199,7 +199,7 @@ class themeRoundBtn : UIButton {
 class themeCustomShadowButton : UIControl {
     @IBInspectable public var front_image: UIImage = UIImage(named: "s") ?? UIImage()
     @IBInspectable public var Font_Size: CGFloat = FontSize.size19.rawValue
-    @IBInspectable public var fontColor: UIColor = UIColor.appColor(.themeGold)
+    @IBInspectable public var fontColor: UIColor = UIColor.appColor(.themeBlue)
     @IBInspectable public var Title: String = ""
     @IBInspectable public var isYellowBG : Bool = false
     
@@ -353,7 +353,7 @@ class themeTextfield : UITextField{
     @IBInspectable public var isLight: Bool = false
     @IBInspectable public var isMedium: Bool = false
     @IBInspectable public var isRegular: Bool = false
-    @IBInspectable public var fontColor: UIColor = .black
+    @IBInspectable public var fontColor: UIColor = .white
     @IBInspectable public var placeholderColor: UIColor = .white
     
     @IBInspectable var rightButton: String? {
@@ -641,6 +641,8 @@ class RoundedImageView: UIImageView {
         self.layer.cornerRadius = self.frame.height / 2
     }
 }
+
+
 class chatScreenLabel : UILabel {
     @IBInspectable var lblSender : Bool = false
     @IBInspectable var lblReciver : Bool = false
@@ -649,20 +651,22 @@ class chatScreenLabel : UILabel {
     override func awakeFromNib() {
         self.numberOfLines = 0
         if lblSender {
-            self.font = CustomFont.PoppinsMedium.returnFont(17)
-            self.textColor = colors.white.value
+            self.font = CustomFont.PoppinsMedium.returnFont(12)
+            self.textColor = UIColor.white
             self.textAlignment = .right
         } else if lblReciver {
-            self.font = CustomFont.PoppinsMedium.returnFont(17)
-            self.textColor = colors.loginPlaceHolderColor.value
+            self.font = CustomFont.PoppinsMedium.returnFont(12)
+            self.textColor = UIColor.white
             self.textAlignment = .left
         } else if lblHeader {
-            self.font = CustomFont.PoppinsRegular.returnFont(14)
+            self.font = CustomFont.PoppinsMedium.returnFont(9)
             self.textColor = UIColor(hexString: "#ACB1C0")
             self.textAlignment = .center
         }
     }
 }
+
+
 class chatScreenView : UIView {
     
     @IBInspectable var isSenderView : Bool = false
@@ -680,17 +684,17 @@ class chatScreenView : UIView {
     override func layoutSubviews() {
     super.layoutSubviews()
         if isSenderView {
-            self.backgroundColor = UIColor(hexString: "#00AA7E")
+            self.backgroundColor = #colorLiteral(red: 0.2145549953, green: 0.2144483924, blue: 0.2096654773, alpha: 1)
             let bounds: CGRect = self.bounds
-            let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: ([ .topLeft, .topRight, .bottomLeft]), cornerRadii: CGSize(width: 12.0, height: 12.0))
+            let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: ([ .topLeft, .topRight, .bottomLeft]), cornerRadii: CGSize(width: 18, height: 0.0))
             let maskLayer = CAShapeLayer()
             maskLayer.frame = bounds
             maskLayer.path = maskPath.cgPath
             self.layer.mask = maskLayer
         } else if isReciverView {
-            self.backgroundColor = UIColor(hexString: "#DEE2EA")
+            self.backgroundColor = UIColor(hexString: ThemeColor.themeBlue.rawValue)
             let bounds: CGRect = self.bounds
-            let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: ([.topLeft, .bottomRight, .topRight]), cornerRadii: CGSize(width: 12.0, height: 12.0))
+            let maskPath = UIBezierPath(roundedRect: bounds, byRoundingCorners: ([.topLeft, .bottomRight, .topRight]), cornerRadii: CGSize(width: 18.0, height: 0.0))
             let maskLayer = CAShapeLayer()
             maskLayer.frame = bounds
             maskLayer.path = maskPath.cgPath

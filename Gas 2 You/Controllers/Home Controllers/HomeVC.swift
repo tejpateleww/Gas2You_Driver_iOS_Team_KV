@@ -34,7 +34,7 @@ class HomeVC: BaseVC {
     }
     func rightNavBarButton(){
         let button = UIButton(type: UIButton.ButtonType.custom)
-        button.setImage(UIImage(named: "ic_chat"), for: .normal)
+        button.setImage(UIImage(named: "IC_chat"), for: .normal)
         button.addTarget(self, action:#selector(callMethod), for: .touchUpInside)
         button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         let barButton = UIBarButtonItem(customView: button)

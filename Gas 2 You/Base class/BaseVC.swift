@@ -80,6 +80,19 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
         //        self.navigationItem.rightBarButtonItem = rightButtonItem
     }
     
+    func navBarRightImage() {
+        
+        let viewFN = UIView(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
+        let userImage = UIButton(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
+        userImage.setImage( #imageLiteral(resourceName: "IC_dummyImg2"), for: .normal)
+//        userImage.addTarget(self, action: #selector(rightProfileImageBtnTap(_:)), for: .touchUpInside)
+        userImage.isUserInteractionEnabled = false
+        viewFN.addSubview(userImage)
+        
+        let rightBarButton = UIBarButtonItem(customView: viewFN)
+        navigationItem.rightBarButtonItem = rightBarButton
+        
+    }
     
     @objc func rightButtonAction(_ sender: UIBarButtonItem?) {
         
@@ -127,6 +140,7 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
                     LeftView.backgroundColor = .white
                     addNormalShaddow(view: LeftView)
                     LeftView.layer.cornerRadius = 9
+                    LeftView.NavaddShadow(view: LeftView, shadowColor: nil)
                     NavBackButton.isExclusiveTouch = true
                     NavBackButton.isMultipleTouchEnabled = false
                     let btnLeftBar : UIBarButtonItem = UIBarButtonItem.init(customView: LeftView)
@@ -139,6 +153,7 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
                     MenuButton.setImage(UIImage.init(named: "ic_menu"), for: .normal)
                     MenuButton.layer.setValue(controller, forKey: "controller")
                     MenuButton.addTarget(self, action: #selector(self.menuButtonPressed), for: .touchUpInside)
+                    MenuButton.NavaddShadow(view: MenuButton, shadowColor: nil)
                     let LeftView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
                     LeftView.addSubview(MenuButton)
                     MenuButton.isExclusiveTouch = true

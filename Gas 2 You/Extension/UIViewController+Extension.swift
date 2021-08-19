@@ -110,7 +110,7 @@ extension UIViewController {
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
         activityIndicator.style = .large
-        activityIndicator.color = UIColor.appColor(ThemeColor.themeGold)
+        activityIndicator.color = UIColor.appColor(ThemeColor.themeBlue)
         activityIndicator.tag = 1001
         self.view.addSubview(activityIndicator)
         activityIndicator.startAnimating()

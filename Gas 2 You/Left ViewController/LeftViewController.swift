@@ -32,6 +32,24 @@ class LeftViewController: MenuViewController {
         
         self.MenuTblView.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.new, context: nil)
     }
+    
+    @IBAction func btnLogoutTap(_ sender: UIButton) {
+        
+        guard let menuContainerViewController = self.menuContainerViewController else {
+            return
+        }
+        LeftViewController.showAlertWithTitleFromVC(vc: self, title: "Logout", message: "Are you sure want to Logout?", buttons: ["Cancel", "Logout"]) { index in
+            menuContainerViewController.hideSideMenu()
+            if index == 1 {
+                UserDefaults.standard.set(false, forKey: "isLoggedIn")
+                AppDel.navigateToLogin()
+            } else {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+    }
+    
+    
     //MARK: -  Observer method
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         MenuTblView.layer.removeAllAnimations()
@@ -55,14 +73,11 @@ extension LeftViewController : UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let menuContainerViewController = self.menuContainerViewController else {
-                       return
-                   }
-//                   let vc : NotificationVC = NotificationVC.instantiate(fromAppStoryboard: .Main)
-//                   (menuContainerViewController.contentViewControllers[0] as? NavigationController)?.pushViewController(vc, animated: false)
-//
-//                   menuContainerViewController.hideSideMenu()
+            return
+        }
+        
         if titlesArray[indexPath.row].0 == "Home" {
-            
+            menuContainerViewController.hideSideMenu()
         }else if titlesArray[indexPath.row].0 == "My Orders"{
             let vc : CompletedJobsVC = CompletedJobsVC.instantiate(fromAppStoryboard: .Main)
             (menuContainerViewController.contentViewControllers[0] as? NavigationController)?.pushViewController(vc, animated: false)

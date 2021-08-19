@@ -39,8 +39,8 @@ class ChatViewController: BaseVC {
         MessageArray.append(ChatConversation(date: "5:33 PM", Data: [MessageAllData(fromSender: false, message: "Sorry , I'm stuck in traffic. Please give me a moment.", lastMessage: true)
                                                                         ]))
         
-        setNavigationBarInViewController(controller: self, naviColor: .white, naviTitle: "Elen Glibert", leftImage: "Back", rightImages: [], isTranslucent: true)
-//        navBarRightImage()
+        setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Ellen Lambert", leftImage: "Back", rightImages: [], isTranslucent: true)
+        navBarRightImage()
         
         txtviewComment.font = CustomFont.PoppinsRegular.returnFont(16)
 //        self.setNavigationBarInViewController(controller: self, naviColor: colors.white.value, naviTitle: "", leftImage: #imageLiteral(resourceName: "IC_backButton"), rightImages: [], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
@@ -65,32 +65,6 @@ class ChatViewController: BaseVC {
 
     @objc func hideKeyboard() {
         view.endEditing(true)
-    }
-    
-    
-    func navBarRightImage() {
-        
-        let viewFN = UIView(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
-        //        viewFN.backgroundColor = .red
-        let userImage = UIButton(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
-        userImage.setImage( #imageLiteral(resourceName: "dummy_user"), for: .normal)
-//        userImage.addTarget(self, action: #selector(rightButtonAction(_:)), for: .touchUpInside)
-        userImage.isUserInteractionEnabled = false
-        viewFN.addSubview(userImage)
-        
-        let rightBarButton = UIBarButtonItem(customView: viewFN)
-        navigationItem.rightBarButtonItem = rightBarButton
-        
-        
-        
-//        let button = UIButton(type: UIButton.ButtonType.custom)
-//        button.setImage(#imageLiteral(resourceName: "IC_dummyImg2"), for: .normal)
-//        button.contentMode = .scaleAspectFill
-////        button.addTarget(self, action:#selector(callMethod), for: .touchDragInside)
-//        button.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-//        let barButton = UIBarButtonItem(customView: button)
-//        self.navigationItem.rightBarButtonItems = [barButton]
-        
     }
 
 
@@ -140,7 +114,7 @@ class ChatViewController: BaseVC {
 //MARK:- Textview Delegate
 extension ChatViewController : UITextViewDelegate {
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        txtviewComment.text = txtviewComment.text ==  "Type a message..." ? "" : txtviewComment.text
+        txtviewComment.text = txtviewComment.text ==  "Start Typing..." ? "" : txtviewComment.text
         txtviewComment.textColor = .black
         return true
     }
@@ -150,8 +124,8 @@ extension ChatViewController : UITextViewDelegate {
         
     }
     func textViewDidEndEditing(_ textView: UITextView) {
-        txtviewComment.text = txtviewComment.text == "" ? "Type a message..." : txtviewComment.text
-        txtviewComment.textColor = txtviewComment.text == "" ? .black : .gray
+        txtviewComment.text = txtviewComment.text == "" ? "Start Typing..." : txtviewComment.text
+        txtviewComment.textColor = txtviewComment.text == "Start Typing..." ? .gray : .black
     }
 }
 //MARK: -tableviewDelegate
@@ -243,7 +217,7 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tblChat.dequeueReusableCell(withIdentifier: chatHeaderCell.className) as! chatHeaderCell
-        cell.vwMain.layer.cornerRadius = cell.vwMain.frame.height / 2
+        cell.vwMain.layer.cornerRadius = 15
         cell.lblDateTime.text = MessageArray[section].MessageDate
         return cell
     }
@@ -263,5 +237,23 @@ class chatHeaderCell : UITableViewCell {
 
     @IBOutlet weak var lblDateTime: chatScreenLabel!
     @IBOutlet weak var vwMain: UIView!
+}
+class ChatConversation {
+    var MessageDate : String?
+    var MessageData : [MessageAllData]?
+    init(date:String,Data:[MessageAllData]) {
+        self.MessageDate = date
+        self.MessageData = Data
+    }
+}
+class MessageAllData {
+    var isFromSender : Bool?
+    var chatMessage : String?
+    var isLastMessage : Bool?
+    init(fromSender:Bool,message:String,lastMessage:Bool) {
+        self.isLastMessage = lastMessage
+        self.isFromSender = fromSender
+        self.chatMessage = message
+    }
 }
 
