@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 enum colors{
-    case BlueLabelColor,progessBarTintColor,progesBarTrack,white,black,appColor,red,btnColor,tableBg,gradient1,gradient2,lightGrey,coresoundThemeColor,loginText,loginViewColor,submitButtonColor,loginPlaceHolderColor,phoneNumberColor,AddCardTitleColor,seperatorColor,confirmPasswordPlaceHolder,gray,textfieldbordercolor,clearCol,myride,splashtitleColor,buttonNextBackGroundColor
+    case BlueLabelColor,progessBarTintColor,progesBarTrack,white,black,appColor,red,btnColor,tableBg,gradient1,gradient2,lightGrey,coresoundThemeColor,loginText,loginViewColor,submitButtonColor,loginPlaceHolderColor,phoneNumberColor,AddCardTitleColor,seperatorColor,confirmPasswordPlaceHolder,gray,textfieldbordercolor,clearCol,myride,splashtitleColor,buttonNextBackGroundColor,themecolor
     
     var value:UIColor{
         switch self {
@@ -68,6 +68,8 @@ enum colors{
             return UIColor(hexString: "838487")
         case .buttonNextBackGroundColor:
             return UIColor(hexString: "1F1F3F")
+        case .themecolor:
+            return UIColor(hexString: "1C75BB")
             
         }
     }

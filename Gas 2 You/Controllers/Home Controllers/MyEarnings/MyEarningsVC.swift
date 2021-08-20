@@ -25,7 +25,7 @@ class MyEarningsVC: BaseVC {
         super.viewDidLoad()
 
         setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "My Earnings", leftImage: "Back", rightImages: [], isTranslucent: true)
-        
+        vwTotalEarning.addGeneralShaddow()
         tblMyEarnings.delegate = self
         tblMyEarnings.dataSource = self
         let uinib = UINib(nibName: MyEarningsCell.className, bundle: nil)
@@ -37,9 +37,9 @@ class MyEarningsVC: BaseVC {
 
            let shadowSize: CGFloat = 15
            let contactRect = CGRect(x: -shadowSize, y: buttonHeight - (shadowSize * 0.2), width: buttonWidth + shadowSize * 2, height: shadowSize)
-        vwTotalEarning.layer.shadowPath = UIBezierPath(ovalIn: contactRect).cgPath
-        vwTotalEarning.layer.shadowRadius = 5
-        vwTotalEarning.layer.shadowOpacity = 0.6
+//        vwTotalEarning.layer.shadowPath = UIBezierPath(ovalIn: contactRect).cgPath
+//        vwTotalEarning.layer.shadowRadius = 5
+//        vwTotalEarning.layer.shadowOpacity = 0.6
         // Do any additional setup after loading the view.
     }
     

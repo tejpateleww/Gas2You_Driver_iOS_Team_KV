@@ -53,6 +53,7 @@ class JobDetailsViewController: BaseVC {
     var price = ""
     var isfromhome = true
     var isFromStartJob = false
+    var strTitle = ""
     
     var locationManager = CLLocationManager()
     // ----------------------------------------------------
@@ -90,7 +91,7 @@ class JobDetailsViewController: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Job Details", leftImage: "Back", rightImages: [], isTranslucent: true)
+        setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: strTitle == "" ? "Job Details" : strTitle, leftImage: "Back", rightImages: [], isTranslucent: true)
         
         setUIMapPin()
         

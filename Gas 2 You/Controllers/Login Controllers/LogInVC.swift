@@ -19,6 +19,7 @@ class LogInVC: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        UIApplication.shared.statusBarStyle = .lightContent
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
@@ -27,6 +28,14 @@ class LogInVC: UIViewController, UITextFieldDelegate {
         setupTextfields(textfield: txtPassword)
         btnSignUp.setunderline(title: btnSignUp.titleLabel?.text ?? "", color: .white, font: CustomFont.PoppinsSemiBold.returnFont(16))
     }
+    
+    
+   
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .default
+    }
+    
     func setupTextfields(textfield : UITextField) {
         
         textfield.rightViewMode = .always

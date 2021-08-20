@@ -100,7 +100,7 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
     }
     func setNavigationBarInViewController (controller : UIViewController,naviColor : UIColor, naviTitle : String, leftImage : String , rightImages : [String], isTranslucent : Bool, ShowShadow:Bool? = false, iswhiteTitle : Bool = false)
     {
-        UIApplication.shared.statusBarStyle = .lightContent
+        UIApplication.shared.statusBarStyle = .default
         controller.navigationController?.isNavigationBarHidden = false
         controller.navigationController?.navigationBar.isOpaque = false;
         

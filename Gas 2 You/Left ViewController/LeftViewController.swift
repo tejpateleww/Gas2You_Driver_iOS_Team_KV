@@ -17,6 +17,7 @@ class LeftViewController: MenuViewController {
     
     @IBOutlet weak var MenuTblView : UITableView!
     @IBOutlet weak var ConstantMenuTblViewHeight : NSLayoutConstraint!
+    @IBOutlet weak var btnProfile: UIButton!
     
     //MARK:- Properties
     ///0 for menu name 1 for icon name
@@ -29,10 +30,30 @@ class LeftViewController: MenuViewController {
     //MARK:- View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        UIApplication.shared.statusBarStyle = .lightContent
         self.MenuTblView.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.new, context: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        UIApplication.shared.statusBarStyle = .lightContent
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .default
+    }
+    
+    @IBAction func btnProfileTap(_ sender: Any) {
+        guard let menuContainerViewController = self.menuContainerViewController else {
+            return
+        }
+        let vc : MyProfileVC = MyProfileVC.instantiate(fromAppStoryboard: .Main)
+        (menuContainerViewController.contentViewControllers[0] as? NavigationController)?.pushViewController(vc, animated: false)
+        
+        menuContainerViewController.hideSideMenu()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     @IBAction func btnLogoutTap(_ sender: UIButton) {
         
         guard let menuContainerViewController = self.menuContainerViewController else {

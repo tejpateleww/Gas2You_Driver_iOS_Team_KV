@@ -15,6 +15,7 @@ class ChatViewController: BaseVC {
     //MARK: -Properties
     var MessageArray = [ChatConversation]()
     //MARK: -IBOutlets
+    @IBOutlet weak var lblchatview: UILabel!
     @IBOutlet weak var tblChat: UITableView!
     @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
     @IBOutlet weak var txtviewComment: ratingTextview!
@@ -40,7 +41,7 @@ class ChatViewController: BaseVC {
                                                                         ]))
         
         setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Ellen Lambert", leftImage: "Back", rightImages: [], isTranslucent: true)
-        navBarRightImage()
+//        navBarRightImage()
         
         txtviewComment.font = CustomFont.PoppinsRegular.returnFont(16)
 //        self.setNavigationBarInViewController(controller: self, naviColor: colors.white.value, naviTitle: "", leftImage: #imageLiteral(resourceName: "IC_backButton"), rightImages: [], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
@@ -111,21 +112,28 @@ class ChatViewController: BaseVC {
 }
 
 
+
 //MARK:- Textview Delegate
 extension ChatViewController : UITextViewDelegate {
-    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
-        txtviewComment.text = txtviewComment.text ==  "Start Typing..." ? "" : txtviewComment.text
-        txtviewComment.textColor = .black
-        return true
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if txtviewComment.textColor == .lightGray {
+            txtviewComment.text = nil
+            txtviewComment.textColor = .black
+        }
     }
-    func textViewDidChangeSelection(_ textView: UITextView) {
-//        self.txtviewComment.text = txtviewComment.text
-        
-        
+
+    func textViewDidChange(_ textView: UITextView) {
+        self.lblchatview.text = self.txtviewComment.text
     }
+
+
     func textViewDidEndEditing(_ textView: UITextView) {
-        txtviewComment.text = txtviewComment.text == "" ? "Start Typing..." : txtviewComment.text
-        txtviewComment.textColor = txtviewComment.text == "Start Typing..." ? .gray : .black
+
+        if txtviewComment.text.isEmpty {
+            txtviewComment.text = "Start Typing..."
+            txtviewComment.textColor = .lightGray
+        }
     }
 }
 //MARK: -tableviewDelegate
@@ -214,6 +222,10 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 44
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tblChat.dequeueReusableCell(withIdentifier: chatHeaderCell.className) as! chatHeaderCell

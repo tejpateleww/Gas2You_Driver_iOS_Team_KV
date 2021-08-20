@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "Default-profile-picture.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Default-profile-picture@2x.jpg",
+      "filename" : "depositphotos_137014128-stock-illustration-user-profile-icon.jpeg",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Default-profile-picture@3x.jpg",
       "idiom" : "universal",
       "scale" : "3x"
     }

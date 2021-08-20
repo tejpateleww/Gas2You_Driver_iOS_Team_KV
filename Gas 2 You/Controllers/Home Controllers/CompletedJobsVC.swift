@@ -35,6 +35,7 @@ extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
         completedCell.btnDownloadTapCousure = {
             let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
             vc.isfromhome = false
+            vc.strTitle = "Job Completed"
             self.navigationController?.pushViewController(vc, animated: true)
         }
             return completedCell

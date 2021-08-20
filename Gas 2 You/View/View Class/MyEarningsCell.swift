@@ -29,6 +29,7 @@ class MyEarningsCell: UITableViewCell {
 
        
     }
+
     
 }
 extension UIView{
@@ -58,10 +59,21 @@ extension UIView{
                    }
                }
            }
+    func addGeneralShaddow() {
+              self.layer.cornerRadius = 6.0
+              self.clipsToBounds = true
+
+              self.layer.masksToBounds = false
+              self.layer.shadowColor = UIColor.lightGray.cgColor
+    //          self.layer.shadowOffset = CGSize(width: 4.0, height: 4.0)
+              self.layer.shadowOffset = CGSize(width: 1.0, height: 2.0)
+              self.layer.shadowOpacity = 0.4
+              self.layer.shadowRadius = 3.0
+        }
     func addShadow(shadowColor: CGColor = UIColor.black.withAlphaComponent(0.7).cgColor,
-                               shadowOffset: CGSize = CGSize(width: 1.0, height: 2.0),
-                               shadowOpacity: Float = 0.4,
-                               shadowRadius: CGFloat = 3.0) {
+                               shadowOffset: CGSize = CGSize(width: 0.0, height: 0.0),
+                               shadowOpacity: Float = 0.8,
+                               shadowRadius: CGFloat = 5.0) {
                 layer.shadowColor = shadowColor
                 layer.shadowOffset = shadowOffset
                 layer.shadowOpacity = shadowOpacity

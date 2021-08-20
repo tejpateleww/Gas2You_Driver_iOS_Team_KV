@@ -12,6 +12,7 @@ class EnterQuentityVC: BaseVC,UITextFieldDelegate{
     //MARK:-IBOutlets
     @IBOutlet weak var vwMain: UIView!
     @IBOutlet weak var txtPrice: themeTextfield!
+    @IBOutlet weak var lblGallon: themeLabel!
     @IBOutlet weak var btnSubmit: ThemeButton!
     @IBOutlet weak var btnCancel: ThemeButton!
     @IBOutlet weak var lblEnterQuentity: themeLabel!
@@ -32,7 +33,7 @@ class EnterQuentityVC: BaseVC,UITextFieldDelegate{
     @IBAction func btnSubmitTap(_ sender: Any) {
         self.dismiss(animated: false, completion: {
             if let obj = self.btnSubmitClosure{
-                obj(self.txtPrice.text ?? "12.000")
+                obj((self.txtPrice.text ?? "12.000") + " Gallon")
             }
         })
     }
@@ -40,12 +41,13 @@ class EnterQuentityVC: BaseVC,UITextFieldDelegate{
         self.dismiss(animated: false, completion: nil)
     }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        textField.StopWrittingAtCharactorLimit(CharLimit: 13, range: range, string: string)
+        textField.StopWrittingAtCharactorLimit(CharLimit: 6, range: range, string: string)
     }
     @objc func myTextFieldDidChange(_ textField: UITextField) {
 
         if let amountString = textField.text?.currencyInputFormatting(textfield: txtPrice) {
             txtPrice.text = amountString
+            lblGallon.isHidden = txtPrice.text == "" ? true : false
         }
     }
 }
@@ -57,7 +59,7 @@ extension String {
         var number: NSNumber!
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
-        formatter.currencySymbol = "Gallon"//SingletonClass.sharedInstance.currency
+        formatter.currencySymbol = ""//SingletonClass.sharedInstance.currency
         formatter.maximumFractionDigits = 3
         formatter.minimumFractionDigits = 3
 

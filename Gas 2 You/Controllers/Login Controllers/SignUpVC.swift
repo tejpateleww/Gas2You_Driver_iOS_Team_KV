@@ -22,7 +22,7 @@ class SignUpVC: BaseVC {
         super.viewDidLoad()
         //        setupTextfields(textfield: txtEmail)
         setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "", leftImage: "Back", rightImages: [], isTranslucent: true)
-        btnLoginNow.setunderline(title: btnSignUp.titleLabel?.text ?? "", color: .white, font: CustomFont.PoppinsSemiBold.returnFont(16))
+        btnLoginNow.setunderline(title: "Login Now" , color: .white, font: CustomFont.PoppinsSemiBold.returnFont(16))
         
         //mobile no field +1 related code
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 20))
@@ -31,6 +31,17 @@ class SignUpVC: BaseVC {
         txtMobile.layer.borderWidth = 1
         txtMobile.layer.borderColor = UIColor.white.cgColor
         txtMobile.layer.cornerRadius = 8
+    }
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        UIApplication.shared.statusBarStyle = .lightContent
+
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        UIApplication.shared.statusBarStyle = .default
     }
     
     //MARK:- Custom Methods

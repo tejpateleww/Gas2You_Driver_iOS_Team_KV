@@ -32,6 +32,19 @@ class HomeVC: BaseVC {
         let nib = UINib(nibName: JobsCell.className, bundle: nil)
         tblHome.register(nib, forCellReuseIdentifier: JobsCell.className)
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+    }
+    
     func rightNavBarButton(){
         let button = UIButton(type: UIButton.ButtonType.custom)
         button.setImage(UIImage(named: "IC_chat"), for: .normal)
@@ -97,6 +110,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
 //        if isInProcess {
             let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
             vc.isfrom = isInProcess ? isFromHome.InProcess : isFromHome.Request
+        vc.strTitle = !isInProcess ? "Request Detail" : ""
             self.navigationController?.pushViewController(vc, animated: true)
         
     }

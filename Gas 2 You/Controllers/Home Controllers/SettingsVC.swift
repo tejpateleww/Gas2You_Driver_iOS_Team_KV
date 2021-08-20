@@ -9,9 +9,13 @@ import UIKit
 
 class SettingsVC: BaseVC {
 
+    @IBOutlet weak var switchNotification: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBarInViewController(controller: self, naviColor: .white, naviTitle: "Settings", leftImage: "Back", rightImages: [], isTranslucent: true)
+        switchNotification.layer.cornerRadius = switchNotification.bounds.height/2
+        switchNotification.layer.borderWidth = 1
+        switchNotification.layer.borderColor = #colorLiteral(red: 0.1801939905, green: 0.8354453444, blue: 0.6615549922, alpha: 1)
 //        NavBarTitle(isOnlyTitle: false, isMenuButton: false, title: "Settings", controller: self)
     }
     

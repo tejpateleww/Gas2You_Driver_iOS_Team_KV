@@ -15,13 +15,16 @@ class MyProfileVC: BaseVC {
     @IBOutlet weak var txtName: themeTextfield!
     @IBOutlet weak var txtEmail: themeTextfield!
     @IBOutlet weak var txtPhone: themeTextfield!
+    @IBOutlet weak var vwProfile: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        vwProfile.layer.cornerRadius = vwProfile.frame.height/2
+        vwProfile.addShadow()
         setNavigationBarInViewController(controller: self, naviColor: .white, naviTitle: "My Profile", leftImage: "Back", rightImages: [], isTranslucent: true)
         imgProfile.layer.cornerRadius = imgProfile.frame.height/2
-        btnChangePassword.layer.cornerRadius = btnChangePassword.frame.height/2
+        btnChangePassword.layer.cornerRadius = 9
         btnChangePassword.layer.borderWidth = 2
         btnChangePassword.layer.borderColor = UIColor.init(hexString: "#1C75BB").cgColor
         btnChangePassword.backgroundColor = .white
