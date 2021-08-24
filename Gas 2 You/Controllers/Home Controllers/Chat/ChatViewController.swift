@@ -37,7 +37,7 @@ class ChatViewController: BaseVC {
                                                                               MessageAllData(fromSender: false, message: "I'll be there in a few mins", lastMessage: true),
                                                                               MessageAllData(fromSender: true, message: "OK, I'm in front of the bus stop", lastMessage: true)
                                                                         ]))
-        MessageArray.append(ChatConversation(date: "5:33 PM", Data: [MessageAllData(fromSender: false, message: "Sorry , I'm stuck in traffic. Please give me a moment.", lastMessage: true)
+        MessageArray.append(ChatConversation(date: "May 3", Data: [MessageAllData(fromSender: false, message: "Sorry , I'm stuck in traffic. Please give me a moment.", lastMessage: true)
                                                                         ]))
         
         setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Ellen Lambert", leftImage: "Back", rightImages: [], isTranslucent: true)
