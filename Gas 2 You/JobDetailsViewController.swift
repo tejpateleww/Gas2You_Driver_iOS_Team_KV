@@ -92,7 +92,7 @@ class JobDetailsViewController: BaseVC {
     // MARK: - --------- Life-cycle Methods ---------
     // ----------------------------------------------------
     func lblcompltedSetup() {
-        LblCompleted.transform = CGAffineTransform(rotationAngle: -45)
+        LblCompleted.transform = CGAffineTransform(rotationAngle: -.pi/4)
     }
     override func viewDidLoad() {
         super.viewDidLoad()

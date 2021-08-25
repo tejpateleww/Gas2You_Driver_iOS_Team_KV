@@ -45,6 +45,9 @@ extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
 //        return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
+        vc.isfromhome = false
+        vc.strTitle = "Job Completed"
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -29,9 +29,9 @@ class NotificationVC: BaseVC {
         
         arrNotification.append(notification(img: #imageLiteral(resourceName: "imgGreenRight"), msg: "Your Order #1234 has been completed"))
         arrNotification.append(notification(img: #imageLiteral(resourceName: "imgGreenRight"), msg: "Your Order #1234 has been completed"))
-        arrNotification.append(notification(img: #imageLiteral(resourceName: "imgGreenRight"), msg: "Your booking #1205 has been cancelled"))
-        arrNotification.append(notification(img: #imageLiteral(resourceName: "imgGreenRight"), msg: "Your Order #1234 has been placed"))
-        arrNotification.append(notification(img: #imageLiteral(resourceName: "imgGreenRight"), msg: "Your Order #1234 has been placed"))
+        arrNotification.append(notification(img: #imageLiteral(resourceName: "imgCancel"), msg: "Your booking #1205 has been cancelled"))
+        arrNotification.append(notification(img: #imageLiteral(resourceName: "imgDarkBlueRight"), msg: "Your Order #1234 has been placed"))
+        arrNotification.append(notification(img: #imageLiteral(resourceName: "imgDarkBlueRight"), msg: "Your Order #1234 has been placed"))
 
         // Do any additional setup after loading the view.
     }

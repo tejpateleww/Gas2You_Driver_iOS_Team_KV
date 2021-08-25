@@ -703,12 +703,16 @@ class chatScreenView : UIView {
         
     }
 }
+
+//MARK:- custom chat screen view
+
 class ratingTextview : IQTextView{
     override func awakeFromNib() {
-        self.layer.borderWidth = 1
-        self.layer.borderColor = UIColor.init(hexString: "#E4E9F2").cgColor
-        self.layer.cornerRadius = 5
-        self.clipsToBounds = true
-        self.textContainerInset = UIEdgeInsets(top: 13, left: 13, bottom: 13, right: 13)
+        super.awakeFromNib()
+//        self.layer.borderWidth = 1
+//        self.layer.borderColor = UIColor.init(hexString: "#E4E9F2").cgColor
+//        self.layer.cornerRadius = 5
+//        self.clipsToBounds = true
+        self.textContainerInset = UIEdgeInsets(top: 13, left: 5, bottom: 13, right: 13)
     }
 }

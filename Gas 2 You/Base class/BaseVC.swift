@@ -79,7 +79,110 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
         navigationItem.rightBarButtonItem = rightBarButton
         //        self.navigationItem.rightBarButtonItem = rightButtonItem
     }
-    
+    func NavBarTitle(isOnlyTitle : Bool = true, isMenuButton: Bool = false, title : String, isTitlewhite: Bool = false, controller:UIViewController) {
+        
+        UIApplication.shared.statusBarStyle =  .default
+        controller.navigationController?.isNavigationBarHidden = false
+        controller.navigationController?.navigationBar.isOpaque = false;
+        controller.navigationController?.view.backgroundColor = .clear
+        controller.navigationController?.navigationBar.isTranslucent = true
+        
+        controller.navigationController?.navigationBar.barTintColor = colors.white.value;
+        controller.navigationController?.navigationBar.tintColor = colors.white.value;
+        controller.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        controller.navigationController?.navigationBar.shadowImage = UIImage()
+        controller.navigationController?.navigationBar.clipsToBounds = false
+        if isOnlyTitle {
+            //            self.navigationController!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: CustomFont.QuicksandBold.returnFont(22.0)]
+            let customView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 100.0, height: 44.0))
+            customView.backgroundColor = UIColor.clear
+            let label = UILabel(frame: CGRect(x: 0.0, y: 0.0, width: 300.0, height: 44.0))
+            //SJ_Change : was not localize.
+            label.text = title
+            
+            if isTitlewhite {
+                label.textColor = UIColor.white
+            } else {
+                label.textColor = colors.black.value
+            }
+            
+            label.textAlignment = NSTextAlignment.left
+            label.backgroundColor = UIColor.clear
+            label.font = CustomFont.PoppinsBold.returnFont(16.0)
+            customView.addSubview(label)
+            
+            let leftButton = UIBarButtonItem(customView: customView)
+            self.navigationItem.leftBarButtonItem = leftButton
+        }else{
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: CustomFont.PoppinsMedium.returnFont(16.0)]
+            let customView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.width - 40 - 40, height: 40.0))
+            customView.backgroundColor = UIColor.clear
+            
+            
+            let button = UIButton.init(type: .custom)
+            button.backgroundColor = .white
+            button.layer.cornerRadius = 10
+//            button.addShadow(view: button, shadowColor: nil)
+            button.NavaddShadow(view: button, shadowColor: nil)
+            controller.navigationController?.navigationBar.subviews.forEach {
+                    $0.clipsToBounds = false
+                }
+            button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            button.frame = CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)
+            
+            if isMenuButton {
+                button.setImage(#imageLiteral(resourceName: "IC_menu"), for: .normal)
+                button.addTarget(self, action: #selector(menuButtonPressed(button:)), for: .touchUpInside)
+            } else {
+                button.setImage(#imageLiteral(resourceName: "IC_back"), for: .normal)
+                
+                button.addTarget(self, action: #selector(BackButtonWithTitle(button:)), for: .touchUpInside)
+            }
+            
+            
+            
+            
+            let label = UILabel(frame: CGRect(x: 0, y: 0, width: 250, height: 40)) // width: 250
+            label.center.x = customView.center.x + 18
+            label.center.y = customView.center.y
+            label.textAlignment = .center
+            
+            //SJ_Change :
+            label.text = title
+            
+            if isTitlewhite {
+                label.textColor = .white
+            } else {
+                label.textColor = .label
+            }
+            
+            label.font = CustomFont.PoppinsBold.returnFont(16)
+            customView.addSubview(label)
+            customView.addSubview(button)
+            
+            let leftButton = UIBarButtonItem(customView: customView)
+            self.navigationItem.leftBarButtonItem = leftButton
+        }
+    }
+    @objc func menuButtonPressed(button: UIButton) {
+        print("menu pressed")
+        self.showSideMenu()
+    }
+    @objc func BackButtonWithTitle(button: UIButton) {
+        
+        if pushToRoot {
+            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
+            self.navigationController?.popToRootViewController(animated: true)
+        } else {
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        if self.presentingViewController != nil {
+            self.dismiss(animated: true, completion: nil)
+            
+        }
+        
+    }
     func navBarRightImage() {
         
         let viewFN = UIView(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
@@ -134,7 +237,7 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
                    // let btnLeft = UIButton(frame: )
                     NavBackButton.setImage(UIImage.init(named: "IC_back"), for: .normal)
                     NavBackButton.layer.setValue(controller, forKey: "controller")
-                    NavBackButton.addTarget(self, action: #selector(self.BackButtonWithTitle), for: .touchUpInside)
+                    NavBackButton.addTarget(self, action: #selector(BackButtonWithTitle(button:)), for: .touchUpInside)
                     let LeftView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
                     LeftView.addSubview(NavBackButton)
                     LeftView.backgroundColor = .white
@@ -152,7 +255,7 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
                    // let btnLeft = UIButton(frame: )
                     MenuButton.setImage(UIImage.init(named: "ic_menu"), for: .normal)
                     MenuButton.layer.setValue(controller, forKey: "controller")
-                    MenuButton.addTarget(self, action: #selector(self.menuButtonPressed), for: .touchUpInside)
+                    MenuButton.addTarget(self, action: #selector(menuButtonPressed(button:)), for: .touchUpInside)
                     MenuButton.NavaddShadow(view: MenuButton, shadowColor: nil)
                     let LeftView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
                     LeftView.addSubview(MenuButton)
@@ -384,21 +487,7 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
     //        }
     //    }
     
-    @objc func BackButtonWithTitle() {
-        
-        if pushToRoot {
-            self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-            self.navigationController?.popToRootViewController(animated: true)
-        } else {
-            self.navigationController?.popViewController(animated: true)
-        }
-        
-        if self.presentingViewController != nil {
-            self.dismiss(animated: true, completion: nil)
-            
-        }
-        
-    }
+   
     func addNormalShaddow(view:UIView) {
         
 //        let shadowPath = UIBezierPath(rect: self.bounds)
@@ -425,11 +514,7 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
         view.layer.shadowRadius = 3.0
         
     }
-    @objc func menuButtonPressed() {
-        self.showSideMenu()
-        print("menu button pressed")
-        
-    }
+   
     
     //    func textfieldRightbtnsecurePassword(image : UIImage){
     //        UITextField.rightViewMode = .always

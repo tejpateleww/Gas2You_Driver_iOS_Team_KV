@@ -36,12 +36,7 @@
 		184658F826C1633600958397 /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 184658E526C1633600958397 /* Poppins-Italic.ttf */; };
 		184658FB26C16E7800958397 /* JobsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184658F926C16E7800958397 /* JobsCell.swift */; };
 		184658FC26C16E7800958397 /* JobsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 184658FA26C16E7800958397 /* JobsCell.xib */; };
-		1858EDFB26C624B90036153F /* ReceiverCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1858EDFA26C624B90036153F /* ReceiverCell.xib */; };
 		186D4A6326C3DE3900ABAE19 /* SendRequestToAdminPopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186D4A6226C3DE3900ABAE19 /* SendRequestToAdminPopUpVC.swift */; };
-		1872B6D826C5AFF2009B88EF /* ChatHeaderXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1872B6D726C5AFF2009B88EF /* ChatHeaderXib.xib */; };
-		1872B6DA26C5B11A009B88EF /* SenderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1872B6D926C5B11A009B88EF /* SenderCell.xib */; };
-		1872B6DC26C5B53A009B88EF /* ChatMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1872B6DB26C5B53A009B88EF /* ChatMessageCell.swift */; };
-		1872B6DE26C5B55E009B88EF /* ChatHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1872B6DD26C5B55E009B88EF /* ChatHeaderCell.swift */; };
 		187CE6D826C4DAA800C8E765 /* EnterQuentityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CE6D726C4DAA800C8E765 /* EnterQuentityVC.swift */; };
 		187CE6E626C512B100C8E765 /* LeftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CE6DA26C512B100C8E765 /* LeftViewController.swift */; };
 		187CE6E726C512B100C8E765 /* JobDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CE6DB26C512B100C8E765 /* JobDetailsViewController.swift */; };
@@ -125,12 +120,7 @@
 		184658E526C1633600958397 /* Poppins-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Italic.ttf"; sourceTree = "<group>"; };
 		184658F926C16E7800958397 /* JobsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsCell.swift; sourceTree = "<group>"; };
 		184658FA26C16E7800958397 /* JobsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JobsCell.xib; sourceTree = "<group>"; };
-		1858EDFA26C624B90036153F /* ReceiverCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReceiverCell.xib; sourceTree = "<group>"; };
 		186D4A6226C3DE3900ABAE19 /* SendRequestToAdminPopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendRequestToAdminPopUpVC.swift; sourceTree = "<group>"; };
-		1872B6D726C5AFF2009B88EF /* ChatHeaderXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatHeaderXib.xib; sourceTree = "<group>"; };
-		1872B6D926C5B11A009B88EF /* SenderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SenderCell.xib; sourceTree = "<group>"; };
-		1872B6DB26C5B53A009B88EF /* ChatMessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageCell.swift; sourceTree = "<group>"; };
-		1872B6DD26C5B55E009B88EF /* ChatHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatHeaderCell.swift; sourceTree = "<group>"; };
 		187CE6D726C4DAA800C8E765 /* EnterQuentityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnterQuentityVC.swift; sourceTree = "<group>"; };
 		187CE6DA26C512B100C8E765 /* LeftViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewController.swift; sourceTree = "<group>"; };
 		187CE6DB26C512B100C8E765 /* JobDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailsViewController.swift; sourceTree = "<group>"; };
@@ -226,8 +216,6 @@
 				184658A926C15E4900958397 /* MyEarningsCell.swift */,
 				184658F926C16E7800958397 /* JobsCell.swift */,
 				1802707C26C28683003337F1 /* NotificationCell.swift */,
-				1872B6DB26C5B53A009B88EF /* ChatMessageCell.swift */,
-				1872B6DD26C5B55E009B88EF /* ChatHeaderCell.swift */,
 			);
 			path = "View Class";
 			sourceTree = "<group>";
@@ -239,9 +227,6 @@
 				184658AA26C15E4900958397 /* MyEarningsCell.xib */,
 				184658FA26C16E7800958397 /* JobsCell.xib */,
 				1802707D26C28683003337F1 /* NotificationCell.xib */,
-				1872B6D726C5AFF2009B88EF /* ChatHeaderXib.xib */,
-				1872B6D926C5B11A009B88EF /* SenderCell.xib */,
-				1858EDFA26C624B90036153F /* ReceiverCell.xib */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -551,7 +536,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1858EDFB26C624B90036153F /* ReceiverCell.xib in Resources */,
 				184658F226C1633600958397 /* OFL.txt in Resources */,
 				184658F426C1633600958397 /* Poppins-SemiBoldItalic.ttf in Resources */,
 				184658ED26C1633600958397 /* Poppins-Black.ttf in Resources */,
@@ -569,7 +553,6 @@
 				184658F526C1633600958397 /* Poppins-Light.ttf in Resources */,
 				184658F626C1633600958397 /* Poppins-ThinItalic.ttf in Resources */,
 				184658F726C1633600958397 /* Poppins-SemiBold.ttf in Resources */,
-				1872B6D826C5AFF2009B88EF /* ChatHeaderXib.xib in Resources */,
 				9A5B08B526B266EA00BA0CB4 /* Assets.xcassets in Resources */,
 				184658F026C1633600958397 /* Poppins-Medium.ttf in Resources */,
 				184658EB26C1633600958397 /* Poppins-ExtraBold.ttf in Resources */,
@@ -577,7 +560,6 @@
 				184658FC26C16E7800958397 /* JobsCell.xib in Resources */,
 				184658EC26C1633600958397 /* Poppins-Regular.ttf in Resources */,
 				184658E826C1633600958397 /* Poppins-MediumItalic.ttf in Resources */,
-				1872B6DA26C5B11A009B88EF /* SenderCell.xib in Resources */,
 				184658F326C1633600958397 /* Poppins-BlackItalic.ttf in Resources */,
 				9A5B08B026B266E800BA0CB4 /* Main.storyboard in Resources */,
 			);
@@ -686,8 +668,6 @@
 				187CE6D826C4DAA800C8E765 /* EnterQuentityVC.swift in Sources */,
 				9A5B094226B279AE00BA0CB4 /* Storyboards.swift in Sources */,
 				9A5B08A926B266E800BA0CB4 /* AppDelegate.swift in Sources */,
-				1872B6DE26C5B55E009B88EF /* ChatHeaderCell.swift in Sources */,
-				1872B6DC26C5B53A009B88EF /* ChatMessageCell.swift in Sources */,
 				187CE6E726C512B100C8E765 /* JobDetailsViewController.swift in Sources */,
 				187CE6E626C512B100C8E765 /* LeftViewController.swift in Sources */,
 				9A5B08EB26B26CEF00BA0CB4 /* Fonts.swift in Sources */,
@@ -852,17 +832,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LNR2265795;
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEVELOPMENT_TEAM = 8U3VM88NZ7;
 				INFOPLIST_FILE = "Gas 2 You/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eww.gas2you.driver;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gas2you.driver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -873,17 +855,19 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LNR2265795;
+				CURRENT_PROJECT_VERSION = 1.0.0;
+				DEVELOPMENT_TEAM = 8U3VM88NZ7;
 				INFOPLIST_FILE = "Gas 2 You/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.eww.gas2you.driver;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gas2you.driver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

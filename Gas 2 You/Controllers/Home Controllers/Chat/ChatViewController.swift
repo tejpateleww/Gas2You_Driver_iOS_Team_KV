@@ -9,26 +9,26 @@
 import UIKit
 
 class ChatViewController: BaseVC {
-
-
-
+    
+    
+    
     //MARK: -Properties
     var MessageArray = [ChatConversation]()
     //MARK: -IBOutlets
-    @IBOutlet weak var lblchatview: UILabel!
     @IBOutlet weak var tblChat: UITableView!
     @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
     @IBOutlet weak var txtviewComment: ratingTextview!
     @IBOutlet var vwNavBar: UIView!
+    @IBOutlet weak var lblChatText: UILabel!
     
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblInfo: UILabel!
     //MARK: -View Life Cycle Methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-
+        
         txtviewComment.delegate = self
         txtviewComment.textColor = txtviewComment.text == "" ? .black : .gray
         setLocalization()
@@ -36,80 +36,79 @@ class ChatViewController: BaseVC {
         MessageArray.append(ChatConversation(date: "Today at 5:03 PM", Data: [MessageAllData(fromSender: true, message: "Hello, are you nearby?", lastMessage: false),
                                                                               MessageAllData(fromSender: false, message: "I'll be there in a few mins", lastMessage: true),
                                                                               MessageAllData(fromSender: true, message: "OK, I'm in front of the bus stop", lastMessage: true)
-                                                                        ]))
+        ]))
         MessageArray.append(ChatConversation(date: "May 3", Data: [MessageAllData(fromSender: false, message: "Sorry , I'm stuck in traffic. Please give me a moment.", lastMessage: true)
-                                                                        ]))
+        ]))
         
-        setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Ellen Lambert", leftImage: "Back", rightImages: [], isTranslucent: true)
-//        navBarRightImage()
+        NavBarTitle(isOnlyTitle: false, isMenuButton: false, title: "Ellen Lambert", controller: self)
+        navBarRightImage()
         
         txtviewComment.font = CustomFont.PoppinsRegular.returnFont(16)
-//        self.setNavigationBarInViewController(controller: self, naviColor: colors.white.value, naviTitle: "", leftImage: #imageLiteral(resourceName: "IC_backButton"), rightImages: [], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
+        //        self.setNavigationBarInViewController(controller: self, naviColor: colors.white.value, naviTitle: "", leftImage: #imageLiteral(resourceName: "IC_backButton"), rightImages: [], isTranslucent: true, CommonViewTitles: [], isTwoLabels: false)
         
         tblChat.reloadData()
-
-
+        
+        
         NotificationCenter.default.addObserver(self,selector: #selector(self.keyboardNotification(notification:)),name: UIResponder.keyboardWillChangeFrameNotification,object: nil)
-
-
+        
+        
         let dismissKeyboardGesture = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         dismissKeyboardGesture.cancelsTouchesInView = false
         tblChat.addGestureRecognizer(dismissKeyboardGesture)
-
-
+        
+        
     }
-
+    
     deinit {
         NotificationCenter.default.removeObserver(self)
-      }
-
-
+    }
+    
+    
     @objc func hideKeyboard() {
         view.endEditing(true)
     }
-
-
+    
+    
     //MARK: -Bring up and down the keyboard
     @objc func keyboardNotification(notification: NSNotification) {
-      guard let userInfo = notification.userInfo else { return }
-
-      let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-      let endFrameY = endFrame?.origin.y ?? 0
-      let duration:TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
-      let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
-      let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
-      let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
-
-      if endFrameY >= UIScreen.main.bounds.size.height {
-        self.keyboardHeightLayoutConstraint?.constant = 0.0
-      } else {
-        self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
-      }
-
-      UIView.animate(
-        withDuration: duration,
-        delay: TimeInterval(0),
-        options: animationCurve,
-        animations: { self.view.layoutIfNeeded() },
-        completion: nil)
+        guard let userInfo = notification.userInfo else { return }
+        
+        let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        let endFrameY = endFrame?.origin.y ?? 0
+        let duration:TimeInterval = (userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
+        let animationCurveRawNSN = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? NSNumber
+        let animationCurveRaw = animationCurveRawNSN?.uintValue ?? UIView.AnimationOptions.curveEaseInOut.rawValue
+        let animationCurve:UIView.AnimationOptions = UIView.AnimationOptions(rawValue: animationCurveRaw)
+        
+        if endFrameY >= UIScreen.main.bounds.size.height {
+            self.keyboardHeightLayoutConstraint?.constant = 0.0
+        } else {
+            self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
+        }
+        
+        UIView.animate(
+            withDuration: duration,
+            delay: TimeInterval(0),
+            options: animationCurve,
+            animations: { self.view.layoutIfNeeded() },
+            completion: nil)
     }
     //MARK: -other methods
     func setLocalization() {
-
+        
     }
     func setValue() {
     }
-
-
-
+    
+    
+    
     //MARK: -IBActions
-
-
+    
+    
     //MARK: -API Calls
-
-
-
+    
 }
+
 
 
 
@@ -122,14 +121,14 @@ extension ChatViewController : UITextViewDelegate {
             txtviewComment.textColor = .black
         }
     }
-
+    
     func textViewDidChange(_ textView: UITextView) {
-        self.lblchatview.text = self.txtviewComment.text
+        self.lblChatText.text = self.txtviewComment.text
     }
-
-
+    
+    
     func textViewDidEndEditing(_ textView: UITextView) {
-
+        
         if txtviewComment.text.isEmpty {
             txtviewComment.text = "Start Typing..."
             txtviewComment.textColor = .lightGray
@@ -139,93 +138,89 @@ extension ChatViewController : UITextViewDelegate {
 //MARK: -tableviewDelegate
 extension ChatViewController : UITableViewDelegate, UITableViewDataSource
 {
-
-
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MessageArray[section].MessageData!.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = UITableViewCell()
         if MessageArray[indexPath.section].MessageData![indexPath.row].isFromSender == true {
             let SenderCell = tblChat.dequeueReusableCell(withIdentifier: chatSenderCell.className, for: indexPath) as! chatSenderCell
             SenderCell.lblSenderMessage.text = MessageArray[indexPath.section].MessageData![indexPath.row].chatMessage
             SenderCell.lblBottomView.isHidden = false
-
-//            if indexPath.row != 0 {
-//                if indexPath.row != MessageArray[indexPath.section].MessageDate!.count - 1 {
-//                    if (MessageArray[indexPath.section].MessageData![indexPath.row].isFromSender!) && (MessageArray[indexPath.section].MessageData![indexPath.row - 1].isFromSender!)   {
-//                        SenderCell.lblBottomView.isHidden = false
-//                    } else {
-//                        SenderCell.lblBottomView.isHidden = true
-//                    }
-//                } else {
-//                    SenderCell.lblBottomView.isHidden = false
-//                }
-//
-//
-//            } else {
-//                if indexPath.row != MessageArray[indexPath.section].MessageDate!.count - 1 {
-//                    if (MessageArray[indexPath.section].MessageData![indexPath.row].isFromSender!) && (MessageArray[indexPath.section].MessageData![indexPath.row + 1].isFromSender!)   {
-//                        SenderCell.lblBottomView.isHidden = true
-//                    } else {
-//                        SenderCell.lblBottomView.isHidden = false
-//                    }
-//                } else {
-//                    SenderCell.lblBottomView.isHidden = false
-//                }
-//            }
-
-
-
-//            if MessageArray[indexPath.section].MessageData![indexPath.row].isLastMessage != true {
-//
-//            }
+            
+            //            if indexPath.row != 0 {
+            //                if indexPath.row != MessageArray[indexPath.section].MessageDate!.count - 1 {
+            //                    if (MessageArray[indexPath.section].MessageData![indexPath.row].isFromSender!) && (MessageArray[indexPath.section].MessageData![indexPath.row - 1].isFromSender!)   {
+            //                        SenderCell.lblBottomView.isHidden = false
+            //                    } else {
+            //                        SenderCell.lblBottomView.isHidden = true
+            //                    }
+            //                } else {
+            //                    SenderCell.lblBottomView.isHidden = false
+            //                }
+            //
+            //
+            //            } else {
+            //                if indexPath.row != MessageArray[indexPath.section].MessageDate!.count - 1 {
+            //                    if (MessageArray[indexPath.section].MessageData![indexPath.row].isFromSender!) && (MessageArray[indexPath.section].MessageData![indexPath.row + 1].isFromSender!)   {
+            //                        SenderCell.lblBottomView.isHidden = true
+            //                    } else {
+            //                        SenderCell.lblBottomView.isHidden = false
+            //                    }
+            //                } else {
+            //                    SenderCell.lblBottomView.isHidden = false
+            //                }
+            //            }
+            
+            
+            
+            //            if MessageArray[indexPath.section].MessageData![indexPath.row].isLastMessage != true {
+            //
+            //            }
             cell = SenderCell
-
+            
         } else {
             let ReciverCell = tblChat.dequeueReusableCell(withIdentifier: chatReciverCell.className, for: indexPath) as! chatReciverCell
             ReciverCell.lblReciverMessage.text = MessageArray[indexPath.section].MessageData![indexPath.row].chatMessage
             ReciverCell.lblBottomView.isHidden = false
-//            if indexPath.row != 0 {
-//                if indexPath.row != MessageArray[indexPath.section].MessageDate?.count {
-//                    if (MessageArray[indexPath.section].MessageData![indexPath.row].isFromSender!) && (MessageArray[indexPath.section].MessageData![indexPath.row - 1].isFromSender!)   {
-//                        ReciverCell.lblBottomView.isHidden = false
-//                    } else {
-//                        ReciverCell.lblBottomView.isHidden = true
-//                    }
-//                } else {
-//                    ReciverCell.lblBottomView.isHidden = false
-//                }
-//
-//
-//            } else {
-//                if indexPath.row != MessageArray[indexPath.section].MessageDate?.count {
-//                    if (MessageArray[indexPath.section].MessageData![indexPath.row].isFromSender!) && (MessageArray[indexPath.section].MessageData![indexPath.row + 1].isFromSender!)   {
-//                        ReciverCell.lblBottomView.isHidden = true
-//                    } else {
-//                        ReciverCell.lblBottomView.isHidden = false
-//                    }
-//                } else {
-//                    ReciverCell.lblBottomView.isHidden = false
-//                }
-//            }
-
+            //            if indexPath.row != 0 {
+            //                if indexPath.row != MessageArray[indexPath.section].MessageDate?.count {
+            //                    if (MessageArray[indexPath.section].MessageData![indexPath.row].isFromSender!) && (MessageArray[indexPath.section].MessageData![indexPath.row - 1].isFromSender!)   {
+            //                        ReciverCell.lblBottomView.isHidden = false
+            //                    } else {
+            //                        ReciverCell.lblBottomView.isHidden = true
+            //                    }
+            //                } else {
+            //                    ReciverCell.lblBottomView.isHidden = false
+            //                }
+            //
+            //
+            //            } else {
+            //                if indexPath.row != MessageArray[indexPath.section].MessageDate?.count {
+            //                    if (MessageArray[indexPath.section].MessageData![indexPath.row].isFromSender!) && (MessageArray[indexPath.section].MessageData![indexPath.row + 1].isFromSender!)   {
+            //                        ReciverCell.lblBottomView.isHidden = true
+            //                    } else {
+            //                        ReciverCell.lblBottomView.isHidden = false
+            //                    }
+            //                } else {
+            //                    ReciverCell.lblBottomView.isHidden = false
+            //                }
+            //            }
+            
             cell = ReciverCell
         }
-
+        
         return cell
-
+        
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return MessageArray.count
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 44
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tblChat.dequeueReusableCell(withIdentifier: chatHeaderCell.className) as! chatHeaderCell
@@ -235,7 +230,7 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource
     }
 }
 class chatSenderCell : UITableViewCell {
-
+    
     @IBOutlet weak var lblBottomView: UIView!
     @IBOutlet weak var lblSenderView: chatScreenView!
     @IBOutlet weak var lblSenderMessage: chatScreenLabel!
@@ -246,7 +241,7 @@ class chatReciverCell : UITableViewCell {
     @IBOutlet weak var lblReciverMessage: chatScreenLabel!
 }
 class chatHeaderCell : UITableViewCell {
-
+    
     @IBOutlet weak var lblDateTime: chatScreenLabel!
     @IBOutlet weak var vwMain: UIView!
 }
