@@ -58,14 +58,14 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$200" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ych-xL-ZTM" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                <rect key="frame" x="716" y="52.5" width="41" height="20.5"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$200.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ych-xL-ZTM" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                <rect key="frame" x="692.5" y="52.5" width="64.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                        <color key="value" red="0.0" green="0.66666666669999997" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="0.2196078431372549" green="0.70980392156862748" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isBold" value="YES"/>
                                     <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
@@ -84,9 +84,6 @@
                             <constraint firstItem="ych-xL-ZTM" firstAttribute="centerY" secondItem="Qsp-Wz-Jxd" secondAttribute="centerY" id="cd5-ya-zxC"/>
                             <constraint firstItem="ych-xL-ZTM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Qsp-Wz-Jxd" secondAttribute="trailing" constant="10" id="fPY-17-mwh"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
-                        </userDefinedRuntimeAttributes>
                     </view>
                 </subviews>
                 <constraints>

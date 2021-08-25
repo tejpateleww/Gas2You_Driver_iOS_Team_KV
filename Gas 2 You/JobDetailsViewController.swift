@@ -66,6 +66,7 @@ class JobDetailsViewController: BaseVC {
     @IBOutlet weak var lblplateNumberDashLineHeight: NSLayoutConstraint!
     
     @IBOutlet weak var imgCompleted: UIImageView!
+    @IBOutlet weak var LblCompleted: themeLabel!
     @IBOutlet weak var LblDateTime: themeLabel!
     @IBOutlet weak var ViewDateTime: UIView!
     
@@ -73,6 +74,8 @@ class JobDetailsViewController: BaseVC {
     @IBOutlet weak var vwChatCall: UIView!
     
     @IBOutlet weak var stackStatus: UIStackView!
+    
+    
     @IBOutlet weak var btnDownload: ThemeButton!
     @IBOutlet weak var vwUpdateStatus: UIView!
     @IBOutlet weak var BtnStartJob: ThemeButton!
@@ -88,9 +91,12 @@ class JobDetailsViewController: BaseVC {
     // ----------------------------------------------------
     // MARK: - --------- Life-cycle Methods ---------
     // ----------------------------------------------------
-    
+    func lblcompltedSetup() {
+        LblCompleted.transform = CGAffineTransform(rotationAngle: -45)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        lblcompltedSetup()
         setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: strTitle == "" ? "Job Details" : strTitle, leftImage: "Back", rightImages: [], isTranslucent: true)
         
         setUIMapPin()
@@ -208,6 +214,7 @@ extension JobDetailsViewController{
         stackItem.isHidden = false
         vwGasPriceDetail.isHidden = false
         imgCompleted.isHidden = false
+        LblCompleted.isHidden = false
         stackStatus.isHidden = true
     }
     func isFromInProcess(sender : UIButton){

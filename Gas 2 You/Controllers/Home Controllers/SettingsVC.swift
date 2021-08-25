@@ -16,6 +16,7 @@ class SettingsVC: BaseVC {
         switchNotification.layer.cornerRadius = switchNotification.bounds.height/2
         switchNotification.layer.borderWidth = 1
         switchNotification.layer.borderColor = #colorLiteral(red: 0.1801939905, green: 0.8354453444, blue: 0.6615549922, alpha: 1)
+        switchNotification.tintColor = UIColor(hexString: "#EBFBF6")
 //        NavBarTitle(isOnlyTitle: false, isMenuButton: false, title: "Settings", controller: self)
     }
     

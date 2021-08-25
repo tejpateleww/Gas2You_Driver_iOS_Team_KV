@@ -10,7 +10,7 @@ import UIKit
 class ChatListCell: UITableViewCell {
 
     @IBOutlet weak var profileIV: UIImageView!
-    
+    @IBOutlet weak var LblMessage: themeLabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         profileIV.layer.cornerRadius = profileIV.frame.height / 2

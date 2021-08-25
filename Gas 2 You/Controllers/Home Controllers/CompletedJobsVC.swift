@@ -16,7 +16,7 @@ class CompletedJobsVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Complete Jobs", leftImage: "Back", rightImages: [], isTranslucent: true)
+        setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Completed Jobs", leftImage: "Back", rightImages: [], isTranslucent: true)
         let completedCellNib = UINib(nibName: CompletedCell.className, bundle: nil)
         tblCompletedJobs.register(completedCellNib, forCellReuseIdentifier: CompletedCell.className)
     }

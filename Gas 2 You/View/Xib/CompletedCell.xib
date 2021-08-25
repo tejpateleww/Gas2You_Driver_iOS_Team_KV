@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="552" height="249"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAN-SS-WWA" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAN-SS-WWA" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                         <rect key="frame" x="36" y="14" width="86" height="32"/>
                         <color key="backgroundColor" red="0.38431372549999998" green="0.82352941180000006" blue="0.5450980392" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>

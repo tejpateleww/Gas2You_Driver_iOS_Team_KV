@@ -21,6 +21,14 @@ class MyEarningsCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         vwMain.layer.cornerRadius = 13
+        
+        vwMain.layer.shadowColor = UIColor.black.cgColor
+        vwMain.layer.shadowOpacity = 0.3
+        vwMain.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)// CGSize.zero
+        vwMain.layer.shadowRadius = 2
+        
+        
+        
         imgCurrency.layer.cornerRadius = imgCurrency.frame.height/2
     }
 

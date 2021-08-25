@@ -60,7 +60,7 @@ extension MyEarningsVC : UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 74
+        return 84
     }
     
     
