@@ -21,7 +21,6 @@ class ChangePasswordVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        NavBarTitle(isOnlyTitle: false, isMenuButton: false, title: "Change Password", controller: self)
         setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Change Password", leftImage: "Back", rightImages: [], isTranslucent: true, iswhiteTitle: true)
     }
     

@@ -20,7 +20,6 @@ class SignUpVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //        setupTextfields(textfield: txtEmail)
         setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "", leftImage: "Back", rightImages: [], isTranslucent: true)
         btnLoginNow.setunderline(title: "Login Now" , color: .white, font: CustomFont.PoppinsSemiBold.returnFont(16))
         
@@ -33,7 +32,6 @@ class SignUpVC: BaseVC {
         txtMobile.layer.cornerRadius = 8
     }
     
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         UIApplication.shared.statusBarStyle = .lightContent
@@ -45,7 +43,6 @@ class SignUpVC: BaseVC {
     }
     
     //MARK:- Custom Methods
-    
     func setupTextfields(textfield : UITextField) {
         let button = UIButton(type: .custom)
         button.isSelected = true
@@ -67,10 +64,11 @@ class SignUpVC: BaseVC {
     @IBAction func btnLoginNowTap(_ sender: Any) {
         
     }
+    
     @IBAction func btnSignupTap(_ sender: Any) {
-        UserDefaults.standard.set(true, forKey: "isLoggedIn")
-        AppDel.navigateToHome()
+
     }
+    
     @IBAction func logInNowButtonPressed(_ sender: themeButton){
         navigationController?.popViewController(animated: true)
     }

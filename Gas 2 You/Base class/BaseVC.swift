@@ -165,7 +165,6 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
         }
     }
     @objc func menuButtonPressed(button: UIButton) {
-        print("menu pressed")
         self.showSideMenu()
     }
     @objc func BackButtonWithTitle(button: UIButton) {

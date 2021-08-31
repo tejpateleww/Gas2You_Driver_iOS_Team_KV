@@ -8,13 +8,12 @@
 import UIKit
 
 class LogInVC: UIViewController, UITextFieldDelegate {
-
+    
     
     @IBOutlet weak var btnLogin: ThemeButton!
     @IBOutlet weak var txtEmail: themeTextfield!
     @IBOutlet weak var txtPassword: themeTextfield!
     @IBOutlet weak var btnSignUp: themeButton!
-    
     
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,9 +27,6 @@ class LogInVC: UIViewController, UITextFieldDelegate {
         setupTextfields(textfield: txtPassword)
         btnSignUp.setunderline(title: btnSignUp.titleLabel?.text ?? "", color: .white, font: CustomFont.PoppinsSemiBold.returnFont(16))
     }
-    
-    
-   
     
     override func viewWillDisappear(_ animated: Bool) {
         UIApplication.shared.statusBarStyle = .default
@@ -46,13 +42,14 @@ class LogInVC: UIViewController, UITextFieldDelegate {
         let view = UIView(frame : CGRect(x: 0, y: 0, width: 80, height: 40))
         view.addSubview(button)
         textfield.rightView = view
+        
     }
+    
     @objc func navigateToForgotPassword(){
         let loginStory = UIStoryboard(name: "Main", bundle: nil)
         let forgotpassVC = loginStory.instantiateViewController(identifier: ForgotPasswordVC.className) as! ForgotPasswordVC
         navigationController?.pushViewController(forgotpassVC, animated: true)
     }
-    
     
     @IBAction func logInButtonPreesed(_ sender: ThemeButton) {
         UserDefaults.standard.set(true, forKey: "isLoggedIn")

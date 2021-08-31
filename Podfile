@@ -9,5 +9,7 @@ target 'Gas 2 You Driver' do
 
 pod 'IQKeyboardManagerSwift'
 pod 'GoogleMaps'
+pod 'MKProgress'
+pod 'SDWebImage'
 
 end

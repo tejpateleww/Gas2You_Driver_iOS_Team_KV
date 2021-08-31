@@ -1,0 +1,268 @@
+/* 
+  Localize.strings
+  PickARide User
+
+  Created by Apple on 14/12/20.
+  Copyright © 2020 EWW071. All rights reserved.
+*/
+
+// LoginScreen_
+
+"LoginScreen_lblSignIN" = "Sign In";
+"LoginScreen_lblWelcomeBack" = "Welcome Back!";
+"LoginScreen_lblEmail" = "EMAIL";
+"LoginScreen_textFieldEmailID_place" = "Email";
+"LoginScreen_lblPassword" = "PASSWORD";
+"LoginScreen_textFieldPassword_place" = "Password";
+"LoginScreen_btnForgotPassword" = "Forgot Password?";
+"LoginScreen_btnSignIN" = "SIGN IN";
+"LoginScreen_lblOR" = "OR";
+"LoginScreen_lblDontHaveanAccount" = "Don't have an account? ";
+"LoginScreen_btnSIgnUP" = "SIGN UP";
+
+
+//SignUpPage_
+
+"SignUpPage_lblSignUP" = "Sign up";
+"SignUpPage_textFieldFirstName_place" = "First name";
+"SignUpPage_textFieldLastName_place" = "Last name";
+"SignUpPage_textFieldEmail_place" = "Email";
+"SignUpPage_lblCountryCode" = "COUNTRY CODE";
+"SignUpPage_textFieldPhoneNumbaer_place" = "Phone number";
+"SignUpPage_textFieldPassword_place" = "Password";
+"SignUpPage_textViewText1" = "By clicking \"Sign Up\" you agree to our ";
+"SignUpPage_textViewText2" = "terms and conditions";
+"SignUpPage_textViewText3" = " as well as our ";
+"SignUpPage_textViewText4" = "privacy policy";
+"SignUpPage_btnSIgnUP" = "SIGN UP";
+
+
+//VerifyVC_
+
+"VerifyVC_lblVerifyPhoneNumber" = "Verify Phone \nNumber";
+"VerifyVC_lblCheckSMS" = "Check your email address. We've sent you the code at";
+"VerifyVC_lblDontRecive" = "Didn't receive SMS?";
+"VerifyVC_btnResendCode" = "Resend Code";
+"VerifyVC_btnResendCodeIn" = "Resend code in";
+"VerifyVC_Verify" = "VERIFY";
+
+//ChangePassword_
+
+"ChangePassword_lblChangePassword" = "Change Password";
+"ChangePassword_lblSetPassword" = "Set Password";
+"ChangePassword_oldPassword_Place" = "Current Password";
+"ChangePassword_newPassword_Place" = "New Password";
+"ChangePassword_confirmPassword_Place" = "Confirm Password";
+"ChangePassword_btnSetPassword" = "SET PASSWORD";
+"ChangePassword_btnChangePassword" = "CHANGE PASSWORD";
+
+"ChangePassword_oldPassword" = "CURRENT PASSWORD";
+"ChangePassword_newPassword" = "NEW PASSWORD";
+"ChangePassword_confirmPassword" = "CONFIRM PASSWORD";
+
+//Notification_
+"Notification_lblTitle" = "Notifications";
+
+//Home_
+"home_Whereareyougoing_place" = "Where are you going ?";
+
+//ChooseDestination_
+"ChooseDestination_startLocation_place" = "Enter Start Location";
+"ChooseDestination_DestinationLocation_place" = "Enter Destination";
+
+//NoDataFound
+"Title_NoDataFound" = "No Data Found";
+
+
+//AddCardVC_
+"AddCardVC_lblPaymentMethod" = "Payment Methods";
+"AddCardVC_lblChoosedesired" = "Choose desired Payment Method";
+"AddCardVC_lblWallet" = "Wallet";
+"AddCardVC_lblAddCard" = "ADD CARD";
+
+
+//WalletHistory_
+"WalletHistory_lblPayment" = "Payment Methods";
+"WalletHistory_lblAvailableBalance" = "Available Balance";
+"WalletHistory_lblRecentHistory" = "Recent History";
+
+
+//AddCardVC_
+"AddCardVC_lblAddCard" = "Add Card";
+"AddCardVC_LblName" = "NAME";
+"AddCardVC_LblCreditCardNumber" = "CREDIT CARD NUMBER";
+"AddCardVC_LblExpires" = "EXPIRES";
+"AddCardVC_LblCVV" = "CVV";
+"AddCardVC_LblCountry" = "COUNTRY";
+"AddCardVC_LblDebitCardAreAcceptedDescription" = "Debit cards are accepted at some locations and for some categories.";
+"AddCardVC_TextFieldName_place" = "Card Holder Name";
+"AddCardVC_TextFieldCreditCardNumber_place" = "Credit Card Number";
+"AddCardVC_TextFieldExpires_place" = "Expiry date";
+"AddCardVC_TextFieldCVV_place" = "CVV";
+"AddCardVC_TextFieldCountry_place" = "Country";
+"AddCardVC_btnSave" = "SAVE";
+
+//Forgot Password Screen
+"ForgotPasswordScreen_lblForgotPassword" = "Forgot \nPassword";
+"ForgotPasswordScreen_lblQuestion" = "What is your email address?";
+"ForgotPasswordScreen_lblDescription" = "Tap \"Reset Password\" link to set new password to use PICK A RIDE. We would like your email address.";
+"ForgotPasswordScreen_lblCountryCode" = "COUNTRY CODE";
+"ForgotPasswordScreen_textFieldPhoneNumber" = "Phone number";
+"ForgotPasswordScreen_btnContinue" = "CONTINUE";
+
+//MyOffers Screen
+"MyOfferVC_lblMyOffers" = "My Offers";
+"MyOfferVC_textFieldOfferCode" = "Enter your Offer code";
+"MyOfferVC_btnApply" = "APPLY";
+"MyOfferVC_lblOffers" = "10% Off the base rate on your next rental";
+"MyOfferVC_lblValidto" = "Valid to ";
+"MyOfferVC_btnUsenow" = "Use now";
+
+//MyRides Screen
+"MyRidesVC_lblMyRides" = "My Rides";
+"MyRidesVC_lblDate" = "Today, 10:30 AM";
+"MyRidesVC_lblName" = "RIDEGO";
+"MyRidesVC_lblAddress" = "Seattle - 280 Hemlock Ln";
+"MyRidesVC_lblPrice" = "Price";
+"MyRidesVC_lblTotal" = "$25.50";
+"MyRidesVC_lblMyride" = "post";
+"MyRidesVC_btnUpcoming" = "UPCOMING";
+
+
+//Saved Places Screen
+"SavedPlaceVC_lblSavedPlaces" = "Saved Places";
+"SavedPlaceVC_lblPlaceName" = "Home";
+"SavedPlaceVC_btnAddPlace" = "+ Add New Place";
+
+
+
+//Reason for Cancel Screen
+"ReasonForCancleVC_btnDone" = "DONE";
+"ReasonForCancleVC_lblReasonforcancel" = "Driver isn't here";
+
+//Ride Details Screen
+"RideDetailsVC_lblRideDetails" = "Ride Details";
+"RideDetailsVC_lblDate" = "Today, 10:30 AM";
+"RideDetailsVC_lblPlaceCode" = "RIDEGO (ST3751 ";
+"RideDetailsVC_lblPlace" = "- Toyota Vios)";
+"RideDetailsVC_lblAddress" = "Seattle - 280 Hemlock Ln";
+"RideDetailsVC_lblPrice" = "Price";
+"RideDetailsVC_lblTotal" = "$25.50";
+"RideDetailsVC_lblPickup" = "PICK-UP";
+"RideDetailsVC_lblPickupDetail" = "199 Brown Estate Apt. 866";
+"RideDetailsVC_lblDestination" = "DESTIONATION";
+"RideDetailsVC_lblDestinationDetail" = "6046 Kulas Overpass Suite 302";
+"RideDetailsVC_btnReceipt" = "Receipt";
+"RideDetailsVC_btnRepeatRide" = "Repeat Ride";
+"RideDetailsVC_lblName" = "Connor Chavez";
+"RideDetailsVC_lblRating" = "You Rated";
+"RideDetailsVC_btnHelp" = "Need help with this ride?";
+
+
+//Navigation Button
+"NavigationButton_btnLogin" = "Log in";
+"NavigationButton_btnDone" = "Done";
+"NavigationButton_btnAddCard" = "Add Card";
+"NavigationButton_btnHelp" = "Help";
+"NavigationButton_btnAdd" = "Add";
+
+//profile screen
+"ProfileVC_lblTitle" = "Hey";
+"ProfileVC_lblFirstName" = "FIRST NAME";
+"ProfileVC_textFieldFirstName" = "First Name";
+"ProfileVC_lblLastName" = "LAST NAME";
+"ProfileVC_textFieldLastName" = "Last Name";
+"ProfileVC_lblEmail" = "EMAIL";
+"ProfileVC_textFieldEmail" = "Email";
+"ProfileVC_lblPhoneNumber" = "PHONE NUMBER";
+"ProfileVC_textFieldPhoneNumber" = "Phone";
+"ProfileVC_lblPassword" = "PASSWORD";
+"ProfileVC_textFieldPassword" = "xxxxxxxx";
+
+//SettingsVC_
+"SettingsVC_lblTitle" = "Settings";
+"SettingsVC_Favourites" = "Favourites";
+"SettingsVC_Home" = "Home";
+"SettingsVC_Work" = "Work";
+"SettingsVC_privacyPolicy" = "Privacy Policy";
+"SettingsVC_Language" = "Language";
+"SettingsVC_English" = "English";
+"SettingsVC_German" = "German ";
+"SettingsVC_btnAdd" = "Add";
+"SettingsVC_btnMoreSavedPlaces" = "More Saved Places ";
+
+//AddNewDestinationVC_
+"AddNewDestinationVC_PlaceName" = "Place Name";
+"AddNewDestinationVC_PlaceAddress" = "Place Address";
+
+//SuggestedTaxiVC_
+"SuggestedTaxiVC_lblTitle" = "SUGGESTED RIDES";
+"SuggestedTaxiVC_lblCardPayment" = "Card payment";
+"SuggestedTaxiVC_lblOffer" = "Offers";
+
+"SuggestedTaxiVC_btnBookNow" = "CHOOSE PAYMENT METHOD";
+"SuggestedTaxiVC_btnPromo" = "PROMO";
+
+"PaymentVC_btnBookNow" = "BOOK NOW";
+//ScheduleRideVC_
+"ScheduleRideVC_title" = "Schedule a Ride";
+"ScheduleRideVC_btnCancel" = "CANCEL";
+"ScheduleRideVC_btnSet" = "SET";
+
+//MenuVC
+"MenuVC_lblLegal" = "Legal";
+"MenuVC_lblVersion" = "v%@";
+
+//NavigationTitle
+"NavigationTitle_SignUp" = "Sign up";
+"NavigationTitle_ForgotPassword" = "Forgot Password";
+"NavigationTitle_Verfiy" = "Verify";
+"NavigationTitle_ViewProfile" = "View Profile";
+"NavigationTitle_EditProfile" = "Edit Profile";
+"NavigationTitle_MyRides" = "My Rides";
+"NavigationTitle_RideDetails" = "Ride Details";
+"NavigationTitle_PaymentMethods" = "Payment Methods";
+"NavigationTitle_AddCard" = "Add Card";
+"NavigationTitle_Notifications" = "Notifications";
+"NavigationTitle_Settings" = "Settings";
+"NavigationTitle_reasonForCancle" = "Reason for Cancel";
+"NavigationTitle_Rating" = "Rating";
+"NavigationTitle_AddNewPlace" = "Add New Place";
+"NavigationTitle_SavelPlaces" = "Saved Places";
+"NavigationTitle_Wallet" = "Wallet";
+"NavigationTitle_MyOfffer" = "My Offers";
+
+//Messages
+"UrlConstant_Required" = "Required";
+"UrlConstant_Success" = "Success";
+"UrlConstant_Failed" = "Failed";
+"UrlConstant_SessionExpired" = "Your session is expired! Please login again.";
+"UrlConstant_SomethingWentWrong" = "There is some server side error, Please try again after some time!";
+"UrlConstant_NoInternetConnection" = "The Internet connection appears to be offline, Please connect to the internet.";
+"UrlConstant_RequestTimeOut" = "Poor internet connection, Check your internet connection or try again.";
+"UrlConstant_Ok" = "Ok";
+"UrlConstant_Yes" = "Yes";
+"UrlConstant_Cancel" = "Cancel";
+"UrlConstant_Settings" = "Settings";
+"UrlConstant_Logout" = "Logout";
+"UrlConstant_No" = "No";
+"UrlConstant_Retry" = "Retry";
+"UrlConstant_Submit" = "Submit";
+"UrlConstant_SelectCard" = "Select Card";
+"UrlConstant_Continue" = "Continue";
+"UrlConstant_Help" = "Help";
+"UrlConstant_Invalid" = "Invalid";
+"UrlConstant_Remove" = "Remove";
+"UrlConstant_Expiry" = "Expires";
+"UrlConstant_ValidPhoneNo" = "Please enter valid mobile number.";
+"UrlConstant_InvalidEmailMessage" = "Invalid e-mail Address.";
+"UrlConstant_AgeIsRequired" = "Age is required";
+"UrlConstant_AgeMustNumber" = "Age must be a number!";
+"UrlConstant_InvalidAgeNumber" = "Invalid age number!";
+"UrlConstant_Age18YearsOld" = "You have to be over 18 years old to user our app :)";
+"UrlConstant_RequiredVerificationCode" = "Please enter verification code";
+"UrlConstant_InvalidVerificationCode" = "Please enter valid verification code";
+"UrlConstant_LocationRequiredMessage" = "Location service is disabled. To re-enable, please go to Settings and turn on Location Service for this application.";
+"UrlConstant_LogoutMessage" = "Are you sure you want to logout?";
+"UrlConstant_EnterEmailMessage" = "Please enter email";
+"UrlConstant_InvalidCardNumber" = "Your card number is invalid";
