@@ -14,7 +14,7 @@ let keywindow = UIApplication.shared.keyWindow
 
 let appDel = UIApplication.shared.delegate as! AppDelegate
 let kAPPVesion = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
-let AppName = ""
+let AppName = "Gas2You Driver"
 let AppURL = "itms-apps://itunes.apple.com/app/id1488928328"
 
 //MARK:- Symbols

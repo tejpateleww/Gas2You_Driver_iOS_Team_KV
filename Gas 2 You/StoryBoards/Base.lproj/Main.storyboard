@@ -79,6 +79,9 @@
                                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="sEc-BL-JAs" id="ZE1-Jq-0FY"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTC-r5-jva" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="148" width="335" height="50"/>
@@ -5911,9 +5914,6 @@ Send to Admin</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yV-rt-fV9">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_menu" translatesAutoresizingMaskIntoConstraints="NO" id="x0h-cz-b7i">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                    </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Logo_image-1" translatesAutoresizingMaskIntoConstraints="NO" id="LgY-a6-8Nu">
                                         <rect key="frame" x="88" y="259" width="199" height="149"/>
                                         <constraints>
@@ -5921,13 +5921,9 @@ Send to Admin</string>
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="x0h-cz-b7i" secondAttribute="bottom" id="7va-Ee-TcG"/>
                                     <constraint firstItem="LgY-a6-8Nu" firstAttribute="centerX" secondItem="6yV-rt-fV9" secondAttribute="centerX" id="857-q5-TQo"/>
-                                    <constraint firstItem="x0h-cz-b7i" firstAttribute="top" secondItem="6yV-rt-fV9" secondAttribute="top" id="Ceq-Sr-BlT"/>
-                                    <constraint firstAttribute="trailing" secondItem="x0h-cz-b7i" secondAttribute="trailing" id="JbV-N9-sm7"/>
-                                    <constraint firstItem="x0h-cz-b7i" firstAttribute="leading" secondItem="6yV-rt-fV9" secondAttribute="leading" id="d5t-pn-qHn"/>
                                     <constraint firstItem="LgY-a6-8Nu" firstAttribute="centerY" secondItem="6yV-rt-fV9" secondAttribute="centerY" id="xO5-Sn-Klb"/>
                                 </constraints>
                             </view>
@@ -5982,7 +5978,7 @@ Send to Admin</string>
         <image name="ic_color" width="20" height="20"/>
         <image name="ic_downloadInvoice" width="13" height="13"/>
         <image name="ic_gas" width="34.5" height="37"/>
-        <image name="ic_location" width="18.5" height="21"/>
+        <image name="ic_location" width="28" height="28"/>
         <image name="ic_logout" width="26" height="26"/>
         <image name="imgBlueBackGround" width="327" height="169.5"/>
         <image name="imgCloseBtn" width="23" height="23"/>

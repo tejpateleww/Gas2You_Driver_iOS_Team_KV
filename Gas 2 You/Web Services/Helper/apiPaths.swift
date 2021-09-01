@@ -13,7 +13,7 @@ enum APIEnvironment : String {
  
 //Development URL : Pick A Ride Customer
     case AssetsUrl = "http://65.1.154.172/"
-    case Development = "http://65.1.154.172/api/customer_api/"
+    case Development = "https://gas2youcenla.com/api/driver_api/"
     case Profilebu = "http://65.1.154.172/api/"
     case Live = "not provided"
      
@@ -33,7 +33,7 @@ enum APIEnvironment : String {
                 if userDefaults.object(forKey:  UserDefaultsKey.userProfile.rawValue) != nil {
                     do {
                         if UserDefaults.standard.value(forKey: UserDefaultsKey.X_API_KEY.rawValue) != nil, UserDefaults.standard.value(forKey:  UserDefaultsKey.isUserLogin.rawValue) as? Bool ?? Bool(){
-                            //return [UrlConstant.HeaderKey : UrlConstant.AppHostKey, UrlConstant.XApiKey : Singleton.sharedInstance.UserProfilData?.xAPIKey ?? ""]
+                            return [UrlConstant.HeaderKey : UrlConstant.AppHostKey, UrlConstant.XApiKey : Singleton.sharedInstance.UserProfilData?.xAPIKey ?? ""]
                         }else{
                             return [UrlConstant.HeaderKey : UrlConstant.AppHostKey]
                         }
@@ -46,8 +46,10 @@ enum APIEnvironment : String {
 }
 
 enum ApiKey: String {
-    case Init                                 = "init/ios/"
-    case checkPromocode                        = "check_promocode"
+    case Init                                 = "init/ios_driver/"
+    case login                                = "login"
+    case register                             = "register"
+    
 }
 
  

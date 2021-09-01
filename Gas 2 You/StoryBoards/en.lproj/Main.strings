@@ -1,0 +1,426 @@
+
+/* Class = "UILabel"; text = "Qty & Rate"; ObjectID = "0KC-aX-4h7"; */
+"0KC-aX-4h7.text" = "Qty & Rate";
+
+/* Class = "UILabel"; text = "Logout"; ObjectID = "0xl-Ub-OTm"; */
+"0xl-Ub-OTm.text" = "Logout";
+
+/* Class = "UIButton"; normalTitle = "13:30"; ObjectID = "14d-gk-kjN"; */
+"14d-gk-kjN.normalTitle" = "13:30";
+
+/* Class = "UILabel"; text = "$1025"; ObjectID = "18B-MU-sbv"; */
+"18B-MU-sbv.text" = "$1025";
+
+/* Class = "UILabel"; text = "Qty & Rate"; ObjectID = "1KX-nq-70m"; */
+"1KX-nq-70m.text" = "Qty & Rate";
+
+/* Class = "UILabel"; text = "Log Out"; ObjectID = "1cS-xr-vRg"; */
+"1cS-xr-vRg.text" = "Log Out";
+
+/* Class = "UITextField"; placeholder = "Email Address"; ObjectID = "1sy-dv-oF3"; */
+"1sy-dv-oF3.placeholder" = "Email Address";
+
+/* Class = "UIButton"; normalTitle = "11:00"; ObjectID = "1tF-jK-xqs"; */
+"1tF-jK-xqs.normalTitle" = "11:00";
+
+/* Class = "UITextField"; placeholder = "New Password"; ObjectID = "26f-mC-ESr"; */
+"26f-mC-ESr.placeholder" = "New Password";
+
+/* Class = "UILabel"; text = "COMPLETED"; ObjectID = "2TY-Vs-WpP"; */
+"2TY-Vs-WpP.text" = "COMPLETED";
+
+/* Class = "UITextField"; placeholder = "Email Address"; ObjectID = "2yy-5M-Q3v"; */
+"2yy-5M-Q3v.placeholder" = "Email Address";
+
+/* Class = "UILabel"; text = "About Us"; ObjectID = "3I3-nj-udJ"; */
+"3I3-nj-udJ.text" = "About Us";
+
+/* Class = "UILabel"; text = "01:30"; ObjectID = "3Jy-Bx-SmH"; */
+"3Jy-Bx-SmH.text" = "01:30";
+
+/* Class = "UIButton"; normalTitle = "Save"; ObjectID = "3Q1-Ct-lD9"; */
+"3Q1-Ct-lD9.normalTitle" = "Save";
+
+/* Class = "UILabel"; text = "By Logging in, you agree to our \nand Pr"; ObjectID = "41u-AV-kes"; */
+"41u-AV-kes.text" = "By Logging in, you agree to our \nand Pr";
+
+/* Class = "UILabel"; text = "Job Done"; ObjectID = "42B-qQ-Bty"; */
+"42B-qQ-Bty.text" = "Job Done";
+
+/* Class = "UIButton"; normalTitle = "Privacy Policy"; ObjectID = "4NC-jd-5In"; */
+"4NC-jd-5In.normalTitle" = "Privacy Policy";
+
+/* Class = "UILabel"; text = "12.000 Gallon"; ObjectID = "54B-3a-ohn"; */
+"54B-3a-ohn.text" = "12.000 Gallon";
+
+/* Class = "UILabel"; text = "Logout"; ObjectID = "5cn-XE-lb8"; */
+"5cn-XE-lb8.text" = "Logout";
+
+/* Class = "UITextField"; placeholder = "Current Password"; ObjectID = "5qw-mY-yks"; */
+"5qw-mY-yks.placeholder" = "Current Password";
+
+/* Class = "UILabel"; text = "Aug 12, 2020"; ObjectID = "5vs-2o-ITg"; */
+"5vs-2o-ITg.text" = "Aug 12, 2020";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "5wz-h1-ryI"; */
+"5wz-h1-ryI.normalTitle" = "Sign Up";
+
+/* Class = "UILabel"; text = "$11.11"; ObjectID = "6G8-rN-Lxd"; */
+"6G8-rN-Lxd.text" = "$11.11";
+
+/* Class = "UILabel"; text = "1819 S Western Ave"; ObjectID = "79L-HF-6mA"; */
+"79L-HF-6mA.text" = "1819 S Western Ave";
+
+/* Class = "UIButton"; normalTitle = "Terms Of Use"; ObjectID = "7FR-ei-LJd"; */
+"7FR-ei-LJd.normalTitle" = "Terms Of Use";
+
+/* Class = "UIButton"; normalTitle = "Privacy Policy"; ObjectID = "85T-cb-njB"; */
+"85T-cb-njB.normalTitle" = "Privacy Policy";
+
+/* Class = "UILabel"; text = "Welcome To"; ObjectID = "8Jd-d2-gRK"; */
+"8Jd-d2-gRK.text" = "Welcome To";
+
+/* Class = "UILabel"; text = "Johnathan Doe"; ObjectID = "97m-WC-FNI"; */
+"97m-WC-FNI.text" = "Johnathan Doe";
+
+/* Class = "UILabel"; text = "123. West St, 46203"; ObjectID = "9mg-AY-cYa"; */
+"9mg-AY-cYa.text" = "123. West St, 46203";
+
+/* Class = "UILabel"; text = "$85.00 Per Gallon"; ObjectID = "AKs-Q0-THb"; */
+"AKs-Q0-THb.text" = "$85.00 Per Gallon";
+
+/* Class = "UIButton"; normalTitle = "CANCEL"; ObjectID = "AaK-mq-btD"; */
+"AaK-mq-btD.normalTitle" = "CANCEL";
+
+/* Class = "UILabel"; text = "Full Name"; ObjectID = "Aae-ny-QMU"; */
+"Aae-ny-QMU.text" = "Full Name";
+
+/* Class = "UITextField"; placeholder = "Re-Enter Password"; ObjectID = "AqH-MO-wWg"; */
+"AqH-MO-wWg.placeholder" = "Re-Enter Password";
+
+/* Class = "UILabel"; text = "My Earnings"; ObjectID = "B6m-Q0-jw2"; */
+"B6m-Q0-jw2.text" = "My Earnings";
+
+/* Class = "UIButton"; normalTitle = "Call"; ObjectID = "Be2-WZ-2AI"; */
+"Be2-WZ-2AI.normalTitle" = "Call";
+
+/* Class = "UILabel"; text = "Hey! How's it going?"; ObjectID = "C6J-OM-kdy"; */
+"C6J-OM-kdy.text" = "Hey! How's it going?";
+
+/* Class = "UILabel"; text = "Privacy Policy"; ObjectID = "CEw-Xn-39F"; */
+"CEw-Xn-39F.text" = "Privacy Policy";
+
+/* Class = "UITextField"; placeholder = "Email Address"; ObjectID = "CGF-z1-UEY"; */
+"CGF-z1-UEY.placeholder" = "Email Address";
+
+/* Class = "UILabel"; text = "select grade"; ObjectID = "Cog-Xs-jG0"; */
+"Cog-Xs-jG0.text" = "select grade";
+
+/* Class = "UILabel"; text = "Already have an Account?"; ObjectID = "Cwq-cI-1tx"; */
+"Cwq-cI-1tx.text" = "Already have an Account?";
+
+/* Class = "UIButton"; normalTitle = "15:00"; ObjectID = "D7p-ie-q8G"; */
+"D7p-ie-q8G.normalTitle" = "15:00";
+
+/* Class = "UITextField"; placeholder = "Full Name"; ObjectID = "DMl-ZC-xja"; */
+"DMl-ZC-xja.placeholder" = "Full Name";
+
+/* Class = "UITextField"; text = "John Doe"; ObjectID = "DMl-ZC-xja"; */
+"DMl-ZC-xja.text" = "John Doe";
+
+/* Class = "UILabel"; text = "Select car parking location"; ObjectID = "DWu-EZ-iPz"; */
+"DWu-EZ-iPz.text" = "Select car parking location";
+
+/* Class = "UILabel"; text = "Gas"; ObjectID = "Ex4-nL-pLC"; */
+"Ex4-nL-pLC.text" = "Gas";
+
+/* Class = "UILabel"; text = "11:00 AM, 12 Aug, 2020"; ObjectID = "FCd-kS-jug"; */
+"FCd-kS-jug.text" = "11:00 AM, 12 Aug, 2020";
+
+/* Class = "UIButton"; normalTitle = "Edit Picture"; ObjectID = "FPo-LE-kQF"; */
+"FPo-LE-kQF.normalTitle" = "Edit Picture";
+
+/* Class = "UITextField"; placeholder = "Re-enter Password"; ObjectID = "FdZ-p7-oJa"; */
+"FdZ-p7-oJa.placeholder" = "Re-enter Password";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "GPm-K7-KhD"; */
+"GPm-K7-KhD.placeholder" = "Password";
+
+/* Class = "UILabel"; text = "Thank you for Order"; ObjectID = "GTn-XN-sOR"; */
+"GTn-XN-sOR.text" = "Thank you for Order";
+
+/* Class = "UILabel"; text = "Gallon"; ObjectID = "Gpw-EL-IsO"; */
+"Gpw-EL-IsO.text" = "Gallon";
+
+/* Class = "UITextField"; placeholder = "Mobile No (optional)"; ObjectID = "HT8-fe-Nsa"; */
+"HT8-fe-Nsa.placeholder" = "Mobile No (optional)";
+
+/* Class = "UIButton"; normalTitle = "Chat"; ObjectID = "IZJ-30-XyG"; */
+"IZJ-30-XyG.normalTitle" = "Chat";
+
+/* Class = "UILabel"; text = "123. West St, 46203"; ObjectID = "J3w-Tn-gL6"; */
+"J3w-Tn-gL6.text" = "123. West St, 46203";
+
+/* Class = "UITextField"; placeholder = "Full Name"; ObjectID = "JQG-Dd-nzy"; */
+"JQG-Dd-nzy.placeholder" = "Full Name";
+
+/* Class = "UITextField"; text = "+1 656 656 6584"; ObjectID = "JQG-Dd-nzy"; */
+"JQG-Dd-nzy.text" = "+1 656 656 6584";
+
+/* Class = "UILabel"; text = "Your Request Has Been\nSend to Admin"; ObjectID = "KQ4-6o-5v5"; */
+"KQ4-6o-5v5.text" = "Your Request Has Been\nSend to Admin";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "Kg7-of-NQx"; */
+"Kg7-of-NQx.placeholder" = "Password";
+
+/* Class = "UILabel"; text = "Today at 5:03 PM"; ObjectID = "Kp9-Kj-cVs"; */
+"Kp9-Kj-cVs.text" = "Today at 5:03 PM";
+
+/* Class = "UIButton"; normalTitle = "Login Now"; ObjectID = "L1A-8G-AI3"; */
+"L1A-8G-AI3.normalTitle" = "Login Now";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Lmi-mq-2Kl"; */
+"Lmi-mq-2Kl.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "Lwk-jN-buI"; */
+"Lwk-jN-buI.normalTitle" = "SUBMIT";
+
+/* Class = "UILabel"; text = "12 Aug, 2020 11:00 AM"; ObjectID = "MpD-SR-AJf"; */
+"MpD-SR-AJf.text" = "12 Aug, 2020 11:00 AM";
+
+/* Class = "UIButton"; normalTitle = "Add Address"; ObjectID = "OCL-dy-biX"; */
+"OCL-dy-biX.normalTitle" = "Add Address";
+
+/* Class = "UILabel"; text = "Mobile Number"; ObjectID = "ONw-r0-ZS7"; */
+"ONw-r0-ZS7.text" = "Mobile Number";
+
+/* Class = "UIButton"; normalTitle = "Log In"; ObjectID = "OTC-r5-jva"; */
+"OTC-r5-jva.normalTitle" = "Log In";
+
+/* Class = "UILabel"; text = "Gas"; ObjectID = "OaP-m5-73s"; */
+"OaP-m5-73s.text" = "Gas";
+
+/* Class = "UITextField"; placeholder = "Full Name"; ObjectID = "OmA-6K-mG5"; */
+"OmA-6K-mG5.placeholder" = "Full Name";
+
+/* Class = "UILabel"; text = "Gas"; ObjectID = "PZ3-be-zjD"; */
+"PZ3-be-zjD.text" = "Gas";
+
+/* Class = "UILabel"; text = "Date :"; ObjectID = "PaB-7g-cUL"; */
+"PaB-7g-cUL.text" = "Date :";
+
+/* Class = "UIButton"; normalTitle = "Send Invoice"; ObjectID = "Ped-ol-N4x"; */
+"Ped-ol-N4x.normalTitle" = "Send Invoice";
+
+/* Class = "UILabel"; text = "06:30 PM"; ObjectID = "QQa-Xy-T0q"; */
+"QQa-Xy-T0q.text" = "06:30 PM";
+
+/* Class = "UIButton"; normalTitle = "DOWNLOAD INVOICE"; ObjectID = "QnR-vI-IRo"; */
+"QnR-vI-IRo.normalTitle" = "DOWNLOAD INVOICE";
+
+/* Class = "UILabel"; text = "Email Address"; ObjectID = "T2F-AZ-HeD"; */
+"T2F-AZ-HeD.text" = "Email Address";
+
+/* Class = "UILabel"; text = "Select date & time"; ObjectID = "TKn-aU-IZ4"; */
+"TKn-aU-IZ4.text" = "Select date & time";
+
+/* Class = "UILabel"; text = "Los Angeles, CA 90006"; ObjectID = "Toj-MB-8BW"; */
+"Toj-MB-8BW.text" = "Los Angeles, CA 90006";
+
+/* Class = "UILabel"; text = "Time : "; ObjectID = "TrI-EH-FeK"; */
+"TrI-EH-FeK.text" = "Time : ";
+
+/* Class = "UILabel"; text = "12.000 Gallon"; ObjectID = "Ukl-HV-nf1"; */
+"Ukl-HV-nf1.text" = "12.000 Gallon";
+
+/* Class = "UIButton"; normalTitle = "17:30"; ObjectID = "VFg-sp-iVg"; */
+"VFg-sp-iVg.normalTitle" = "17:30";
+
+/* Class = "UITextField"; placeholder = "Full Name"; ObjectID = "VOF-XE-Vdh"; */
+"VOF-XE-Vdh.placeholder" = "Full Name";
+
+/* Class = "UITextField"; text = "johndoe@domain.com"; ObjectID = "VOF-XE-Vdh"; */
+"VOF-XE-Vdh.text" = "johndoe@domain.com";
+
+/* Class = "UILabel"; text = "windshield washer Fluid Refill  -"; ObjectID = "VTQ-RF-Lcv"; */
+"VTQ-RF-Lcv.text" = "windshield washer Fluid Refill  -";
+
+/* Class = "UILabel"; text = "123. West St, 46203"; ObjectID = "Vye-PT-yLs"; */
+"Vye-PT-yLs.text" = "123. West St, 46203";
+
+/* Class = "UILabel"; text = " $2"; ObjectID = "YDq-Yq-Xca"; */
+"YDq-Yq-Xca.text" = " $2";
+
+/* Class = "UILabel"; text = "Ellen Lambert"; ObjectID = "YGH-eL-jLv"; */
+"YGH-eL-jLv.text" = "Ellen Lambert";
+
+/* Class = "UILabel"; text = "Total Earning"; ObjectID = "YoX-db-eOW"; */
+"YoX-db-eOW.text" = "Total Earning";
+
+/* Class = "UILabel"; text = "check Tire Pressure  - "; ObjectID = "YzZ-po-Dxl"; */
+"YzZ-po-Dxl.text" = "check Tire Pressure  - ";
+
+/* Class = "UILabel"; text = "+ 1"; ObjectID = "ZbS-HE-3K3"; */
+"ZbS-HE-3K3.text" = "+ 1";
+
+/* Class = "UIButton"; normalTitle = "Start Job"; ObjectID = "Zqs-fc-Aaz"; */
+"Zqs-fc-Aaz.normalTitle" = "Start Job";
+
+/* Class = "UILabel"; text = "Notifications"; ObjectID = "Zzs-xT-NvB"; */
+"Zzs-xT-NvB.text" = "Notifications";
+
+/* Class = "UILabel"; text = "01:30"; ObjectID = "aH8-CQ-Ihy"; */
+"aH8-CQ-Ihy.text" = "01:30";
+
+/* Class = "UILabel"; text = "and"; ObjectID = "aef-aX-ymP"; */
+"aef-aX-ymP.text" = "and";
+
+/* Class = "UIButton"; normalTitle = "   87 octane"; ObjectID = "b8Q-1s-5R5"; */
+"b8Q-1s-5R5.normalTitle" = "   87 octane";
+
+/* Class = "UIButton"; normalTitle = "Fill It Up"; ObjectID = "bJo-HB-NF7"; */
+"bJo-HB-NF7.normalTitle" = "Fill It Up";
+
+/* Class = "UILabel"; text = "Item"; ObjectID = "bbJ-cO-rib"; */
+"bbJ-cO-rib.text" = "Item";
+
+/* Class = "UILabel"; text = "Gas"; ObjectID = "beR-T5-hf7"; */
+"beR-T5-hf7.text" = "Gas";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cSr-kO-7cv"; */
+"cSr-kO-7cv.text" = "Label";
+
+/* Class = "UILabel"; text = "$85.00 Per Gallon"; ObjectID = "cwp-lb-MkD"; */
+"cwp-lb-MkD.text" = "$85.00 Per Gallon";
+
+/* Class = "UIButton"; normalTitle = "IN-PROGRESS"; ObjectID = "dU2-gw-Eu7"; */
+"dU2-gw-Eu7.normalTitle" = "IN-PROGRESS";
+
+/* Class = "UILabel"; text = "BMW (MD 0245)"; ObjectID = "ewo-VG-WYz"; */
+"ewo-VG-WYz.text" = "BMW (MD 0245)";
+
+/* Class = "UILabel"; text = "Select Service"; ObjectID = "f3Y-bf-8BC"; */
+"f3Y-bf-8BC.text" = "Select Service";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ff3-rt-zbJ"; */
+"ff3-rt-zbJ.text" = "Label";
+
+/* Class = "UILabel"; text = "Amount"; ObjectID = "g5P-0u-UXv"; */
+"g5P-0u-UXv.text" = "Amount";
+
+/* Class = "UILabel"; text = "Select Vehicle"; ObjectID = "gxy-hv-Rly"; */
+"gxy-hv-Rly.text" = "Select Vehicle";
+
+/* Class = "UILabel"; text = "BMW (MD 0245)"; ObjectID = "hzf-tu-ryK"; */
+"hzf-tu-ryK.text" = "BMW (MD 0245)";
+
+/* Class = "UILabel"; text = "and"; ObjectID = "iHj-qQ-2zD"; */
+"iHj-qQ-2zD.text" = "and";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "iIx-dT-YtE"; */
+"iIx-dT-YtE.normalTitle" = "Submit";
+
+/* Class = "UIButton"; normalTitle = "Signup Now"; ObjectID = "ida-4y-f8U"; */
+"ida-4y-f8U.normalTitle" = "Signup Now";
+
+/* Class = "UITextField"; placeholder = "Gallon"; ObjectID = "j5j-hM-FVl"; */
+"j5j-hM-FVl.placeholder" = "Gallon";
+
+/* Class = "UIButton"; normalTitle = "REQUESTS"; ObjectID = "jlo-U3-Oyj"; */
+"jlo-U3-Oyj.normalTitle" = "REQUESTS";
+
+/* Class = "UILabel"; text = "By Logging in, you agree to our \nand Pr"; ObjectID = "k9e-9Q-3oA"; */
+"k9e-9Q-3oA.text" = "By Logging in, you agree to our \nand Pr";
+
+/* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "kBK-nC-xDT"; */
+"kBK-nC-xDT.normalTitle" = "Submit";
+
+/* Class = "UILabel"; text = "Plate Number : 354-FKH "; ObjectID = "lC4-dM-hsR"; */
+"lC4-dM-hsR.text" = "Plate Number : 354-FKH ";
+
+/* Class = "UILabel"; text = "Add-ons"; ObjectID = "mKp-v7-E9c"; */
+"mKp-v7-E9c.text" = "Add-ons";
+
+/* Class = "UILabel"; text = "Update Status"; ObjectID = "mOA-ku-HoV"; */
+"mOA-ku-HoV.text" = "Update Status";
+
+/* Class = "UILabel"; text = "93 Octane"; ObjectID = "mq4-rv-pHS"; */
+"mq4-rv-pHS.text" = "93 Octane";
+
+/* Class = "UILabel"; text = "Enter Quantity"; ObjectID = "ngi-7H-PYj"; */
+"ngi-7H-PYj.text" = "Enter Quantity";
+
+/* Class = "UILabel"; text = "4.5 "; ObjectID = "oGA-VS-mU2"; */
+"oGA-VS-mU2.text" = "4.5 ";
+
+/* Class = "UILabel"; text = "Gas 2 You"; ObjectID = "oS9-AE-xuo"; */
+"oS9-AE-xuo.text" = "Gas 2 You";
+
+/* Class = "UILabel"; text = "$2500.00"; ObjectID = "onZ-zJ-Z2s"; */
+"onZ-zJ-Z2s.text" = "$2500.00";
+
+/* Class = "UILabel"; text = "$1025"; ObjectID = "qz5-Yo-8gj"; */
+"qz5-Yo-8gj.text" = "$1025";
+
+/* Class = "UILabel"; text = "Item"; ObjectID = "rNU-tn-maS"; */
+"rNU-tn-maS.text" = "Item";
+
+/* Class = "UILabel"; text = " 04/24/2021"; ObjectID = "rS9-tu-3Gc"; */
+"rS9-tu-3Gc.text" = " 04/24/2021";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "rdE-W7-3b9"; */
+"rdE-W7-3b9.text" = "Label";
+
+/* Class = "UILabel"; text = "Active Status"; ObjectID = "sMi-xB-9LF"; */
+"sMi-xB-9LF.text" = "Active Status";
+
+/* Class = "UILabel"; text = "Terms & Conditions"; ObjectID = "tCZ-JY-EBz"; */
+"tCZ-JY-EBz.text" = "Terms & Conditions";
+
+/* Class = "UILabel"; text = "Color : Gray"; ObjectID = "u5z-oB-WfZ"; */
+"u5z-oB-WfZ.text" = "Color : Gray";
+
+/* Class = "UILabel"; text = " 354-FKH "; ObjectID = "uR3-7X-wey"; */
+"uR3-7X-wey.text" = " 354-FKH ";
+
+/* Class = "UILabel"; text = "Amount"; ObjectID = "uS4-8R-ynC"; */
+"uS4-8R-ynC.text" = "Amount";
+
+/* Class = "UILabel"; text = "Don't have an Account?"; ObjectID = "vEM-Ia-2if"; */
+"vEM-Ia-2if.text" = "Don't have an Account?";
+
+/* Class = "UILabel"; text = "On The Way"; ObjectID = "vaR-bP-CfE"; */
+"vaR-bP-CfE.text" = "On The Way";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "vkt-jE-it9"; */
+"vkt-jE-it9.text" = "Label";
+
+/* Class = "UILabel"; text = "History"; ObjectID = "vnW-aa-x5C"; */
+"vnW-aa-x5C.text" = "History";
+
+/* Class = "UILabel"; text = "Plate Number :"; ObjectID = "wQe-O0-dow"; */
+"wQe-O0-dow.text" = "Plate Number :";
+
+/* Class = "UILabel"; text = " $3"; ObjectID = "wd5-Oo-HfK"; */
+"wd5-Oo-HfK.text" = " $3";
+
+/* Class = "UIButton"; normalTitle = "Change Password"; ObjectID = "x6F-EH-9lB"; */
+"x6F-EH-9lB.normalTitle" = "Change Password";
+
+/* Class = "UILabel"; text = "12.000 Gallon"; ObjectID = "xQN-oD-Cah"; */
+"xQN-oD-Cah.text" = "12.000 Gallon";
+
+/* Class = "UIButton"; normalTitle = "   93 octane"; ObjectID = "xT3-BV-cSv"; */
+"xT3-BV-cSv.normalTitle" = "   93 octane";
+
+/* Class = "UILabel"; text = "04:04 AM"; ObjectID = "xdw-09-jv9"; */
+"xdw-09-jv9.text" = "04:04 AM";
+
+/* Class = "UITextField"; placeholder = "Search Location"; ObjectID = "y60-eY-doO"; */
+"y60-eY-doO.placeholder" = "Search Location";
+
+/* Class = "UILabel"; text = "Per Gallon"; ObjectID = "zdB-d5-0bN"; */
+"zdB-d5-0bN.text" = "Per Gallon";
+
+/* Class = "UILabel"; text = "Version : 1.0"; ObjectID = "zlm-Av-yK7"; */
+"zlm-Av-yK7.text" = "Version : 1.0";

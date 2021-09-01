@@ -7,15 +7,16 @@
 
 import UIKit
 
-class LogInVC: UIViewController, UITextFieldDelegate {
+class LogInVC: UIViewController {
     
-    
+    //MARK:- Variables
     @IBOutlet weak var btnLogin: ThemeButton!
     @IBOutlet weak var txtEmail: themeTextfield!
     @IBOutlet weak var txtPassword: themeTextfield!
     @IBOutlet weak var btnSignUp: themeButton!
     
     
+    //MARK:- Life cycle methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         UIApplication.shared.statusBarStyle = .lightContent
@@ -32,6 +33,7 @@ class LogInVC: UIViewController, UITextFieldDelegate {
         UIApplication.shared.statusBarStyle = .default
     }
     
+    //MARK:- Common methods
     func setupTextfields(textfield : UITextField) {
         
         textfield.rightViewMode = .always
@@ -51,9 +53,13 @@ class LogInVC: UIViewController, UITextFieldDelegate {
         navigationController?.pushViewController(forgotpassVC, animated: true)
     }
     
+    //MARK:- Button actions
     @IBAction func logInButtonPreesed(_ sender: ThemeButton) {
-        UserDefaults.standard.set(true, forKey: "isLoggedIn")
-        AppDel.navigateToHome()
+        
+        if self.validation(){
+            UserDefaults.standard.set(true, forKey: "isLoggedIn")
+            AppDel.navigateToHome()
+        }
     }
     
     @IBAction func signUpButtonPressed(_ sender: themeButton) {
@@ -63,4 +69,54 @@ class LogInVC: UIViewController, UITextFieldDelegate {
     }
     
     
+}
+
+//MARK:- Validation & Api
+extension LogInVC{
+    func validation()->Bool{
+        var strTitle : String?
+        let checkEmail = txtEmail.validatedText(validationType: .email)
+        let password = txtPassword.validatedText(validationType: .password(field: self.txtPassword.placeholder?.lowercased() ?? ""))
+        
+        if !checkEmail.0{
+            strTitle = checkEmail.1
+        }else if !password.0{
+            strTitle = password.1
+        }
+        
+        if let str = strTitle{
+            Toast.show(title: UrlConstant.Required, message: str, state: .failure)
+            return false
+        }
+        
+        return true
+    }
+    
+    //    func callLoginApi(){
+    //        self.loginUserModel.loginVC = self
+    //
+    //        let reqModel = LoginRequestModel()
+    //        reqModel.userName = self.txtEmail.text ?? ""
+    //        reqModel.password = self.txtPassword.text ?? ""
+    //
+    //        self.loginUserModel.webserviceLogin(reqModel: reqModel)
+    //    }
+    //
+    //    func callSocialLoginApi(reqModel: SocialLoginRequestModel){
+    //        self.loginUserModel.loginVC = self
+    //        self.loginUserModel.webserviceSocialLogin(reqModel: reqModel)
+    //    }
+}
+
+//MARK:- TextField Delegate
+extension LogInVC: UITextFieldDelegate{
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == txtPassword {
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return string == "" || newString.length <= TEXTFIELD_MaximumLimit
+        }
+        return true
+    }
 }

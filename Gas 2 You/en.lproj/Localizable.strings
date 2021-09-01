@@ -266,3 +266,4 @@
 "UrlConstant_LogoutMessage" = "Are you sure you want to logout?";
 "UrlConstant_EnterEmailMessage" = "Please enter email";
 "UrlConstant_InvalidCardNumber" = "Your card number is invalid";
+"UrlConstant_PasswordNotMatch" = "Password and Confirm Password should be same.";

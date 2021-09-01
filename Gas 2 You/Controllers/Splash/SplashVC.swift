@@ -9,21 +9,87 @@ import UIKit
 
 class SplashVC: UIViewController {
     
+    //MARK:- Variables
     private var isApiResponseDone = false
     
+    
+    //MARK:- Life cycle methods
     override func viewWillAppear(_ animated: Bool) {
-        
-        if UserDefaults.standard.bool(forKey: "isLoggedIn") == false {
-            AppDel.navigateToLogin()
-        } else {
-            AppDel.navigateToHome()
-        }
-        
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.webserviceInit()
+        }
     }
     
+}
+
+//MARK:- Apis
+extension SplashVC{
+    func webserviceInit(){
+        WebServiceSubClass.InitApi { (status, message, response, error) in
+            if let dic = error as? [String: Any], let msg = dic["message"] as? String, msg == UrlConstant.NoInternetConnection || msg == UrlConstant.SomethingWentWrong || msg == UrlConstant.RequestTimeOut{
+                Utilities.showAlertWithTitleFromVC(vc: self, title: AppName, message: msg, buttons: [UrlConstant.Retry], isOkRed: false) { (ind) in
+                    self.webserviceInit()
+                }
+                return
+            }
+            
+            if status {
+                Singleton.sharedInstance.AppInitModel = response
+                if let responseDic = error as? [String:Any], let _ = responseDic["update"] as? Bool{
+                    Utilities.showAlertWithTitleFromWindow(title: AppName, andMessage: message, buttons: [UrlConstant.Ok,UrlConstant.Cancel]) { (ind) in
+                        if ind == 0{
+                            if let url = URL(string: AppURL) {
+                                UIApplication.shared.open(url)
+                            }
+                        }else {
+                            self.setRootViewController()
+                        }
+                    }
+                }else{
+                    self.setRootViewController()
+                }
+            }else{
+                if let responseDic = error as? [String:Any], let _ = responseDic["maintenance"] as? Bool{
+                    //MARK:- OPEN MAINTENANCE SCREEN
+                    Utilities.showAlertWithTitleFromWindow(title: AppName, andMessage: message, buttons: []) {_ in}
+                }else{
+                    if let responseDic = error as? [String:Any], let _ = responseDic["update"] as? Bool{
+                        self.openForceUpdateAlert(msg: message)
+                    }else{
+                        Utilities.showAlertOfAPIResponse(param: error, vc: self)
+                    }
+                }
+            }
+        }
+    }
+}
+
+//MARK:- Common Methods
+extension SplashVC{
+    func openForceUpdateAlert(msg: String){
+        Utilities.showAlertWithTitleFromWindow(title: AppName, andMessage: msg, buttons: [UrlConstant.Ok]) { (ind) in
+            if ind == 0{
+                if let url = URL(string: AppURL) {
+                    UIApplication.shared.open(url)
+                }
+                self.openForceUpdateAlert(msg: msg)
+            }
+        }
+    }
+    
+    func setRootViewController() {
+        let isLogin = UserDefaults.standard.bool(forKey: UserDefaultsKey.isUserLogin.rawValue)
+        
+        if isLogin, let _ = userDefaults.getUserData() {
+            appDel.navigateToHome()
+        }else{
+            appDel.navigateToLogin()
+        }
+    }
 }

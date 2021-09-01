@@ -44,7 +44,7 @@ enum isFromHome {
 }
 
 class JobDetailsViewController: BaseVC {
-
+    
     // ----------------------------------------------------
     // MARK: - --------- Variables ---------
     // ----------------------------------------------------
@@ -102,22 +102,19 @@ class JobDetailsViewController: BaseVC {
         setUIMapPin()
         
         ViewDateTime.isHidden = false
-//        isfromHome(sender: UIButton)
+        //        isfromHome(sender: UIButton)
         if isfromhome{
-        switch isfrom {
-        case .InProcess:
-            vwGasPriceDetail.isHidden = true
-//            vwUpdateStatus.isHidden = true
-            
-            stackItem.isHidden = true
-            vwGasPriceDetail.isHidden = true
-            btnJobDone.isHidden = true
-            if isFromStartJob{
-            BtnStartJob(BtnStartJob)
+            switch isfrom {
+            case .InProcess:
+                vwGasPriceDetail.isHidden = true
+                stackItem.isHidden = true
+                btnJobDone.isHidden = true
+                if isFromStartJob{
+                    BtnStartJob(BtnStartJob)
+                }
+            case .Request:
+                self.isFromRequest()
             }
-        case .Request:
-            self.isFromRequest()
-        }
         }else{
             self.isFromMyOrders()
         }
@@ -131,7 +128,7 @@ class JobDetailsViewController: BaseVC {
     
     func setUIMapPin() {
         initializeTheLocationManager()
-        var position = CLLocationCoordinate2DMake(23.033863,72.585022)
+        let position = CLLocationCoordinate2DMake(23.033863,72.585022)
         let marker = GMSMarker(position: position)
         marker.icon = drawImageWithProfilePic(pp: nil, image: #imageLiteral(resourceName: "IC_pinImg"))
         marker.appearAnimation = GMSMarkerAnimation.pop
@@ -139,11 +136,11 @@ class JobDetailsViewController: BaseVC {
     }
     
     func drawImageWithProfilePic(pp: UIImage?, image: UIImage) -> UIImage {
-
+        
         let imgView = UIImageView(image: image)
         let picImgView = UIImageView(image: pp)
         picImgView.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-
+        
         imgView.addSubview(picImgView)
         picImgView.center.x = imgView.center.x
         picImgView.center.y = imgView.center.y - 7
@@ -151,7 +148,7 @@ class JobDetailsViewController: BaseVC {
         picImgView.clipsToBounds = true
         imgView.setNeedsLayout()
         picImgView.setNeedsLayout()
-
+        
         let newImage = imageWithView(view: imgView)
         return newImage
     }
@@ -219,30 +216,30 @@ extension JobDetailsViewController{
     }
     func isFromInProcess(sender : UIButton){
         if sender.titleLabel?.text == StartJobButtonTitle.StartJob.Name {
-                  BtnStartJob.setTitle(StartJobButtonTitle.FilledUp.Name, for: .normal)
-                  ImgViewOntheway.image = UIImage(named: "ic_checkBoxSelected")
-//                  ImgViewJobDone.image = UIImage(named: "ic_checkBoxSelected")
-                  ViewDateTime.isHidden = false
+            BtnStartJob.setTitle(StartJobButtonTitle.FilledUp.Name, for: .normal)
+            ImgViewOntheway.image = UIImage(named: "ic_checkBoxSelected")
+            //                  ImgViewJobDone.image = UIImage(named: "ic_checkBoxSelected")
+            ViewDateTime.isHidden = false
             BtnStartJob.isUserInteractionEnabled = false
             btnJobDone.isHidden = false
-              } else if sender.titleLabel?.text == StartJobButtonTitle.FilledUp.Name {
-                
-//                  BtnStartJob.setTitle(StartJobButtonTitle.CompleteJob.Name, for: .normal)
-//                  ImgViewOntheway.image = UIImage(named: "ic_checkBoxSelected")
-//                  ImgViewJobDone.image = UIImage(named: "ic_checkBoxSelected")
-                  ViewDateTime.isHidden = false
-//                #imageLiteral(resourceName: "ic_checkBoxSelected")
-                  ViewFilledGallon.isHidden = false
-              } else if sender.titleLabel?.text == StartJobButtonTitle.CompleteJob.Name {
-                let vc : SendInvoiceVC = SendInvoiceVC.instantiate(fromAppStoryboard: .Main)
-                vc.modalPresentationStyle = .overFullScreen
-                vc.btnSubmitTapClosure = {
-//                    let vc : CompletedJobsVC = CompletedJobsVC.instantiate(fromAppStoryboard: .Main)
-//                    self.navigationController?.pushViewController(vc, animated: true)
-                    self.navigationController?.popToRootViewController(animated: false)
-                }
-                self.present(vc, animated: false, completion: nil)
-              }
+        } else if sender.titleLabel?.text == StartJobButtonTitle.FilledUp.Name {
+            
+            //                  BtnStartJob.setTitle(StartJobButtonTitle.CompleteJob.Name, for: .normal)
+            //                  ImgViewOntheway.image = UIImage(named: "ic_checkBoxSelected")
+            //                  ImgViewJobDone.image = UIImage(named: "ic_checkBoxSelected")
+            ViewDateTime.isHidden = false
+            //                #imageLiteral(resourceName: "ic_checkBoxSelected")
+            ViewFilledGallon.isHidden = false
+        } else if sender.titleLabel?.text == StartJobButtonTitle.CompleteJob.Name {
+            let vc : SendInvoiceVC = SendInvoiceVC.instantiate(fromAppStoryboard: .Main)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.btnSubmitTapClosure = {
+                //                    let vc : CompletedJobsVC = CompletedJobsVC.instantiate(fromAppStoryboard: .Main)
+                //                    self.navigationController?.pushViewController(vc, animated: true)
+                self.navigationController?.popToRootViewController(animated: false)
+            }
+            self.present(vc, animated: false, completion: nil)
+        }
         
     }
     func isFromRequest(){
@@ -280,8 +277,8 @@ extension JobDetailsViewController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        var location = locationManager.location?.coordinate
-        
+        print(locationManager.location?.coordinate.latitude ?? "0.0")
+        let location = locationManager.location?.coordinate
         cameraMoveToLocation(toLocation: location)
         
     }

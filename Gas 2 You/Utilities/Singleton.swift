@@ -8,17 +8,22 @@
 
 import Foundation
 import CoreLocation
+import UIKit
 
 class Singleton: NSObject{
     static let sharedInstance = Singleton()
     
     var UserId = String()
     
- 
+    //Objects
+    var AppInitModel : InitResponseModel?
+    var UserProfilData : ProfileModel?
     
     var Api_Key = String()
     var DeviceType : String = "ios"
-    var DeviceToken : String = ""
+    var DeviceToken : String = UIDevice.current.identifierForVendor?.uuidString ?? ""
+    
+    
     
     //MARK:- User' Custom Details
     var userCurrentLocation : CLLocationCoordinate2D?
@@ -38,6 +43,7 @@ class Singleton: NSObject{
     func clearSingletonClass() {
         Singleton.sharedInstance.UserId = ""
         Singleton.sharedInstance.Api_Key = ""
+        Singleton.sharedInstance.UserProfilData = nil
     }
 }
 

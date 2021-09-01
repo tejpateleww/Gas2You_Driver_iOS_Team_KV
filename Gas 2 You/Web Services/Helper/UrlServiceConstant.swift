@@ -11,7 +11,7 @@ class UrlConstant{
     //MARK:- WebService Header Key
     static let HeaderKey = "key"
     static let XApiKey = "x-api-key"
-    static let AppHostKey = "PickARide951*#*"
+    static let AppHostKey = "Gas2You951*#*"
     
     static let ResponseMessage = "message"
     
@@ -53,6 +53,8 @@ class UrlConstant{
     static let InvalidEmail = "UrlConstant_InvalidEmailMessage".Localized()
     static let EnterEmail = "UrlConstant_EnterEmailMessage".Localized()
     static let InvalidCardNumber = "UrlConstant_InvalidCardNumber".Localized()
+    static let PasswordNotMatch = "UrlConstant_PasswordNotMatch".Localized()
+    
     
 }
 
