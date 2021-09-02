@@ -13,16 +13,6 @@ import GoogleMaps
 
 extension AppDelegate{
     
-//    func checkAndSetDefaultLanguage() {
-//        if userDefaults.value(forKey: UserDefaultsKey.selLanguage.rawValue) == nil {
-//            setLanguageEnglish()
-//        }
-//    }
-//    
-//    func setLanguageEnglish() {
-//        userDefaults.setValue("en", forKey: UserDefaultsKey.selLanguage.rawValue)
-//    }
-    
     func navigateToLogin() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let logInVC = storyboard.instantiateViewController(identifier: "LogInVC") as! LogInVC

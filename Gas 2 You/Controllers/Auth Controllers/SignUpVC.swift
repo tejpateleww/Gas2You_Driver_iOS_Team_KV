@@ -69,6 +69,11 @@ class SignUpVC: BaseVC {
         }
     }
     
+    func goToOtpVerification(){
+        let OtpVC = storyboard?.instantiateViewController(identifier: OtpVC.className) as! OtpVC
+        navigationController?.pushViewController(OtpVC, animated: true)
+    }
+    
     //MARK:- IBAction
     @IBAction func btnPrivacyPolicyTap(_ sender: Any) {
         

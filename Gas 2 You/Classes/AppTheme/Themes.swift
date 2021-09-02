@@ -461,6 +461,30 @@ class themeTextfield : UITextField{
     }
 }
 
+class SingleDigitField: UITextField {
+    var pressedDelete = false
+    override func willMove(toSuperview newSuperview: UIView?) {
+        keyboardType = .numberPad
+        textAlignment = .center
+        backgroundColor = .clear
+        isSecureTextEntry = false
+        isUserInteractionEnabled = false
+        layer.cornerRadius = 8
+        clipsToBounds = true
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.white.cgColor
+        font = CustomFont.medium.returnFont(17)
+        tintColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
+    }
+    override func caretRect(for position: UITextPosition) -> CGRect { .zero }
+    override func selectionRects(for range: UITextRange) -> [UITextSelectionRect] { [] }
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool { false }
+    override func deleteBackward() {
+        pressedDelete = true
+        sendActions(for: .editingChanged)
+    }
+}
+
 
 class themeSearchBar: UITextField {
 

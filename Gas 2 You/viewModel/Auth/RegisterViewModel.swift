@@ -35,7 +35,8 @@ class RegisterUserModel{
                     Singleton.sharedInstance.UserId = userID
                 }
                 
-                appDel.navigateToHome()
+                self.registerVc?.goToOtpVerification()
+                //appDel.navigateToHome()
             }
         }
     }
