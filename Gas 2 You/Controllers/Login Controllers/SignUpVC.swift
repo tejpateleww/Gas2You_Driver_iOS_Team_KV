@@ -18,6 +18,9 @@ class SignUpVC: BaseVC {
     @IBOutlet weak var btnSignUp: ThemeButton!
     @IBOutlet weak var btnLoginNow: themeButton!
     
+    var registerUserModel = RegisterUserModel()
+    var locationManager : LocationService?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "", leftImage: "Back", rightImages: [], isTranslucent: true)
@@ -56,6 +59,16 @@ class SignUpVC: BaseVC {
         textfield.rightViewMode = .always
     }
     
+    func getLocation() -> Bool {
+        if Singleton.sharedInstance.userCurrentLocation == nil{
+            self.locationManager = LocationService()
+            self.locationManager?.startUpdatingLocation()
+            return false
+        }else{
+            return true
+        }
+    }
+    
     //MARK:- IBAction
     @IBAction func btnPrivacyPolicyTap(_ sender: Any) {
         
@@ -70,7 +83,11 @@ class SignUpVC: BaseVC {
             if(self.txtPassword.text != self.txtConfirmPassword.text){
                 Toast.show(title: UrlConstant.Required, message: UrlConstant.PasswordNotMatch, state: .failure)
             }else{
-                print("success...")
+                if self.validation(){
+                    if self.getLocation(){
+                        self.callRegisterApi()
+                    }
+                }
             }
         }
     }
@@ -106,6 +123,32 @@ extension SignUpVC{
             return false
         }
         
+        return true
+    }
+    
+    func callRegisterApi(){
+        self.registerUserModel.registerVc = self
+        
+        let reqModel = RegisterRequestModel()
+        reqModel.fullName = self.txtFirstName.text ?? ""
+        reqModel.email = self.txtEmail.text ?? ""
+        reqModel.countryCode = DefaultCouuntryCode
+        reqModel.phone = self.txtMobile.text ?? ""
+        reqModel.password = self.txtPassword.text ?? ""
+        
+        self.registerUserModel.webserviceRegister(reqModel: reqModel)
+    }
+}
+
+//MARK:- TextField Delegate
+extension SignUpVC: UITextFieldDelegate{
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == txtMobile || textField == txtFirstName || textField == txtConfirmPassword || textField == txtPassword{
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return string == "" || (newString.length <= ((textField == txtMobile) ? MAX_PHONE_DIGITS : TEXTFIELD_MaximumLimit))
+        }
         return true
     }
 }

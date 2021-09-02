@@ -13,15 +13,15 @@ import GoogleMaps
 
 extension AppDelegate{
     
-    func checkAndSetDefaultLanguage() {
-        if userDefaults.value(forKey: UserDefaultsKey.selLanguage.rawValue) == nil {
-            setLanguageEnglish()
-        }
-    }
-    
-    func setLanguageEnglish() {
-        userDefaults.setValue("en", forKey: UserDefaultsKey.selLanguage.rawValue)
-    }
+//    func checkAndSetDefaultLanguage() {
+//        if userDefaults.value(forKey: UserDefaultsKey.selLanguage.rawValue) == nil {
+//            setLanguageEnglish()
+//        }
+//    }
+//    
+//    func setLanguageEnglish() {
+//        userDefaults.setValue("en", forKey: UserDefaultsKey.selLanguage.rawValue)
+//    }
     
     func navigateToLogin() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -36,22 +36,18 @@ extension AppDelegate{
         window?.rootViewController = UINavigationController(rootViewController: MainVC)
     }
     
-    func clearData(){
-        for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
+    func dologout(){
+        for (key, _) in UserDefaults.standard.dictionaryRepresentation() {
             
             if key != UserDefaultsKey.DeviceToken.rawValue && key  != "language"  {
-                print("\(key) = \(value) \n")
-                 UserDefaults.standard.removeObject(forKey: key)
+                UserDefaults.standard.removeObject(forKey: key)
             }
         }
         
-        
-        userDefaults.set(false, forKey: UserDefaultsKey.isUserLogin.rawValue)
+        userDefaults.setValue(false, forKey: UserDefaultsKey.isUserLogin.rawValue)
         Singleton.sharedInstance.clearSingletonClass()
         userDefaults.setUserData()
-    }
-    
-    func dologout(){
-        
+        userDefaults.synchronize()
+        AppDel.navigateToLogin()
     }
 }

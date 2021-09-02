@@ -6,12 +6,13 @@
 //
 
 import UIKit
+import CoreLocation
 
 class SplashVC: UIViewController {
     
     //MARK:- Variables
     private var isApiResponseDone = false
-    
+    var locationManager: CLLocationManager?
     
     //MARK:- Life cycle methods
     override func viewWillAppear(_ animated: Bool) {
@@ -20,7 +21,7 @@ class SplashVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let _ = userDefaults.getUserData()
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.webserviceInit()
         }
@@ -56,7 +57,6 @@ extension SplashVC{
                 }
             }else{
                 if let responseDic = error as? [String:Any], let _ = responseDic["maintenance"] as? Bool{
-                    //MARK:- OPEN MAINTENANCE SCREEN
                     Utilities.showAlertWithTitleFromWindow(title: AppName, andMessage: message, buttons: []) {_ in}
                 }else{
                     if let responseDic = error as? [String:Any], let _ = responseDic["update"] as? Bool{
@@ -65,6 +65,12 @@ extension SplashVC{
                         Utilities.showAlertOfAPIResponse(param: error, vc: self)
                     }
                 }
+            }
+            
+            //Location Update
+            let status = CLLocationManager.authorizationStatus()
+            if(status == .authorizedAlways || status == .authorizedWhenInUse){
+                appDel.locationService.startUpdatingLocation()
             }
         }
     }
@@ -85,7 +91,6 @@ extension SplashVC{
     
     func setRootViewController() {
         let isLogin = UserDefaults.standard.bool(forKey: UserDefaultsKey.isUserLogin.rawValue)
-        
         if isLogin, let _ = userDefaults.getUserData() {
             appDel.navigateToHome()
         }else{

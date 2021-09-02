@@ -49,69 +49,81 @@ class LoginResponseModel: Codable{
 
 // MARK: - DataClass
 class ProfileModel: Codable {
-    var id, companyID, firstName, lastName: String?
-    var email, countryID, countryCode, mobileNo: String?
-    var dob, gender, walletBalance, deviceType: String?
+    var id, fullName: String?
+    var email, countryCode, mobileNo: String?
+    var accountHolderName, bankName, ifscCode, accountNumber: String?
+    var walletBalance, profileImage, deviceType: String?
     var deviceToken, lat, lng, qrCode: String?
-    var profileImage, socialID, socialType, rememberToken: String?
-    var address, trash, status, referralCode: String?
-    var createdAt, rating, xAPIKey: String?
+    var isVerify, busy, duty, referralCode, inviteCode: String?
+    var rememberToken, verifyToken, status: String?
+    var createdAt, updatedAt, deletedAt, rating, xAPIKey: String?
     
     enum CodingKeys: String, CodingKey {
         case id
-        case companyID = "company_id"
-        case firstName = "first_name"
-        case lastName = "last_name"
-        case email
-        case countryID = "country_id"
+        case fullName = "full_name"
+        case email = "email"
         case countryCode = "country_code"
         case mobileNo = "mobile_no"
-        case dob, gender
+        case accountHolderName = "account_holder_name"
+        case bankName = "bank_name"
+        case ifscCode = "ifsc_code"
+        case accountNumber = "account_number"
         case walletBalance = "wallet_balance"
+        case profileImage = "profile_image"
         case deviceType = "device_type"
         case deviceToken = "device_token"
-        case lat, lng
+        case lat = "lat"
+        case lng = "lng"
         case qrCode = "qr_code"
-        case profileImage = "profile_image"
-        case socialID = "social_id"
-        case socialType = "social_type"
-        case rememberToken = "remember_token"
-        case address, trash, status
+        case isVerify = "is_verify"
+        case busy = "busy"
+        case duty = "duty"
         case referralCode = "referral_code"
+        case inviteCode = "invite_code"
+        case rememberToken = "remember_token"
+        case verifyToken = "verify_token"
+        case status = "status"
         case createdAt = "created_at"
-        case rating
+        case updatedAt = "updated_at"
+        case deletedAt = "deleted_at"
+        case rating = "rating"
         case xAPIKey = "x-api-key"
+        
     }
     
     required init(from decoder: Decoder) throws {
         let values = try? decoder.container(keyedBy: CodingKeys.self)
-        address = try? values?.decodeIfPresent(String.self, forKey: .address)
-        companyID = try? values?.decodeIfPresent(String.self, forKey: .companyID)
-        countryCode = try? values?.decodeIfPresent(String.self, forKey: .countryCode)
-        countryID = try? values?.decodeIfPresent(String.self, forKey: .countryID)
-        createdAt = try? values?.decodeIfPresent(String.self, forKey: .createdAt)
-        deviceToken = try? values?.decodeIfPresent(String.self, forKey: .deviceToken)
-        deviceType = try? values?.decodeIfPresent(String.self, forKey: .deviceType)
-        dob = try? values?.decodeIfPresent(String.self, forKey: .dob)
-        email = try? values?.decodeIfPresent(String.self, forKey: .email)
-        firstName = try? values?.decodeIfPresent(String.self, forKey: .firstName)
-        gender = try? values?.decodeIfPresent(String.self, forKey: .gender)
+        
         id = try? values?.decodeIfPresent(String.self, forKey: .id)
-        lastName = try? values?.decodeIfPresent(String.self, forKey: .lastName)
+        fullName = try? values?.decodeIfPresent(String.self, forKey: .fullName)
+        email = try? values?.decodeIfPresent(String.self, forKey: .email)
+        countryCode = try? values?.decodeIfPresent(String.self, forKey: .countryCode)
+        mobileNo = try? values?.decodeIfPresent(String.self, forKey: .mobileNo)
+        accountHolderName = try? values?.decodeIfPresent(String.self, forKey: .accountHolderName)
+        bankName = try? values?.decodeIfPresent(String.self, forKey: .bankName)
+        ifscCode = try? values?.decodeIfPresent(String.self, forKey: .ifscCode)
+        accountNumber = try? values?.decodeIfPresent(String.self, forKey: .accountNumber)
+        walletBalance = try? values?.decodeIfPresent(String.self, forKey: .walletBalance)
+        profileImage = try? values?.decodeIfPresent(String.self, forKey: .profileImage)
+        deviceType = try? values?.decodeIfPresent(String.self, forKey: .deviceType)
+        deviceToken = try? values?.decodeIfPresent(String.self, forKey: .deviceToken)
         lat = try? values?.decodeIfPresent(String.self, forKey: .lat)
         lng = try? values?.decodeIfPresent(String.self, forKey: .lng)
-        mobileNo = try? values?.decodeIfPresent(String.self, forKey: .mobileNo)
-        profileImage = try? values?.decodeIfPresent(String.self, forKey: .profileImage)
         qrCode = try? values?.decodeIfPresent(String.self, forKey: .qrCode)
-        rating = try? values?.decodeIfPresent(String.self, forKey: .rating)
+        isVerify = try? values?.decodeIfPresent(String.self, forKey: .isVerify)
+        busy = try? values?.decodeIfPresent(String.self, forKey: .busy)
+        duty = try? values?.decodeIfPresent(String.self, forKey: .duty)
         referralCode = try? values?.decodeIfPresent(String.self, forKey: .referralCode)
+        inviteCode = try? values?.decodeIfPresent(String.self, forKey: .inviteCode)
         rememberToken = try? values?.decodeIfPresent(String.self, forKey: .rememberToken)
-        socialID = try? values?.decodeIfPresent(String.self, forKey: .socialID)
-        socialType = try? values?.decodeIfPresent(String.self, forKey: .socialType)
+        verifyToken = try? values?.decodeIfPresent(String.self, forKey: .verifyToken)
         status = try? values?.decodeIfPresent(String.self, forKey: .status)
-        trash = try? values?.decodeIfPresent(String.self, forKey: .trash)
-        walletBalance = try? values?.decodeIfPresent(String.self, forKey: .walletBalance)
+        createdAt = try? values?.decodeIfPresent(String.self, forKey: .createdAt)
+        updatedAt = try? values?.decodeIfPresent(String.self, forKey: .updatedAt)
+        deletedAt = try? values?.decodeIfPresent(String.self, forKey: .deletedAt)
+        rating = try? values?.decodeIfPresent(String.self, forKey: .rating)
         xAPIKey = try? values?.decodeIfPresent(String.self, forKey: .xAPIKey)
+        
     }
     
 }

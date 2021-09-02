@@ -19,9 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
     
+    //Location
+    var locationService = LocationService()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        self.checkAndSetDefaultLanguage()
+//        self.checkAndSetDefaultLanguage()
         IQKeyboardManager.shared.enable = true
         GMSServices.provideAPIKey("AIzaSyAsK4EKl6GkGqELS8YySwoIWVjNjAwR7dg")
         window?.makeKeyAndVisible()

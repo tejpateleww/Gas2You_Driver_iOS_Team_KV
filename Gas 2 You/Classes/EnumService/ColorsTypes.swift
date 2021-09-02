@@ -11,6 +11,7 @@ import UIKit
 
 enum ThemeColorEnum {
     case Theme
+    case ThemeLoader
     case ThemeOrange
     case ThemeWhite
     case ThemeRed
@@ -32,6 +33,7 @@ extension ThemeColorEnum: RawRepresentable {
     init?(rawValue: RawValue) {
         switch rawValue {
             case #colorLiteral(red: 0, green: 0.6666666667, blue: 0.4941176471, alpha: 1): self = .Theme
+            case #colorLiteral(red: 0.1098039216, green: 0.4588235294, blue: 0.7333333333, alpha: 1): self = .ThemeLoader
             case #colorLiteral(red: 1, green: 0.5450980392, blue: 0.4823529412, alpha: 1): self = .ThemeOrange
             case #colorLiteral(red: 0.937254902, green: 0.9254901961, blue: 0.937254902, alpha: 1): self = .ThemeWhite
             case #colorLiteral(red: 0.8862745098, green: 0.2666666667, blue: 0.2666666667, alpha: 1): self = .ThemeRed
@@ -52,6 +54,7 @@ extension ThemeColorEnum: RawRepresentable {
     var rawValue: RawValue {
         switch self {
             case .Theme: return #colorLiteral(red: 0, green: 0.6666666667, blue: 0.4941176471, alpha: 1)
+            case .ThemeLoader: return #colorLiteral(red: 0.1098039216, green: 0.4588235294, blue: 0.7333333333, alpha: 1)
             case .ThemeOrange: return #colorLiteral(red: 1, green: 0.5450980392, blue: 0.4823529412, alpha: 1)
             case .ThemeWhite: return #colorLiteral(red: 0.937254902, green: 0.9254901961, blue: 0.937254902, alpha: 1)
             case .ThemeRed: return #colorLiteral(red: 0.8862745098, green: 0.2666666667, blue: 0.2666666667, alpha: 1)

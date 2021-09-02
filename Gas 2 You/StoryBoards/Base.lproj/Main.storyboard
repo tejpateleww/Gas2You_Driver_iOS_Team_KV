@@ -85,7 +85,7 @@
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTC-r5-jva" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="148" width="335" height="50"/>
-                                                <state key="normal" title="Log In"/>
+                                                <state key="normal" title="Log In Out"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
                                                         <real key="value" value="16"/>
@@ -411,6 +411,9 @@ Cg
                                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="j5k-it-05k" id="Axe-Gx-Qjr"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2yy-5M-Q3v" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="74" width="335" height="50"/>
@@ -438,19 +441,8 @@ Cg
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i8b-V6-CIA">
                                                         <rect key="frame" x="0.0" y="148" width="335" height="50"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile No (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HT8-fe-Nsa">
-                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
-                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
-                                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                            </textField>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbS-HE-3K3" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                <rect key="frame" x="10" y="16" width="22.5" height="20.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ 91" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbS-HE-3K3" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                                <rect key="frame" x="10" y="16" width="32.5" height="20.5"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -463,6 +455,20 @@ Cg
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile No (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HT8-fe-Nsa">
+                                                                <rect key="frame" x="0.0" y="0.0" width="335" height="50"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="j5k-it-05k" id="3dK-4K-ZWu"/>
+                                                                </connections>
+                                                            </textField>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -496,6 +502,9 @@ Cg
                                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="j5k-it-05k" id="fSF-Cj-rGq"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Re-enter Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FdZ-p7-oJa" customClass="themeTextfield" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="296" width="335" height="50"/>
@@ -519,6 +528,9 @@ Cg
                                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="j5k-it-05k" id="gEF-Bg-JBo"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -5345,6 +5357,10 @@ Send to Admin</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7b5-Dh-UDI"/>
+                    <connections>
+                        <outlet property="btnSubmit" destination="iIx-dT-YtE" id="SFr-tc-1pH"/>
+                        <outlet property="txtEmail" destination="1sy-dv-oF3" id="y4B-F4-eN6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ia-hM-kkz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -5978,7 +5994,7 @@ Send to Admin</string>
         <image name="ic_color" width="20" height="20"/>
         <image name="ic_downloadInvoice" width="13" height="13"/>
         <image name="ic_gas" width="34.5" height="37"/>
-        <image name="ic_location" width="28" height="28"/>
+        <image name="ic_location" width="18.5" height="21"/>
         <image name="ic_logout" width="26" height="26"/>
         <image name="imgBlueBackGround" width="327" height="169.5"/>
         <image name="imgCloseBtn" width="23" height="23"/>

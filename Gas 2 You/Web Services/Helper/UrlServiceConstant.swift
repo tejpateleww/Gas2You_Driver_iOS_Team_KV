@@ -16,44 +16,44 @@ class UrlConstant{
     static let ResponseMessage = "message"
     
     //MARK:- Message Title
-    static let Required = "UrlConstant_Required".Localized()
-    static let Success = "UrlConstant_Success".Localized()
-    static let Failed = "UrlConstant_Failed".Localized()
+    static let Required = "Required"
+    static let Success = "Success"
+    static let Failed = "Failed"
     static let Status = "status"
-    static let SessionExpired = "UrlConstant_SessionExpired".Localized()
-    static let SomethingWentWrong = "UrlConstant_SomethingWentWrong".Localized()
-    static let NoInternetConnection =  "UrlConstant_NoInternetConnection".Localized()
-    static let RequestTimeOut = "UrlConstant_RequestTimeOut".Localized()
-    static let LocationRequired = "UrlConstant_LocationRequiredMessage".Localized()
-    static let Submit = "UrlConstant_Submit".Localized()
+    static let SessionExpired = "Your session is expired! Please login again."
+    static let SomethingWentWrong = "There is some server side error, Please try again after some time!"
+    static let NoInternetConnection =  "The Internet connection appears to be offline, Please connect to the internet."
+    static let RequestTimeOut = "Poor internet connection, Check your internet connection or try again."
+    static let LocationRequired = "Location service is disabled. To re-enable, please go to Settings and turn on Location Service for this application."
+    static let Submit = "USubmit"
     
     
-    static let Ok = "UrlConstant_Ok".Localized()
-    static let Yes = "UrlConstant_Yes".Localized()
-    static let Cancel = "UrlConstant_Cancel".Localized()
-    static let No = "UrlConstant_No".Localized()
-    static let Retry = "UrlConstant_Retry".Localized()
-    static let SelectCard = "UrlConstant_SelectCard".Localized()
-    static let Continue = "UrlConstant_Continue".Localized()
-    static let Settings = "UrlConstant_Settings".Localized()
-    static let Logout = "UrlConstant_Logout".Localized()
-    static let Help = "UrlConstant_Help".Localized()
-    static let Invalid = "UrlConstant_Invalid".Localized()
-    static let Expiry = "UrlConstant_Expiry".Localized()
+    static let Ok = "Ok"
+    static let Yes = "Yes"
+    static let Cancel = "Cancel"
+    static let No = "No"
+    static let Retry = "Retry"
+    static let SelectCard = "Select Card"
+    static let Continue = "Continue"
+    static let Settings = "Settings"
+    static let Logout = "Logout"
+    static let Help = "Help"
+    static let Invalid = "Invalid"
+    static let Expiry = "Expires"
     
     //Validation Message
-    static let ValidPhoneNo = "UrlConstant_ValidPhoneNo".Localized()
-    static let AgeIsRequired = "UrlConstant_AgeIsRequired".Localized()
-    static let AgeMustNumber = "UrlConstant_AgeMustNumber".Localized()
-    static let InvalidAgeNumber = "UrlConstant_InvalidAgeNumber".Localized()
-    static let Age18YearsOld = "UrlConstant_Age18YearsOld".Localized()
-    static let RequiredVerificationCode = "UrlConstant_RequiredVerificationCode".Localized()
-    static let InvalidVerificationCode = "UrlConstant_InvalidVerificationCode".Localized()
-    static let LogoutMessage = "UrlConstant_LogoutMessage".Localized()
-    static let InvalidEmail = "UrlConstant_InvalidEmailMessage".Localized()
-    static let EnterEmail = "UrlConstant_EnterEmailMessage".Localized()
-    static let InvalidCardNumber = "UrlConstant_InvalidCardNumber".Localized()
-    static let PasswordNotMatch = "UrlConstant_PasswordNotMatch".Localized()
+    static let ValidPhoneNo = "Please enter valid mobile number."
+    static let AgeIsRequired = "Age is required"
+    static let AgeMustNumber = "Age must be a number!"
+    static let InvalidAgeNumber = "Invalid age number!"
+    static let Age18YearsOld = "You have to be over 18 years old to user our app :)"
+    static let RequiredVerificationCode = "Please enter verification code"
+    static let InvalidVerificationCode = "Please enter valid verification code"
+    static let LogoutMessage = "Are you sure you want to logout?"
+    static let InvalidEmail = "Invalid e-mail Address."
+    static let EnterEmail = "Please enter email"
+    static let InvalidCardNumber = "Your card number is invalid"
+    static let PasswordNotMatch = "Password and confirm password does not match."
     
     
 }

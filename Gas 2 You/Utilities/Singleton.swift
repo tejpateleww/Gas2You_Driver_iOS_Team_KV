@@ -29,7 +29,7 @@ class Singleton: NSObject{
     var userCurrentLocation : CLLocationCoordinate2D?
   
     func locationString() -> (latitude: String, longitude: String){
-        return (String(format: "%4d", userCurrentLocation?.latitude ?? 0.0), String(format: "%4d", userCurrentLocation?.longitude ?? 0.0))
+        return (String(userCurrentLocation?.latitude ?? 0.0), String(userCurrentLocation?.longitude ?? 0.0))
     }
     
     var arrFutureYears:[String] {

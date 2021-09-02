@@ -80,6 +80,13 @@ class LocationService: NSObject, CLLocationManagerDelegate {
         updateLocationDidFailWithError(error: error)
     }
     
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        let status = CLLocationManager.authorizationStatus()
+        if status == .authorizedAlways || status == .authorizedWhenInUse {
+            self.locationManager?.startUpdatingLocation()
+        }
+    }
+    
     private func updateLocation(currentLocation: CLLocation){
 
         guard let delegate = self.delegate else {

@@ -49,6 +49,8 @@ enum ApiKey: String {
     case Init                                 = "init/ios_driver/"
     case login                                = "login"
     case register                             = "register"
+    case changePassword                       = "change_password"
+    case forgotPassword                       = "forgot_password"
     
 }
 

@@ -15,6 +15,8 @@ class LogInVC: UIViewController {
     @IBOutlet weak var txtPassword: themeTextfield!
     @IBOutlet weak var btnSignUp: themeButton!
     
+    var loginUserModel = LoginUserModel()
+    var locationManager : LocationService?
     
     //MARK:- Life cycle methods
     override func viewWillAppear(_ animated: Bool) {
@@ -47,6 +49,16 @@ class LogInVC: UIViewController {
         
     }
     
+    func getLocation() -> Bool {
+        if Singleton.sharedInstance.userCurrentLocation == nil{
+            self.locationManager = LocationService()
+            self.locationManager?.startUpdatingLocation()
+            return false
+        }else{
+            return true
+        }
+    }
+    
     @objc func navigateToForgotPassword(){
         let loginStory = UIStoryboard(name: "Main", bundle: nil)
         let forgotpassVC = loginStory.instantiateViewController(identifier: ForgotPasswordVC.className) as! ForgotPasswordVC
@@ -55,10 +67,10 @@ class LogInVC: UIViewController {
     
     //MARK:- Button actions
     @IBAction func logInButtonPreesed(_ sender: ThemeButton) {
-        
         if self.validation(){
-            UserDefaults.standard.set(true, forKey: "isLoggedIn")
-            AppDel.navigateToHome()
+            if self.getLocation(){
+                self.callLoginApi()
+            }
         }
     }
     
@@ -92,20 +104,17 @@ extension LogInVC{
         return true
     }
     
-    //    func callLoginApi(){
-    //        self.loginUserModel.loginVC = self
-    //
-    //        let reqModel = LoginRequestModel()
-    //        reqModel.userName = self.txtEmail.text ?? ""
-    //        reqModel.password = self.txtPassword.text ?? ""
-    //
-    //        self.loginUserModel.webserviceLogin(reqModel: reqModel)
-    //    }
-    //
-    //    func callSocialLoginApi(reqModel: SocialLoginRequestModel){
-    //        self.loginUserModel.loginVC = self
-    //        self.loginUserModel.webserviceSocialLogin(reqModel: reqModel)
-    //    }
+    func callLoginApi(){
+        self.loginUserModel.loginVC = self
+        
+        let reqModel = LoginRequestModel()
+        reqModel.userName = self.txtEmail.text ?? ""
+        reqModel.password = self.txtPassword.text ?? ""
+        
+        self.loginUserModel.webserviceLogin(reqModel: reqModel)
+    }
+    
+    
 }
 
 //MARK:- TextField Delegate

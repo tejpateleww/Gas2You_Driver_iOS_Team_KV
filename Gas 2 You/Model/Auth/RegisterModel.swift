@@ -40,35 +40,25 @@ class OTPResponseModel: Codable {
 
 //MARK:- Register Request Model
 class RegisterRequestModel: Encodable{
-    var firstName : String?
-    var lastName : String?
+    var fullName : String?
     var email : String?
     var password : String?
     var phone : String?
-    var birthDate : String?
-    var gender : String?
-    var address : String?
     var countryCode : String?
-    var countryId : String?
     var deviceType : String? = Singleton.sharedInstance.DeviceType
     var deviceToken : String? = Singleton.sharedInstance.DeviceToken
     var latitude : String? = Singleton.sharedInstance.locationString().latitude
     var longitude : String? = Singleton.sharedInstance.locationString().longitude
     
     enum CodingKeys: String, CodingKey {
-        case firstName = "first_name"
-        case lastName = "last_name"
+        case fullName = "full_name"
         case email = "email"
         case password = "password"
         case phone = "mobile_no"
-        case birthDate = "dob"
-        case gender = "gender"
         case latitude = "lat"
         case longitude = "lng"
         case deviceType = "device_type"
         case deviceToken = "device_token"
-        case address = "address"
         case countryCode = "country_code"
-        case countryId = "country_id"
     }
 }

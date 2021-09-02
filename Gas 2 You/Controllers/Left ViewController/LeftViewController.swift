@@ -62,8 +62,7 @@ class LeftViewController: MenuViewController {
         LeftViewController.showAlertWithTitleFromVC(vc: self, title: "Logout", message: "Are you sure want to Logout?", buttons: ["Cancel", "Logout"]) { index in
             menuContainerViewController.hideSideMenu()
             if index == 1 {
-                UserDefaults.standard.set(false, forKey: "isLoggedIn")
-                AppDel.navigateToLogin()
+                AppDel.dologout()
             } else {
                 self.dismiss(animated: true, completion: nil)
             }

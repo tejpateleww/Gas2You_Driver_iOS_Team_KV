@@ -226,6 +226,20 @@ class Utilities:NSObject{
         vc.present(alert, animated: true, completion: nil)
     }
     
+    class func showAlertAction(_ title: String = "", message: String, vc: UIViewController, completionHandler: (() -> Void)? = nil ) -> Void
+    {
+        let alert = UIAlertController(title: title,
+                                      message: message,
+                                      preferredStyle: UIAlertController.Style.alert)
+        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: {  (action) in
+            print("ok button tapped")
+            completionHandler?()
+        })
+        alert.addAction(cancelAction)
+  
+        vc.present(alert, animated: true, completion: nil)
+    }
+    
     /// Response may be Any Type
     class func showAlertOfAPIResponse(param: Any, vc: UIViewController) {
         
@@ -317,7 +331,7 @@ class Utilities:NSObject{
         MKProgress.config.height = 80.0
         MKProgress.config.circleRadius = 30.0
         MKProgress.config.cornerRadius = 16.0
-        MKProgress.config.circleBorderColor = ThemeColorEnum.Theme.rawValue
+        MKProgress.config.circleBorderColor = ThemeColorEnum.ThemeLoader.rawValue
         MKProgress.config.circleBorderWidth = 3.0
         MKProgress.config.backgroundColor = .clear
         MKProgress.show()
