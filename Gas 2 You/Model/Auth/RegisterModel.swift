@@ -11,20 +11,18 @@ import Foundation
 //MARK:- OTP Request Model
 class OTPRequestModel : Encodable{
     var email: String?
-    var phone: String?
     enum CodingKeys: String, CodingKey {
         case email = "email"
-        case phone = "mobile_no"
     }
 }
 
 //MARK:- OTP Response Model
 class OTPResponseModel: Codable {
     var status: Bool?
-    var otp: Int?
+    var otp: String?
     var message: String?
 
-    init(status: Bool?, otp: Int?, message: String?) {
+    init(status: Bool?, otp: String?, message: String?) {
         self.status = status
         self.otp = otp
         self.message = message
@@ -33,7 +31,7 @@ class OTPResponseModel: Codable {
     required init(from decoder: Decoder) throws {
         let values = try? decoder.container(keyedBy: CodingKeys.self)
         status = try? values?.decodeIfPresent(Bool.self, forKey: .status)
-        otp = try? values?.decodeIfPresent(Int.self, forKey: .otp)
+        otp = try? values?.decodeIfPresent(String.self, forKey: .otp)
         message = try? values?.decodeIfPresent(String.self, forKey: .message)
     }
 }

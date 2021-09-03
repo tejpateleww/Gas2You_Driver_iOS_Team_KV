@@ -11,7 +11,6 @@ import CoreLocation
 class SplashVC: UIViewController {
     
     //MARK:- Variables
-    private var isApiResponseDone = false
     var locationManager: CLLocationManager?
     
     //MARK:- Life cycle methods

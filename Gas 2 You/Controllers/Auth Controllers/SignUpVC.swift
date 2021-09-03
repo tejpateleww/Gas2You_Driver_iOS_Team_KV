@@ -18,27 +18,25 @@ class SignUpVC: BaseVC {
     @IBOutlet weak var btnSignUp: ThemeButton!
     @IBOutlet weak var btnLoginNow: themeButton!
     
-    var registerUserModel = RegisterUserModel()
-    var locationManager : LocationService?
-    
+    //MARK:- Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "", leftImage: "Back", rightImages: [], isTranslucent: true)
-        btnLoginNow.setunderline(title: "Login Now" , color: .white, font: CustomFont.PoppinsSemiBold.returnFont(16))
+        self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Sign Up", leftImage: "Back", rightImages: [], isTranslucent: true, iswhiteTitle: true)
+        self.btnLoginNow.setunderline(title: "Login Now" , color: .white, font: CustomFont.PoppinsSemiBold.returnFont(16))
         
         //mobile no field +1 related code
         let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 20))
-        txtMobile.leftView = paddingView
-        txtMobile.leftViewMode = .always
-        txtMobile.layer.borderWidth = 1
-        txtMobile.layer.borderColor = UIColor.white.cgColor
-        txtMobile.layer.cornerRadius = 8
+        self.txtMobile.leftView = paddingView
+        self.txtMobile.leftViewMode = .always
+        self.txtMobile.layer.borderWidth = 1
+        self.txtMobile.layer.borderColor = UIColor.white.cgColor
+        self.txtMobile.layer.cornerRadius = 8
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         UIApplication.shared.statusBarStyle = .lightContent
-
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -50,28 +48,11 @@ class SignUpVC: BaseVC {
         let button = UIButton(type: .custom)
         button.isSelected = true
         button.setImage(#imageLiteral(resourceName: "IC_selectedCheckGray"), for: .normal)
-        //        button.setImage(UIImage(named: "hidepassword"), for: .selected)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -32, bottom: 0, right: 0)
         button.frame = CGRect(x: CGFloat(textfield.frame.size.width - 25), y: CGFloat(5), width: CGFloat(25), height: CGFloat(25))
         button.tag = textfield.tag
-        //        button.addTarget(self, action: #selector(self.showHidePassword), for: .touchUpInside)
         textfield.rightView = button
         textfield.rightViewMode = .always
-    }
-    
-    func getLocation() -> Bool {
-        if Singleton.sharedInstance.userCurrentLocation == nil{
-            self.locationManager = LocationService()
-            self.locationManager?.startUpdatingLocation()
-            return false
-        }else{
-            return true
-        }
-    }
-    
-    func goToOtpVerification(){
-        let OtpVC = storyboard?.instantiateViewController(identifier: OtpVC.className) as! OtpVC
-        navigationController?.pushViewController(OtpVC, animated: true)
     }
     
     //MARK:- IBAction
@@ -89,9 +70,18 @@ class SignUpVC: BaseVC {
                 Toast.show(title: UrlConstant.Required, message: UrlConstant.PasswordNotMatch, state: .failure)
             }else{
                 if self.validation(){
-                    if self.getLocation(){
-                        self.callRegisterApi()
-                    }
+                    
+                    let reqModel = RegisterRequestModel()
+                    reqModel.fullName = self.txtFirstName.text ?? ""
+                    reqModel.email = self.txtEmail.text ?? ""
+                    reqModel.countryCode = DefaultCouuntryCode
+                    reqModel.phone = self.txtMobile.text ?? ""
+                    reqModel.password = self.txtPassword.text ?? ""
+                    
+                    let OtpVC = storyboard?.instantiateViewController(identifier: OtpVC.className) as! OtpVC
+                    OtpVC.registerReqModel = reqModel
+                    navigationController?.pushViewController(OtpVC, animated: true)
+                    
                 }
             }
         }
@@ -129,19 +119,6 @@ extension SignUpVC{
         }
         
         return true
-    }
-    
-    func callRegisterApi(){
-        self.registerUserModel.registerVc = self
-        
-        let reqModel = RegisterRequestModel()
-        reqModel.fullName = self.txtFirstName.text ?? ""
-        reqModel.email = self.txtEmail.text ?? ""
-        reqModel.countryCode = DefaultCouuntryCode
-        reqModel.phone = self.txtMobile.text ?? ""
-        reqModel.password = self.txtPassword.text ?? ""
-        
-        self.registerUserModel.webserviceRegister(reqModel: reqModel)
     }
 }
 

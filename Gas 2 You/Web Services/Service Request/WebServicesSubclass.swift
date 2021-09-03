@@ -41,4 +41,11 @@ class WebServiceSubClass{
             completion(status, message, response, error)
         }
     }
+    
+    class func otpRequestApi(reqModel : OTPRequestModel , completion: @escaping (Bool,String,OTPResponseModel?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.registerOtp.rawValue, requestModel: reqModel, responseModel: OTPResponseModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+
 }

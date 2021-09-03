@@ -487,14 +487,6 @@
 			path = "Completed Jobs";
 			sourceTree = "<group>";
 		};
-		88EC9CE226E0F6B600A4AC50 /* Otp */ = {
-			isa = PBXGroup;
-			children = (
-				88EC9CE526E0F6E400A4AC50 /* OtpVC.swift */,
-			);
-			path = Otp;
-			sourceTree = "<group>";
-		};
 		9A3A912526C133AB0041D7D9 /* InteractiveSideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -629,7 +621,6 @@
 		9A5B08F326B2721A00BA0CB4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				88EC9CE226E0F6B600A4AC50 /* Otp */,
 				888D122D26DE18290034D277 /* Splash */,
 				9AC568C326B7C2350039FCCF /* Auth Controllers */,
 				888D126B26DE2E2A0034D277 /* Completed Jobs */,
@@ -678,6 +669,7 @@
 			children = (
 				9A5B094926B2C9FC00BA0CB4 /* LogInVC.swift */,
 				9AC568BE26B7B1020039FCCF /* SignUpVC.swift */,
+				88EC9CE526E0F6E400A4AC50 /* OtpVC.swift */,
 				18C2FAD526C69330005E1D07 /* ChangePasswordVC.swift */,
 				18C2FAD326C69300005E1D07 /* ForgotPasswordVC.swift */,
 			);

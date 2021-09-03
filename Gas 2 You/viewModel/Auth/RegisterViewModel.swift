@@ -12,6 +12,7 @@ import UIKit
 class RegisterUserModel{
     weak var registerVc : SignUpVC? = nil
     
+    
     func webserviceRegister(reqModel: RegisterRequestModel){
         Utilities.showHud()
         WebServiceSubClass.RegisterApi(reqModel: reqModel) { (status, apiMessage, response, error) in
@@ -35,8 +36,28 @@ class RegisterUserModel{
                     Singleton.sharedInstance.UserId = userID
                 }
                 
-                self.registerVc?.goToOtpVerification()
-                //appDel.navigateToHome()
+                appDel.navigateToHome()
+            }
+        }
+    }
+}
+
+
+class OTPUserModel{
+    weak var otpVC : OtpVC? = nil
+    
+    func webserviceOtp(reqModel: OTPRequestModel){
+        Utilities.showHud()
+        WebServiceSubClass.otpRequestApi(reqModel: reqModel) { (status, apiMessage, response, error) in
+            Utilities.hideHud()
+            if status{
+                self.otpVC?.strOtp = response?.otp ?? ""
+                self.otpVC?.otpToastDisplay()
+                self.otpVC?.reversetimer()
+            }else{
+                Utilities.showAlertAction(AppName, message: apiMessage, vc: self.otpVC!) {
+                    self.otpVC?.popBack()
+                }
             }
         }
     }

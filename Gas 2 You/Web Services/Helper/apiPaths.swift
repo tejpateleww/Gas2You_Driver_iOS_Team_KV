@@ -51,6 +51,7 @@ enum ApiKey: String {
     case register                             = "register"
     case changePassword                       = "change_password"
     case forgotPassword                       = "forgot_password"
+    case registerOtp                          = "register_otp"
     
 }
 

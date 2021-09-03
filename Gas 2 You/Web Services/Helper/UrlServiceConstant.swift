@@ -26,6 +26,7 @@ class UrlConstant{
     static let RequestTimeOut = "Poor internet connection, Check your internet connection or try again."
     static let LocationRequired = "Location service is disabled. To re-enable, please go to Settings and turn on Location Service for this application."
     static let Submit = "USubmit"
+    static let OTPSent = "Your OTP for Verification"
     
     
     static let Ok = "Ok"
@@ -43,6 +44,7 @@ class UrlConstant{
     
     //Validation Message
     static let ValidPhoneNo = "Please enter valid mobile number."
+    static let ValidOtpNo = "Please enter valid otp."
     static let AgeIsRequired = "Age is required"
     static let AgeMustNumber = "Age must be a number!"
     static let InvalidAgeNumber = "Invalid age number!"

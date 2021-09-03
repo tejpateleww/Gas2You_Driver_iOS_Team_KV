@@ -27,8 +27,8 @@ class LogInVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTextfields(textfield: txtPassword)
-        btnSignUp.setunderline(title: btnSignUp.titleLabel?.text ?? "", color: .white, font: CustomFont.PoppinsSemiBold.returnFont(16))
+        self.setupTextfields(textfield: txtPassword)
+        self.btnSignUp.setunderline(title: self.btnSignUp.titleLabel?.text ?? "", color: .white, font: CustomFont.PoppinsSemiBold.returnFont(16))
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -72,25 +72,20 @@ class LogInVC: UIViewController {
                 self.callLoginApi()
             }
         }
-        
-        
     }
     
     @IBAction func signUpButtonPressed(_ sender: themeButton) {
-        
         let signUpVC = storyboard?.instantiateViewController(identifier: SignUpVC.className) as! SignUpVC
         navigationController?.pushViewController(signUpVC, animated: true)
     }
-    
-    
 }
 
 //MARK:- Validation & Api
 extension LogInVC{
     func validation()->Bool{
         var strTitle : String?
-        let checkEmail = txtEmail.validatedText(validationType: .email)
-        let password = txtPassword.validatedText(validationType: .password(field: self.txtPassword.placeholder?.lowercased() ?? ""))
+        let checkEmail = self.txtEmail.validatedText(validationType: .email)
+        let password = self.txtPassword.validatedText(validationType: .password(field: self.txtPassword.placeholder?.lowercased() ?? ""))
         
         if !checkEmail.0{
             strTitle = checkEmail.1
@@ -115,13 +110,10 @@ extension LogInVC{
         
         self.loginUserModel.webserviceLogin(reqModel: reqModel)
     }
-    
-    
 }
 
 //MARK:- TextField Delegate
 extension LogInVC: UITextFieldDelegate{
-    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == txtPassword {
             let currentString: NSString = textField.text as NSString? ?? ""

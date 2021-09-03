@@ -18,8 +18,7 @@ class ForgotPasswordVC: BaseVC {
     //MARK:- Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Forgot Password", leftImage: "Back", rightImages: [], isTranslucent: true, iswhiteTitle: true)
+        self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Forgot Password", leftImage: "Back", rightImages: [], isTranslucent: true, iswhiteTitle: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,7 +37,6 @@ class ForgotPasswordVC: BaseVC {
             self.callForgotPasswordApi()
         }
     }
-    
     
     //MARK:- Extra methods
     func popBack(){
