@@ -37,7 +37,7 @@ class JobsCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        vwButtons.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 15)
+        //vwButtons.roundCorners(corners: [.bottomLeft, .bottomRight], radius: 15)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

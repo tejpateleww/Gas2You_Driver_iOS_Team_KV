@@ -17,6 +17,7 @@ class OtpVC: BaseVC {
     @IBOutlet weak var btnResend: themeButton!
     @IBOutlet weak var lblCheckEmail: themeLabel!
     @IBOutlet weak var lblTimer: themeLabel!
+    @IBOutlet weak var btnVerify: ThemeButton!
     
     var strOtp = ""
     var timer = Timer()
@@ -24,7 +25,6 @@ class OtpVC: BaseVC {
     var arrTextFields : [UITextField] = []
     
     var otpUserModel = OTPUserModel()
-    var registerUserModel = RegisterUserModel()
     var registerReqModel : RegisterRequestModel?
     var locationManager : LocationService?
     
@@ -186,7 +186,6 @@ class OtpVC: BaseVC {
     
     @IBAction func btnResendAction(_ sender: Any) {
         self.counter = 31
-        self.reversetimer()
         self.callOtpApi()
     }
 }
@@ -203,6 +202,7 @@ extension OtpVC{
     }
     
     func callRegisterApi(){
-        self.registerUserModel.webserviceRegister(reqModel: self.registerReqModel!)
+        self.otpUserModel.otpVC = self
+        self.otpUserModel.webserviceRegister(reqModel: self.registerReqModel!)
     }
 }

@@ -47,5 +47,17 @@ class WebServiceSubClass{
             completion(status, message, response, error)
         }
     }
-
+    
+    //MARK:- Home List
+    class func homeBookingRequest(reqModel : HomeBookingReqModel , completion: @escaping (Bool,String,RequestBookingListModel?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.homeReqBooking.rawValue, requestModel: reqModel, responseModel: RequestBookingListModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
+    class func homeBookingInProgressAPI(reqModel : HomeBookingReqModel , completion: @escaping (Bool,String,RequestBookingListModel?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.homeInProgressBooking.rawValue, requestModel: reqModel, responseModel: RequestBookingListModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
 }

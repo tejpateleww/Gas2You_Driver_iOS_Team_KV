@@ -45,72 +45,76 @@ enum isFromHome {
 
 class JobDetailsViewController: BaseVC {
     
-    // ----------------------------------------------------
     // MARK: - --------- Variables ---------
-    // ----------------------------------------------------
-    
     var isfrom = isFromHome.Request
     var price = ""
     var isfromhome = true
     var isFromStartJob = false
     var strTitle = ""
+    var BookingDetail : RequestBookingListDatum?
+    var PickLocLong:String = "0.0"
+    var PickLocLat:String = "0.0"
+    var CurrentLocLat:String = "0.0"
+    var CurrentLocLong:String = "0.0"
+    var CurrentLocMarker: GMSMarker?
+    var DropLocMarker: GMSMarker?
+    var arrMarkers: [GMSMarker] = []
     
-    var locationManager = CLLocationManager()
-    // ----------------------------------------------------
     // MARK: - --------- IBOutlets ---------
-    // ----------------------------------------------------
     @IBOutlet weak var lblLine: UILabel!
     @IBOutlet weak var LblFilledGallon: themeLabel!
     @IBOutlet weak var ViewFilledGallon: UIView!
     @IBOutlet weak var stackUpdateStatus: UIStackView!
     @IBOutlet weak var lblplateNumberDashLineHeight: NSLayoutConstraint!
-    
     @IBOutlet weak var imgCompleted: UIImageView!
     @IBOutlet weak var LblCompleted: themeLabel!
     @IBOutlet weak var LblDateTime: themeLabel!
     @IBOutlet weak var ViewDateTime: UIView!
-    
     @IBOutlet weak var vwStartJob: UIView!
     @IBOutlet weak var vwChatCall: UIView!
-    
     @IBOutlet weak var stackStatus: UIStackView!
-    
-    
     @IBOutlet weak var btnDownload: ThemeButton!
     @IBOutlet weak var vwUpdateStatus: UIView!
     @IBOutlet weak var BtnStartJob: ThemeButton!
     @IBOutlet weak var ImgViewOntheway: UIImageView!
     @IBOutlet weak var vwGasPriceDetail: UIView!
     @IBOutlet weak var stackItem: UIStackView!
-    
     @IBOutlet weak var btnJobDone: UIButton!
     @IBOutlet weak var stackJobDetails: UIStackView!
     @IBOutlet weak var ImgViewJobDone: UIImageView!
-    
     @IBOutlet weak var mapView: GMSMapView!
-    // ----------------------------------------------------
+    
+    @IBOutlet weak var lblFuelType: themeLabel!
+    @IBOutlet weak var lblAddress: themeLabel!
+    @IBOutlet weak var lblCarName: themeLabel!
+    @IBOutlet weak var lblColor: themeLabel!
+    @IBOutlet weak var lblPlateNumber: themeLabel!
+    
     // MARK: - --------- Life-cycle Methods ---------
-    // ----------------------------------------------------
-    func lblcompltedSetup() {
-        LblCompleted.transform = CGAffineTransform(rotationAngle: -.pi/4)
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        lblcompltedSetup()
-        setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: strTitle == "" ? "Job Details" : strTitle, leftImage: "Back", rightImages: [], isTranslucent: true)
         
-        setUIMapPin()
+        self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: strTitle == "" ? "Job Details" : strTitle, leftImage: "Back", rightImages: [], isTranslucent: true)
+        self.setupData()
+        self.prepareView()
+        self.setupMap()
+    }
+    
+    
+    // MARK: - --------- Custom Methods ---------
+    func prepareView() {
+        self.lblcompltedSetup()
+        self.ViewDateTime.isHidden = false
+        self.mapView.delegate = self
         
-        ViewDateTime.isHidden = false
-        //        isfromHome(sender: UIButton)
-        if isfromhome{
-            switch isfrom {
+        if self.isfromhome{
+            switch self.isfrom {
             case .InProcess:
-                vwGasPriceDetail.isHidden = true
-                stackItem.isHidden = true
-                btnJobDone.isHidden = true
-                if isFromStartJob{
-                    BtnStartJob(BtnStartJob)
+                self.vwGasPriceDetail.isHidden = true
+                self.stackItem.isHidden = true
+                self.btnJobDone.isHidden = true
+                if self.isFromStartJob{
+                    self.BtnStartJob(BtnStartJob)
                 }
             case .Request:
                 self.isFromRequest()
@@ -118,56 +122,134 @@ class JobDetailsViewController: BaseVC {
         }else{
             self.isFromMyOrders()
         }
-        // Do any additional setup after loading the view.
     }
     
-    
-    // ----------------------------------------------------
-    // MARK: - --------- Custom Methods ---------
-    // ----------------------------------------------------
-    
-    func setUIMapPin() {
-        initializeTheLocationManager()
-        let position = CLLocationCoordinate2DMake(23.033863,72.585022)
-        let marker = GMSMarker(position: position)
-        marker.icon = drawImageWithProfilePic(pp: nil, image: #imageLiteral(resourceName: "IC_pinImg"))
-        marker.appearAnimation = GMSMarkerAnimation.pop
-        marker.map = mapView
+    func lblcompltedSetup() {
+        self.LblCompleted.transform = CGAffineTransform(rotationAngle: -.pi/4)
     }
     
-    func drawImageWithProfilePic(pp: UIImage?, image: UIImage) -> UIImage {
+    func setupMap(){
+        self.mapView.clear()
         
-        let imgView = UIImageView(image: image)
-        let picImgView = UIImageView(image: pp)
-        picImgView.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        self.CurrentLocLat = String(appDel.locationService.currentLocation?.coordinate.latitude ?? 0.0)
+        self.CurrentLocLong = String(appDel.locationService.currentLocation?.coordinate.longitude ?? 0.0)
+        self.PickLocLat = self.BookingDetail?.latitude ?? "0.0"
+        self.PickLocLong = self.BookingDetail?.longitude ?? "0.0"
         
-        imgView.addSubview(picImgView)
-        picImgView.center.x = imgView.center.x
-        picImgView.center.y = imgView.center.y - 7
-        picImgView.layer.cornerRadius = picImgView.frame.width/2
-        picImgView.clipsToBounds = true
-        imgView.setNeedsLayout()
-        picImgView.setNeedsLayout()
+        self.MapSetup(currentlat: CurrentLocLat, currentlong: CurrentLocLong, droplat: PickLocLat, droplog: PickLocLong)
         
-        let newImage = imageWithView(view: imgView)
-        return newImage
     }
     
-    func imageWithView(view: UIView) -> UIImage {
-        var image: UIImage?
-        UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0.0)
-        if let context = UIGraphicsGetCurrentContext() {
-            view.layer.render(in: context)
-            image = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
+    func MapSetup(currentlat: String, currentlong:String, droplat: String, droplog:String)
+    {
+        
+        let camera = GMSCameraPosition.camera(withLatitude: Double(currentlat) ?? 0.0, longitude:  Double(currentlong) ?? 0.0, zoom: 13.8)
+        self.mapView.camera = camera
+        
+        //Drop Location pin setup
+        self.DropLocMarker = GMSMarker()
+        self.DropLocMarker?.position = CLLocationCoordinate2D(latitude: Double(droplat) ?? 0.0, longitude: Double(droplog) ?? 0.0)
+        self.DropLocMarker?.snippet = self.BookingDetail?.parkingLocation ?? "Parking Location"
+        
+        let markerView = MarkerPinView()
+        markerView.markerImage = UIImage(named: "IC_pinImg")
+        markerView.layoutSubviews()
+        
+        self.DropLocMarker?.iconView = markerView
+        self.DropLocMarker?.map = self.mapView
+        
+        //Current Location pin setup
+        self.CurrentLocMarker = GMSMarker()
+        self.CurrentLocMarker?.position = CLLocationCoordinate2D(latitude: Double(currentlat) ?? 0.0, longitude: Double(currentlong) ?? 0.0)
+        self.CurrentLocMarker?.snippet = "You"
+        
+        let markerView2 = MarkerPinView()
+        markerView2.markerImage = UIImage(named: "MyLoc")
+        markerView2.layoutSubviews()
+        
+        self.CurrentLocMarker?.iconView = markerView2
+        self.CurrentLocMarker?.map = self.mapView
+        self.mapView.selectedMarker = self.CurrentLocMarker
+        
+        //For Displaying both markers in screen centered
+        self.arrMarkers.append(self.CurrentLocMarker!)
+        self.arrMarkers.append(self.DropLocMarker!)
+        var bounds = GMSCoordinateBounds()
+        for marker in self.arrMarkers
+        {
+            bounds = bounds.includingCoordinate(marker.position)
         }
-        return image ?? UIImage()
+        let update = GMSCameraUpdate.fit(bounds, withPadding: 60)
+        self.mapView.animate(with: update)
+        
+        self.fetchRoute(currentlat: currentlat, currentlong: currentlong, droplat: droplat, droplog: droplog)
     }
     
-    // ----------------------------------------------------
-    // MARK: - --------- IBAction Methods ---------
-    // ----------------------------------------------------
+    func fetchRoute(currentlat: String, currentlong:String, droplat: String, droplog:String) {
+        
+        let CurrentLatLong = "\(currentlat),\(currentlong)"
+        let DestinationLatLong = "\(droplat),\(droplog)"
+        let param = "origin=\(CurrentLatLong)&destination=\(DestinationLatLong)&mode=driving&key=\(AppInfo.Google_API_Key)"
+        let url = URL(string: "https://maps.googleapis.com/maps/api/directions/json?\(param)")!
+        
+        let session = URLSession.shared
+        
+        let task = session.dataTask(with: url, completionHandler: {
+            (data, response, error) in
+            
+            guard error == nil else {
+                print(error!.localizedDescription)
+                return
+            }
+            
+            guard let jsonResult = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]?, let jsonResponse = jsonResult else {
+                print("error in JSONSerialization")
+                return
+            }
+            
+            guard let routes = jsonResponse["routes"] as? [Any] else {
+                return
+            }
+            
+            guard let route = routes[0] as? [String: Any] else {
+                return
+            }
+            
+            guard let overview_polyline = route["overview_polyline"] as? [String: Any] else {
+                return
+            }
+            
+            guard let polyLineString = overview_polyline["points"] as? String else {
+                return
+            }
+            
+            //Call this method to draw path on map
+            self.drawPath(from: polyLineString)
+        })
+        task.resume()
+    }
     
+    func drawPath(from polyStr: String){
+        let path = GMSPath(fromEncodedPath: polyStr)
+        let polyline = GMSPolyline(path: path)
+        polyline.strokeWidth = 3.0
+        polyline.strokeColor = UIColor.init(hexString: "#faa421")
+        polyline.map = self.mapView
+    }
+    
+    func setupData() {
+        self.lblFuelType.text = self.BookingDetail?.mainServiceName ?? ""
+        self.lblAddress.text = self.BookingDetail?.parkingLocation ?? ""
+        self.lblColor.text = "Color : \(self.BookingDetail?.colorName ?? "")"
+        self.LblDateTime.text = "\(self.BookingDetail?.date ?? "") \n \(self.BookingDetail?.time ?? "")"
+        let VehicleName = "\(self.BookingDetail?.makeName ?? "")" + " (" + "\(self.BookingDetail?.plateNumber ?? "")" + ")"
+        self.lblCarName.text = VehicleName
+        let PlateNumber = self.BookingDetail?.plateNumber ?? ""
+        self.lblPlateNumber.text = "Plate Number : \(PlateNumber)"
+        
+    }
+    
+    // MARK: - --------- IBAction Methods ---------
     @IBAction func btnDownloadTap(_ sender: Any) {
         
     }
@@ -266,29 +348,31 @@ extension JobDetailsViewController{
     }
 }
 
-
-extension JobDetailsViewController: CLLocationManagerDelegate {
-    
-    func initializeTheLocationManager() {
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+extension JobDetailsViewController: GMSMapViewDelegate {
+    func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         
-        print(locationManager.location?.coordinate.latitude ?? "0.0")
-        let location = locationManager.location?.coordinate
-        cameraMoveToLocation(toLocation: location)
+        let view = MarkerInfoWindowView()
+        view.titleLabel.numberOfLines = 0
         
-    }
-    
-    func cameraMoveToLocation(toLocation: CLLocationCoordinate2D?) {
-        if toLocation != nil {
-            mapView.camera = GMSCameraPosition.camera(withTarget: toLocation!, zoom: 4)
+        if(marker == self.CurrentLocMarker){
+            view.titleLabel.text = "You"
+            view.titleLabel.textAlignment = .center
+            view.imgArrow.isHidden = true
+            view.frame.size.width = view.titleLabel.intrinsicContentSize.width + 45
+            view.frame.size.height = view.titleLabel.bounds.size.height - 15
+            view.sizeToFit()
+        }else{
+            view.titleLabel.text = self.BookingDetail?.parkingLocation ?? "Parking Location"
+            view.titleLabel.textAlignment = .left
+            view.imgArrow.isHidden = false
+            view.frame.size.width = UIScreen.main.bounds.size.width - 100
+            view.frame.size.height = view.titleLabel.bounds.size.height + 30
+            view.sizeToFit()
         }
+        return view
     }
     
-    
-    
+    func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
+        return false
+    }
 }

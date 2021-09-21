@@ -13,9 +13,9 @@ class PasswordUserModel{
     weak var changePasswordVC : ChangePasswordVC? = nil
     
     func webserviceForgotPassword(reqModel: ForgotPasswordReqModel){
-        Utilities.showHud()
+        self.forgotPasswordVC?.btnSubmit.showLoading()
         WebServiceSubClass.ForgotPasswordApi(reqModel: reqModel) { (status, apiMessage, response, error) in
-            Utilities.hideHud()
+            self.forgotPasswordVC?.btnSubmit.hideLoading()
             if status{
                 Utilities.showAlertAction(AppName, message: apiMessage, vc: self.forgotPasswordVC!) {
                     self.forgotPasswordVC?.popBack()
@@ -27,11 +27,9 @@ class PasswordUserModel{
     }
     
     func webserviceChangePassword(reqModel: ChangePasswordReqModel){
-        Utilities.showHud()
-        
+        self.changePasswordVC?.btnSave.showLoading()
         WebServiceSubClass.ChangePasswordApi(reqModel: reqModel) { (status, apiMessage, response, error) in
-            Utilities.hideHud()
-            
+            self.changePasswordVC?.btnSave.hideLoading()
             if status{
                 if let click = self.changePasswordVC?.btnSubmitClosure {
                     click()

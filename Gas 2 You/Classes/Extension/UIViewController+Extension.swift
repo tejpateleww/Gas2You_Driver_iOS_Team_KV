@@ -228,3 +228,56 @@ private func _swizzling(forClass: AnyClass, originalSelector: Selector, swizzled
       }
   
 }
+
+class MarkerPinView: UIView {
+    @IBInspectable var markerImage: UIImage?
+//    @IBInspectable var imageview: UIImageView!
+    override func awakeFromNib() {
+           super.awakeFromNib()
+       
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
+        let imageview = UIImageView()
+//        if markerImage != nil{
+            imageview.image = markerImage
+//        }else{
+//            imageview.image = UIImage(named: "profile_placeholder_2")
+//        }
+        
+        imageview.frame = self.frame
+        imageview.contentMode = .scaleAspectFit
+//        imageview.cornerRadius = self.frame.size.height / 2
+//        imageview.borderWidth = 3
+//        imageview.borderColor = .white
+        imageview.clipsToBounds = true
+//        self.cornerRadius = self.frame.size.height / 2
+//        self.borderWidth = 2
+//        self.borderColor = ThemeColor.primary
+        self.clipsToBounds = true
+        self.backgroundColor = .clear
+        self.addSubview(imageview)
+    }
+}
+
+extension UIView {
+    // MARK: Loads instance from nib with the same name
+    func loadNib() -> UIView {
+        let bundle = Bundle(for: type(of: self))
+        let nibName = type(of: self).description().components(separatedBy: ".").last!
+        let nib = UINib(nibName: nibName, bundle: bundle)
+        return nib.instantiate(withOwner: self, options: nil).first as! UIView
+    }
+
+    func setAllSideContraints(_ insets: UIEdgeInsets) {
+        guard let view = superview else {
+            return
+        }
+        topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top).isActive = true
+        leftAnchor.constraint(equalTo: view.leftAnchor, constant: insets.left).isActive = true
+        rightAnchor.constraint(equalTo: view.rightAnchor, constant: insets.right).isActive = true
+        bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: insets.bottom).isActive = true
+    }
+}

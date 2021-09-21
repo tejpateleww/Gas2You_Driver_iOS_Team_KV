@@ -9,14 +9,29 @@
 import Foundation
 import UIKit
 
-class RegisterUserModel{
-    weak var registerVc : SignUpVC? = nil
+class OTPUserModel{
+    weak var otpVC : OtpVC? = nil
     
+    func webserviceOtp(reqModel: OTPRequestModel){
+        self.otpVC?.btnVerify.showLoading()
+        WebServiceSubClass.otpRequestApi(reqModel: reqModel) { (status, apiMessage, response, error) in
+            self.otpVC?.btnVerify.hideLoading()
+            if status{
+                self.otpVC?.strOtp = response?.otp ?? ""
+                self.otpVC?.otpToastDisplay()
+                self.otpVC?.reversetimer()
+            }else{
+                Utilities.showAlertAction(AppName, message: apiMessage, vc: self.otpVC!) {
+                    self.otpVC?.popBack()
+                }
+            }
+        }
+    }
     
     func webserviceRegister(reqModel: RegisterRequestModel){
-        Utilities.showHud()
+        self.otpVC?.btnVerify.showLoading()
         WebServiceSubClass.RegisterApi(reqModel: reqModel) { (status, apiMessage, response, error) in
-            Utilities.hideHud()
+            self.otpVC?.btnVerify.hideLoading()
             Toast.show(title: status ? UrlConstant.Success : UrlConstant.Failed, message: apiMessage, state: status ? .success : .failure)
             
             if status{
@@ -40,25 +55,5 @@ class RegisterUserModel{
             }
         }
     }
-}
-
-
-class OTPUserModel{
-    weak var otpVC : OtpVC? = nil
     
-    func webserviceOtp(reqModel: OTPRequestModel){
-        Utilities.showHud()
-        WebServiceSubClass.otpRequestApi(reqModel: reqModel) { (status, apiMessage, response, error) in
-            Utilities.hideHud()
-            if status{
-                self.otpVC?.strOtp = response?.otp ?? ""
-                self.otpVC?.otpToastDisplay()
-                self.otpVC?.reversetimer()
-            }else{
-                Utilities.showAlertAction(AppName, message: apiMessage, vc: self.otpVC!) {
-                    self.otpVC?.popBack()
-                }
-            }
-        }
-    }
 }

@@ -322,11 +322,11 @@ class Utilities:NSObject{
         //        let activityData = ActivityData(size: size, message: "", messageFont: nil, messageSpacing: nil, type: .lineScale, color: colors.btnColor.value, padding: nil, displayTimeThreshold: nil, minimumDisplayTime: nil, backgroundColor: UIColor.black.withAlphaComponent(0.5), textColor: nil)
         //        NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData)
         
-        MKProgress.config.backgroundColor = .white
+        MKProgress.config.backgroundColor = .clear
         //        let vwbackground = UIView(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
         MKProgress.config.hudType = .radial
         
-        MKProgress.config.hudColor = .white
+        MKProgress.config.hudColor = .clear
         MKProgress.config.width = 80.0
         MKProgress.config.height = 80.0
         MKProgress.config.circleRadius = 30.0

@@ -53,6 +53,9 @@ enum ApiKey: String {
     case forgotPassword                       = "forgot_password"
     case registerOtp                          = "register_otp"
     
+    case homeReqBooking                       = "request_order_list"
+    case homeInProgressBooking                = "in_process_order_list"
+    
 }
 
  
