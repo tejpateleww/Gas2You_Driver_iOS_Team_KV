@@ -27,7 +27,7 @@ class JobsCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         vwMain.layer.cornerRadius = 15
-        vwButtons.layer.masksToBounds = true
+//        vwButtons.layer.masksToBounds = true
         
 //        vwButtonsHeight.constant = 0
 //        vwMain.layer.masksToBounds = true

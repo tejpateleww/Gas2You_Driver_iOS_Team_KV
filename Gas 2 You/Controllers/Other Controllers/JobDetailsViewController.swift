@@ -14,7 +14,6 @@ enum StartJobButtonTitle {
     case CompleteJob
     case JobCompleted
     
-    
     var Name:String {
         switch self {
         case .StartJob:
@@ -45,6 +44,9 @@ enum isFromHome {
 
 class JobDetailsViewController: BaseVC {
     
+    var orderStaus = ""
+    var jobViewModel = JobViewModel()
+    
     // MARK: - --------- Variables ---------
     var isfrom = isFromHome.Request
     var price = ""
@@ -52,6 +54,8 @@ class JobDetailsViewController: BaseVC {
     var isFromStartJob = false
     var strTitle = ""
     var BookingDetail : RequestBookingListDatum?
+    var CompBookingDetail : OrderComplateDatum?
+    
     var PickLocLong:String = "0.0"
     var PickLocLat:String = "0.0"
     var CurrentLocLat:String = "0.0"
@@ -100,6 +104,10 @@ class JobDetailsViewController: BaseVC {
         self.setupMap()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        
+    }
+    
     
     // MARK: - --------- Custom Methods ---------
     func prepareView() {
@@ -110,12 +118,7 @@ class JobDetailsViewController: BaseVC {
         if self.isfromhome{
             switch self.isfrom {
             case .InProcess:
-                self.vwGasPriceDetail.isHidden = true
-                self.stackItem.isHidden = true
-                self.btnJobDone.isHidden = true
-                if self.isFromStartJob{
-                    self.BtnStartJob(BtnStartJob)
-                }
+                print("remove this..")
             case .Request:
                 self.isFromRequest()
             }
@@ -179,7 +182,7 @@ class JobDetailsViewController: BaseVC {
         {
             bounds = bounds.includingCoordinate(marker.position)
         }
-        let update = GMSCameraUpdate.fit(bounds, withPadding: 60)
+        let update = GMSCameraUpdate.fit(bounds, withPadding: 20)
         self.mapView.animate(with: update)
         
         self.fetchRoute(currentlat: currentlat, currentlong: currentlong, droplat: droplat, droplog: droplog)
@@ -204,6 +207,15 @@ class JobDetailsViewController: BaseVC {
             
             guard let jsonResult = try? JSONSerialization.jsonObject(with: data!, options: .allowFragments) as? [String: Any]?, let jsonResponse = jsonResult else {
                 print("error in JSONSerialization")
+                return
+            }
+            
+            guard let status = jsonResponse["status"] as? String else {
+                return
+            }
+            
+            if(status == "REQUEST_DENIED"){
+                print("Map Error : \(jsonResponse["error_message"] as? String ?? "REQUEST_DENIED")")
                 return
             }
             
@@ -238,6 +250,11 @@ class JobDetailsViewController: BaseVC {
     }
     
     func setupData() {
+        if(self.orderStaus == ""){
+            self.navigationController?.popViewController(animated: true)
+            return
+        }
+    
         self.lblFuelType.text = self.BookingDetail?.mainServiceName ?? ""
         self.lblAddress.text = self.BookingDetail?.parkingLocation ?? ""
         self.lblColor.text = "Color : \(self.BookingDetail?.colorName ?? "")"
@@ -247,6 +264,36 @@ class JobDetailsViewController: BaseVC {
         let PlateNumber = self.BookingDetail?.plateNumber ?? ""
         self.lblPlateNumber.text = "Plate Number : \(PlateNumber)"
         
+        if(self.orderStaus == "In Progress"){
+            self.setupInProcessOrderFlow()
+        }else if(self.orderStaus == "Start Job"){
+            self.setupInProcessOrderFlow()
+        }
+    }
+    
+    func popBack(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    // MARK: - --------- InProcessOrderFlow Methods ---------
+    func setupInProcessOrderFlow(){
+        self.vwGasPriceDetail.isHidden = true
+        self.stackItem.isHidden = true
+        self.btnJobDone.isHidden = true
+        self.ViewDateTime.isHidden = false
+        self.btnJobDone.isHidden = false
+        self.LblFilledGallon.text = ""
+        
+        self.BtnStartJob.setTitle(StartJobButtonTitle.FilledUp.Name, for: .normal)
+        self.BtnStartJob.isUserInteractionEnabled = false
+        self.ImgViewOntheway.image = UIImage(named: "ic_checkBoxSelected")
+        
+        if(self.orderStaus == "Start Job"){
+            
+        }else{
+            self.callOrderStatusUpdateAPI(strStatus: "Start Job")
+        }
+        
     }
     
     // MARK: - --------- IBAction Methods ---------
@@ -254,17 +301,26 @@ class JobDetailsViewController: BaseVC {
         
     }
     @IBAction func BtnStartJob(_ sender: ThemeButton) {
-        isfromHome(sender: sender)
+        if(self.orderStaus == "Start Job"){
+            self.callOrderCompAPI()
+        }else{
+            
+        }
     }
     @IBAction func btnJobDoneTap(_ sender: UIButton) {
-        isFromJobDone()
+        if(self.LblFilledGallon.text != nil || self.LblFilledGallon.text != ""){
+            let Gallon: String = self.LblFilledGallon.text ?? ""
+            let words = Gallon.components(separatedBy: " ")
+            self.JobDoneTapped(strGallon : words[0])
+        }
+        self.JobDoneTapped(strGallon :"")
     }
     @IBAction func btnChatTap(_ sender: Any) {
         let vc : ChatListVC = ChatListVC.instantiate(fromAppStoryboard: .Main)
         self.navigationController?.pushViewController(vc, animated: true)
     }
     @IBAction func btnCallTap(_ sender: Any) {
-        guard let number = URL(string: "tel://" + "0123456789") else { return }
+        guard let number = URL(string: "tel://" + "\(self.BookingDetail?.customerContactNumber ?? "")") else { return }
         UIApplication.shared.open(number)
     }
     
@@ -298,32 +354,15 @@ extension JobDetailsViewController{
     }
     func isFromInProcess(sender : UIButton){
         if sender.titleLabel?.text == StartJobButtonTitle.StartJob.Name {
-            BtnStartJob.setTitle(StartJobButtonTitle.FilledUp.Name, for: .normal)
-            ImgViewOntheway.image = UIImage(named: "ic_checkBoxSelected")
-            //                  ImgViewJobDone.image = UIImage(named: "ic_checkBoxSelected")
-            ViewDateTime.isHidden = false
-            BtnStartJob.isUserInteractionEnabled = false
-            btnJobDone.isHidden = false
-        } else if sender.titleLabel?.text == StartJobButtonTitle.FilledUp.Name {
             
-            //                  BtnStartJob.setTitle(StartJobButtonTitle.CompleteJob.Name, for: .normal)
-            //                  ImgViewOntheway.image = UIImage(named: "ic_checkBoxSelected")
-            //                  ImgViewJobDone.image = UIImage(named: "ic_checkBoxSelected")
+        } else if sender.titleLabel?.text == StartJobButtonTitle.FilledUp.Name {
             ViewDateTime.isHidden = false
-            //                #imageLiteral(resourceName: "ic_checkBoxSelected")
             ViewFilledGallon.isHidden = false
         } else if sender.titleLabel?.text == StartJobButtonTitle.CompleteJob.Name {
-            let vc : SendInvoiceVC = SendInvoiceVC.instantiate(fromAppStoryboard: .Main)
-            vc.modalPresentationStyle = .overFullScreen
-            vc.btnSubmitTapClosure = {
-                //                    let vc : CompletedJobsVC = CompletedJobsVC.instantiate(fromAppStoryboard: .Main)
-                //                    self.navigationController?.pushViewController(vc, animated: true)
-                self.navigationController?.popToRootViewController(animated: false)
-            }
-            self.present(vc, animated: false, completion: nil)
+           
         }
-        
     }
+    
     func isFromRequest(){
         vwStartJob.isHidden = true
         vwChatCall.isHidden = true
@@ -331,19 +370,32 @@ extension JobDetailsViewController{
         vwGasPriceDetail.isHidden = true
         stackItem.isHidden = true
     }
-    func isFromJobDone(){
-        btnJobDone.isHidden = false
-        
+    
+
+    
+    func JobDoneTapped(strGallon : String){
         let vc : EnterQuentityVC = EnterQuentityVC.instantiate(fromAppStoryboard: .Main)
         vc.btnSubmitClosure = { name in
             self.ViewFilledGallon.isHidden = false
             self.LblFilledGallon.text = name
             self.ImgViewJobDone.image = UIImage(named: "ic_checkBoxSelected")
             self.BtnStartJob.setTitle(StartJobButtonTitle.CompleteJob.Name, for: .normal)
-            self.btnJobDone.isHidden = true
             self.BtnStartJob.isUserInteractionEnabled = true
+            self.orderStaus = (self.orderStaus == "Start Job") ? self.orderStaus : "Start Job"
         }
+        vc.Quantity = self.LblFilledGallon.text ?? ""
         vc.modalPresentationStyle = .overFullScreen
+        self.present(vc, animated: false, completion: nil)
+    }
+    
+    func JobCompleted(){
+        let vc : SendInvoiceVC = SendInvoiceVC.instantiate(fromAppStoryboard: .Main)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.BookingDetail = self.CompBookingDetail
+        vc.btnSubmitTapClosure = {
+            NotificationCenter.default.post(name: Notification.Name("ReloadData"), object: nil)
+            self.navigationController?.popToRootViewController(animated: false)
+        }
         self.present(vc, animated: false, completion: nil)
     }
 }
@@ -375,4 +427,30 @@ extension JobDetailsViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         return false
     }
+}
+
+//MARK:- Api Calls
+extension JobDetailsViewController{
+    
+    func callOrderStatusUpdateAPI(strStatus : String){
+        self.jobViewModel.JobDetailsVC = self
+        
+        let JobStatus = JobStatusUpdateReqModel()
+        JobStatus.orderId = self.BookingDetail?.id ?? ""
+        JobStatus.orderStatus = strStatus
+        
+        self.jobViewModel.webserviceOrderStatusUpdateAPI(reqModel: JobStatus)
+    }
+    
+    func callOrderCompAPI(){
+        self.jobViewModel.JobDetailsVC = self
+        
+        let JobComp = JobCompReqModel()
+        JobComp.orderId = self.BookingDetail?.id ?? ""
+        JobComp.totalGallon = self.LblFilledGallon.text ?? "0.0"
+        JobComp.pricePerGallon = self.BookingDetail?.price ?? ""
+        
+        self.jobViewModel.webserviceOrderCompAPI(reqModel: JobComp)
+    }
+    
 }

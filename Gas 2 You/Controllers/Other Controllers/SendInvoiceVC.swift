@@ -27,18 +27,41 @@ class SendInvoiceVC: UIViewController {
     @IBOutlet weak var lblPlatNumber: themeLabel!
     @IBOutlet weak var lblInvoiceNo: themeLabel!
     @IBOutlet weak var lblTime: themeLabel!
+    @IBOutlet weak var lblPricePerGallon: themeLabel!
     //MARK:- Variables and Properties
     
     var btnSubmitTapClosure : (()->())?
+    var BookingDetail : OrderComplateDatum?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        vwMain.layer.cornerRadius = 20
-        vwMain.layer.masksToBounds = true
-        
+        self.prepareView()
+        self.setupData()
     }
     
+    
+    
     //MARK:- Custome Methods
+    func prepareView(){
+        vwMain.layer.cornerRadius = 20
+        vwMain.layer.masksToBounds = true
+    }
+    
+    func popBack(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    func setupData(){
+        self.lblLocation.text = self.BookingDetail?.parkingLocation ?? ""
+        self.lblDateData.text = " \(self.BookingDetail?.date ?? "")"
+        self.lblTime.text = self.BookingDetail?.time ?? ""
+        self.lblInvoiceData.text = " \(self.BookingDetail?.invoiceNumber ?? "")"
+        self.lblPlatnumberData.text = " \(self.BookingDetail?.plateNumber ?? "")"
+        self.lblItem.text = self.BookingDetail?.mainServiceName ?? ""
+        self.lblAmount.text = self.BookingDetail?.finalAmount ?? ""
+        self.lblPrice.text = "\(self.BookingDetail?.totalGallon ?? "") Gallon"
+        self.lblPricePerGallon.text = "\(self.BookingDetail?.price ?? "") Per Gallon"
+    }
     
     //MARK:- IBAction
     

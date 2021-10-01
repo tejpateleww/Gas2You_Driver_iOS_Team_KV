@@ -46,6 +46,16 @@ class HomeVC: BaseVC {
     }
     
     //MARK:- Custom methods
+    
+    func addNotificationObs(){
+        NotificationCenter.default.addObserver(self, selector: #selector(self.ReloadData), name: Notification.Name("ReloadData"), object: nil)
+    }
+    
+    @objc func ReloadData() {
+        self.CurrentPageInProgress = 1
+        self.callBookingInProgressAPI()
+    }
+    
     func prepareView(){
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Home", leftImage: "Menu", rightImages: [], isTranslucent: true)
         self.rightNavBarButton()
@@ -53,6 +63,8 @@ class HomeVC: BaseVC {
         self.tblHome.delegate = self
         self.tblHome.dataSource = self
         self.tblHome.isHidden = true
+        
+        self.addNotificationObs()
     }
     
     func registerNib(){
@@ -73,6 +85,15 @@ class HomeVC: BaseVC {
     
     @objc func callMethod(){
         let vc : ChatListVC = ChatListVC.instantiate(fromAppStoryboard: .Main)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func RedirectToJobs(index : IndexPath){
+        let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
+        vc.isFromStartJob = true
+        vc.isfrom = .InProcess
+        vc.BookingDetail = self.arrBookings[index.row]
+        vc.orderStaus = self.arrBookings[index.row].statusLabel ?? ""
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -132,17 +153,18 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
             cell.lblDateAndTime.text = DateTime
             
             cell.stackbtn.isHidden = isInProcess ? false : true
-            cell.stackButtomHeight.constant = cell.stackbtn.isHidden ? 0 : 40
+            cell.stackButtomHeight.constant = cell.stackbtn.isHidden ? 0 : 45
             cell.btnReject.isHidden = isInProcess ? true : false
-            cell.btnAccept.setTitle(isInProcess ? "START JOB" : "ACCEPT", for: .normal)
+            cell.btnAccept.setTitle(isInProcess ? self.arrBookings[indexPath.row].statusLabel ?? "IN PROGRESS" : "ACCEPT", for: .normal)
             
             cell.btnAcceptTapClosure = {
-                HomeVC.showAlertWithTitleFromVC(vc: self, title: "Gas2YouDriver", message: "Are you sure you want to start job ?", buttons: ["Cancel", "OK"]) { index in
-                    if index == 1{
-                        let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
-                        vc.isFromStartJob = true
-                        vc.isfrom = .InProcess
-                        self.navigationController?.pushViewController(vc, animated: true)
+                if(self.arrBookings[indexPath.row].statusLabel == "Start Job"){
+                    self.RedirectToJobs(index: indexPath)
+                }else{
+                    HomeVC.showAlertWithTitleFromVC(vc: self, title: "Gas2YouDriver", message: "Are you sure you want to start job ?", buttons: ["Cancel", "OK"]) { index in
+                        if index == 1{
+                            self.RedirectToJobs(index: indexPath)
+                        }
                     }
                 }
             }
@@ -168,6 +190,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
             vc.isfrom = isInProcess ? isFromHome.InProcess : isFromHome.Request
             vc.strTitle = !isInProcess ? "Request Detail" : ""
             vc.BookingDetail = self.arrBookings[indexPath.row]
+            vc.orderStaus = "Pending"
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }

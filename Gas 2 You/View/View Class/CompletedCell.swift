@@ -11,6 +11,11 @@ class CompletedCell: UITableViewCell {
 
     //MARK:- IBOutlets
     @IBOutlet weak var lblTopHalf: themeLabel!
+    @IBOutlet weak var lblServiceType: themeLabel!
+    @IBOutlet weak var lblCarName: themeLabel!
+    @IBOutlet weak var lblAddress: themeLabel!
+    @IBOutlet weak var lblDateTime: themeLabel!
+    @IBOutlet weak var btnDownload: ThemeButton!
     
     
     //MARK:- Variables

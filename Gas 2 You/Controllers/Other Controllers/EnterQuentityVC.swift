@@ -19,21 +19,32 @@ class EnterQuentityVC: BaseVC,UITextFieldDelegate{
     
     //MARK:- Variables
     var btnSubmitClosure : ((String)->())?
+    var Quantity :String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         vwMain.layer.cornerRadius = 20
         vwMain.layer.masksToBounds = true
-        txtPrice.addTarget(self, action: #selector(myTextFieldDidChange), for: .editingChanged)
+        
+        if(self.Quantity != ""){
+            let Gallon: String = self.Quantity
+            let words = Gallon.components(separatedBy: " ")
+            self.txtPrice.text = words[0]
+        }
+//        txtPrice.addTarget(self, action: #selector(myTextFieldDidChange), for: .editingChanged)
     }
     
     //MARK:- Custom Methods
     
     //MARK:- IBActions
     @IBAction func btnSubmitTap(_ sender: Any) {
+        if(self.txtPrice.text == ""){
+            Utilities.showAlert("Gas2You", message: "Please Enter Quantity.", vc: self)
+            return
+        }
         self.dismiss(animated: false, completion: {
             if let obj = self.btnSubmitClosure{
-                obj((self.txtPrice.text ?? "12.000") + " Gallon")
+                obj((self.txtPrice.text ?? "0.0") + " Gallon")
             }
         })
     }

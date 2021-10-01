@@ -11,11 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="249" id="KGk-i7-Jjw" customClass="CompletedCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="552" height="249"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="230" id="KGk-i7-Jjw" customClass="CompletedCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="638" height="230"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="552" height="249"/>
+                <rect key="frame" x="0.0" y="0.0" width="638" height="230"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAN-SS-WWA" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
@@ -39,20 +39,20 @@
                         </userDefinedRuntimeAttributes>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fl-uE-UIZ" customClass="ThemeView" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                        <rect key="frame" x="20" y="41" width="512" height="185"/>
+                        <rect key="frame" x="20" y="41" width="598" height="175"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="88h-9c-Gvh">
-                                <rect key="frame" x="0.0" y="131" width="512" height="1"/>
+                                <rect key="frame" x="0.0" y="121" width="598" height="1"/>
                                 <color key="backgroundColor" red="0.10980392156862745" green="0.45882352941176469" blue="0.73333333333333328" alpha="0.070000000000000007" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="ueP-bJ-A40"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wPj-kp-34N">
-                                <rect key="frame" x="17" y="17" width="478" height="168"/>
+                                <rect key="frame" x="17" y="17" width="564" height="158"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="qeg-mS-GNS">
-                                        <rect key="frame" x="0.0" y="0.0" width="478" height="104"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qeg-mS-GNS">
+                                        <rect key="frame" x="0.0" y="0.0" width="564" height="94"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="npf-sD-HtH">
                                                 <rect key="frame" x="0.0" y="0.0" width="218.5" height="20"/>
@@ -107,18 +107,11 @@
                                                     </stackView>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SiO-gV-feA">
-                                                <rect key="frame" x="0.0" y="42" width="160" height="20"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sXm-B1-qcm">
+                                                <rect key="frame" x="0.0" y="35" width="559" height="24"/>
                                                 <subviews>
-                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC_locoations" translatesAutoresizingMaskIntoConstraints="NO" id="33z-b3-6pR">
-                                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="20" id="XMc-8a-O03"/>
-                                                            <constraint firstAttribute="height" constant="20" id="uxe-WG-Ir4"/>
-                                                        </constraints>
-                                                    </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123. West St, 46203" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHB-9U-UTt" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                        <rect key="frame" x="28" y="0.0" width="132" height="20"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123. West St, 46203 123. West St123. West St, 46203 123. West St123. West St, 46203 123. West St" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79y-cn-gMA" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                        <rect key="frame" x="28" y="0.0" width="521" height="24"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -129,10 +122,24 @@
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isSemibold" value="YES"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </label>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC_locoations" translatesAutoresizingMaskIntoConstraints="NO" id="YNc-ln-tSt">
+                                                        <rect key="frame" x="0.0" y="1.5" width="21" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="YNc-ln-tSt" secondAttribute="height" id="0tn-SQ-Cc2"/>
+                                                            <constraint firstAttribute="height" constant="21" id="EgL-TY-cc6"/>
+                                                        </constraints>
+                                                    </imageView>
                                                 </subviews>
-                                            </stackView>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="79y-cn-gMA" secondAttribute="trailing" constant="10" id="EQU-2C-Nbc"/>
+                                                    <constraint firstItem="YNc-ln-tSt" firstAttribute="centerY" secondItem="79y-cn-gMA" secondAttribute="centerY" id="SF7-aj-Q3m"/>
+                                                    <constraint firstItem="79y-cn-gMA" firstAttribute="top" secondItem="sXm-B1-qcm" secondAttribute="top" id="V8n-hU-eLv"/>
+                                                    <constraint firstAttribute="bottom" secondItem="79y-cn-gMA" secondAttribute="bottom" id="fcP-81-vRl"/>
+                                                </constraints>
+                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ro7-wt-rWJ">
-                                                <rect key="frame" x="0.0" y="84" width="180.5" height="20"/>
+                                                <rect key="frame" x="0.0" y="74" width="180.5" height="20"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IC_calender" translatesAutoresizingMaskIntoConstraints="NO" id="869-tG-y4v">
                                                         <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
@@ -156,9 +163,13 @@
                                                 </subviews>
                                             </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="YNc-ln-tSt" firstAttribute="leading" secondItem="FSs-Ig-fsU" secondAttribute="leading" id="Sjh-WK-j1a"/>
+                                            <constraint firstItem="79y-cn-gMA" firstAttribute="leading" secondItem="21W-Ej-y8r" secondAttribute="leading" id="kb4-m3-5m9"/>
+                                        </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JmN-uT-udg" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="114" width="478" height="54"/>
+                                        <rect key="frame" x="0.0" y="104" width="564" height="54"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" id="Tgi-gv-PDa"/>
                                         </constraints>
@@ -217,9 +228,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnDownload" destination="JmN-uT-udg" id="S58-qb-MTm"/>
+                <outlet property="lblAddress" destination="79y-cn-gMA" id="Z67-3N-1nW"/>
+                <outlet property="lblCarName" destination="P1n-q0-Bfl" id="no3-Dr-EQy"/>
+                <outlet property="lblDateTime" destination="ima-rQ-dtB" id="PCy-6l-QSb"/>
+                <outlet property="lblServiceType" destination="21W-Ej-y8r" id="p3G-Em-Wpv"/>
                 <outlet property="lblTopHalf" destination="hAN-SS-WWA" id="6rd-Mr-a9V"/>
             </connections>
-            <point key="canvasLocation" x="217.39130434782609" y="114.17410714285714"/>
+            <point key="canvasLocation" x="279.71014492753625" y="107.8125"/>
         </tableViewCell>
     </objects>
     <resources>

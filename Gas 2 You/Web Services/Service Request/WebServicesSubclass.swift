@@ -60,4 +60,22 @@ class WebServiceSubClass{
             completion(status, message, response, error)
         }
     }
+    
+    class func OrderStatusUpdateAPI(reqModel : JobStatusUpdateReqModel , completion: @escaping (Bool,String,CommonModel?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.updateOrderStatus.rawValue, requestModel: reqModel, responseModel: CommonModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
+    class func OrderCompAPI(reqModel : JobCompReqModel , completion: @escaping (Bool,String,OrderComplateModel?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.completeOrder.rawValue, requestModel: reqModel, responseModel: OrderComplateModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
+    class func complateBookingAPI(reqModel : HomeBookingReqModel , completion: @escaping (Bool,String,RequestBookingListModel?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.getCompleteOrderList.rawValue, requestModel: reqModel, responseModel: RequestBookingListModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
 }

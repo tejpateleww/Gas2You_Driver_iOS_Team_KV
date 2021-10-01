@@ -55,6 +55,9 @@ enum ApiKey: String {
     
     case homeReqBooking                       = "request_order_list"
     case homeInProgressBooking                = "in_process_order_list"
+    case updateOrderStatus                    = "update_order_status"
+    case completeOrder                        = "complete_order"
+    case getCompleteOrderList                          = "get_complete_order_list"
     
 }
 
