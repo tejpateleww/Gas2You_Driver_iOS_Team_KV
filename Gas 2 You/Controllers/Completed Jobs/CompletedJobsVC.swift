@@ -15,7 +15,15 @@ class CompletedJobsVC: BaseVC {
     var arrBookings = [RequestBookingListDatum]()
     var isApiProcessing = false
     var isStopPaging = false
+    var isTblReload = false
     var jobViewModel = JobViewModel()
+    
+    var isLoading = true {
+        didSet {
+            self.tblCompletedJobs.isUserInteractionEnabled = !isLoading
+            self.tblCompletedJobs.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +33,7 @@ class CompletedJobsVC: BaseVC {
     }
     
     func prepareView(){
-        self.tblCompletedJobs.isHidden = true
+        self.isLoading = true
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Completed Jobs", leftImage: "Back", rightImages: [], isTranslucent: true)
     }
     
@@ -43,7 +51,7 @@ extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
         if self.arrBookings.count > 0 {
             return self.arrBookings.count
         } else {
-            return 1
+            return (isTblReload) ? 1 : 5
         }
     }
     
@@ -51,33 +59,46 @@ extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tblCompletedJobs.dequeueReusableCell(withIdentifier: CompletedCell.className) as! CompletedCell
         
-        if self.arrBookings.count != 0 {
-            cell.lblServiceType.text = self.arrBookings[indexPath.row].mainServiceName ?? ""
-            let VehicleName = "\(self.arrBookings[indexPath.row].makeName ?? "")" + " (" + "\(self.arrBookings[indexPath.row].plateNumber ?? "")" + ")"
-            cell.lblCarName.text = VehicleName
-            cell.lblAddress.text = self.arrBookings[indexPath.row].parkingLocation ?? ""
-            let DateTime = "\(self.arrBookings[indexPath.row].time ?? "")" + ", " + "\(self.arrBookings[indexPath.row].date ?? "")"
-            cell.lblDateTime.text = DateTime
-            
-            
-            cell.btnDownloadTapCousure = {
-                let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
-                vc.isfromhome = false
-                vc.strTitle = "Job Completed"
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
+        if(!isTblReload){
+            cell.lblServiceType.text = "Fill-ups"
+            cell.lblCarName.text = "Suzuki (GJ 21 HG 2121)"
+            cell.lblAddress.text = "iSquare, Shukan Cross Road, Science City Rd, Sola, Ahmedabad, Gujarat"
+            cell.lblDateTime.text = "2021-10-01 07:07:06"
             return cell
         }else{
-            let NoDatacell = self.tblCompletedJobs.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
-            return NoDatacell
+            if self.arrBookings.count != 0 {
+                cell.lblServiceType.text = self.arrBookings[indexPath.row].mainServiceName ?? ""
+                let VehicleName = "\(self.arrBookings[indexPath.row].makeName ?? "")" + " (" + "\(self.arrBookings[indexPath.row].plateNumber ?? "")" + ")"
+                cell.lblCarName.text = VehicleName
+                cell.lblAddress.text = self.arrBookings[indexPath.row].parkingLocation ?? ""
+                let DateTime = "\(self.arrBookings[indexPath.row].time ?? "")" + ", " + "\(self.arrBookings[indexPath.row].date ?? "")"
+                cell.lblDateTime.text = DateTime
+                
+                
+                cell.btnDownloadTapCousure = {
+                    let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
+                    vc.isfromhome = false
+                    vc.strTitle = "Job Completed"
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+                return cell
+            }else{
+                let NoDatacell = self.tblCompletedJobs.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
+                return NoDatacell
+            }
         }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if self.arrBookings.count != 0 {
+        if(!isTblReload){
             return UITableView.automaticDimension
         }else{
-            return tableView.frame.height
+            if self.arrBookings.count != 0 {
+                return UITableView.automaticDimension
+            }else{
+                return tableView.frame.height
+            }
         }
     }
     
@@ -93,6 +114,10 @@ extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
         vc.BookingDetail = self.arrBookings[indexPath.row]
         vc.orderStaus = "Pending"
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.setTemplateWithSubviews(isLoading, animate: true, viewBackgroundColor: .systemBackground)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

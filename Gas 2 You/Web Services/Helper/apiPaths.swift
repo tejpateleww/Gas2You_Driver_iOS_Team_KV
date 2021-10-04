@@ -14,7 +14,7 @@ enum APIEnvironment : String {
 //Development URL : Pick A Ride Customer
     case AssetsUrl = "http://65.1.154.172/"
     case Development = "https://gas2youcenla.com/api/driver_api/"
-    case Profilebu = "http://65.1.154.172/api/"
+    case Profilebu = "https://gas2youcenla.com/"
     case Live = "not provided"
      
     static var baseURL: String{
@@ -57,7 +57,8 @@ enum ApiKey: String {
     case homeInProgressBooking                = "in_process_order_list"
     case updateOrderStatus                    = "update_order_status"
     case completeOrder                        = "complete_order"
-    case getCompleteOrderList                          = "get_complete_order_list"
+    case getCompleteOrderList                 = "get_complete_order_list"
+    case updateProfile                        = "update_profile"
     
 }
 

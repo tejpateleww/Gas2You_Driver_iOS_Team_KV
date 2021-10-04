@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UIView_Shimmer
 
 class HomeVC: BaseVC {
     
@@ -25,6 +26,9 @@ class HomeVC: BaseVC {
     var isApiProcessing = false
     var isStopPaging = false
     var isSelectedRequest = true
+    
+//    var isTblReload = false
+//    var isLoading = true
     
     //MARK:- VIEW LIFE CYCLE
     override func viewDidLoad() {
@@ -57,6 +61,8 @@ class HomeVC: BaseVC {
     }
     
     func prepareView(){
+//        self.tblHome.reloadData()
+        
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Home", leftImage: "Menu", rightImages: [], isTranslucent: true)
         self.rightNavBarButton()
         
@@ -72,6 +78,8 @@ class HomeVC: BaseVC {
         self.tblHome.register(nib, forCellReuseIdentifier: JobsCell.className)
         let nib1 = UINib(nibName: NoDataTableViewCell.className, bundle: nil)
         self.tblHome.register(nib1, forCellReuseIdentifier: NoDataTableViewCell.className)
+        let nib2 = UINib(nibName: ShimmerCell.className, bundle: nil)
+        self.tblHome.register(nib2, forCellReuseIdentifier: ShimmerCell.className)
     }
     
     func rightNavBarButton(){
@@ -99,6 +107,12 @@ class HomeVC: BaseVC {
     
     //MARK:- Button ACTIONS
     @IBAction func btnRequestTap(_ sender: UIButton) {
+//        self.isLoading = true
+//        self.isTblReload = false
+//        self.tblHome.reloadData()
+        
+        self.tblHome.isHidden = true
+        
         self.isSelectedRequest = true
         self.CurrentPage = 1
         self.isApiProcessing = false
@@ -113,6 +127,12 @@ class HomeVC: BaseVC {
     }
     
     @IBAction func btnInprogressTap(_ sender: UIButton) {
+//        self.isLoading = true
+//        self.isTblReload = false
+//        self.tblHome.reloadData()
+        
+        self.tblHome.isHidden = true
+        
         self.isSelectedRequest = false
         self.CurrentPageInProgress = 1
         self.isApiProcessing = false
@@ -141,39 +161,41 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tblHome.dequeueReusableCell(withIdentifier: JobsCell.className) as! JobsCell
         
-        if self.arrBookings.count != 0 {
-            
-            cell.lblFuelType.text = self.arrBookings[indexPath.row].mainServiceName ?? ""
-            let VehicleName = "\(self.arrBookings[indexPath.row].makeName ?? "")" + " (" + "\(self.arrBookings[indexPath.row].plateNumber ?? "")" + ")"
-            cell.lblVehicle.text = VehicleName
-            cell.lblAddress.text = self.arrBookings[indexPath.row].parkingLocation ?? ""
-            let DateTime = "\(self.arrBookings[indexPath.row].time ?? "")" + ", " + "\(self.arrBookings[indexPath.row].date ?? "")"
-            cell.lblDateAndTime.text = DateTime
-            
-            cell.stackbtn.isHidden = isInProcess ? false : true
-            cell.stackButtomHeight.constant = cell.stackbtn.isHidden ? 0 : 45
-            cell.btnReject.isHidden = isInProcess ? true : false
-            cell.btnAccept.setTitle(isInProcess ? self.arrBookings[indexPath.row].statusLabel ?? "IN PROGRESS" : "ACCEPT", for: .normal)
-            
-            cell.btnAcceptTapClosure = {
-                if(self.arrBookings[indexPath.row].statusLabel == "Start Job"){
-                    self.RedirectToJobs(index: indexPath)
-                }else{
-                    HomeVC.showAlertWithTitleFromVC(vc: self, title: "Gas2YouDriver", message: "Are you sure you want to start job ?", buttons: ["Cancel", "OK"]) { index in
-                        if index == 1{
-                            self.RedirectToJobs(index: indexPath)
+            let cell = tblHome.dequeueReusableCell(withIdentifier: JobsCell.className) as! JobsCell
+            if self.arrBookings.count != 0 {
+                
+                cell.lblFuelType.text = self.arrBookings[indexPath.row].mainServiceName ?? ""
+                let VehicleName = "\(self.arrBookings[indexPath.row].makeName ?? "")" + " (" + "\(self.arrBookings[indexPath.row].plateNumber ?? "")" + ")"
+                cell.lblVehicle.text = VehicleName
+                cell.lblAddress.text = self.arrBookings[indexPath.row].parkingLocation ?? ""
+                let DateTime = "\(self.arrBookings[indexPath.row].time ?? "")" + ", " + "\(self.arrBookings[indexPath.row].date ?? "")"
+                cell.lblDateAndTime.text = DateTime
+                
+                cell.stackbtn.isHidden = isInProcess ? false : true
+                cell.stackButtomHeight.constant = cell.stackbtn.isHidden ? 0 : 45
+                cell.btnReject.isHidden = isInProcess ? true : false
+                cell.btnAccept.setTitle(isInProcess ? self.arrBookings[indexPath.row].statusLabel ?? "IN PROGRESS" : "ACCEPT", for: .normal)
+                
+                cell.btnAcceptTapClosure = {
+                    if(self.arrBookings[indexPath.row].statusLabel == "Start Job"){
+                        self.RedirectToJobs(index: indexPath)
+                    }else{
+                        HomeVC.showAlertWithTitleFromVC(vc: self, title: "Gas2YouDriver", message: "Are you sure you want to start job ?", buttons: ["Cancel", "OK"]) { index in
+                            if index == 1{
+                                self.RedirectToJobs(index: indexPath)
+                            }
                         }
                     }
                 }
+                return cell
+                
+            }else {
+                let NoDatacell = self.tblHome.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
+                return NoDatacell
             }
-            return cell
-            
-        }else {
-            let NoDatacell = self.tblHome.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
-            return NoDatacell
-        }
+        
+
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -195,6 +217,10 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        cell.setTemplateWithSubviews(isLoading, animate: true, viewBackgroundColor: .systemBackground)
+//    }
+
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (self.tblHome.contentOffset.y >= (self.tblHome.contentSize.height - self.tblHome.frame.size.height)) && self.isStopPaging == false && self.isApiProcessing == false {
             print("call from scroll..")

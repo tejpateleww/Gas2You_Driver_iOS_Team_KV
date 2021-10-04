@@ -2,3 +2,4 @@ ${PODS_ROOT}/Target Support Files/Pods-Gas 2 You Driver/Pods-Gas 2 You Driver-fr
 ${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework
 ${BUILT_PRODUCTS_DIR}/MKProgress/MKProgress.framework
 ${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/UIView-Shimmer/UIView_Shimmer.framework

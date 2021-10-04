@@ -182,7 +182,7 @@ class JobDetailsViewController: BaseVC {
         {
             bounds = bounds.includingCoordinate(marker.position)
         }
-        let update = GMSCameraUpdate.fit(bounds, withPadding: 20)
+        let update = GMSCameraUpdate.fit(bounds, withPadding: 30)
         self.mapView.animate(with: update)
         
         self.fetchRoute(currentlat: currentlat, currentlong: currentlong, droplat: droplat, droplog: droplog)

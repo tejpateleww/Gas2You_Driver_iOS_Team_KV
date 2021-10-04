@@ -16,6 +16,7 @@ class HomeViewModel{
         self.homeVC?.isApiProcessing = true
         Utilities.showHud()
         WebServiceSubClass.homeBookingRequest(reqModel: reqModel) { (status, apiMessage, response, error) in
+            self.homeVC?.tblHome.isHidden = false
             self.homeVC?.isApiProcessing = false
             Utilities.hideHud()
             self.homeVC?.tblHome.isHidden = false
@@ -47,6 +48,7 @@ class HomeViewModel{
         self.homeVC?.isApiProcessing = true
         Utilities.showHud()
         WebServiceSubClass.homeBookingInProgressAPI(reqModel: reqModel) { (status, apiMessage, response, error) in
+            self.homeVC?.tblHome.isHidden = false
             self.homeVC?.isApiProcessing = false
             Utilities.hideHud()
             self.homeVC?.tblHome.isHidden = false

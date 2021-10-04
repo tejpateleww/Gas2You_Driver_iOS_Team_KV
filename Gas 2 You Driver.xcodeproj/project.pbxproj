@@ -95,6 +95,10 @@
 		888D126326DE26FF0034D277 /* String+Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888D126226DE26FF0034D277 /* String+Operation.swift */; };
 		8896B1A326E0B1E00011D62F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8896B1A226E0B1E00011D62F /* RegisterViewModel.swift */; };
 		8896B1A526E0C08C0011D62F /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8896B1A426E0C08C0011D62F /* PasswordViewModel.swift */; };
+		88DC2784270ACBAA00359438 /* userInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC2783270ACBAA00359438 /* userInfoViewModel.swift */; };
+		88DC2787270ACC1800359438 /* UpdateBasicInfoReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC2786270ACC1800359438 /* UpdateBasicInfoReqModel.swift */; };
+		88DC278F270B29F300359438 /* ShimmerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC278D270B29F300359438 /* ShimmerCell.swift */; };
+		88DC2790270B29F300359438 /* ShimmerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 88DC278E270B29F300359438 /* ShimmerCell.xib */; };
 		88EC9CE626E0F6E400A4AC50 /* OtpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EC9CE526E0F6E400A4AC50 /* OtpVC.swift */; };
 		88FCC9C72706E7B90006C838 /* JobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FCC9C62706E7B90006C838 /* JobViewModel.swift */; };
 		88FCC9CA2706E7EF0006C838 /* JobReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FCC9C92706E7EF0006C838 /* JobReqModel.swift */; };
@@ -234,6 +238,10 @@
 		888D126226DE26FF0034D277 /* String+Operation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Operation.swift"; sourceTree = "<group>"; };
 		8896B1A226E0B1E00011D62F /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		8896B1A426E0C08C0011D62F /* PasswordViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
+		88DC2783270ACBAA00359438 /* userInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userInfoViewModel.swift; sourceTree = "<group>"; };
+		88DC2786270ACC1800359438 /* UpdateBasicInfoReqModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateBasicInfoReqModel.swift; sourceTree = "<group>"; };
+		88DC278D270B29F300359438 /* ShimmerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerCell.swift; sourceTree = "<group>"; };
+		88DC278E270B29F300359438 /* ShimmerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShimmerCell.xib; sourceTree = "<group>"; };
 		88EC9CE526E0F6E400A4AC50 /* OtpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtpVC.swift; sourceTree = "<group>"; };
 		88FCC9C62706E7B90006C838 /* JobViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobViewModel.swift; sourceTree = "<group>"; };
 		88FCC9C92706E7EF0006C838 /* JobReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobReqModel.swift; sourceTree = "<group>"; };
@@ -364,6 +372,7 @@
 		884912D126E0915500D7A917 /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
+				88DC2782270ACB9A00359438 /* UserInfoViewModel */,
 				88FCC9C52706E79E0006C838 /* JobViewModel */,
 				885C690F26F88A9D00844561 /* HomeViewModel */,
 				884912D226E0915D00D7A917 /* Auth */,
@@ -384,9 +393,8 @@
 		885C690926F88A1C00844561 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				88DC2785270ACC0300359438 /* User Profile update */,
 				88FCC9D027071AE60006C838 /* JobCompModel */,
-				88FCC9D227071B210006C838 /* OrderComplateDatum.swift */,
-				88FCC9D127071B210006C838 /* OrderComplateModel.swift */,
 				885C690A26F88A2400844561 /* HomeRequestList */,
 			);
 			path = Response;
@@ -511,6 +519,7 @@
 		888D124D26DE25140034D277 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				88DC2788270B296C00359438 /* Shimmer Cell */,
 				885C691626F89AF600844561 /* No Data Found Cell */,
 				888D124E26DE25140034D277 /* Constants.swift */,
 				888D124F26DE25140034D277 /* Utilities.swift */,
@@ -585,6 +594,31 @@
 			path = "Completed Jobs";
 			sourceTree = "<group>";
 		};
+		88DC2782270ACB9A00359438 /* UserInfoViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				88DC2783270ACBAA00359438 /* userInfoViewModel.swift */,
+			);
+			path = UserInfoViewModel;
+			sourceTree = "<group>";
+		};
+		88DC2785270ACC0300359438 /* User Profile update */ = {
+			isa = PBXGroup;
+			children = (
+				88DC2786270ACC1800359438 /* UpdateBasicInfoReqModel.swift */,
+			);
+			path = "User Profile update";
+			sourceTree = "<group>";
+		};
+		88DC2788270B296C00359438 /* Shimmer Cell */ = {
+			isa = PBXGroup;
+			children = (
+				88DC278D270B29F300359438 /* ShimmerCell.swift */,
+				88DC278E270B29F300359438 /* ShimmerCell.xib */,
+			);
+			path = "Shimmer Cell";
+			sourceTree = "<group>";
+		};
 		88FCC9C52706E79E0006C838 /* JobViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,6 +647,8 @@
 		88FCC9D027071AE60006C838 /* JobCompModel */ = {
 			isa = PBXGroup;
 			children = (
+				88FCC9D227071B210006C838 /* OrderComplateDatum.swift */,
+				88FCC9D127071B210006C838 /* OrderComplateModel.swift */,
 			);
 			path = JobCompModel;
 			sourceTree = "<group>";
@@ -935,6 +971,7 @@
 				184658AC26C15E4900958397 /* MyEarningsCell.xib in Resources */,
 				184658FC26C16E7800958397 /* JobsCell.xib in Resources */,
 				184658EC26C1633600958397 /* Poppins-Regular.ttf in Resources */,
+				88DC2790270B29F300359438 /* ShimmerCell.xib in Resources */,
 				184658E826C1633600958397 /* Poppins-MediumItalic.ttf in Resources */,
 				184658F326C1633600958397 /* Poppins-BlackItalic.ttf in Resources */,
 			);
@@ -1051,10 +1088,12 @@
 				9A5B093B26B2788500BA0CB4 /* userDefaults+Extension.swift in Sources */,
 				8865B86E26DF5468005F7F36 /* AppDelegate+Cycle.swift in Sources */,
 				8865B85826DF4420005F7F36 /* InitModel.swift in Sources */,
+				88DC2784270ACBAA00359438 /* userInfoViewModel.swift in Sources */,
 				9A5B093D26B2788500BA0CB4 /* Extension+CLLocation.swift in Sources */,
 				888D123C26DE23B40034D277 /* apiPaths.swift in Sources */,
 				184658AB26C15E4900958397 /* MyEarningsCell.swift in Sources */,
 				888D124926DE24A70034D277 /* PaymentEnum.swift in Sources */,
+				88DC2787270ACC1800359438 /* UpdateBasicInfoReqModel.swift in Sources */,
 				88EC9CE626E0F6E400A4AC50 /* OtpVC.swift in Sources */,
 				884912D426E0916900D7A917 /* LoginViewModel.swift in Sources */,
 				9A3A913326C133AC0041D7D9 /* SideMenuItemContent.swift in Sources */,
@@ -1078,6 +1117,7 @@
 				187CE6D826C4DAA800C8E765 /* EnterQuentityVC.swift in Sources */,
 				888D122F26DE183C0034D277 /* SplashVC.swift in Sources */,
 				9A5B094226B279AE00BA0CB4 /* Storyboards.swift in Sources */,
+				88DC278F270B29F300359438 /* ShimmerCell.swift in Sources */,
 				9A5B08A926B266E800BA0CB4 /* AppDelegate.swift in Sources */,
 				187CE6E726C512B100C8E765 /* JobDetailsViewController.swift in Sources */,
 				187CE6E626C512B100C8E765 /* LeftViewController.swift in Sources */,

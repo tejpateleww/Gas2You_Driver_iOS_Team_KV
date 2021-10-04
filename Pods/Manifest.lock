@@ -9,12 +9,14 @@ PODS:
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
   - SDWebImage/Core (5.11.1)
+  - UIView-Shimmer (1.0.4)
 
 DEPENDENCIES:
   - GoogleMaps
   - IQKeyboardManagerSwift
   - MKProgress
   - SDWebImage
+  - UIView-Shimmer (~> 1.0)
 
 SPEC REPOS:
   trunk:
@@ -22,13 +24,15 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - MKProgress
     - SDWebImage
+    - UIView-Shimmer
 
 SPEC CHECKSUMS:
   GoogleMaps: 086ae1dab659eaa7339bdb30fc88e2f44e7c597c
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   MKProgress: 260d166200323f3d991190a73ab2dc3a04b0f52f
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  UIView-Shimmer: ff0a32c73d67c7dbdea3d9e530538b10d18aea56
 
-PODFILE CHECKSUM: 2c1c1c111de41d9be69b7d6dc60d4912dc2e4229
+PODFILE CHECKSUM: 3e58cc3959e6abc2bef476da72b55a47c4b3ab8a
 
 COCOAPODS: 1.10.1

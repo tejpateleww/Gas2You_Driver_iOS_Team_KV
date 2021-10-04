@@ -59,7 +59,7 @@ class SendInvoiceVC: UIViewController {
         self.lblPlatnumberData.text = " \(self.BookingDetail?.plateNumber ?? "")"
         self.lblItem.text = self.BookingDetail?.mainServiceName ?? ""
         self.lblAmount.text = self.BookingDetail?.finalAmount ?? ""
-        self.lblPrice.text = "\(self.BookingDetail?.totalGallon ?? "") Gallon"
+        self.lblPrice.text = "\(self.BookingDetail?.totalGallon ?? "")"
         self.lblPricePerGallon.text = "\(self.BookingDetail?.price ?? "") Per Gallon"
     }
     

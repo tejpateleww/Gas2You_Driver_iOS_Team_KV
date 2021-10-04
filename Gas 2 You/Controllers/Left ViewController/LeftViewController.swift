@@ -8,16 +8,19 @@
 
 import UIKit
 import MediaPlayer
+import SDWebImage
 //import InteractiveSideMenu
 
 class LeftViewController: MenuViewController {
    
-    
-    
-    
+
     @IBOutlet weak var MenuTblView : UITableView!
     @IBOutlet weak var ConstantMenuTblViewHeight : NSLayoutConstraint!
     @IBOutlet weak var btnProfile: UIButton!
+    @IBOutlet weak var imgUser: RoundedImageView!
+    @IBOutlet weak var lblUserName: themeLabel!
+    @IBOutlet weak var lblUserActiveStatus: themeLabel!
+    @IBOutlet weak var lblVersion: themeLabel!
     
     //MARK:- Properties
     ///0 for menu name 1 for icon name
@@ -31,16 +34,35 @@ class LeftViewController: MenuViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.MenuTblView.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.new, context: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         UIApplication.shared.statusBarStyle = .lightContent
+        self.prepareView()
 
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         UIApplication.shared.statusBarStyle = .default
+    }
+    
+    //MARK: -Other Methods
+    func prepareView(){
+        
+        let obj = Singleton.sharedInstance.UserProfilData
+        let strUrl = "\(APIEnvironment.Profilebu.rawValue)" + "\(obj?.profileImage ?? "")"
+        let strURl = URL(string: strUrl)
+        
+        self.imgUser.sd_imageIndicator = SDWebImageActivityIndicator.white
+        self.imgUser.sd_setImage(with: strURl, placeholderImage: UIImage(named: "nav_dummy_userImage"), options: .refreshCached, completed: nil)
+        
+        self.lblUserName.text = "\(obj?.fullName ?? "")"
+        self.lblUserActiveStatus.text = (obj?.status ?? "" == "1") ? "Active" : "Deactive"
+        
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        self.lblVersion.text = "V \(appVersion ?? "0.0")"
     }
     
     @IBAction func btnProfileTap(_ sender: Any) {

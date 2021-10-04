@@ -11,5 +11,6 @@ pod 'IQKeyboardManagerSwift'
 pod 'GoogleMaps'
 pod 'MKProgress'
 pod 'SDWebImage'
+pod 'UIView-Shimmer', '~> 1.0'
 
 end

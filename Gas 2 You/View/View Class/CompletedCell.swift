@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import UIView_Shimmer
 
-class CompletedCell: UITableViewCell {
+class CompletedCell: UITableViewCell, ShimmeringViewProtocol {
 
     //MARK:- IBOutlets
     @IBOutlet weak var lblTopHalf: themeLabel!
@@ -17,9 +18,29 @@ class CompletedCell: UITableViewCell {
     @IBOutlet weak var lblDateTime: themeLabel!
     @IBOutlet weak var btnDownload: ThemeButton!
     
+    @IBOutlet weak var imgService: UIImageView!
+    @IBOutlet weak var imgCar: UIImageView!
+    @IBOutlet weak var imgAddress: UIImageView!
+    @IBOutlet weak var imgDateTime: UIImageView!
+    
     
     //MARK:- Variables
     var btnDownloadTapCousure : (()->())?
+    
+    var shimmeringAnimatedItems: [UIView] {
+        [
+            self.lblTopHalf,
+            self.lblServiceType,
+            self.lblCarName,
+            self.lblAddress,
+            self.lblDateTime,
+            self.btnDownload,
+            self.imgService,
+            self.imgCar,
+            self.imgAddress,
+            self.imgDateTime
+        ]
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

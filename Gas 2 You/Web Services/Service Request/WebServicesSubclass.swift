@@ -78,4 +78,10 @@ class WebServiceSubClass{
             completion(status, message, response, error)
         }
     }
+    
+    class func UpdateBasicInfoApi(reqModel : UpdateUserInfoReqModel , imgKey: String, image: UIImage, completion: @escaping (Bool,String,LoginResponseModel?,Any) -> ()){
+        URLSessionRequestManager.makeImageUploadRequest(urlString: ApiKey.updateProfile.rawValue, requestModel: reqModel, responseModel: LoginResponseModel.self, image: image, imageKey: imgKey) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
 }
