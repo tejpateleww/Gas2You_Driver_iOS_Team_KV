@@ -79,6 +79,8 @@ extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
                     let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
                     vc.isfromhome = false
                     vc.strTitle = "Job Completed"
+                    vc.BookingDetail = self.arrBookings[indexPath.row]
+                    vc.orderStaus = "completed"
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
                 return cell
@@ -103,16 +105,11 @@ extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //        let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
-        //        vc.isfromhome = false
-        //        vc.strTitle = "Job Completed"
-        //        self.navigationController?.pushViewController(vc, animated: true)
-        
         let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
-        vc.isfrom = isFromHome.Request
-        vc.strTitle = "Request Detail"
+        vc.isfromhome = false
+        vc.strTitle = "Job Completed"
         vc.BookingDetail = self.arrBookings[indexPath.row]
-        vc.orderStaus = "Pending"
+        vc.orderStaus = "completed"
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

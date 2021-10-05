@@ -11,7 +11,6 @@ import UIKit
 enum CustomFont
 {
     case italic,lightitalic,medium,light,mediumitalic,bold,bolditalic,regular,PoppinsThinItalic,PoppinsBold,PoppinsLight,PoppinsMedium,PoppinsRegular,PoppinsSemiBold,PoppinsItalic,PoppinsLightItalic
-    //  PoppinsBlack,PoppinsBlackItalic,,Poppins-BoldItalic,Poppins-ExtraBold,Poppins-ExtraBoldItalic,Poppins-ExtraLight,Poppins-ExtraLightItalic,Poppins-Italic,Poppins-Light,Poppins-LightItalic,Poppins-Medium,Poppins-MediumItalic,Poppins-Regular,Poppins-SemiBold,Poppins-SemiBoldItalic,Poppins-Thin,
     func returnFont(_ font:CGFloat)->UIFont
     {
         switch self

@@ -153,7 +153,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
         if self.arrBookings.count > 0 {
             return self.arrBookings.count
         } else {
-            return 1
+            return (isTblReload) ? 1 : 5
         }
     }
     

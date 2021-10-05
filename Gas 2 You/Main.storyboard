@@ -1737,14 +1737,16 @@ and Pr</string>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="LblMessage" destination="sPE-ta-zUu" id="aEe-ER-hSj"/>
-                                            <outlet property="profileIV" destination="QDv-66-n5J" id="pJp-nU-1lk"/>
+                                            <outlet property="lblMsg" destination="sPE-ta-zUu" id="fBX-5a-rxz"/>
+                                            <outlet property="lblTime" destination="idP-MG-6JZ" id="nAK-N8-NcG"/>
+                                            <outlet property="lblUserName" destination="Hdc-Qs-yHs" id="MuA-f9-5HQ"/>
+                                            <outlet property="userImg" destination="QDv-66-n5J" id="cBL-gh-OiT"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="aUy-88-SFK" id="gGA-35-pbC"/>
-                                    <outlet property="delegate" destination="aUy-88-SFK" id="HaX-C1-0rf"/>
+                                    <outlet property="dataSource" destination="aUy-88-SFK" id="Yn8-Re-ohq"/>
+                                    <outlet property="delegate" destination="aUy-88-SFK" id="3zj-Zp-cWL"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -1759,7 +1761,7 @@ and Pr</string>
                     </view>
                     <navigationItem key="navigationItem" id="xNH-zJ-4m7"/>
                     <connections>
-                        <outlet property="chatListTV" destination="LeR-VL-Dcs" id="K17-hz-sce"/>
+                        <outlet property="tblUserList" destination="LeR-VL-Dcs" id="JBd-SE-MYb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ghe-sl-sht" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -4017,10 +4019,10 @@ Send to Admin</string>
                                                                 <rect key="frame" x="0.0" y="5" width="384" height="45"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbF-uB-tWA">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="77" height="45"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="54" height="45"/>
                                                                         <subviews>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_gas" translatesAutoresizingMaskIntoConstraints="NO" id="6yX-nH-w9i">
-                                                                                <rect key="frame" x="0.0" y="5" width="77" height="35"/>
+                                                                                <rect key="frame" x="0.0" y="5" width="54" height="35"/>
                                                                             </imageView>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4033,7 +4035,7 @@ Send to Admin</string>
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCG-Qe-ta1" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                        <rect key="frame" x="80" y="0.0" width="304" height="45"/>
+                                                                        <rect key="frame" x="57" y="0.0" width="327" height="45"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -4103,7 +4105,7 @@ Send to Admin</string>
                                                         <rect key="frame" x="0.0" y="58" width="384" height="91"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hag-Hi-rkE">
-                                                                <rect key="frame" x="34" y="30" width="31" height="31"/>
+                                                                <rect key="frame" x="11" y="30" width="31" height="31"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_location" translatesAutoresizingMaskIntoConstraints="NO" id="4aN-RG-Drr">
                                                                         <rect key="frame" x="5" y="5" width="21" height="21"/>
@@ -4119,7 +4121,7 @@ Send to Admin</string>
                                                                 </constraints>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123. West St, 46203123. West St, 46203123. West St, 46203123. West St, 46203" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZG-L7-kk7" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                <rect key="frame" x="80" y="3" width="299" height="85"/>
+                                                                <rect key="frame" x="57" y="3" width="322" height="85"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>

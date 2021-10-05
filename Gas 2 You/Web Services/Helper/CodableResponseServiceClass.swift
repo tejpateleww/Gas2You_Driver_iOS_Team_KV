@@ -55,7 +55,7 @@ class CodableService {
                                 //MARK:- Session Expoire -> Do Force Logout
                             }else if httpResponse.statusCode == 403{
                                 completion(statusCode, UrlConstant.SessionExpired, nil, SessionExpiredResponseDic)
-                                
+                                appDel.dologout()
                                 //MARK:- Server Error
                             }else if httpResponse.statusCode == 500{
                                 completion(statusCode, UrlConstant.SomethingWentWrong, nil, responseDic ?? SomethingWentWrongResponseDic)

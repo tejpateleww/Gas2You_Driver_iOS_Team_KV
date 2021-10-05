@@ -50,6 +50,9 @@
 		18E5E47326C54C73004E79C4 /* CompletedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E5E47126C54C73004E79C4 /* CompletedCell.swift */; };
 		882C591226F9CA2600E18644 /* MarkerInfoWindowView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 882C591026F9CA2600E18644 /* MarkerInfoWindowView.xib */; };
 		882C591326F9CA2600E18644 /* MarkerInfoWindowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882C591126F9CA2600E18644 /* MarkerInfoWindowView.swift */; };
+		88367A2C270C69B20034D5F1 /* ChatUserListDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88367A2A270C69B20034D5F1 /* ChatUserListDatum.swift */; };
+		88367A2D270C69B20034D5F1 /* ChatUserListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88367A2B270C69B20034D5F1 /* ChatUserListModel.swift */; };
+		88367A30270C6A930034D5F1 /* chatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88367A2F270C6A930034D5F1 /* chatViewModel.swift */; };
 		8838B3A426FC79910076B73C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8838B3A326FC79910076B73C /* GoogleService-Info.plist */; };
 		884912D426E0916900D7A917 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884912D326E0916900D7A917 /* LoginViewModel.swift */; };
 		885C690D26F88A6000844561 /* RequestBookingListDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885C690B26F88A6000844561 /* RequestBookingListDatum.swift */; };
@@ -193,6 +196,9 @@
 		5EF54FFA5D877A8A791918B3 /* Pods_Gas_2_You_Driver.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Gas_2_You_Driver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		882C591026F9CA2600E18644 /* MarkerInfoWindowView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MarkerInfoWindowView.xib; sourceTree = "<group>"; };
 		882C591126F9CA2600E18644 /* MarkerInfoWindowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkerInfoWindowView.swift; sourceTree = "<group>"; };
+		88367A2A270C69B20034D5F1 /* ChatUserListDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUserListDatum.swift; sourceTree = "<group>"; };
+		88367A2B270C69B20034D5F1 /* ChatUserListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUserListModel.swift; sourceTree = "<group>"; };
+		88367A2F270C6A930034D5F1 /* chatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatViewModel.swift; sourceTree = "<group>"; };
 		8838B3A326FC79910076B73C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		884912D326E0916900D7A917 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		885C690B26F88A6000844561 /* RequestBookingListDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBookingListDatum.swift; sourceTree = "<group>"; };
@@ -369,9 +375,35 @@
 			path = MarkerInfoWindow;
 			sourceTree = "<group>";
 		};
+		88367A28270C697C0034D5F1 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				88367A29270C69840034D5F1 /* ChatUserList */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		88367A29270C69840034D5F1 /* ChatUserList */ = {
+			isa = PBXGroup;
+			children = (
+				88367A2A270C69B20034D5F1 /* ChatUserListDatum.swift */,
+				88367A2B270C69B20034D5F1 /* ChatUserListModel.swift */,
+			);
+			path = ChatUserList;
+			sourceTree = "<group>";
+		};
+		88367A2E270C6A820034D5F1 /* ChatViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				88367A2F270C6A930034D5F1 /* chatViewModel.swift */,
+			);
+			path = ChatViewModel;
+			sourceTree = "<group>";
+		};
 		884912D126E0915500D7A917 /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
+				88367A2E270C6A820034D5F1 /* ChatViewModel */,
 				88DC2782270ACB9A00359438 /* UserInfoViewModel */,
 				88FCC9C52706E79E0006C838 /* JobViewModel */,
 				885C690F26F88A9D00844561 /* HomeViewModel */,
@@ -393,6 +425,7 @@
 		885C690926F88A1C00844561 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				88367A28270C697C0034D5F1 /* Chat */,
 				88DC2785270ACC0300359438 /* User Profile update */,
 				88FCC9D027071AE60006C838 /* JobCompModel */,
 				885C690A26F88A2400844561 /* HomeRequestList */,
@@ -1059,6 +1092,7 @@
 				888D125926DE25140034D277 /* Utilities.swift in Sources */,
 				885C690D26F88A6000844561 /* RequestBookingListDatum.swift in Sources */,
 				18E5E46D26C535A0004E79C4 /* MyProfileVC.swift in Sources */,
+				88367A2C270C69B20034D5F1 /* ChatUserListDatum.swift in Sources */,
 				9AC568BF26B7B1020039FCCF /* SignUpVC.swift in Sources */,
 				885C691926F89AF600844561 /* NoDataTableViewCell.swift in Sources */,
 				18C2FAD426C69300005E1D07 /* ForgotPasswordVC.swift in Sources */,
@@ -1108,6 +1142,7 @@
 				8865B86726DF4550005F7F36 /* UITapGestureRecognizer+Extension.swift in Sources */,
 				888D125E26DE25150034D277 /* ImagePicker.swift in Sources */,
 				1836326026C3984E00D2C170 /* SendInvoiceVC.swift in Sources */,
+				88367A30270C6A930034D5F1 /* chatViewModel.swift in Sources */,
 				888D125D26DE25150034D277 /* AppInfo.swift in Sources */,
 				18E5E46F26C54C28004E79C4 /* CompletedJobsVC.swift in Sources */,
 				8865B86026DF44FF005F7F36 /* PasswordModel.swift in Sources */,
@@ -1116,6 +1151,7 @@
 				8896B1A326E0B1E00011D62F /* RegisterViewModel.swift in Sources */,
 				187CE6D826C4DAA800C8E765 /* EnterQuentityVC.swift in Sources */,
 				888D122F26DE183C0034D277 /* SplashVC.swift in Sources */,
+				88367A2D270C69B20034D5F1 /* ChatUserListModel.swift in Sources */,
 				9A5B094226B279AE00BA0CB4 /* Storyboards.swift in Sources */,
 				88DC278F270B29F300359438 /* ShimmerCell.swift in Sources */,
 				9A5B08A926B266E800BA0CB4 /* AppDelegate.swift in Sources */,
@@ -1302,7 +1338,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1327,7 +1363,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

@@ -108,7 +108,6 @@ class JobDetailsViewController: BaseVC {
         
     }
     
-    
     // MARK: - --------- Custom Methods ---------
     func prepareView() {
         self.lblcompltedSetup()
@@ -249,12 +248,16 @@ class JobDetailsViewController: BaseVC {
         polyline.map = self.mapView
     }
     
+    func popBack(){
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func setupData() {
         if(self.orderStaus == ""){
             self.navigationController?.popViewController(animated: true)
             return
         }
-    
+        
         self.lblFuelType.text = self.BookingDetail?.mainServiceName ?? ""
         self.lblAddress.text = self.BookingDetail?.parkingLocation ?? ""
         self.lblColor.text = "Color : \(self.BookingDetail?.colorName ?? "")"
@@ -269,10 +272,6 @@ class JobDetailsViewController: BaseVC {
         }else if(self.orderStaus == "Start Job"){
             self.setupInProcessOrderFlow()
         }
-    }
-    
-    func popBack(){
-        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - --------- InProcessOrderFlow Methods ---------
@@ -293,13 +292,13 @@ class JobDetailsViewController: BaseVC {
         }else{
             self.callOrderStatusUpdateAPI(strStatus: "Start Job")
         }
-        
     }
     
     // MARK: - --------- IBAction Methods ---------
     @IBAction func btnDownloadTap(_ sender: Any) {
         
     }
+    
     @IBAction func BtnStartJob(_ sender: ThemeButton) {
         if(self.orderStaus == "Start Job"){
             self.callOrderCompAPI()
@@ -307,6 +306,7 @@ class JobDetailsViewController: BaseVC {
             
         }
     }
+    
     @IBAction func btnJobDoneTap(_ sender: UIButton) {
         if(self.LblFilledGallon.text != nil || self.LblFilledGallon.text != ""){
             let Gallon: String = self.LblFilledGallon.text ?? ""
@@ -315,20 +315,19 @@ class JobDetailsViewController: BaseVC {
         }
         self.JobDoneTapped(strGallon :"")
     }
+    
     @IBAction func btnChatTap(_ sender: Any) {
         let vc : ChatListVC = ChatListVC.instantiate(fromAppStoryboard: .Main)
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    
     @IBAction func btnCallTap(_ sender: Any) {
         guard let number = URL(string: "tel://" + "\(self.BookingDetail?.customerContactNumber ?? "")") else { return }
         UIApplication.shared.open(number)
     }
-    
-    // ----------------------------------------------------
-    // MARK: - --------- Webservice Methods ---------
-    // ----------------------------------------------------
-    
 }
+
+// MARK: - --------- Extension Methods ---------
 extension JobDetailsViewController{
     func isfromHome(sender : UIButton) {
         switch isfrom{
@@ -338,6 +337,7 @@ extension JobDetailsViewController{
             isFromRequest()
         }
     }
+    
     func isFromMyOrders(){
         self.vwUpdateStatus.isHidden = false
         stackUpdateStatus.isHidden = true
@@ -352,6 +352,7 @@ extension JobDetailsViewController{
         LblCompleted.isHidden = false
         stackStatus.isHidden = true
     }
+    
     func isFromInProcess(sender : UIButton){
         if sender.titleLabel?.text == StartJobButtonTitle.StartJob.Name {
             
@@ -359,7 +360,7 @@ extension JobDetailsViewController{
             ViewDateTime.isHidden = false
             ViewFilledGallon.isHidden = false
         } else if sender.titleLabel?.text == StartJobButtonTitle.CompleteJob.Name {
-           
+            
         }
     }
     
@@ -370,8 +371,6 @@ extension JobDetailsViewController{
         vwGasPriceDetail.isHidden = true
         stackItem.isHidden = true
     }
-    
-
     
     func JobDoneTapped(strGallon : String){
         let vc : EnterQuentityVC = EnterQuentityVC.instantiate(fromAppStoryboard: .Main)
@@ -400,6 +399,7 @@ extension JobDetailsViewController{
     }
 }
 
+// MARK: - --------- GMSMapViewDelegate ---------
 extension JobDetailsViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, markerInfoWindow marker: GMSMarker) -> UIView? {
         
