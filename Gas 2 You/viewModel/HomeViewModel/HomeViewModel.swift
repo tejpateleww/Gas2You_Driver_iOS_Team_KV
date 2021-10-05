@@ -14,12 +14,16 @@ class HomeViewModel{
     
     func webserviceBookingRequestAPI(reqModel: HomeBookingReqModel){
         self.homeVC?.isApiProcessing = true
-        Utilities.showHud()
+        if(self.homeVC?.CurrentPage != 1){
+            Utilities.showHud()
+        }
         WebServiceSubClass.homeBookingRequest(reqModel: reqModel) { (status, apiMessage, response, error) in
-            self.homeVC?.tblHome.isHidden = false
             self.homeVC?.isApiProcessing = false
-            Utilities.hideHud()
-            self.homeVC?.tblHome.isHidden = false
+            self.homeVC?.isTblReload = true
+            self.homeVC?.isLoading = false
+            if(self.homeVC?.CurrentPage != 1){
+                Utilities.hideHud()
+            }
             
             if status{
                 if(response?.data?.count == 0){
@@ -41,17 +45,22 @@ class HomeViewModel{
             }else{
                 Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
             }
+            
         }
     }
     
     func webserviceBookingInProgressAPI(reqModel: HomeBookingReqModel){
         self.homeVC?.isApiProcessing = true
-        Utilities.showHud()
+        if(self.homeVC?.CurrentPageInProgress != 1){
+            Utilities.showHud()
+        }
         WebServiceSubClass.homeBookingInProgressAPI(reqModel: reqModel) { (status, apiMessage, response, error) in
-            self.homeVC?.tblHome.isHidden = false
             self.homeVC?.isApiProcessing = false
-            Utilities.hideHud()
-            self.homeVC?.tblHome.isHidden = false
+            self.homeVC?.isTblReload = true
+            self.homeVC?.isLoading = false
+            if(self.homeVC?.CurrentPageInProgress != 1){
+                Utilities.hideHud()
+            }
             
             if status{
                 if(response?.data?.count == 0){

@@ -27,8 +27,13 @@ class HomeVC: BaseVC {
     var isStopPaging = false
     var isSelectedRequest = true
     
-//    var isTblReload = false
-//    var isLoading = true
+    var isTblReload = false
+    var isLoading = true {
+        didSet {
+            self.tblHome.isUserInteractionEnabled = !isLoading
+            self.tblHome.reloadData()
+        }
+    }
     
     //MARK:- VIEW LIFE CYCLE
     override func viewDidLoad() {
@@ -50,7 +55,6 @@ class HomeVC: BaseVC {
     }
     
     //MARK:- Custom methods
-    
     func addNotificationObs(){
         NotificationCenter.default.addObserver(self, selector: #selector(self.ReloadData), name: Notification.Name("ReloadData"), object: nil)
     }
@@ -61,14 +65,13 @@ class HomeVC: BaseVC {
     }
     
     func prepareView(){
-//        self.tblHome.reloadData()
+        self.isLoading = true
         
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Home", leftImage: "Menu", rightImages: [], isTranslucent: true)
         self.rightNavBarButton()
         
         self.tblHome.delegate = self
         self.tblHome.dataSource = self
-        self.tblHome.isHidden = true
         
         self.addNotificationObs()
     }
@@ -107,11 +110,8 @@ class HomeVC: BaseVC {
     
     //MARK:- Button ACTIONS
     @IBAction func btnRequestTap(_ sender: UIButton) {
-//        self.isLoading = true
-//        self.isTblReload = false
-//        self.tblHome.reloadData()
-        
-        self.tblHome.isHidden = true
+        self.isLoading = true
+        self.isTblReload = false
         
         self.isSelectedRequest = true
         self.CurrentPage = 1
@@ -127,11 +127,8 @@ class HomeVC: BaseVC {
     }
     
     @IBAction func btnInprogressTap(_ sender: UIButton) {
-//        self.isLoading = true
-//        self.isTblReload = false
-//        self.tblHome.reloadData()
-        
-        self.tblHome.isHidden = true
+        self.isLoading = true
+        self.isTblReload = false
         
         self.isSelectedRequest = false
         self.CurrentPageInProgress = 1
@@ -162,6 +159,14 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        if(!isTblReload){
+            let cell = tblHome.dequeueReusableCell(withIdentifier: ShimmerCell.className) as! ShimmerCell
+            cell.lblFuelType.text = "Fill-ups"
+            cell.lblVehicle.text = "Suzuki (GJ 21 HG 2121)"
+            cell.lblAddress.text = "iSquare, Shukan Cross Road, Science City Rd, Sola, Ahmedabad, Gujarat"
+            cell.lblDateAndTime.text = "2021-10-01 07:07:06"
+            return cell
+        }else{
             let cell = tblHome.dequeueReusableCell(withIdentifier: JobsCell.className) as! JobsCell
             if self.arrBookings.count != 0 {
                 
@@ -194,15 +199,18 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
                 let NoDatacell = self.tblHome.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
                 return NoDatacell
             }
-        
-
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if self.arrBookings.count != 0 {
+        if(!isTblReload){
             return UITableView.automaticDimension
         }else{
-            return tableView.frame.height
+            if self.arrBookings.count != 0 {
+                return UITableView.automaticDimension
+            }else{
+                return tableView.frame.height
+            }
         }
     }
     
@@ -217,10 +225,10 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
         }
     }
     
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        cell.setTemplateWithSubviews(isLoading, animate: true, viewBackgroundColor: .systemBackground)
-//    }
-
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.setTemplateWithSubviews(isLoading, animate: true, viewBackgroundColor: .systemBackground)
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (self.tblHome.contentOffset.y >= (self.tblHome.contentSize.height - self.tblHome.frame.size.height)) && self.isStopPaging == false && self.isApiProcessing == false {
             print("call from scroll..")
