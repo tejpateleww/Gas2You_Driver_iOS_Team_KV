@@ -8,6 +8,7 @@
 import UIKit
 import SDWebImage
 import UIView_Shimmer
+import SocketIO
 
 class ChatListVC: BaseVC {
     
@@ -28,6 +29,16 @@ class ChatListVC: BaseVC {
         self.prepareView()
         self.registerNib()
         self.callUserListAPI()
+        
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+//        self.SocketOnMethods()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+//        self.allSocketOffMethods()
     }
     
     func prepareView(){

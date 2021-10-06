@@ -67,8 +67,8 @@ enum ApiKey: String {
 
 enum SocketKeys: String {
     
-    case KHostUrl                                 = "http://50.18.114.231:8080/"
-    case ConnectUser                              = "connect_user"
+    case KHostUrl                                 = "https://gas2youcenla.com/app/"
+    case ConnectUser                              = "connect_driver"
     case channelCommunation                       = "communication"
     case SendMessage                              = "send_message"
     case ReceiverMessage                          = "receiver_message"

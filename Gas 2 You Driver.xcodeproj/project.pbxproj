@@ -53,7 +53,6 @@
 		88367A2C270C69B20034D5F1 /* ChatUserListDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88367A2A270C69B20034D5F1 /* ChatUserListDatum.swift */; };
 		88367A2D270C69B20034D5F1 /* ChatUserListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88367A2B270C69B20034D5F1 /* ChatUserListModel.swift */; };
 		88367A30270C6A930034D5F1 /* chatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88367A2F270C6A930034D5F1 /* chatViewModel.swift */; };
-		8838B3A426FC79910076B73C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8838B3A326FC79910076B73C /* GoogleService-Info.plist */; };
 		884912D426E0916900D7A917 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884912D326E0916900D7A917 /* LoginViewModel.swift */; };
 		885C690D26F88A6000844561 /* RequestBookingListDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885C690B26F88A6000844561 /* RequestBookingListDatum.swift */; };
 		885C690E26F88A6000844561 /* RequestBookingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885C690C26F88A6000844561 /* RequestBookingListModel.swift */; };
@@ -71,6 +70,7 @@
 		8865B86D26DF5468005F7F36 /* AppDelegate+PushNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8865B86A26DF5467005F7F36 /* AppDelegate+PushNotification.swift */; };
 		8865B86E26DF5468005F7F36 /* AppDelegate+Cycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8865B86B26DF5467005F7F36 /* AppDelegate+Cycle.swift */; };
 		8865B86F26DF5468005F7F36 /* AppDelegate+Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8865B86C26DF5467005F7F36 /* AppDelegate+Methods.swift */; };
+		886CBDF5270D6A5C004F1132 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 886CBDF4270D6A5C004F1132 /* GoogleService-Info.plist */; };
 		8875E03F26E0DDBC00E45B82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8875E03E26E0DDBC00E45B82 /* Main.storyboard */; };
 		888D122F26DE183C0034D277 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888D122E26DE183C0034D277 /* SplashVC.swift */; };
 		888D123A26DE23B40034D277 /* UrlServiceConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888D123126DE23B40034D277 /* UrlServiceConstant.swift */; };
@@ -199,7 +199,6 @@
 		88367A2A270C69B20034D5F1 /* ChatUserListDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUserListDatum.swift; sourceTree = "<group>"; };
 		88367A2B270C69B20034D5F1 /* ChatUserListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUserListModel.swift; sourceTree = "<group>"; };
 		88367A2F270C6A930034D5F1 /* chatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatViewModel.swift; sourceTree = "<group>"; };
-		8838B3A326FC79910076B73C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		884912D326E0916900D7A917 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		885C690B26F88A6000844561 /* RequestBookingListDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBookingListDatum.swift; sourceTree = "<group>"; };
 		885C690C26F88A6000844561 /* RequestBookingListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBookingListModel.swift; sourceTree = "<group>"; };
@@ -217,6 +216,7 @@
 		8865B86A26DF5467005F7F36 /* AppDelegate+PushNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+PushNotification.swift"; sourceTree = "<group>"; };
 		8865B86B26DF5467005F7F36 /* AppDelegate+Cycle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Cycle.swift"; sourceTree = "<group>"; };
 		8865B86C26DF5467005F7F36 /* AppDelegate+Methods.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Methods.swift"; sourceTree = "<group>"; };
+		886CBDF4270D6A5C004F1132 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8875E03E26E0DDBC00E45B82 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		888D122E26DE183C0034D277 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		888D123126DE23B40034D277 /* UrlServiceConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlServiceConstant.swift; sourceTree = "<group>"; };
@@ -731,7 +731,7 @@
 		9A5B08A726B266E800BA0CB4 /* Gas 2 You */ = {
 			isa = PBXGroup;
 			children = (
-				8838B3A326FC79910076B73C /* GoogleService-Info.plist */,
+				886CBDF4270D6A5C004F1132 /* GoogleService-Info.plist */,
 				9A5B08F526B2726A00BA0CB4 /* AppDelegates */,
 				9AC568C026B7C08A0039FCCF /* Base class */,
 				8865B85126DF4415005F7F36 /* Model */,
@@ -988,6 +988,7 @@
 				8875E03F26E0DDBC00E45B82 /* Main.storyboard in Resources */,
 				18E5E47226C54C73004E79C4 /* CompletedCell.xib in Resources */,
 				184658F126C1633600958397 /* Poppins-Bold.ttf in Resources */,
+				886CBDF5270D6A5C004F1132 /* GoogleService-Info.plist in Resources */,
 				184658EE26C1633600958397 /* Poppins-BoldItalic.ttf in Resources */,
 				885C691A26F89AF600844561 /* NoDataTableViewCell.xib in Resources */,
 				184658E726C1633600958397 /* Poppins-ExtraLight.ttf in Resources */,
@@ -999,7 +1000,6 @@
 				184658F726C1633600958397 /* Poppins-SemiBold.ttf in Resources */,
 				9A5B08B526B266EA00BA0CB4 /* Assets.xcassets in Resources */,
 				184658F026C1633600958397 /* Poppins-Medium.ttf in Resources */,
-				8838B3A426FC79910076B73C /* GoogleService-Info.plist in Resources */,
 				184658EB26C1633600958397 /* Poppins-ExtraBold.ttf in Resources */,
 				184658AC26C15E4900958397 /* MyEarningsCell.xib in Resources */,
 				184658FC26C16E7800958397 /* JobsCell.xib in Resources */,
