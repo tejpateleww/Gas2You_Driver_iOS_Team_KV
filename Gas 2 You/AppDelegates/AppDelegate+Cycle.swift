@@ -12,6 +12,7 @@ import UserNotifications
 import GoogleMaps
 
 extension AppDelegate{
+    
     func applicationWillEnterForeground(_ application: UIApplication) {
         
     }

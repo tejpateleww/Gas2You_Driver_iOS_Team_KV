@@ -14,20 +14,13 @@ class Singleton: NSObject{
     static let sharedInstance = Singleton()
     
     var UserId = String()
-    
-    //Objects
     var AppInitModel : InitResponseModel?
     var UserProfilData : ProfileModel?
-    
     var Api_Key = String()
     var DeviceType : String = "ios"
-    var DeviceToken : String = UIDevice.current.identifierForVendor?.uuidString ?? ""
-    
-    
-    
-    //MARK:- User' Custom Details
+    var DeviceToken : String = ""
     var userCurrentLocation : CLLocationCoordinate2D?
-  
+    
     func locationString() -> (latitude: String, longitude: String){
         return (String(userCurrentLocation?.latitude ?? 0.0), String(userCurrentLocation?.longitude ?? 0.0))
     }

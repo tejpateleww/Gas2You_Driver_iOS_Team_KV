@@ -56,7 +56,7 @@ class LeftViewController: MenuViewController {
         let strURl = URL(string: strUrl)
         
         self.imgUser.sd_imageIndicator = SDWebImageActivityIndicator.white
-        self.imgUser.sd_setImage(with: strURl, placeholderImage: UIImage(named: "nav_dummy_userImage"), options: .refreshCached, completed: nil)
+        self.imgUser.sd_setImage(with: strURl, placeholderImage: #imageLiteral(resourceName: "imgDummyProfile"), options: .refreshCached, completed: nil)
         
         self.lblUserName.text = "\(obj?.fullName ?? "")"
         self.lblUserActiveStatus.text = (obj?.status ?? "" == "1") ? "Active" : "Deactive"

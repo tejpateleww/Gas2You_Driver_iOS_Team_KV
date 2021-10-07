@@ -109,8 +109,9 @@
 		88FCC9CF2706E9C70006C838 /* CommonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FCC9CD2706E9C70006C838 /* CommonModel.swift */; };
 		88FCC9D327071B210006C838 /* OrderComplateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FCC9D127071B210006C838 /* OrderComplateModel.swift */; };
 		88FCC9D427071B210006C838 /* OrderComplateDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FCC9D227071B210006C838 /* OrderComplateDatum.swift */; };
+		88FE8327270F19830028D3B7 /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FE8325270F19830028D3B7 /* SocketManager.swift */; };
+		88FE8328270F19830028D3B7 /* ChatSocketClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FE8326270F19830028D3B7 /* ChatSocketClient.swift */; };
 		9A0D9FBF26CCEBB30038E45B /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0D9FBE26CCEBB30038E45B /* ChatViewController.swift */; };
-		9A3A912426C128E90041D7D9 /* AddAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3A912326C128E90041D7D9 /* AddAddressVC.swift */; };
 		9A3A912F26C133AC0041D7D9 /* SideMenuItemOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3A912626C133AB0041D7D9 /* SideMenuItemOptions.swift */; };
 		9A3A913026C133AC0041D7D9 /* Options.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3A912726C133AB0041D7D9 /* Options.swift */; };
 		9A3A913126C133AC0041D7D9 /* MenuContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A3A912826C133AC0041D7D9 /* MenuContainerViewController.swift */; };
@@ -255,8 +256,9 @@
 		88FCC9CD2706E9C70006C838 /* CommonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonModel.swift; sourceTree = "<group>"; };
 		88FCC9D127071B210006C838 /* OrderComplateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderComplateModel.swift; sourceTree = "<group>"; };
 		88FCC9D227071B210006C838 /* OrderComplateDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderComplateDatum.swift; sourceTree = "<group>"; };
+		88FE8325270F19830028D3B7 /* SocketManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
+		88FE8326270F19830028D3B7 /* ChatSocketClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatSocketClient.swift; sourceTree = "<group>"; };
 		9A0D9FBE26CCEBB30038E45B /* ChatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
-		9A3A912326C128E90041D7D9 /* AddAddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAddressVC.swift; sourceTree = "<group>"; };
 		9A3A912626C133AB0041D7D9 /* SideMenuItemOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuItemOptions.swift; sourceTree = "<group>"; };
 		9A3A912726C133AB0041D7D9 /* Options.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Options.swift; sourceTree = "<group>"; };
 		9A3A912826C133AC0041D7D9 /* MenuContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuContainerViewController.swift; sourceTree = "<group>"; };
@@ -603,14 +605,6 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
-		888D126926DE2DD50034D277 /* Add Address */ = {
-			isa = PBXGroup;
-			children = (
-				9A3A912326C128E90041D7D9 /* AddAddressVC.swift */,
-			);
-			path = "Add Address";
-			sourceTree = "<group>";
-		};
 		888D126A26DE2E0E0034D277 /* My Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -686,9 +680,43 @@
 			path = JobCompModel;
 			sourceTree = "<group>";
 		};
-		9A3A912526C133AB0041D7D9 /* InteractiveSideMenu */ = {
+		88FE8320270EEB720028D3B7 /* Job Details */ = {
 			isa = PBXGroup;
 			children = (
+				187CE6DB26C512B100C8E765 /* JobDetailsViewController.swift */,
+			);
+			path = "Job Details";
+			sourceTree = "<group>";
+		};
+		88FE8321270EED560028D3B7 /* Send Invoice */ = {
+			isa = PBXGroup;
+			children = (
+				1836325F26C3984E00D2C170 /* SendInvoiceVC.swift */,
+			);
+			path = "Send Invoice";
+			sourceTree = "<group>";
+		};
+		88FE8322270EED800028D3B7 /* GallonQuantiy */ = {
+			isa = PBXGroup;
+			children = (
+				187CE6D726C4DAA800C8E765 /* EnterQuentityVC.swift */,
+			);
+			path = GallonQuantiy;
+			sourceTree = "<group>";
+		};
+		88FE8324270F19830028D3B7 /* Socket Connections */ = {
+			isa = PBXGroup;
+			children = (
+				88FE8325270F19830028D3B7 /* SocketManager.swift */,
+				88FE8326270F19830028D3B7 /* ChatSocketClient.swift */,
+			);
+			path = "Socket Connections";
+			sourceTree = "<group>";
+		};
+		9A3A912526C133AB0041D7D9 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				187CE6D926C512B100C8E765 /* Left ViewController */,
 				9A3A912626C133AB0041D7D9 /* SideMenuItemOptions.swift */,
 				9A3A912726C133AB0041D7D9 /* Options.swift */,
 				9A3A912826C133AC0041D7D9 /* MenuContainerViewController.swift */,
@@ -698,7 +726,7 @@
 				9A3A912C26C133AC0041D7D9 /* MenuTransitioningDelegate.swift */,
 				9A3A912E26C133AC0041D7D9 /* MenuViewController.swift */,
 			);
-			path = InteractiveSideMenu;
+			path = SideMenu;
 			sourceTree = "<group>";
 		};
 		9A3A913726C13B540041D7D9 /* View */ = {
@@ -733,13 +761,13 @@
 			children = (
 				886CBDF4270D6A5C004F1132 /* GoogleService-Info.plist */,
 				9A5B08F526B2726A00BA0CB4 /* AppDelegates */,
+				88FE8324270F19830028D3B7 /* Socket Connections */,
 				9AC568C026B7C08A0039FCCF /* Base class */,
 				8865B85126DF4415005F7F36 /* Model */,
 				884912D126E0915500D7A917 /* viewModel */,
 				9A3A913726C13B540041D7D9 /* View */,
 				9A5B08F326B2721A00BA0CB4 /* Controllers */,
 				888D126426DE294A0034D277 /* Classes */,
-				9A5B08F426B2725300BA0CB4 /* StoryBoards */,
 				9AC568C726B7C7B60039FCCF /* Web Services */,
 				888D124D26DE25140034D277 /* Utilities */,
 				888D126526DE2CF00034D277 /* Resources */,
@@ -820,28 +848,22 @@
 		9A5B08F326B2721A00BA0CB4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9A3A912526C133AB0041D7D9 /* SideMenu */,
 				888D122D26DE18290034D277 /* Splash */,
 				9AC568C326B7C2350039FCCF /* Auth Controllers */,
-				888D126B26DE2E2A0034D277 /* Completed Jobs */,
-				888D126A26DE2E0E0034D277 /* My Profile */,
-				888D126926DE2DD50034D277 /* Add Address */,
 				888D126826DE2DC50034D277 /* Home */,
-				888D126726DE2DAB0034D277 /* Settings */,
-				9A3A912526C133AB0041D7D9 /* InteractiveSideMenu */,
+				88FE8320270EEB720028D3B7 /* Job Details */,
+				88FE8322270EED800028D3B7 /* GallonQuantiy */,
+				88FE8321270EED560028D3B7 /* Send Invoice */,
+				888D126B26DE2E2A0034D277 /* Completed Jobs */,
 				1872B6DF26C5B8B5009B88EF /* Chat */,
+				888D126A26DE2E0E0034D277 /* My Profile */,
+				888D126726DE2DAB0034D277 /* Settings */,
 				184658A626C152B700958397 /* MyEarnings */,
 				1802708026C2986E003337F1 /* Notification */,
-				187CE6D926C512B100C8E765 /* Left ViewController */,
 				9AC568C426B7C2450039FCCF /* Other Controllers */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		9A5B08F426B2725300BA0CB4 /* StoryBoards */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = StoryBoards;
 			sourceTree = "<group>";
 		};
 		9A5B08F526B2726A00BA0CB4 /* AppDelegates */ = {
@@ -879,11 +901,8 @@
 			isa = PBXGroup;
 			children = (
 				187CE6F026C514B700C8E765 /* MainViewController.swift */,
-				187CE6DB26C512B100C8E765 /* JobDetailsViewController.swift */,
 				9A81083626B963B5003DE6CC /* CarParkingLocationVC.swift */,
-				1836325F26C3984E00D2C170 /* SendInvoiceVC.swift */,
 				186D4A6226C3DE3900ABAE19 /* SendRequestToAdminPopUpVC.swift */,
-				187CE6D726C4DAA800C8E765 /* EnterQuentityVC.swift */,
 				187CE6DC26C512B100C8E765 /* NavigationController.swift */,
 			);
 			path = "Other Controllers";
@@ -1100,8 +1119,8 @@
 				9A5B094626B27AB400BA0CB4 /* ThemeShadow.swift in Sources */,
 				1802708426C2B1ED003337F1 /* SettingsVC.swift in Sources */,
 				888D123B26DE23B40034D277 /* RequestBodyParamService.swift in Sources */,
+				88FE8328270F19830028D3B7 /* ChatSocketClient.swift in Sources */,
 				9AC568C626B7C25C0039FCCF /* HomeVC.swift in Sources */,
-				9A3A912426C128E90041D7D9 /* AddAddressVC.swift in Sources */,
 				9A5B094026B278B800BA0CB4 /* Validation.swift in Sources */,
 				9A3A913026C133AC0041D7D9 /* Options.swift in Sources */,
 				888D125B26DE25140034D277 /* Singleton.swift in Sources */,
@@ -1183,6 +1202,7 @@
 				9A5B08F026B2703000BA0CB4 /* String+extension.swift in Sources */,
 				9A5B08ED26B26DF100BA0CB4 /* AppTheme_FontColor.swift in Sources */,
 				885C691126F88ACE00844561 /* HomeViewModel.swift in Sources */,
+				88FE8327270F19830028D3B7 /* SocketManager.swift in Sources */,
 				8865B85626DF4420005F7F36 /* CommonResponseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

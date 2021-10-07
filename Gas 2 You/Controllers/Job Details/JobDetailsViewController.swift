@@ -46,6 +46,8 @@ class JobDetailsViewController: BaseVC {
     
     var orderStaus = ""
     var jobViewModel = JobViewModel()
+    var path = GMSPath()
+    var polyline : GMSPolyline!
     
     // MARK: - --------- Variables ---------
     var isfrom = isFromHome.Request
@@ -93,6 +95,8 @@ class JobDetailsViewController: BaseVC {
     @IBOutlet weak var lblCarName: themeLabel!
     @IBOutlet weak var lblColor: themeLabel!
     @IBOutlet weak var lblPlateNumber: themeLabel!
+    @IBOutlet weak var btnReCenter: UIButton!
+    
     
     // MARK: - --------- Life-cycle Methods ---------
     override func viewDidLoad() {
@@ -101,7 +105,13 @@ class JobDetailsViewController: BaseVC {
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: strTitle == "" ? "Job Details" : strTitle, leftImage: "Back", rightImages: [], isTranslucent: true)
         self.setupData()
         self.prepareView()
-        self.setupMap()
+        
+        if(self.isfromhome){
+            self.setupMap()
+        }else{
+            self.setupMapForCompletedOrder()
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -128,6 +138,31 @@ class JobDetailsViewController: BaseVC {
     
     func lblcompltedSetup() {
         self.LblCompleted.transform = CGAffineTransform(rotationAngle: -.pi/4)
+    }
+    
+    func setupMapForCompletedOrder(){
+        self.mapView.clear()
+        self.path = GMSPath()
+        self.polyline = GMSPolyline()
+  
+        self.PickLocLat = self.BookingDetail?.latitude ?? "0.0"
+        self.PickLocLong = self.BookingDetail?.longitude ?? "0.0"
+        
+        let camera = GMSCameraPosition.camera(withLatitude: Double(self.PickLocLat) ?? 0.0, longitude:  Double(self.PickLocLong) ?? 0.0, zoom: 13.6)
+        self.mapView.camera = camera
+        
+        //Current Location pin setup
+        self.DropLocMarker = GMSMarker()
+        self.DropLocMarker?.position = CLLocationCoordinate2D(latitude: Double(self.PickLocLat) ?? 0.0, longitude: Double(self.PickLocLong) ?? 0.0)
+        self.DropLocMarker?.snippet = "Your Location"
+        
+        let markerView2 = MarkerPinView()
+        markerView2.markerImage = UIImage(named: "IC_pinImg")
+        markerView2.layoutSubviews()
+        
+        self.DropLocMarker?.iconView = markerView2
+        self.DropLocMarker?.map = self.mapView
+        //self.mapView.selectedMarker = self.DropLocMarker
     }
     
     func setupMap(){
@@ -241,11 +276,11 @@ class JobDetailsViewController: BaseVC {
     }
     
     func drawPath(from polyStr: String){
-        let path = GMSPath(fromEncodedPath: polyStr)
-        let polyline = GMSPolyline(path: path)
-        polyline.strokeWidth = 3.0
-        polyline.strokeColor = UIColor.init(hexString: "#faa421")
-        polyline.map = self.mapView
+        self.path = GMSPath(fromEncodedPath: polyStr)!
+        self.polyline = GMSPolyline(path: self.path)
+        self.polyline.strokeWidth = 3.0
+        self.polyline.strokeColor = UIColor.init(hexString: "#faa421")
+        self.polyline.map = self.mapView
     }
     
     func popBack(){
@@ -325,6 +360,17 @@ class JobDetailsViewController: BaseVC {
         guard let number = URL(string: "tel://" + "\(self.BookingDetail?.customerContactNumber ?? "")") else { return }
         UIApplication.shared.open(number)
     }
+    
+    @IBAction func btnReCenterAction(_ sender: Any) {
+        if(self.isfromhome){
+            let camera = GMSCameraPosition.camera(withLatitude: Double(self.CurrentLocLat) ?? 0.0, longitude:  Double(self.CurrentLocLong) ?? 0.0, zoom: 17.5)
+            self.mapView.animate(to: camera)
+        }else{
+            let camera = GMSCameraPosition.camera(withLatitude: Double(self.BookingDetail?.latitude ?? "0.0") ?? 0.0, longitude:  Double(self.BookingDetail?.longitude ?? "0.0") ?? 0.0, zoom: 17.5)
+            self.mapView.animate(to: camera)
+        }
+    }
+    
 }
 
 // MARK: - --------- Extension Methods ---------
@@ -340,17 +386,17 @@ extension JobDetailsViewController{
     
     func isFromMyOrders(){
         self.vwUpdateStatus.isHidden = false
-        stackUpdateStatus.isHidden = true
-        BtnStartJob.isHidden = true
-        lblLine.isHidden = false
-        btnDownload.isHidden = false
-        vwChatCall.isHidden = true
-        lblplateNumberDashLineHeight.constant = 0
-        stackItem.isHidden = false
-        vwGasPriceDetail.isHidden = false
-        imgCompleted.isHidden = false
-        LblCompleted.isHidden = false
-        stackStatus.isHidden = true
+        self.stackUpdateStatus.isHidden = true
+        self.BtnStartJob.isHidden = true
+        self.lblLine.isHidden = false
+        self.btnDownload.isHidden = false
+        self.vwChatCall.isHidden = true
+        self.lblplateNumberDashLineHeight.constant = 0
+        self.stackItem.isHidden = false
+        self.vwGasPriceDetail.isHidden = false
+        self.imgCompleted.isHidden = false
+        self.LblCompleted.isHidden = false
+        self.stackStatus.isHidden = true
     }
     
     func isFromInProcess(sender : UIButton){

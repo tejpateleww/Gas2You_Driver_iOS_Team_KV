@@ -22,6 +22,7 @@ class MyProfileVC: BaseVC {
     @IBOutlet weak var btnSave: ThemeButton!
     @IBOutlet weak var lblRating: themeLabel!
     
+    let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz"
     var imagePicker = UIImagePickerController()
     var userInfoViewModel = UserInfoViewModel()
     
@@ -248,4 +249,26 @@ extension MyProfileVC{
         self.userInfoViewModel.webserviceUserInfoUpdateAPI(reqModel: UploadReq, reqImage: self.imgProfile.image!)
     }
     
+}
+
+//MARK:- TextField Delegate
+extension MyProfileVC: UITextFieldDelegate{
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        switch textField {
+        
+        case self.txtName :
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return (string == filtered) ? (newString.length <= TEXTFIELD_MaximumLimit) : false
+            
+        default:
+            print("")
+        }
+       
+        return true
+    }
 }

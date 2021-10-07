@@ -12,7 +12,7 @@ typealias NetworkRouterCompletion = ((Data?,[String:Any]?, Bool) -> ())
 enum APIEnvironment : String {
  
 //Development URL : Pick A Ride Customer
-    case AssetsUrl = "http://65.1.154.172/"
+    case AssetsUrl = ""
     case Development = "https://gas2youcenla.com/api/driver_api/"
     case Profilebu = "https://gas2youcenla.com/"
     case Live = "not provided"

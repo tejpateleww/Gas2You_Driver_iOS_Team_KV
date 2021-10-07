@@ -12,6 +12,7 @@ import SocketIO
 
 class ChatListVC: BaseVC {
     
+    //MARK: -Properties
     @IBOutlet weak var tblUserList: UITableView!
     
     var arrUserList = [ChatUserListDatum]()
@@ -24,23 +25,24 @@ class ChatListVC: BaseVC {
         }
     }
     
+    //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.prepareView()
         self.registerNib()
         self.callUserListAPI()
-        
-       
     }
     
     override func viewWillAppear(_ animated: Bool) {
-//        self.SocketOnMethods()
+                self.ChatSocketOnMethods()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-//        self.allSocketOffMethods()
+                self.ChatSocketOffMethods()
     }
     
+    //MARK: - Custom Methods
     func prepareView(){
         self.isLoading = true
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Chat", leftImage: "Back", rightImages: [], isTranslucent: true)
@@ -53,21 +55,22 @@ class ChatListVC: BaseVC {
     
 }
 
+//MARK: - UITableViewDelegate Methods
 extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.arrUserList.count > 0 {
             return self.arrUserList.count
         } else {
-            return (!isTblReload) ? 5 : 1
+            return (!self.isTblReload) ? 5 : 1
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tblUserList.dequeueReusableCell(withIdentifier: "cell") as! ChatListCell
+        let cell = self.tblUserList.dequeueReusableCell(withIdentifier: "cell") as! ChatListCell
         
-        if(!isTblReload){
+        if(!self.isTblReload){
             cell.lblUserName.text = "AAAAA AAAAA"
             cell.lblMsg.text = "Hello 123 Hello 123 Hello 123"
             cell.lblTime.text = "06:58 AM"
@@ -89,7 +92,6 @@ extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
                 let NoDatacell = self.tblUserList.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
                 return NoDatacell
             }
-            
         }
     }
     
@@ -99,7 +101,7 @@ extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if(!isTblReload){
+        if(!self.isTblReload){
             return UITableView.automaticDimension
         }else{
             if self.arrUserList.count != 0 {

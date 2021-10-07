@@ -18,6 +18,11 @@ class SignUpVC: BaseVC {
     @IBOutlet weak var btnSignUp: ThemeButton!
     @IBOutlet weak var btnLoginNow: themeButton!
     
+    let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz"
+    let ACCEPTABLE_CHARACTERS_FOR_EMAIL = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@."
+    let ACCEPTABLE_CHARACTERS_FOR_PHONE = "0123456789"
+
+    
     //MARK:- Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +30,7 @@ class SignUpVC: BaseVC {
         self.btnLoginNow.setunderline(title: "Login Now" , color: .white, font: CustomFont.PoppinsSemiBold.returnFont(16))
         
         //mobile no field +1 related code
-        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 35, height: 20))
+        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
         self.txtMobile.leftView = paddingView
         self.txtMobile.leftViewMode = .always
         self.txtMobile.layer.borderWidth = 1
@@ -126,11 +131,42 @@ extension SignUpVC{
 extension SignUpVC: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == txtMobile || textField == txtFirstName || textField == txtConfirmPassword || textField == txtPassword{
+        
+        switch textField {
+        
+        case self.txtFirstName :
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
             let currentString: NSString = textField.text as NSString? ?? ""
             let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
-            return string == "" || (newString.length <= ((textField == txtMobile) ? MAX_PHONE_DIGITS : TEXTFIELD_MaximumLimit))
+            return (string == filtered) ? (newString.length <= TEXTFIELD_MaximumLimit) : false
+            
+        case self.txtEmail :
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_FOR_EMAIL).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            return (string == filtered)
+            
+        case self.txtMobile :
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_FOR_PHONE).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return (string == filtered) ? (newString.length <= MAX_PHONE_DIGITS) : false
+            
+        case self.txtPassword :
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return (newString.length <= TEXTFIELD_MaximumLimit)
+            
+        case self.txtConfirmPassword :
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return (newString.length <= TEXTFIELD_MaximumLimit)
+            
+        default:
+            print("")
         }
+       
         return true
     }
 }

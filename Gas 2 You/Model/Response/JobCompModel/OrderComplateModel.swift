@@ -5,23 +5,23 @@
 
 import Foundation
 
-struct OrderComplateModel : Codable {
-
-        let data : OrderComplateDatum?
-        let message : String?
-        let status : Bool?
-
-        enum CodingKeys: String, CodingKey {
-                case data = "data"
-                case message = "message"
-                case status = "status"
-        }
+class OrderComplateModel : Codable {
     
-        init(from decoder: Decoder) throws {
-                let values = try decoder.container(keyedBy: CodingKeys.self)
-                data = try values.decodeIfPresent(OrderComplateDatum.self, forKey: .data)
-                message = try values.decodeIfPresent(String.self, forKey: .message)
-                status = try values.decodeIfPresent(Bool.self, forKey: .status)
-        }
-
+    let data : OrderComplateDatum?
+    let message : String?
+    let status : Bool?
+    
+    enum CodingKeys: String, CodingKey {
+        case data = "data"
+        case message = "message"
+        case status = "status"
+    }
+    
+    required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        data = try values.decodeIfPresent(OrderComplateDatum.self, forKey: .data)
+        message = try values.decodeIfPresent(String.self, forKey: .message)
+        status = try values.decodeIfPresent(Bool.self, forKey: .status)
+    }
+    
 }
