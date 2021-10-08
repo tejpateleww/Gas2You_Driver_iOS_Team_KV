@@ -388,7 +388,14 @@ protocol textFieldDelegate {
     func didTapRightButton()
 }
 
-class themeTextfield : UITextField{
+class themeTextfieldWithNoPaste : UITextField{
+    
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+         if action == #selector(UIResponderStandardEditActions.paste(_:)) {
+             return false
+         }
+         return super.canPerformAction(action, withSender: sender)
+    }
     
     @IBInspectable public var Font_Size: CGFloat = FontSize.size15.rawValue
     @IBInspectable public var Border_Width: CGFloat = 1.0
@@ -399,6 +406,7 @@ class themeTextfield : UITextField{
     @IBInspectable public var isLight: Bool = false
     @IBInspectable public var isMedium: Bool = false
     @IBInspectable public var isRegular: Bool = false
+    @IBInspectable public var isPasteDisabled: Bool = false
     @IBInspectable public var fontColor: UIColor = .white
     @IBInspectable public var placeholderColor: UIColor = .white
     
@@ -444,6 +452,129 @@ class themeTextfield : UITextField{
             }
         }
     }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        if isBold {
+            self.font = CustomFont.PoppinsBold.returnFont(Font_Size)
+        } else if isSemibold {
+            self.font = CustomFont.PoppinsSemiBold.returnFont(Font_Size)
+        } else if isMedium {
+            self.font = CustomFont.PoppinsMedium.returnFont(Font_Size)
+        } else if isLight {
+            self.font = CustomFont.PoppinsLight.returnFont(Font_Size)
+        } else {
+            self.font = CustomFont.PoppinsRegular.returnFont(Font_Size)
+        }
+        self.textColor = fontColor
+       
+//        self.font = FontBook.regular.of(size : Font_Size)
+        
+        self.layer.borderWidth = Border_Width
+        self.layer.borderColor = Border_Color.cgColor
+        self.layer.cornerRadius = Corner_Radius
+        
+        
+        self.attributedPlaceholder = NSAttributedString(string: self.placeholder ?? "",
+                                                        attributes: [NSAttributedString.Key.foregroundColor: placeholderColor] )
+        
+    }
+    
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
+        
+        if LeftImage != nil {
+            let padding = UIEdgeInsets(top: 10, left: 10 + 30, bottom: 10, right: 10)
+            return bounds.inset(by: padding)
+        } else {
+            let padding = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+            return bounds.inset(by: padding)
+        }
+        
+    }
+
+    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        if LeftImage != nil {
+            let padding = UIEdgeInsets(top: 10, left: 10 + 30, bottom: 10, right: 10)
+            return bounds.inset(by: padding)
+        } else {
+            let padding = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+            return bounds.inset(by: padding)
+        }
+        
+    }
+
+    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+        
+        if LeftImage != nil {
+            let padding = UIEdgeInsets(top: 10, left: 10 + 30, bottom: 10, right: 10)
+            return bounds.inset(by: padding)
+        } else {
+            let padding = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+            return bounds.inset(by: padding)
+        }
+        
+    }
+}
+
+
+class themeTextfield : UITextField{
+
+    @IBInspectable public var Font_Size: CGFloat = FontSize.size15.rawValue
+    @IBInspectable public var Border_Width: CGFloat = 1.0
+    @IBInspectable public var Border_Color: UIColor = .clear
+    @IBInspectable public var Corner_Radius: CGFloat = 1
+    @IBInspectable public var isBold: Bool = false
+    @IBInspectable public var isSemibold: Bool = false
+    @IBInspectable public var isLight: Bool = false
+    @IBInspectable public var isMedium: Bool = false
+    @IBInspectable public var isRegular: Bool = false
+    @IBInspectable public var isPasteDisabled: Bool = false
+    @IBInspectable public var fontColor: UIColor = .white
+    @IBInspectable public var placeholderColor: UIColor = .white
+    
+    @IBInspectable var rightButton: String? {
+        didSet {
+            if let titleText = rightButton {
+                rightViewMode = .always
+                let button = UIButton(frame: CGRect(x: 10, y: 0, width: 60, height: 40))
+                button.setTitle(titleText, for: .normal)
+                button.setColorFont(color: .gray , font: FontBook.regular.staticFont(size: Font_Size - 2))
+                button.addTarget(self, action: #selector(rightImageAction), for: .touchUpInside)
+                let view = UIView(frame : CGRect(x: 0, y: 0, width: 80, height: 40))
+                view.addSubview(button)
+                rightView = view
+            } else {
+                rightViewMode = .never
+            }
+        }
+    }
+
+    @objc func rightImageAction() {
+        print("button pressed")
+    }
+    
+    @IBInspectable var LeftImage: UIImage? {
+        didSet {
+            if let image = LeftImage {
+              //  SetLeftImage(image: image)
+                leftViewMode = .always
+                let button = UIButton(frame: CGRect(x: 10, y: 0, width: 20, height: 20))
+                //let imageView = UIImageView(frame: )
+                button.setImage(image, for: .normal)
+
+                button.contentMode = .scaleAspectFit
+                button.tintColor = tintColor
+                button.isUserInteractionEnabled = false
+                let view = UIView(frame : CGRect(x: 0, y: 0, width: 40, height: 20))
+                view.isUserInteractionEnabled = false
+                view.addSubview(button)
+                leftView = view
+            }else{
+                leftViewMode = .never
+            }
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         if isBold {

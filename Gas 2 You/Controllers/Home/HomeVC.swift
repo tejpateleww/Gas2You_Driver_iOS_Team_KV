@@ -184,11 +184,11 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
                 
                 cell.btnAcceptTapClosure = {
                     if(self.arrBookings[indexPath.row].statusLabel == "Start Job"){
-                        self.RedirectToJobs(index: indexPath)
+//                        self.RedirectToJobs(index: indexPath)
                     }else{
                         HomeVC.showAlertWithTitleFromVC(vc: self, title: "Gas2YouDriver", message: "Are you sure you want to start job ?", buttons: ["Cancel", "OK"]) { index in
                             if index == 1{
-                                self.RedirectToJobs(index: indexPath)
+//                                self.RedirectToJobs(index: indexPath)
                             }
                         }
                     }
@@ -216,12 +216,14 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if(self.isSelectedRequest){
-            let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
-            vc.isfrom = isInProcess ? isFromHome.InProcess : isFromHome.Request
-            vc.strTitle = !isInProcess ? "Request Detail" : ""
-            vc.BookingDetail = self.arrBookings[indexPath.row]
-            vc.orderStaus = "Pending"
-            self.navigationController?.pushViewController(vc, animated: true)
+//            let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
+//            vc.isfrom = isInProcess ? isFromHome.InProcess : isFromHome.Request
+//            vc.strTitle = !isInProcess ? "Request Detail" : ""
+//            vc.BookingDetail = self.arrBookings[indexPath.row]
+//            vc.orderStaus = "Pending"
+//            self.navigationController?.pushViewController(vc, animated: true)
+        }else{
+//            self.RedirectToJobs(index: indexPath)
         }
     }
     

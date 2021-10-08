@@ -32,7 +32,7 @@ class OtpVC: BaseVC {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         UIApplication.shared.statusBarStyle = .lightContent
-        setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "OTP Varification", leftImage: "Back", rightImages: [], isTranslucent: true, iswhiteTitle: true)
+        setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "OTP Verification", leftImage: "Back", rightImages: [], isTranslucent: true, iswhiteTitle: true)
         
     }
     
@@ -44,7 +44,6 @@ class OtpVC: BaseVC {
         
         self.prepareView()
         self.setupBottomBorder()
-        self.callOtpApi()
     }
     
     //MARK:- custom methods
@@ -61,6 +60,9 @@ class OtpVC: BaseVC {
         self.arrTextFields.forEach {
             $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
         }
+        
+        self.otpToastDisplay()
+        self.reversetimer()
     }
     
     func setupBottomBorder() {
@@ -74,7 +76,7 @@ class OtpVC: BaseVC {
         self.timer.invalidate() // just in case this button is tapped multiple times
         self.lblTimer.isHidden = false
         self.btnResend.isUserInteractionEnabled = false
-        self.btnResend.setTitleColor(#colorLiteral(red: 0.1215686275, green: 0.5411764706, blue: 0.7803921569, alpha: 1).withAlphaComponent(0.3), for: .normal)
+        self.btnResend.setTitleColor(#colorLiteral(red: 0.1215686275, green: 0.5411764706, blue: 0.7803921569, alpha: 1).withAlphaComponent(0.7), for: .normal)
         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
     }
     
@@ -185,6 +187,9 @@ class OtpVC: BaseVC {
     }
     
     @IBAction func btnResendAction(_ sender: Any) {
+        for txtfield in arrTextFields{
+            txtfield.text = ""
+        }
         self.counter = 31
         self.callOtpApi()
     }

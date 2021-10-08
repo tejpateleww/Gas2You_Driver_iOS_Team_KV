@@ -11,6 +11,7 @@ import UIKit
 
 class OTPUserModel{
     weak var otpVC : OtpVC? = nil
+    weak var signUpVCp : SignUpVC? = nil
     
     func webserviceOtp(reqModel: OTPRequestModel){
         self.otpVC?.btnVerify.showLoading()
@@ -24,6 +25,19 @@ class OTPUserModel{
                 Utilities.showAlertAction(AppName, message: apiMessage, vc: self.otpVC!) {
                     self.otpVC?.popBack()
                 }
+            }
+        }
+    }
+    
+    func webserviceOtpVerify(reqModel: OTPRequestModel){
+        self.signUpVCp?.btnSignUp.showLoading()
+        WebServiceSubClass.otpRequestApi(reqModel: reqModel) { (status, apiMessage, response, error) in
+            self.signUpVCp?.btnSignUp.hideLoading()
+            if status{
+                self.signUpVCp?.strOtp = response?.otp ?? ""
+                self.signUpVCp?.goToOTP()
+            }else{
+                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
             }
         }
     }
@@ -52,6 +66,8 @@ class OTPUserModel{
                 }
                 
                 appDel.navigateToHome()
+            }else{
+                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
             }
         }
     }

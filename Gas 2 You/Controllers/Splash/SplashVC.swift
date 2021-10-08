@@ -22,7 +22,7 @@ class SplashVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let _ = userDefaults.getUserData()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.webserviceInit()
         }
     }

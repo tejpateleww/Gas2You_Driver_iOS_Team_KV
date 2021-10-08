@@ -19,6 +19,7 @@ class ChangePasswordVC: BaseVC {
     
     var changePasswordUserModel = PasswordUserModel()
     var btnSubmitClosure : (() -> ())?
+    let RISTRICTED_CHARACTERS_FOR_PASSWORD = " "
     
     //MARK:- Life cycle methods
     override func viewDidLoad() {
@@ -82,5 +83,50 @@ extension ChangePasswordVC{
         reqModel.newPassword = self.txtNewPassword.text ?? ""
         
         self.changePasswordUserModel.webserviceChangePassword(reqModel: reqModel)
+    }
+}
+
+//MARK:- TextField Delegate
+extension ChangePasswordVC: UITextFieldDelegate{
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        switch textField {
+        
+        case self.txtCurrentPassword :
+            let set = CharacterSet(charactersIn: RISTRICTED_CHARACTERS_FOR_PASSWORD)
+            let inverted = set.inverted
+            let filtered = string.components(separatedBy: inverted).joined(separator: "")
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            let char = string.cString(using: String.Encoding.utf8)!
+            let isBackSpace = strcmp(char, "\\b")
+            return (string != filtered) ? (newString.length <= TEXTFIELD_PASSWORD_MaximumLimit) : (isBackSpace == -92) ? true : false
+            
+        case self.txtNewPassword :
+            let set = CharacterSet(charactersIn: RISTRICTED_CHARACTERS_FOR_PASSWORD)
+            let inverted = set.inverted
+            let filtered = string.components(separatedBy: inverted).joined(separator: "")
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            let char = string.cString(using: String.Encoding.utf8)!
+            let isBackSpace = strcmp(char, "\\b")
+            return (string != filtered) ? (newString.length <= TEXTFIELD_PASSWORD_MaximumLimit) : (isBackSpace == -92) ? true : false
+            
+        case self.txtReEnterPassword :
+            let set = CharacterSet(charactersIn: RISTRICTED_CHARACTERS_FOR_PASSWORD)
+            let inverted = set.inverted
+            let filtered = string.components(separatedBy: inverted).joined(separator: "")
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            let char = string.cString(using: String.Encoding.utf8)!
+            let isBackSpace = strcmp(char, "\\b")
+            return (string != filtered) ? (newString.length <= TEXTFIELD_PASSWORD_MaximumLimit) : (isBackSpace == -92) ? true : false
+
+        default:
+            print("")
+        }
+       
+        return true
     }
 }

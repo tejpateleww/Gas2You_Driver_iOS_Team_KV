@@ -39,7 +39,7 @@ class EnterQuentityVC: BaseVC,UITextFieldDelegate{
     //MARK:- IBActions
     @IBAction func btnSubmitTap(_ sender: Any) {
         if(self.txtPrice.text == ""){
-            Utilities.showAlert("Gas2You", message: "Please Enter Quantity.", vc: self)
+            Utilities.showAlert("Gas2You", message: "Please enter quantity", vc: self)
             return
         }
         self.dismiss(animated: false, completion: {

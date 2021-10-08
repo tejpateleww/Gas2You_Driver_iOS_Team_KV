@@ -55,7 +55,7 @@ struct RequiredFieldValidator: ValidatorConvertible {
     private let fieldName: String
     
     init(_ field: String) {
-        fieldName = field
+        fieldName =  field.firstUppercased
     }
     
     func validated(_ value: String) -> (Bool, String) {
@@ -69,17 +69,19 @@ struct UserNameValidator: ValidatorConvertible {
     private let fieldName: String
     
     init(_ field: String) {
-        fieldName = field
+        fieldName = field.firstUppercased
     }
     func validated(_ value: String) -> (Bool, String) {
+        
+        let value = value.trimmingCharacters(in: .whitespaces)
         guard value != "" else {return (false,ValidationError("Please enter \(fieldName)").message)}
         
-        guard value.count >= 3 else {
-            return (false , ValidationError("\(fieldName) must contain more than three characters").message)
+        guard value.count >= 2 else {
+            return (false , ValidationError("\(fieldName) must contain more than two characters").message)
             // ValidationError("Username must contain more than three characters" )
         }
-        guard value.count < 15 else {
-            return (false , ValidationError("\(fieldName) shoudn't contain more than 15 characters").message)
+        guard value.count <= 70 else {
+            return (false , ValidationError("\(fieldName) shoudn't contain more than 70 characters").message)
             // throw ValidationError("Username shoudn't conain more than 18 characters" )
         }
         
@@ -116,13 +118,13 @@ struct PasswordValidator: ValidatorConvertible {
     private let fieldName: String
     
     init(_ field: String) {
-        fieldName = field
+        fieldName = field.firstUppercased
     }
     
     func validated(_ value: String) -> (Bool,String) {
         guard value != "" else {return (false,ValidationError("Please enter " + fieldName.lowercased()).message)}
         guard value.count >= 8 else { return (false,ValidationError( fieldName.capitalizingFirstLetter() + " must contain at least 8 characters").message)}
-        guard value.count < 15 else {
+        guard value.count <= 15 else {
             return (false , ValidationError("\(fieldName) shoudn't contain more than 15 characters").message)
             // throw ValidationError("Username shoudn't conain more than 18 characters" )
         }
@@ -141,10 +143,10 @@ struct EmailValidator: ValidatorConvertible {
     func validated(_ value: String) -> (Bool,String) {
         do {
             if try NSRegularExpression(pattern: "^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
-                return (false,ValidationError("Please enter email id").message)
+                return (false,ValidationError("Please enter a valid email").message)
             }
         } catch {
-            return (false,ValidationError("Please enter a valid email").message)
+            return (false,ValidationError("Please enter email id").message)
         }
         return (true, "")
     }
@@ -152,7 +154,7 @@ struct EmailValidator: ValidatorConvertible {
 struct PhoneNoValidator: ValidatorConvertible {
     func validated(_ value: String) -> (Bool,String) {
         guard value != "" else {return (false,ValidationError("Please enter phone number").message)}
-        guard value.count >= 8 else { return (false,ValidationError("Please enter valid phone number").message)}
+        guard value.count >= 10 else { return (false,ValidationError("Minimum 10 digits are required").message)}
         
         // do {
         // if try NSRegularExpression(pattern: "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{6,}$", options: .caseInsensitive).firstMatch(in: value, options: [], range: NSRange(location: 0, length: value.count)) == nil {
@@ -165,3 +167,8 @@ struct PhoneNoValidator: ValidatorConvertible {
     }
 }
 
+
+extension StringProtocol {
+    var firstUppercased: String { return prefix(1).uppercased() + dropFirst() }
+    var firstCapitalized: String { return prefix(1).capitalized + dropFirst() }
+}

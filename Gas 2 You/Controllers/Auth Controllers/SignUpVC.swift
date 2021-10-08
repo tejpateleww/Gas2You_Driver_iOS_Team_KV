@@ -21,7 +21,10 @@ class SignUpVC: BaseVC {
     let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz"
     let ACCEPTABLE_CHARACTERS_FOR_EMAIL = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@."
     let ACCEPTABLE_CHARACTERS_FOR_PHONE = "0123456789"
+    let RISTRICTED_CHARACTERS_FOR_PASSWORD = " "
 
+    var strOtp = ""
+    var otpUserModel = OTPUserModel()
     
     //MARK:- Life cycle methods
     override func viewDidLoad() {
@@ -60,6 +63,29 @@ class SignUpVC: BaseVC {
         textfield.rightViewMode = .always
     }
     
+    func goToOTP(){
+        if self.validation(){
+            if(self.txtPassword.text != self.txtConfirmPassword.text){
+                Toast.show(title: UrlConstant.Required, message: UrlConstant.PasswordNotMatch, state: .failure)
+            }else{
+                if self.validation(){
+                    let reqModel = RegisterRequestModel()
+                    reqModel.fullName = self.txtFirstName.text?.trimmingCharacters(in: .whitespaces)
+                    reqModel.email = self.txtEmail.text ?? ""
+                    reqModel.countryCode = DefaultCouuntryCode
+                    reqModel.phone = self.txtMobile.text ?? ""
+                    reqModel.password = self.txtPassword.text ?? ""
+                    
+                    let OtpVC = storyboard?.instantiateViewController(identifier: OtpVC.className) as! OtpVC
+                    OtpVC.registerReqModel = reqModel
+                    OtpVC.strOtp = self.strOtp
+                    navigationController?.pushViewController(OtpVC, animated: true)
+                    
+                }
+            }
+        }
+    }
+    
     //MARK:- IBAction
     @IBAction func btnPrivacyPolicyTap(_ sender: Any) {
         
@@ -70,26 +96,7 @@ class SignUpVC: BaseVC {
     }
     
     @IBAction func btnSignupTap(_ sender: Any) {
-        if self.validation(){
-            if(self.txtPassword.text != self.txtConfirmPassword.text){
-                Toast.show(title: UrlConstant.Required, message: UrlConstant.PasswordNotMatch, state: .failure)
-            }else{
-                if self.validation(){
-                    
-                    let reqModel = RegisterRequestModel()
-                    reqModel.fullName = self.txtFirstName.text ?? ""
-                    reqModel.email = self.txtEmail.text ?? ""
-                    reqModel.countryCode = DefaultCouuntryCode
-                    reqModel.phone = self.txtMobile.text ?? ""
-                    reqModel.password = self.txtPassword.text ?? ""
-                    
-                    let OtpVC = storyboard?.instantiateViewController(identifier: OtpVC.className) as! OtpVC
-                    OtpVC.registerReqModel = reqModel
-                    navigationController?.pushViewController(OtpVC, animated: true)
-                    
-                }
-            }
-        }
+        self.callOtpApi()
     }
     
     @IBAction func logInNowButtonPressed(_ sender: themeButton){
@@ -102,8 +109,12 @@ extension SignUpVC{
     func validation()->Bool{
         var strTitle : String?
         let firstName = self.txtFirstName.validatedText(validationType: .username(field: self.txtFirstName.placeholder?.lowercased() ?? ""))
+        if(self.txtEmail.text == "" && !firstName.0 == false){
+            Toast.show(title: UrlConstant.Required, message: "Please enter email", state: .failure)
+            return false
+        }
         let checkEmail = self.txtEmail.validatedText(validationType: .email)
-        let mobileNo = self.txtMobile.validatedText(validationType: .requiredField(field: self.txtMobile.placeholder?.lowercased() ?? ""))
+        let mobileNo = self.txtMobile.validatedText(validationType: .phoneNo)
         let password = self.txtPassword.validatedText(validationType: .password(field: self.txtPassword.placeholder?.lowercased() ?? ""))
         
         if !firstName.0{
@@ -154,19 +165,40 @@ extension SignUpVC: UITextFieldDelegate{
             return (string == filtered) ? (newString.length <= MAX_PHONE_DIGITS) : false
             
         case self.txtPassword :
+            let set = CharacterSet(charactersIn: RISTRICTED_CHARACTERS_FOR_PASSWORD)
+            let inverted = set.inverted
+            let filtered = string.components(separatedBy: inverted).joined(separator: "")
             let currentString: NSString = textField.text as NSString? ?? ""
             let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
-            return (newString.length <= TEXTFIELD_MaximumLimit)
+            let char = string.cString(using: String.Encoding.utf8)!
+            let isBackSpace = strcmp(char, "\\b")
+            return (string != filtered) ? (newString.length <= TEXTFIELD_PASSWORD_MaximumLimit) : (isBackSpace == -92) ? true : false
             
         case self.txtConfirmPassword :
+            let set = CharacterSet(charactersIn: RISTRICTED_CHARACTERS_FOR_PASSWORD)
+            let inverted = set.inverted
+            let filtered = string.components(separatedBy: inverted).joined(separator: "")
             let currentString: NSString = textField.text as NSString? ?? ""
             let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
-            return (newString.length <= TEXTFIELD_MaximumLimit)
+            let char = string.cString(using: String.Encoding.utf8)!
+            let isBackSpace = strcmp(char, "\\b")
+            return (string != filtered) ? (newString.length <= TEXTFIELD_PASSWORD_MaximumLimit) : (isBackSpace == -92) ? true : false
             
         default:
             print("")
         }
        
         return true
+    }
+}
+
+//MARK:- Api Call
+extension SignUpVC{
+    
+    func callOtpApi(){
+        self.otpUserModel.signUpVCp = self
+        let otpReqModel = OTPRequestModel()
+        otpReqModel.email = self.txtEmail.text ?? ""
+        self.otpUserModel.webserviceOtpVerify(reqModel: otpReqModel)
     }
 }

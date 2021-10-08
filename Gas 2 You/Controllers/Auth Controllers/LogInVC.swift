@@ -12,11 +12,15 @@ class LogInVC: UIViewController {
     //MARK:- Variables
     @IBOutlet weak var btnLogin: ThemeButton!
     @IBOutlet weak var txtEmail: themeTextfield!
-    @IBOutlet weak var txtPassword: themeTextfield!
+    @IBOutlet weak var txtPassword: themeTextfieldWithNoPaste!
     @IBOutlet weak var btnSignUp: themeButton!
     
     var loginUserModel = LoginUserModel()
     var locationManager : LocationService?
+    
+    let ACCEPTABLE_CHARACTERS_FOR_EMAIL = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@."
+    let RISTRICTED_CHARACTERS_FOR_PASSWORD = " "
+
     
     //MARK:- Life cycle methods
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +39,7 @@ class LogInVC: UIViewController {
         UIApplication.shared.statusBarStyle = .default
     }
     
+ 
     //MARK:- Common methods
     func setupTextfields(textfield : UITextField) {
         
@@ -84,6 +89,11 @@ class LogInVC: UIViewController {
 extension LogInVC{
     func validation()->Bool{
         var strTitle : String?
+        
+        if(self.txtEmail.text == ""){
+            Toast.show(title: UrlConstant.Required, message: "Please enter email", state: .failure)
+            return false
+        }
         let checkEmail = self.txtEmail.validatedText(validationType: .email)
         let password = self.txtPassword.validatedText(validationType: .password(field: self.txtPassword.placeholder?.lowercased() ?? ""))
         
@@ -115,11 +125,32 @@ extension LogInVC{
 //MARK:- TextField Delegate
 extension LogInVC: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == txtPassword {
+        
+        switch textField {
+        
+        case self.txtEmail :
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_FOR_EMAIL).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            return (string == filtered)
+
+        case self.txtPassword :
+            let set = CharacterSet(charactersIn: RISTRICTED_CHARACTERS_FOR_PASSWORD)
+            let inverted = set.inverted
+            let filtered = string.components(separatedBy: inverted).joined(separator: "")
             let currentString: NSString = textField.text as NSString? ?? ""
             let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
-            return string == "" || newString.length <= TEXTFIELD_MaximumLimit
+            let char = string.cString(using: String.Encoding.utf8)!
+            let isBackSpace = strcmp(char, "\\b")
+            return (string != filtered) ? (newString.length <= TEXTFIELD_PASSWORD_MaximumLimit) : (isBackSpace == -92) ? true : false
+            
+        default:
+            print("")
         }
+        
         return true
     }
+    
+
+    
+    
 }
