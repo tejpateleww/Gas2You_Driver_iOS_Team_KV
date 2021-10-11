@@ -57,6 +57,15 @@ class HomeVC: BaseVC {
     //MARK:- Custom methods
     func addNotificationObs(){
         NotificationCenter.default.addObserver(self, selector: #selector(self.ReloadData), name: Notification.Name("ReloadData"), object: nil)
+        
+        NotificationCenter.default.removeObserver(self, name: .refreshHomeScreen, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(initUrlAndRefreshRequestList), name: .refreshHomeScreen, object: nil)
+    }
+    
+    @objc func initUrlAndRefreshRequestList() {
+        self.refreshNewRequest()
+        AppDelegate.pushNotificationType = nil
+        AppDelegate.pushNotificationObj = nil
     }
     
     @objc func ReloadData() {
@@ -74,6 +83,16 @@ class HomeVC: BaseVC {
         self.tblHome.dataSource = self
         
         self.addNotificationObs()
+        self.addTableFooter()
+    }
+    
+    func addTableFooter(){
+        let pagingSpinner = UIActivityIndicatorView(style: .medium)
+        pagingSpinner.startAnimating()
+        pagingSpinner.color = UIColor.init(hexString: "#1F79CD")
+        pagingSpinner.hidesWhenStopped = true
+        self.tblHome.tableFooterView = pagingSpinner
+        self.tblHome.tableFooterView?.isHidden = true
     }
     
     func registerNib(){
@@ -108,8 +127,7 @@ class HomeVC: BaseVC {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    //MARK:- Button ACTIONS
-    @IBAction func btnRequestTap(_ sender: UIButton) {
+    func refreshNewRequest(){
         self.isLoading = true
         self.isTblReload = false
         
@@ -126,7 +144,7 @@ class HomeVC: BaseVC {
         self.callBookingRequestAPI()
     }
     
-    @IBAction func btnInprogressTap(_ sender: UIButton) {
+    func refreshInprogresRequest(){
         self.isLoading = true
         self.isTblReload = false
         
@@ -141,7 +159,15 @@ class HomeVC: BaseVC {
         self.vwInprogress.backgroundColor = UIColor.init(hexString: "#1F79CD")
         self.isInProcess = true
         self.callBookingInProgressAPI()
-        
+    }
+    
+    //MARK:- Button ACTIONS
+    @IBAction func btnRequestTap(_ sender: UIButton) {
+        self.refreshNewRequest()
+    }
+    
+    @IBAction func btnInprogressTap(_ sender: UIButton) {
+        self.refreshInprogresRequest()
     }
     
 }
@@ -244,6 +270,8 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
                 self.callBookingInProgressAPI()
             }
         }
+        
+
     }
     
 }

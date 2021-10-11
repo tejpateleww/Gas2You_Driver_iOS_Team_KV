@@ -55,6 +55,10 @@ extension ChangePasswordVC{
         var strTitle : String?
         let oldPassword = self.txtCurrentPassword.validatedText(validationType: .password(field: self.txtCurrentPassword.placeholder?.lowercased() ?? ""))
         let newPassword = self.txtNewPassword.validatedText(validationType: .password(field: self.txtNewPassword.placeholder?.lowercased() ?? ""))
+        if(self.txtReEnterPassword.text == "" ){
+            Toast.show(title: UrlConstant.Required, message: "Please re-enter password", state: .failure)
+            return false
+        }
         let confirmPassword = self.txtReEnterPassword.validatedText(validationType: .requiredField(field: self.txtReEnterPassword.placeholder?.lowercased() ?? ""))
         
         if !oldPassword.0{

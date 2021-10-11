@@ -20,7 +20,7 @@ let AppURL = "itms-apps://itunes.apple.com/app/id1488928328"
 //MARK:- Symbols
 let plus = "+"
 let minus = "-"
-let DefaultCouuntryCode = "+91"
+let DefaultCouuntryCode = "+1"
 
 let themeColor = hexStringToUIColor(hex: "2ab6b6")
 let themeColorOrange = hexStringToUIColor(hex: "ff8b7b")

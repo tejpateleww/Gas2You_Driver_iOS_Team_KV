@@ -55,19 +55,117 @@ extension AppDelegate{
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
         print(#function, notification)
         let content = notification.request.content
         let userInfo = notification.request.content.userInfo
+        
         print(userInfo)
         print(appDel.window?.rootViewController?.navigationController?.children.first as Any)
         
         NotificationCenter.default.post(name: NotificationBadges, object: content)
         completionHandler([.alert, .sound])
+        print(#function, notification)
+        
+        if let mainDic = userInfo as? [String: Any]{
+            
+            let pushObj = NotificationObjectModel()
+            if let bookingId = mainDic["gcm.notification.booking_id"]{
+                pushObj.booking_id = bookingId as? String ?? ""
+            }
+            if let type = mainDic["gcm.notification.type"]{
+                pushObj.type = type as? String ?? ""
+            }
+            if let title = mainDic["title"]{
+                pushObj.title = title as? String ?? ""
+            }
+            if let text = mainDic["text"]{
+                pushObj.text = text as? String ?? ""
+            }
+            
+            AppDelegate.pushNotificationObj = pushObj
+            AppDelegate.pushNotificationType = pushObj.type
+            
+            if pushObj.type == NotificationTypes.notifLoggedOut.rawValue {
+                appDel.dologout()
+                return
+            }
+            
+            if pushObj.type == NotificationTypes.newBooking.rawValue {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    if (UIApplication.appTopViewController()?.isKind(of: MainViewController.self) ?? false){
+                        NotificationCenter.default.post(name: .refreshHomeScreen, object: nil)
+                    }
+                }
+                return
+            }
+        }
     }
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         let userInfo = response.notification.request.content.userInfo
-        print(userInfo)
-        completionHandler()
+        print("USER INFo : ",userInfo)
+        
+        
+        if let mainDic = userInfo as? [String: Any]{
+            
+            let pushObj = NotificationObjectModel()
+            if let bookingId = mainDic["gcm.notification.booking_id"]{
+                pushObj.booking_id = bookingId as? String ?? ""
+            }
+            if let type = mainDic["gcm.notification.type"]{
+                pushObj.type = type as? String ?? ""
+            }
+            if let title = mainDic["title"]{
+                pushObj.title = title as? String ?? ""
+            }
+            if let text = mainDic["text"]{
+                pushObj.text = text as? String ?? ""
+            }
+            
+            AppDelegate.pushNotificationObj = pushObj
+            AppDelegate.pushNotificationType = pushObj.type
+            
+            if pushObj.type == NotificationTypes.notifLoggedOut.rawValue {
+                appDel.dologout()
+                completionHandler()
+                return
+            }
+
+        }
+    }
+}
+
+extension Notification.Name {
+    static let sessionExpire = NSNotification.Name("sessionExpire")
+    static let refreshHomeScreen = NSNotification.Name("refreshHomeScreen")
+}
+
+enum NotificationTypes : String {
+    case notifLoggedOut = "sessionTimeout"
+    case newBooking = "newBooking"
+}
+
+class NotificationObjectModel: Codable {
+    var booking_id: String?
+    var type: String?
+    var title: String?
+    var text: String?
+}
+
+extension UIApplication {
+    class func appTopViewController(controller: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let navigationController = controller as? UINavigationController {
+            return appTopViewController(controller: navigationController.visibleViewController)
+        }
+        if let tabController = controller as? UITabBarController {
+            if let selected = tabController.selectedViewController {
+                return appTopViewController(controller: selected)
+            }
+        }
+        if let presented = controller?.presentedViewController {
+            return appTopViewController(controller: presented)
+        }
+        return controller
     }
 }

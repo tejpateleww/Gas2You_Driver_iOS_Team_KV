@@ -49,6 +49,5 @@ class PasswordUserModel{
         changePasswordVC?.txtCurrentPassword.text = ""
         changePasswordVC?.txtNewPassword.text = ""
         changePasswordVC?.txtReEnterPassword.text = ""
-        
     }
 }

@@ -23,6 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     static var shared: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
+    static var pushNotificationObj : NotificationObjectModel?
+    static var pushNotificationType : String?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         

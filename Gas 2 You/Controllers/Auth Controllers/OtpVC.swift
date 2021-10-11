@@ -63,6 +63,7 @@ class OtpVC: BaseVC {
         
         self.otpToastDisplay()
         self.reversetimer()
+        
     }
     
     func setupBottomBorder() {
@@ -190,6 +191,7 @@ class OtpVC: BaseVC {
         for txtfield in arrTextFields{
             txtfield.text = ""
         }
+        self.txtFldOTP1.isUserInteractionEnabled = true
         self.counter = 31
         self.callOtpApi()
     }

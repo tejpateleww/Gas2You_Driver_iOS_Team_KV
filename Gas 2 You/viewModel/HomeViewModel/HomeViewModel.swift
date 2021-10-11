@@ -15,14 +15,15 @@ class HomeViewModel{
     func webserviceBookingRequestAPI(reqModel: HomeBookingReqModel){
         self.homeVC?.isApiProcessing = true
         if(self.homeVC?.CurrentPage != 1){
-            Utilities.showHud()
+            self.homeVC?.tblHome.tableFooterView?.isHidden = false
         }
+        
         WebServiceSubClass.homeBookingRequest(reqModel: reqModel) { (status, apiMessage, response, error) in
             self.homeVC?.isApiProcessing = false
             self.homeVC?.isTblReload = true
             self.homeVC?.isLoading = false
             if(self.homeVC?.CurrentPage != 1){
-                Utilities.hideHud()
+                self.homeVC?.tblHome.tableFooterView?.isHidden = true
             }
             
             if status{
@@ -40,7 +41,7 @@ class HomeViewModel{
                     }else{
                         self.homeVC?.arrBookings.append(contentsOf: response?.data ?? [])
                     }
-                }
+                }   
                 self.homeVC?.tblHome.reloadData()
             }else{
                 Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
@@ -52,14 +53,15 @@ class HomeViewModel{
     func webserviceBookingInProgressAPI(reqModel: HomeBookingReqModel){
         self.homeVC?.isApiProcessing = true
         if(self.homeVC?.CurrentPageInProgress != 1){
-            Utilities.showHud()
+            self.homeVC?.tblHome.tableFooterView?.isHidden = false
         }
+
         WebServiceSubClass.homeBookingInProgressAPI(reqModel: reqModel) { (status, apiMessage, response, error) in
             self.homeVC?.isApiProcessing = false
             self.homeVC?.isTblReload = true
             self.homeVC?.isLoading = false
             if(self.homeVC?.CurrentPageInProgress != 1){
-                Utilities.hideHud()
+                self.homeVC?.tblHome.tableFooterView?.isHidden = true
             }
             
             if status{

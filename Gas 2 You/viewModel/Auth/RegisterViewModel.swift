@@ -36,6 +36,7 @@ class OTPUserModel{
             if status{
                 self.signUpVCp?.strOtp = response?.otp ?? ""
                 self.signUpVCp?.goToOTP()
+                Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
             }else{
                 Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
             }

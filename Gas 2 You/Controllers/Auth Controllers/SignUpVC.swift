@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class SignUpVC: BaseVC {
     
@@ -33,7 +34,7 @@ class SignUpVC: BaseVC {
         self.btnLoginNow.setunderline(title: "Login Now" , color: .white, font: CustomFont.PoppinsSemiBold.returnFont(16))
         
         //mobile no field +1 related code
-        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 40, height: 20))
+        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 20))
         self.txtMobile.leftView = paddingView
         self.txtMobile.leftViewMode = .always
         self.txtMobile.layer.borderWidth = 1
@@ -64,31 +65,44 @@ class SignUpVC: BaseVC {
     }
     
     func goToOTP(){
-        if self.validation(){
-            if(self.txtPassword.text != self.txtConfirmPassword.text){
-                Toast.show(title: UrlConstant.Required, message: UrlConstant.PasswordNotMatch, state: .failure)
-            }else{
-                if self.validation(){
-                    let reqModel = RegisterRequestModel()
-                    reqModel.fullName = self.txtFirstName.text?.trimmingCharacters(in: .whitespaces)
-                    reqModel.email = self.txtEmail.text ?? ""
-                    reqModel.countryCode = DefaultCouuntryCode
-                    reqModel.phone = self.txtMobile.text ?? ""
-                    reqModel.password = self.txtPassword.text ?? ""
-                    
-                    let OtpVC = storyboard?.instantiateViewController(identifier: OtpVC.className) as! OtpVC
-                    OtpVC.registerReqModel = reqModel
-                    OtpVC.strOtp = self.strOtp
-                    navigationController?.pushViewController(OtpVC, animated: true)
-                    
-                }
+        let reqModel = RegisterRequestModel()
+        reqModel.fullName = self.txtFirstName.text?.trimmingCharacters(in: .whitespaces)
+        reqModel.email = self.txtEmail.text ?? ""
+        reqModel.countryCode = DefaultCouuntryCode
+        reqModel.phone = self.txtMobile.text ?? ""
+        reqModel.password = self.txtPassword.text ?? ""
+        
+        let OtpVC = storyboard?.instantiateViewController(identifier: OtpVC.className) as! OtpVC
+        OtpVC.registerReqModel = reqModel
+        OtpVC.strOtp = self.strOtp
+        navigationController?.pushViewController(OtpVC, animated: true)
+    }
+    
+    func previewDocument(strURL : String){
+        guard let url = URL(string: strURL) else {return}
+        let svc = SFSafariViewController(url: url)
+        present(svc, animated: true, completion: nil)
+    }
+    
+    //MARK:- IBAction
+    @IBAction func btnTCAction(_ sender: Any) {
+        var TC = ""
+        if let TCLink = Singleton.sharedInstance.AppInitModel?.appLinks?.filter({ $0.name == "terms_and_condition"}) {
+            if TCLink.count > 0 {
+                TC = TCLink[0].url ?? ""
+                self.previewDocument(strURL: TC)
             }
         }
     }
     
-    //MARK:- IBAction
-    @IBAction func btnPrivacyPolicyTap(_ sender: Any) {
-        
+    @IBAction func btnPPAction(_ sender: Any) {
+        var PrivacyPolicy = ""
+        if let PrivacyPolicyLink = Singleton.sharedInstance.AppInitModel?.appLinks?.filter({ $0.name == "privacy_policy"}) {
+            if PrivacyPolicyLink.count > 0 {
+                PrivacyPolicy = PrivacyPolicyLink[0].url ?? ""
+                self.previewDocument(strURL: PrivacyPolicy)
+            }
+        }
     }
     
     @IBAction func btnLoginNowTap(_ sender: Any) {
@@ -96,7 +110,13 @@ class SignUpVC: BaseVC {
     }
     
     @IBAction func btnSignupTap(_ sender: Any) {
-        self.callOtpApi()
+        if self.validation(){
+            if(self.txtPassword.text != self.txtConfirmPassword.text){
+                Toast.show(title: UrlConstant.Required, message: UrlConstant.PasswordNotMatch, state: .failure)
+            }else{
+                self.callOtpApi()
+            }
+        }
     }
     
     @IBAction func logInNowButtonPressed(_ sender: themeButton){

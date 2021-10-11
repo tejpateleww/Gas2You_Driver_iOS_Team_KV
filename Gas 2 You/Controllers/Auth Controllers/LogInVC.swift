@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class LogInVC: UIViewController {
     
@@ -64,6 +65,12 @@ class LogInVC: UIViewController {
         }
     }
     
+    func previewDocument(strURL : String){
+        guard let url = URL(string: strURL) else {return}
+        let svc = SFSafariViewController(url: url)
+        present(svc, animated: true, completion: nil)
+    }
+    
     @objc func navigateToForgotPassword(){
         let loginStory = UIStoryboard(name: "Main", bundle: nil)
         let forgotpassVC = loginStory.instantiateViewController(identifier: ForgotPasswordVC.className) as! ForgotPasswordVC
@@ -82,6 +89,26 @@ class LogInVC: UIViewController {
     @IBAction func signUpButtonPressed(_ sender: themeButton) {
         let signUpVC = storyboard?.instantiateViewController(identifier: SignUpVC.className) as! SignUpVC
         navigationController?.pushViewController(signUpVC, animated: true)
+    }
+    
+    @IBAction func btnTCAction(_ sender: Any) {
+        var TC = ""
+        if let TCLink = Singleton.sharedInstance.AppInitModel?.appLinks?.filter({ $0.name == "terms_and_condition"}) {
+            if TCLink.count > 0 {
+                TC = TCLink[0].url ?? ""
+                self.previewDocument(strURL: TC)
+            }
+        }
+    }
+    
+    @IBAction func btnPPAction(_ sender: Any) {
+        var PrivacyPolicy = ""
+        if let PrivacyPolicyLink = Singleton.sharedInstance.AppInitModel?.appLinks?.filter({ $0.name == "privacy_policy"}) {
+            if PrivacyPolicyLink.count > 0 {
+                PrivacyPolicy = PrivacyPolicyLink[0].url ?? ""
+                self.previewDocument(strURL: PrivacyPolicy)
+            }
+        }
     }
 }
 

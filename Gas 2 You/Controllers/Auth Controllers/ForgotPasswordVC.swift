@@ -49,6 +49,11 @@ class ForgotPasswordVC: BaseVC {
 extension ForgotPasswordVC{
     func validation()->Bool{
         var strTitle : String?
+        
+        if(self.txtEmail.text == ""){
+            Toast.show(title: UrlConstant.Required, message: "Please enter email", state: .failure)
+            return false
+        }
         let checkEmail = self.txtEmail.validatedText(validationType: .email)
         
         if !checkEmail.0{

@@ -74,7 +74,7 @@ struct UserNameValidator: ValidatorConvertible {
     func validated(_ value: String) -> (Bool, String) {
         
         let value = value.trimmingCharacters(in: .whitespaces)
-        guard value != "" else {return (false,ValidationError("Please enter \(fieldName)").message)}
+        guard value != "" else {return (false,ValidationError("Please enter \(fieldName.lowercased())").message)}
         
         guard value.count >= 2 else {
             return (false , ValidationError("\(fieldName) must contain more than two characters").message)
@@ -153,7 +153,7 @@ struct EmailValidator: ValidatorConvertible {
 }
 struct PhoneNoValidator: ValidatorConvertible {
     func validated(_ value: String) -> (Bool,String) {
-        guard value != "" else {return (false,ValidationError("Please enter phone number").message)}
+        guard value != "" else {return (false,ValidationError("Please enter mobile number").message)}
         guard value.count >= 10 else { return (false,ValidationError("Minimum 10 digits are required").message)}
         
         // do {
