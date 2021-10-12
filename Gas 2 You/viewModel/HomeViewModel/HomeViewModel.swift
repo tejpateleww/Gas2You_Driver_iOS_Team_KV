@@ -16,6 +16,7 @@ class HomeViewModel{
         self.homeVC?.isApiProcessing = true
         if(self.homeVC?.CurrentPage != 1){
             self.homeVC?.tblHome.tableFooterView?.isHidden = false
+            self.homeVC?.pagingSpinner.startAnimating()
         }
         
         WebServiceSubClass.homeBookingRequest(reqModel: reqModel) { (status, apiMessage, response, error) in
@@ -24,6 +25,7 @@ class HomeViewModel{
             self.homeVC?.isLoading = false
             if(self.homeVC?.CurrentPage != 1){
                 self.homeVC?.tblHome.tableFooterView?.isHidden = true
+                self.homeVC?.pagingSpinner.stopAnimating()
             }
             
             if status{
@@ -41,7 +43,7 @@ class HomeViewModel{
                     }else{
                         self.homeVC?.arrBookings.append(contentsOf: response?.data ?? [])
                     }
-                }   
+                }
                 self.homeVC?.tblHome.reloadData()
             }else{
                 Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
@@ -54,6 +56,7 @@ class HomeViewModel{
         self.homeVC?.isApiProcessing = true
         if(self.homeVC?.CurrentPageInProgress != 1){
             self.homeVC?.tblHome.tableFooterView?.isHidden = false
+            self.homeVC?.pagingSpinner.startAnimating()
         }
 
         WebServiceSubClass.homeBookingInProgressAPI(reqModel: reqModel) { (status, apiMessage, response, error) in
@@ -62,6 +65,7 @@ class HomeViewModel{
             self.homeVC?.isLoading = false
             if(self.homeVC?.CurrentPageInProgress != 1){
                 self.homeVC?.tblHome.tableFooterView?.isHidden = true
+                self.homeVC?.pagingSpinner.stopAnimating()
             }
             
             if status{

@@ -35,11 +35,11 @@ class ChatListVC: BaseVC {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-                self.ChatSocketOnMethods()
+        self.ChatSocketOnMethods()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-                self.ChatSocketOffMethods()
+        self.ChatSocketOffMethods()
     }
     
     //MARK: - Custom Methods

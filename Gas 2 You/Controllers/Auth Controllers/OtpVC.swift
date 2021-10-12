@@ -67,10 +67,9 @@ class OtpVC: BaseVC {
     }
     
     func setupBottomBorder() {
-        self.txtFldOTP1.addBottomBorder()
-        self.txtFldOTP2.addBottomBorder()
-        self.txtFldOTP3.addBottomBorder()
-        self.txtFldOTP4.addBottomBorder()
+        for txtfield in arrTextFields{
+            txtfield.addBottomBorder()
+        }
     }
     
     func reversetimer(){

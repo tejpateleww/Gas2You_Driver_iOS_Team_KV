@@ -26,6 +26,7 @@ class HomeVC: BaseVC {
     var isApiProcessing = false
     var isStopPaging = false
     var isSelectedRequest = true
+    var pagingSpinner = UIActivityIndicatorView()
     
     var isTblReload = false
     var isLoading = true {
@@ -87,11 +88,11 @@ class HomeVC: BaseVC {
     }
     
     func addTableFooter(){
-        let pagingSpinner = UIActivityIndicatorView(style: .medium)
-        pagingSpinner.startAnimating()
-        pagingSpinner.color = UIColor.init(hexString: "#1F79CD")
-        pagingSpinner.hidesWhenStopped = true
-        self.tblHome.tableFooterView = pagingSpinner
+        self.pagingSpinner = UIActivityIndicatorView(style: .medium)
+        self.pagingSpinner.stopAnimating()
+        self.pagingSpinner.color = UIColor.init(hexString: "#1F79CD")
+        self.pagingSpinner.hidesWhenStopped = true
+        self.tblHome.tableFooterView = self.pagingSpinner
         self.tblHome.tableFooterView?.isHidden = true
     }
     
@@ -130,6 +131,8 @@ class HomeVC: BaseVC {
     func refreshNewRequest(){
         self.isLoading = true
         self.isTblReload = false
+        self.tblHome.tableFooterView?.isHidden = true
+        self.pagingSpinner.stopAnimating()
         
         self.isSelectedRequest = true
         self.CurrentPage = 1
@@ -147,6 +150,8 @@ class HomeVC: BaseVC {
     func refreshInprogresRequest(){
         self.isLoading = true
         self.isTblReload = false
+        self.tblHome.tableFooterView?.isHidden = true
+        self.pagingSpinner.stopAnimating()
         
         self.isSelectedRequest = false
         self.CurrentPageInProgress = 1

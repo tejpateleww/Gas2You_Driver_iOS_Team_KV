@@ -173,11 +173,6 @@ extension LogInVC: UITextFieldDelegate{
         default:
             print("")
         }
-        
         return true
     }
-    
-
-    
-    
 }
