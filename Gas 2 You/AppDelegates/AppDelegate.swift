@@ -11,6 +11,7 @@ import GoogleMaps
 import Firebase
 import FirebaseMessaging
 import FirebaseCore
+import FirebaseCrashlytics
 
 let AppDel = UIApplication.shared.delegate as! AppDelegate
 let user_defaults = UserDefaults.standard
