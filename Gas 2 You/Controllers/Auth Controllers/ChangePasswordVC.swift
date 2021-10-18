@@ -38,7 +38,12 @@ class ChangePasswordVC: BaseVC {
     //MARK:- Button action methods
     @IBAction func btnSaveTap(_ sender: ThemeButton) {
         if self.validation(){
-            self.callChangePasswordApi()
+            if(self.txtReEnterPassword.text == "" ){
+                Toast.show(title: UrlConstant.Required, message: "Please re-enter password", state: .failure)
+                return
+            }else{
+                self.callChangePasswordApi()
+            }
         }
     }
     
@@ -55,10 +60,6 @@ extension ChangePasswordVC{
         var strTitle : String?
         let oldPassword = self.txtCurrentPassword.validatedText(validationType: .password(field: self.txtCurrentPassword.placeholder?.lowercased() ?? ""))
         let newPassword = self.txtNewPassword.validatedText(validationType: .password(field: self.txtNewPassword.placeholder?.lowercased() ?? ""))
-        if(self.txtReEnterPassword.text == "" ){
-            Toast.show(title: UrlConstant.Required, message: "Please re-enter password", state: .failure)
-            return false
-        }
         let confirmPassword = self.txtReEnterPassword.validatedText(validationType: .requiredField(field: self.txtReEnterPassword.placeholder?.lowercased() ?? ""))
         
         if !oldPassword.0{

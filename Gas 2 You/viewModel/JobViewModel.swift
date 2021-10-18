@@ -46,15 +46,12 @@ class JobViewModel{
             Utilities.showHud()
         }
         WebServiceSubClass.complateBookingAPI(reqModel: reqModel) { (status, apiMessage, response, error) in
-            
             if(self.completedJobsVC?.CurrentPage != 1){
                 Utilities.hideHud()
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.completedJobsVC?.isLoading = false
-                self.completedJobsVC?.isTblReload = true
-            }
+            self.completedJobsVC?.isLoading = false
             self.completedJobsVC?.isApiProcessing = false
+            self.completedJobsVC?.isTblReload = true
             if status{
                 if(response?.data?.count == 0){
                     if(self.completedJobsVC?.CurrentPage == 1){

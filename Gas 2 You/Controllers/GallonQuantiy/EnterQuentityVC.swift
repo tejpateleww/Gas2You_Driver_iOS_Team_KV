@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EnterQuentityVC: BaseVC,UITextFieldDelegate{
+class EnterQuentityVC: BaseVC{
     
     //MARK:-IBOutlets
     @IBOutlet weak var vwMain: UIView!
@@ -20,21 +20,26 @@ class EnterQuentityVC: BaseVC,UITextFieldDelegate{
     //MARK:- Variables
     var btnSubmitClosure : ((String)->())?
     var Quantity :String = ""
-
+    let ACCEPTABLE_CHARACTERS_FOR_QUANTITY = "0123456789."
+    
+    //MARK:- Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        vwMain.layer.cornerRadius = 20
-        vwMain.layer.masksToBounds = true
+        
+        self.prepareView()
+    }
+    
+    //MARK:- Custom Methods
+    func prepareView(){
+        self.vwMain.layer.cornerRadius = 20
+        self.vwMain.layer.masksToBounds = true
         
         if(self.Quantity != ""){
             let Gallon: String = self.Quantity
             let words = Gallon.components(separatedBy: " ")
             self.txtPrice.text = words[0]
         }
-//        txtPrice.addTarget(self, action: #selector(myTextFieldDidChange), for: .editingChanged)
     }
-    
-    //MARK:- Custom Methods
     
     //MARK:- IBActions
     @IBAction func btnSubmitTap(_ sender: Any) {
@@ -48,46 +53,54 @@ class EnterQuentityVC: BaseVC,UITextFieldDelegate{
             }
         })
     }
+    
     @IBAction func btnCancelTap(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
     }
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        textField.StopWrittingAtCharactorLimit(CharLimit: 6, range: range, string: string)
-    }
-    @objc func myTextFieldDidChange(_ textField: UITextField) {
-
-        if let amountString = textField.text?.currencyInputFormatting(textfield: txtPrice) {
-            txtPrice.text = amountString
-            lblGallon.isHidden = txtPrice.text == "" ? true : false
-        }
-    }
+    
 }
-extension String {
 
-    // formatting text for currency textField
-    func currencyInputFormatting(textfield : UITextField) -> String {
 
-        var number: NSNumber!
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .currency
-        formatter.currencySymbol = ""//SingletonClass.sharedInstance.currency
-        formatter.maximumFractionDigits = 3
-        formatter.minimumFractionDigits = 3
-
-        var amountWithPrefix = self
-
-        // remove from String: "$", ".", ","
-        let regex = try! NSRegularExpression(pattern: "[^0-9]", options: .caseInsensitive)
-        amountWithPrefix = regex.stringByReplacingMatches(in: amountWithPrefix, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, textfield.text?.count ?? 0), withTemplate: "")
-
-        let double = (amountWithPrefix as NSString).doubleValue
-        number = NSNumber(value: (double / 1000))
-
-        // if first number is 0 or all numbers were deleted
-        guard number != 0 as NSNumber else {
-            return ""
+//MARK:- TextField Delegate
+extension EnterQuentityVC: UITextFieldDelegate{
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if string == "" {
+            return true
         }
-
-        return formatter.string(from: number)!
+        
+        if (textField.text?.count == 0 && string == "0") || (textField.text?.count == 0 && string == "."){
+            return false
+        }
+        
+        if (textField.text?.contains("."))! && string == "." {
+            return false
+        }
+        
+        if (textField.text?.contains("."))! {
+            let limitDecimalPlace = 3
+            let decimalPlace = textField.text?.components(separatedBy: ".").last
+            if (decimalPlace?.count)! < limitDecimalPlace {
+                return true
+            }
+            else {
+                return false
+            }
+        }
+        
+        switch textField {
+        
+        case self.txtPrice :
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_FOR_QUANTITY).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return (string == filtered) ? (newString.length <= MAX_QUANTITY_DIGITS) : false
+            
+        default:
+            print("")
+        }
+        
+        return true
     }
 }

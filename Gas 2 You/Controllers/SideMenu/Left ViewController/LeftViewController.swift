@@ -21,6 +21,7 @@ class LeftViewController: MenuViewController {
     @IBOutlet weak var lblUserName: themeLabel!
     @IBOutlet weak var lblUserActiveStatus: themeLabel!
     @IBOutlet weak var lblVersion: themeLabel!
+    @IBOutlet weak var btnProfileTap: UIButton!
     
     //MARK:- Properties
     ///0 for menu name 1 for icon name
@@ -64,6 +65,17 @@ class LeftViewController: MenuViewController {
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         self.lblVersion.text = "V \(appVersion ?? "0.0")"
     }
+    
+    @IBAction func BtnProfileAction(_ sender: Any) {
+        guard let menuContainerViewController = self.menuContainerViewController else {
+            return
+        }
+        let vc : MyProfileVC = MyProfileVC.instantiate(fromAppStoryboard: .Main)
+        (menuContainerViewController.contentViewControllers[0] as? NavigationController)?.pushViewController(vc, animated: false)
+        menuContainerViewController.hideSideMenu()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     
     @IBAction func btnProfileTap(_ sender: Any) {
         guard let menuContainerViewController = self.menuContainerViewController else {

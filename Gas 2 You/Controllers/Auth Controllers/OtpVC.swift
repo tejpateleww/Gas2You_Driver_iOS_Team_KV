@@ -6,20 +6,20 @@
 //
 
 import UIKit
+import OTPFieldView
 
 class OtpVC: BaseVC {
-    
+
     //MARK:- IBOutlets
-    @IBOutlet weak private var txtFldOTP1: SingleDigitField!
-    @IBOutlet weak private var txtFldOTP2: SingleDigitField!
-    @IBOutlet weak private var txtFldOTP3: SingleDigitField!
-    @IBOutlet weak private var txtFldOTP4: SingleDigitField!
     @IBOutlet weak var btnResend: themeButton!
     @IBOutlet weak var lblCheckEmail: themeLabel!
     @IBOutlet weak var lblTimer: themeLabel!
     @IBOutlet weak var btnVerify: ThemeButton!
+    @IBOutlet var otpTextFieldView: OTPFieldView!
     
     var strOtp = ""
+    var strEnteredOtp = ""
+    var hasEnteredAllOTP:Bool = false
     var timer = Timer()
     var counter = 30
     var arrTextFields : [UITextField] = []
@@ -33,47 +33,43 @@ class OtpVC: BaseVC {
         super.viewWillAppear(true)
         UIApplication.shared.statusBarStyle = .lightContent
         setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "OTP Verification", leftImage: "Back", rightImages: [], isTranslucent: true, iswhiteTitle: true)
-        
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.setupOtpView()
         self.prepareView()
-        self.setupBottomBorder()
     }
     
     //MARK:- custom methods
+    func setupOtpView(){
+        self.otpTextFieldView.fieldsCount = 4
+        self.otpTextFieldView.fieldBorderWidth = 2
+        self.otpTextFieldView.defaultBorderColor = UIColor.white
+        self.otpTextFieldView.filledBorderColor = UIColor.white
+        self.otpTextFieldView.cursorColor = UIColor.white
+        self.otpTextFieldView.errorBorderColor = UIColor.red
+        self.otpTextFieldView.displayType = .underlinedBottom
+        self.otpTextFieldView.fieldSize = 60
+        self.otpTextFieldView.separatorSpace = 15
+        self.otpTextFieldView.shouldAllowIntermediateEditing = false
+        self.otpTextFieldView.delegate = self
+        self.otpTextFieldView.initializeUI()
+    }
+    
     func prepareView() {
-        
         let email = registerReqModel?.email ?? ""
         let components = email.components(separatedBy: "@")
         let result = self.hideMidChars(components.first!) + "@" + components.last!
-        
         self.lblCheckEmail.text = "Check your email address. We've sent you the code at \(result)"
-        self.arrTextFields = [txtFldOTP1, txtFldOTP2, txtFldOTP3, txtFldOTP4]
-        
-        self.txtFldOTP1.isUserInteractionEnabled = true
-        self.arrTextFields.forEach {
-            $0.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
-        }
-        
+
         self.otpToastDisplay()
         self.reversetimer()
-        
-    }
-    
-    func setupBottomBorder() {
-        for txtfield in arrTextFields{
-            txtfield.addBottomBorder()
-        }
     }
     
     func reversetimer(){
-        self.timer.invalidate() // just in case this button is tapped multiple times
+        self.timer.invalidate()
         self.lblTimer.isHidden = false
         self.btnResend.isUserInteractionEnabled = false
         self.btnResend.setTitleColor(#colorLiteral(red: 0.1215686275, green: 0.5411764706, blue: 0.7803921569, alpha: 1).withAlphaComponent(0.7), for: .normal)
@@ -88,6 +84,10 @@ class OtpVC: BaseVC {
     
     func otpToastDisplay(){
         Utilities.showAlert(UrlConstant.OTPSent, message: self.strOtp, vc: self)
+    }
+    
+    func clearAllFields(){
+        self.otpTextFieldView.initializeUI()
     }
     
     func getLocation() -> Bool {
@@ -116,81 +116,27 @@ class OtpVC: BaseVC {
         }
     }
     
-    @objc func editingChanged(_ textField: SingleDigitField) {
-        if textField.pressedDelete {
-            textField.pressedDelete = false
-            if textField.hasText {
-                textField.text = ""
-            } else {
-                switch textField {
-                case self.txtFldOTP2, self.txtFldOTP3, self.txtFldOTP4:
-                    textField.resignFirstResponder()
-                    textField.isUserInteractionEnabled = false
-                    switch textField {
-                    case self.txtFldOTP2:
-                        self.txtFldOTP1.isUserInteractionEnabled = true
-                        self.txtFldOTP1.becomeFirstResponder()
-                        self.txtFldOTP1.text = ""
-                    case self.txtFldOTP3:
-                        self.txtFldOTP2.isUserInteractionEnabled = true
-                        self.txtFldOTP2.becomeFirstResponder()
-                        self.txtFldOTP2.text = ""
-                    case self.txtFldOTP4:
-                        self.txtFldOTP3.isUserInteractionEnabled = true
-                        self.txtFldOTP3.becomeFirstResponder()
-                        self.txtFldOTP3.text = ""
-                    default:
-                        break
-                    }
-                default: break
-                }
-            }
-        }
-        
-        guard textField.text?.count == 1, textField.text?.last?.isWholeNumber == true else {
-            textField.text = ""
-            return
-        }
-        switch textField {
-        case self.txtFldOTP1, self.txtFldOTP2, self.txtFldOTP3:
-            textField.resignFirstResponder()
-            textField.isUserInteractionEnabled = false
-            switch textField {
-            case self.txtFldOTP1:
-                self.txtFldOTP2.isUserInteractionEnabled = true
-                self.txtFldOTP2.becomeFirstResponder()
-            case self.txtFldOTP2:
-                self.txtFldOTP3.isUserInteractionEnabled = true
-                self.txtFldOTP3.becomeFirstResponder()
-            case self.txtFldOTP3:
-                self.txtFldOTP4.isUserInteractionEnabled = true
-                self.txtFldOTP4.becomeFirstResponder()
-            default: break
-            }
-        case self.txtFldOTP4:
-            self.txtFldOTP4.resignFirstResponder()
-        default: break
-        }
-    }
-    
     // MARK:- button action methods
     @IBAction func btnVerifyAction(_ sender: Any) {
-        let strTokenCode = "\(self.txtFldOTP1.text ?? "" )\(self.txtFldOTP2.text ?? "" )\(self.txtFldOTP3.text ?? "" )\(self.txtFldOTP4.text ?? "")"
-        if(self.strOtp != strTokenCode){
-            Utilities.showAlert(AppName, message: UrlConstant.ValidOtpNo, vc: self)
-        }else{
-            self.timer.invalidate()
-            if self.getLocation(){
-                self.callRegisterApi()
+
+        if(self.hasEnteredAllOTP){
+            if(self.strOtp != self.strEnteredOtp){
+                Utilities.showAlert(AppName, message: UrlConstant.ValidOtpNo, vc: self)
+            }else{
+                self.timer.invalidate()
+                if self.getLocation(){
+                    self.callRegisterApi()
+                }
             }
+        }else{
+            Utilities.showAlert(AppName, message: UrlConstant.ValidOtpNo, vc: self)
         }
+        
     }
     
     @IBAction func btnResendAction(_ sender: Any) {
-        for txtfield in arrTextFields{
-            txtfield.text = ""
-        }
-        self.txtFldOTP1.isUserInteractionEnabled = true
+  
+        
         self.counter = 31
         self.callOtpApi()
     }
@@ -210,5 +156,23 @@ extension OtpVC{
     func callRegisterApi(){
         self.otpUserModel.otpVC = self
         self.otpUserModel.webserviceRegister(reqModel: self.registerReqModel!)
+    }
+}
+
+//MARK:- OTPFieldView
+extension OtpVC: OTPFieldViewDelegate {
+    func hasEnteredAllOTP(hasEnteredAll hasEntered: Bool) -> Bool {
+        print("Has entered all OTP? \(hasEntered)")
+        self.hasEnteredAllOTP = hasEntered
+        return false
+    }
+    
+    func shouldBecomeFirstResponderForOTP(otpTextFieldIndex index: Int) -> Bool {
+        return true
+    }
+    
+    func enteredOTP(otp otpString: String) {
+        print("OTPString: \(otpString)")
+        self.strEnteredOtp = otpString
     }
 }

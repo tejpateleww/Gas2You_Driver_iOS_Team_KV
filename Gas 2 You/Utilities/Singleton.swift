@@ -18,7 +18,7 @@ class Singleton: NSObject{
     var UserProfilData : ProfileModel?
     var Api_Key = String()
     var DeviceType : String = "ios"
-    var DeviceToken : String = ""
+    var DeviceToken : String = UIDevice.current.identifierForVendor?.uuidString ?? ""
     var userCurrentLocation : CLLocationCoordinate2D?
     
     func locationString() -> (latitude: String, longitude: String){

@@ -177,8 +177,7 @@ class JobDetailsViewController: BaseVC {
         
     }
     
-    func MapSetup(currentlat: String, currentlong:String, droplat: String, droplog:String)
-    {
+    func MapSetup(currentlat: String, currentlong:String, droplat: String, droplog:String){
         
         let camera = GMSCameraPosition.camera(withLatitude: Double(currentlat) ?? 0.0, longitude:  Double(currentlong) ?? 0.0, zoom: 13.8)
         self.mapView.camera = camera
@@ -248,7 +247,7 @@ class JobDetailsViewController: BaseVC {
                 return
             }
             
-            if(status == "REQUEST_DENIED"){
+            if(status == "REQUEST_DENIED" || status == "ZERO_RESULTS"){
                 print("Map Error : \(jsonResponse["error_message"] as? String ?? "REQUEST_DENIED")")
                 return
             }

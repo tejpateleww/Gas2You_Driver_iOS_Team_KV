@@ -42,7 +42,35 @@ extension NSAttributedString {
     }
 }
 
+extension String {
 
+    // formatting text for currency textField
+    func currencyInputFormatting(textfield : UITextField) -> String {
+
+        var number: NSNumber!
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.currencySymbol = ""//SingletonClass.sharedInstance.currency
+        formatter.maximumFractionDigits = 3
+        formatter.minimumFractionDigits = 3
+
+        var amountWithPrefix = self
+
+        // remove from String: "$", ".", ","
+        let regex = try! NSRegularExpression(pattern: "[^0-9]", options: .caseInsensitive)
+        amountWithPrefix = regex.stringByReplacingMatches(in: amountWithPrefix, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, textfield.text?.count ?? 0), withTemplate: "")
+
+        let double = (amountWithPrefix as NSString).doubleValue
+        number = NSNumber(value: (double / 1000))
+
+        // if first number is 0 or all numbers were deleted
+        guard number != 0 as NSNumber else {
+            return ""
+        }
+
+        return formatter.string(from: number)!
+    }
+}
 
 extension String{
 //    func currencyInputFormatting() -> String {

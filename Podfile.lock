@@ -67,6 +67,7 @@ PODS:
     - nanopb/encode (= 2.30908.0)
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
+  - OTPFieldView (1.0.1)
   - PromisesObjC (1.2.12)
   - SDWebImage (5.11.1):
     - SDWebImage/Core (= 5.11.1)
@@ -83,6 +84,7 @@ DEPENDENCIES:
   - GoogleMaps
   - IQKeyboardManagerSwift
   - MKProgress
+  - OTPFieldView
   - SDWebImage
   - Socket.IO-Client-Swift
   - SwiftyJSON
@@ -102,6 +104,7 @@ SPEC REPOS:
     - IQKeyboardManagerSwift
     - MKProgress
     - nanopb
+    - OTPFieldView
     - PromisesObjC
     - SDWebImage
     - Socket.IO-Client-Swift
@@ -122,6 +125,7 @@ SPEC CHECKSUMS:
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   MKProgress: 260d166200323f3d991190a73ab2dc3a04b0f52f
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
+  OTPFieldView: 700a752fe62c41d1c4914c78aa500fb30d97c255
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   Socket.IO-Client-Swift: c116d6dc9fd6be9c259bacfe143f8725bce7d79e
@@ -129,6 +133,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   UIView-Shimmer: ff0a32c73d67c7dbdea3d9e530538b10d18aea56
 
-PODFILE CHECKSUM: 9bdd1044a32eea8fea89eb741f9f3927d7542093
+PODFILE CHECKSUM: 6534a2abee575f4fd67eefa3d24697431cc57cf7
 
 COCOAPODS: 1.10.1

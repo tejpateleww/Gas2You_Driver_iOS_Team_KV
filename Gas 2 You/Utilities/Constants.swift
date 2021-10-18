@@ -78,3 +78,4 @@ let TEXTFIELD_MaximumLimit = 70 //25
 let TEXTFIELD_PASSWORD_MaximumLimit = 15 //25
 let TEXTFIELD_MinimumLimit = 2
 let MAX_PHONE_DIGITS = 10
+let MAX_QUANTITY_DIGITS = 8

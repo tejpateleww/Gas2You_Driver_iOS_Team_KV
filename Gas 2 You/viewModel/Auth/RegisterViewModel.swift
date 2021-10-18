@@ -19,8 +19,9 @@ class OTPUserModel{
             self.otpVC?.btnVerify.hideLoading()
             if status{
                 self.otpVC?.strOtp = response?.otp ?? ""
-                self.otpVC?.otpToastDisplay()
                 self.otpVC?.reversetimer()
+                self.otpVC?.clearAllFields()
+                self.otpVC?.otpToastDisplay()
             }else{
                 Utilities.showAlertAction(AppName, message: apiMessage, vc: self.otpVC!) {
                     self.otpVC?.popBack()

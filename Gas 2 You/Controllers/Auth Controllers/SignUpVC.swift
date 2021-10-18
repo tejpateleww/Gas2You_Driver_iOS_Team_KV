@@ -111,8 +111,12 @@ class SignUpVC: BaseVC {
     
     @IBAction func btnSignupTap(_ sender: Any) {
         if self.validation(){
-            if(self.txtPassword.text != self.txtConfirmPassword.text){
+            if(self.txtConfirmPassword.text == "" ){
+                Toast.show(title: UrlConstant.Required, message: "Please re-enter password", state: .failure)
+                return
+            }else if (self.txtPassword.text != self.txtConfirmPassword.text){
                 Toast.show(title: UrlConstant.Required, message: UrlConstant.PasswordNotMatch, state: .failure)
+                return
             }else{
                 self.callOtpApi()
             }
@@ -129,10 +133,6 @@ extension SignUpVC{
     func validation()->Bool{
         var strTitle : String?
         let firstName = self.txtFirstName.validatedText(validationType: .username(field: self.txtFirstName.placeholder?.lowercased() ?? ""))
-        if(self.txtEmail.text == "" && !firstName.0 == false){
-            Toast.show(title: UrlConstant.Required, message: "Please enter email", state: .failure)
-            return false
-        }
         let checkEmail = self.txtEmail.validatedText(validationType: .email)
         let mobileNo = self.txtMobile.validatedText(validationType: .phoneNo)
         let password = self.txtPassword.validatedText(validationType: .password(field: self.txtPassword.placeholder?.lowercased() ?? ""))
