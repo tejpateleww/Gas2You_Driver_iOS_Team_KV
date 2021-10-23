@@ -17,6 +17,8 @@ class CompletedJobsVC: BaseVC {
     var isStopPaging = false
     var isTblReload = false
     var jobViewModel = JobViewModel()
+    let refreshControl = UIRefreshControl()
+    var pagingSpinner = UIActivityIndicatorView()
     
     var isLoading = true {
         didSet {
@@ -29,6 +31,8 @@ class CompletedJobsVC: BaseVC {
         super.viewDidLoad()
         self.prepareView()
         self.registerNib()
+        self.addRefreshControl()
+        self.addTableFooter()
         self.callComplateBookingAPI()
     }
     
@@ -37,11 +41,36 @@ class CompletedJobsVC: BaseVC {
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Completed Jobs", leftImage: "Back", rightImages: [], isTranslucent: true)
     }
     
+    func addTableFooter(){
+        self.pagingSpinner = UIActivityIndicatorView(style: .medium)
+        self.pagingSpinner.stopAnimating()
+        self.pagingSpinner.color = UIColor.init(hexString: "#1F79CD")
+        self.pagingSpinner.hidesWhenStopped = true
+        self.tblCompletedJobs.tableFooterView = self.pagingSpinner
+        self.tblCompletedJobs.tableFooterView?.isHidden = true
+    }
+    
     func registerNib(){
         let completedCellNib = UINib(nibName: CompletedCell.className, bundle: nil)
         self.tblCompletedJobs.register(completedCellNib, forCellReuseIdentifier: CompletedCell.className)
         let nib1 = UINib(nibName: NoDataTableViewCell.className, bundle: nil)
         self.tblCompletedJobs.register(nib1, forCellReuseIdentifier: NoDataTableViewCell.className)
+    }
+    
+    func addRefreshControl(){
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Refreshing...")
+        self.refreshControl.tintColor = UIColor.init(hexString: "#1F79CD")
+        self.refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        self.refreshControl.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        self.tblCompletedJobs.addSubview(self.refreshControl)
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        self.CurrentPage = 1
+        self.isStopPaging = false
+        self.isTblReload = false
+        self.isLoading = true
+        self.callComplateBookingAPI()
     }
 }
 

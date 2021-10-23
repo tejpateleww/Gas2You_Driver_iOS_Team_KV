@@ -13,6 +13,9 @@ class HomeViewModel{
     weak var homeVC : HomeVC? = nil
     
     func webserviceBookingRequestAPI(reqModel: HomeBookingReqModel){
+        DispatchQueue.main.async {
+            self.homeVC?.refreshControl.endRefreshing()
+        }
         self.homeVC?.isApiProcessing = true
         if(self.homeVC?.CurrentPage != 1){
             self.homeVC?.tblHome.tableFooterView?.isHidden = false
@@ -53,6 +56,10 @@ class HomeViewModel{
     }
     
     func webserviceBookingInProgressAPI(reqModel: HomeBookingReqModel){
+        
+        DispatchQueue.main.async {
+            self.homeVC?.refreshControl.endRefreshing()
+        }
         self.homeVC?.isApiProcessing = true
         if(self.homeVC?.CurrentPageInProgress != 1){
             self.homeVC?.tblHome.tableFooterView?.isHidden = false

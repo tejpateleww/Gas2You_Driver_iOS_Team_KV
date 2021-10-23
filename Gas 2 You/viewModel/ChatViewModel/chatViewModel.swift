@@ -15,6 +15,9 @@ class ChatUserModel{
     func webservicegetChatUserListAPI(){
         
         WebServiceSubClass.getChatUserListApi{ (status, apiMessage, response, error) in
+            DispatchQueue.main.async {
+                self.chatListVC?.refreshControl.endRefreshing()
+            }
             self.chatListVC?.isLoading = false
             self.chatListVC?.isTblReload = true
             if status{

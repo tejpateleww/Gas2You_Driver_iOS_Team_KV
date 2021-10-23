@@ -27,6 +27,7 @@ class HomeVC: BaseVC {
     var isStopPaging = false
     var isSelectedRequest = true
     var pagingSpinner = UIActivityIndicatorView()
+    let refreshControl = UIRefreshControl()
     
     var isTblReload = false
     var isLoading = true {
@@ -85,6 +86,24 @@ class HomeVC: BaseVC {
         
         self.addNotificationObs()
         self.addTableFooter()
+        self.addRefreshControl()
+        
+    }
+    
+    func addRefreshControl(){
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Refreshing...")
+        self.refreshControl.tintColor = UIColor.init(hexString: "#1F79CD")
+        self.refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        self.refreshControl.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        self.tblHome.addSubview(self.refreshControl)
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        if(isSelectedRequest){
+            self.refreshNewRequest()
+        }else{
+            self.refreshInprogresRequest()
+        }
     }
     
     func addTableFooter(){
@@ -265,7 +284,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if (self.tblHome.contentOffset.y >= (self.tblHome.contentSize.height - self.tblHome.frame.size.height)) && self.isStopPaging == false && self.isApiProcessing == false {
             print("call from scroll..")
-            if(self.isSelectedRequest == true){
+            if(self.isSelectedRequest){
                 self.CurrentPage += 1
                 self.CurrentPageInProgress = 1
                 self.callBookingRequestAPI()

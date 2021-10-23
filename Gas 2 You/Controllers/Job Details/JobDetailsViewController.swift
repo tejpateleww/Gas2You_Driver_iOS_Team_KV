@@ -211,8 +211,7 @@ class JobDetailsViewController: BaseVC {
         self.arrMarkers.append(self.CurrentLocMarker!)
         self.arrMarkers.append(self.DropLocMarker!)
         var bounds = GMSCoordinateBounds()
-        for marker in self.arrMarkers
-        {
+        for marker in self.arrMarkers{
             bounds = bounds.includingCoordinate(marker.position)
         }
         let update = GMSCameraUpdate.fit(bounds, withPadding: 30)

@@ -41,13 +41,18 @@ class JobViewModel{
     }
     
     func webserviceCompBookingHistoryAPI(reqModel: HomeBookingReqModel){
+        DispatchQueue.main.async {
+            self.completedJobsVC?.refreshControl.endRefreshing()
+        }
         self.completedJobsVC?.isApiProcessing = true
         if(self.completedJobsVC?.CurrentPage != 1){
-            Utilities.showHud()
+            self.completedJobsVC?.pagingSpinner.startAnimating()
+            //Utilities.showHud()
         }
         WebServiceSubClass.complateBookingAPI(reqModel: reqModel) { (status, apiMessage, response, error) in
             if(self.completedJobsVC?.CurrentPage != 1){
-                Utilities.hideHud()
+                self.completedJobsVC?.pagingSpinner.stopAnimating()
+                //Utilities.hideHud()
             }
             self.completedJobsVC?.isLoading = false
             self.completedJobsVC?.isApiProcessing = false

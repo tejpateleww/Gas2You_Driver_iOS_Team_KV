@@ -31,7 +31,6 @@ struct AppInfo {
         return "x-api-key"
     }
     
-    
     static var appStaticHeader:String{
         return "CoreSound$951"
     }

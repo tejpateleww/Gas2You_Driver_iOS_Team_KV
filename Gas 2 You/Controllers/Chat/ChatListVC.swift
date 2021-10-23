@@ -18,6 +18,7 @@ class ChatListVC: BaseVC {
     var arrUserList = [ChatUserListDatum]()
     var chatUserModel = ChatUserModel()
     var isTblReload = false
+    let refreshControl = UIRefreshControl()
     var isLoading = true {
         didSet {
             self.tblUserList.isUserInteractionEnabled = !isLoading
@@ -31,6 +32,7 @@ class ChatListVC: BaseVC {
         
         self.prepareView()
         self.registerNib()
+        self.addRefreshControl()
         self.callUserListAPI()
     }
     
@@ -51,6 +53,20 @@ class ChatListVC: BaseVC {
     func registerNib(){
         let nib1 = UINib(nibName: NoDataTableViewCell.className, bundle: nil)
         self.tblUserList.register(nib1, forCellReuseIdentifier: NoDataTableViewCell.className)
+    }
+    
+    func addRefreshControl(){
+        self.refreshControl.attributedTitle = NSAttributedString(string: "Refreshing...")
+        self.refreshControl.tintColor = UIColor.init(hexString: "#1F79CD")
+        self.refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        self.refreshControl.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        self.tblUserList.addSubview(self.refreshControl)
+    }
+    
+    @objc func refresh(_ sender: AnyObject) {
+        self.isLoading = true
+        self.isTblReload = false
+        self.callUserListAPI()
     }
     
 }
