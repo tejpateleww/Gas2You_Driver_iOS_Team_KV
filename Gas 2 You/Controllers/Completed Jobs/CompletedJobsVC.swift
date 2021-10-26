@@ -20,6 +20,7 @@ class CompletedJobsVC: BaseVC {
     var isStopPaging = false
     var isTblReload = false
     var jobViewModel = JobViewModel()
+    var invoiceViewModel = InvoiceViewModel()
     let refreshControl = UIRefreshControl()
     var pagingSpinner = UIActivityIndicatorView()
     
@@ -112,16 +113,19 @@ extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
                 let DateTime = "\(self.arrBookings[indexPath.row].time ?? "")" + ", " + "\(self.arrBookings[indexPath.row].date ?? "")"
                 cell.lblDateTime.text = DateTime
                 
-                if(self.pdfFileAlreadySaved(url: "http://www.africau.edu/images/default/sample.pdf", fileName: self.arrBookings[indexPath.row].invoiceNumber ?? "") == true){
+                if(self.pdfFileAlreadySaved(url: self.arrBookings[indexPath.row].invoiceUrl ?? "", fileName: self.arrBookings[indexPath.row].invoiceNumber ?? "") == true){
                     cell.btnDownload.setTitle("VIEW INVOICE", for: .normal)
                 }else{
                     cell.btnDownload.setTitle("DOWNLOAD INVOICE", for: .normal)
                 }
                 
                 cell.btnDownloadTapCousure = {
-                    self.savePdf(urlString: "http://www.africau.edu/images/default/sample.pdf", fileName: self.arrBookings[indexPath.row].invoiceNumber ?? "")
+                    if(self.pdfFileAlreadySaved(url: self.arrBookings[indexPath.row].invoiceUrl ?? "", fileName: self.arrBookings[indexPath.row].invoiceNumber ?? "") == true){
+                        self.savePdf(urlString: self.arrBookings[indexPath.row].invoiceUrl ?? "", fileName: self.arrBookings[indexPath.row].invoiceNumber ?? "")
+                    }else{
+                        self.callDownloadInvoiceAPI(bookingID: self.arrBookings[indexPath.row].id ?? "")
+                    }
                 }
-                
                 return cell
             }else{
                 let NoDatacell = self.tblCompletedJobs.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
@@ -175,6 +179,15 @@ extension CompletedJobsVC{
         HomeBooking.page = "\(self.CurrentPage)"
         
         self.jobViewModel.webserviceCompBookingHistoryAPI(reqModel: HomeBooking)
+    }
+    
+    func callDownloadInvoiceAPI(bookingID: String){
+        self.invoiceViewModel.completedJobsVC = self
+        
+        let downloadInvoiceReqModel = DownloadInvoiceReqModel()
+        downloadInvoiceReqModel.bookingId = bookingID
+        
+        self.invoiceViewModel.webserviceOrderStatusUpdateAPI(reqModel: downloadInvoiceReqModel)
     }
 }
 

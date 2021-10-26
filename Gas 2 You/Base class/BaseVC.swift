@@ -58,7 +58,7 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
                     Toast.show(title: UrlConstant.Success, message: "Invoice successfully downloaded!", state: .success)
                     self.delegate?.onSaveInvoice()
                 } catch {
-                    Utilities.showAlertAction(message: "Pdf could not be saved!", vc: self)
+                    Utilities.showAlertAction(message: "Invoice could not be saved!", vc: self)
                 }
             }
         }
@@ -83,7 +83,7 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
                     }
                 }
             } catch {
-                print("could not locate pdf file !!!!!!!")
+                print("could not locate Invoice file !!!!!!!")
             }
         }
     }
@@ -101,7 +101,7 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
                     }
                 }
             } catch {
-                print("could not locate pdf file !!!!!!!")
+                print("could not locate Invoice file !!!!!!!")
             }
         }
         return status

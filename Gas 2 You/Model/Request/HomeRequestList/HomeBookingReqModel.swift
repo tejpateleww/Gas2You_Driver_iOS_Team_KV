@@ -16,3 +16,12 @@ class HomeBookingReqModel: Encodable{
         case page = "page"
     }
 }
+
+class DownloadInvoiceReqModel: Encodable{
+    var bookingId : String?
+    
+    enum CodingKeys: String, CodingKey {
+        case bookingId = "booking_id"
+    }
+}
+

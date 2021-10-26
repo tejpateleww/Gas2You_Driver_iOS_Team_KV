@@ -54,10 +54,12 @@
 		88367A2D270C69B20034D5F1 /* ChatUserListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88367A2B270C69B20034D5F1 /* ChatUserListModel.swift */; };
 		88367A30270C6A930034D5F1 /* chatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88367A2F270C6A930034D5F1 /* chatViewModel.swift */; };
 		884912D426E0916900D7A917 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884912D326E0916900D7A917 /* LoginViewModel.swift */; };
+		8849612B27280D8200ABD917 /* DownloadInvoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8849612A27280D8200ABD917 /* DownloadInvoiceModel.swift */; };
 		8853A99E2726735A00456181 /* ChatShimmer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8853A99C2726735A00456181 /* ChatShimmer.swift */; };
 		8853A99F2726735A00456181 /* ChatShimmer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8853A99D2726735A00456181 /* ChatShimmer.xib */; };
 		8853A9A3272678D000456181 /* chatHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8853A9A1272678D000456181 /* chatHistoryModel.swift */; };
 		8853A9A4272678D000456181 /* chatHistoryDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8853A9A2272678D000456181 /* chatHistoryDatum.swift */; };
+		88593F0B2728108000C98220 /* InvoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88593F0A2728108000C98220 /* InvoiceViewModel.swift */; };
 		885C690D26F88A6000844561 /* RequestBookingListDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885C690B26F88A6000844561 /* RequestBookingListDatum.swift */; };
 		885C690E26F88A6000844561 /* RequestBookingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885C690C26F88A6000844561 /* RequestBookingListModel.swift */; };
 		885C691126F88ACE00844561 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885C691026F88ACE00844561 /* HomeViewModel.swift */; };
@@ -206,10 +208,12 @@
 		88367A2B270C69B20034D5F1 /* ChatUserListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatUserListModel.swift; sourceTree = "<group>"; };
 		88367A2F270C6A930034D5F1 /* chatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chatViewModel.swift; sourceTree = "<group>"; };
 		884912D326E0916900D7A917 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		8849612A27280D8200ABD917 /* DownloadInvoiceModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadInvoiceModel.swift; sourceTree = "<group>"; };
 		8853A99C2726735A00456181 /* ChatShimmer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatShimmer.swift; sourceTree = "<group>"; };
 		8853A99D2726735A00456181 /* ChatShimmer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatShimmer.xib; sourceTree = "<group>"; };
 		8853A9A1272678D000456181 /* chatHistoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatHistoryModel.swift; sourceTree = "<group>"; };
 		8853A9A2272678D000456181 /* chatHistoryDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatHistoryDatum.swift; sourceTree = "<group>"; };
+		88593F0A2728108000C98220 /* InvoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceViewModel.swift; sourceTree = "<group>"; };
 		885C690B26F88A6000844561 /* RequestBookingListDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBookingListDatum.swift; sourceTree = "<group>"; };
 		885C690C26F88A6000844561 /* RequestBookingListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBookingListModel.swift; sourceTree = "<group>"; };
 		885C691026F88ACE00844561 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
@@ -417,6 +421,7 @@
 		884912D126E0915500D7A917 /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
+				88593F092728106F00C98220 /* InvoiceViewModel */,
 				88367A2E270C6A820034D5F1 /* ChatViewModel */,
 				88DC2782270ACB9A00359438 /* UserInfoViewModel */,
 				88FCC9C52706E79E0006C838 /* JobViewModel */,
@@ -436,6 +441,14 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
+		8849612927280D7500ABD917 /* Download Invoice */ = {
+			isa = PBXGroup;
+			children = (
+				8849612A27280D8200ABD917 /* DownloadInvoiceModel.swift */,
+			);
+			path = "Download Invoice";
+			sourceTree = "<group>";
+		};
 		8853A9A0272678D000456181 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
@@ -445,9 +458,18 @@
 			path = Chat;
 			sourceTree = "<group>";
 		};
+		88593F092728106F00C98220 /* InvoiceViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				88593F0A2728108000C98220 /* InvoiceViewModel.swift */,
+			);
+			path = InvoiceViewModel;
+			sourceTree = "<group>";
+		};
 		885C690926F88A1C00844561 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				8849612927280D7500ABD917 /* Download Invoice */,
 				88367A28270C697C0034D5F1 /* Chat */,
 				88DC2785270ACC0300359438 /* User Profile update */,
 				88FCC9D027071AE60006C838 /* JobCompModel */,
@@ -1240,6 +1262,7 @@
 				9A5B08E826B26C7800BA0CB4 /* Themes.swift in Sources */,
 				888D123E26DE23B40034D277 /* CodableResponseServiceClass.swift in Sources */,
 				888D124326DE24440034D277 /* String+Functionality.swift in Sources */,
+				88593F0B2728108000C98220 /* InvoiceViewModel.swift in Sources */,
 				8865B86F26DF5468005F7F36 /* AppDelegate+Methods.swift in Sources */,
 				8853A9A3272678D000456181 /* chatHistoryModel.swift in Sources */,
 				9A3A913226C133AC0041D7D9 /* MenuAnimator.swift in Sources */,
@@ -1252,6 +1275,7 @@
 				9A5B08F026B2703000BA0CB4 /* String+extension.swift in Sources */,
 				9A5B08ED26B26DF100BA0CB4 /* AppTheme_FontColor.swift in Sources */,
 				885C691126F88ACE00844561 /* HomeViewModel.swift in Sources */,
+				8849612B27280D8200ABD917 /* DownloadInvoiceModel.swift in Sources */,
 				88FE8327270F19830028D3B7 /* SocketManager.swift in Sources */,
 				8865B85626DF4420005F7F36 /* CommonResponseModel.swift in Sources */,
 			);

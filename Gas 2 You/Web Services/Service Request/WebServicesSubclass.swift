@@ -90,4 +90,10 @@ class WebServiceSubClass{
             completion(status, message, response, error)
         }
     }
+    
+    class func downloadInvoiceAPI(reqModel : DownloadInvoiceReqModel , completion: @escaping (Bool,String,DownloadInvoiceModel?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.downloadInvoice.rawValue, requestModel: reqModel, responseModel: DownloadInvoiceModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
 }

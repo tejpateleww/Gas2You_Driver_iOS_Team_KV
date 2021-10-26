@@ -22,6 +22,7 @@ class ChatViewController: BaseVC {
     @IBOutlet weak var lblInfo: UILabel!
     
     //MARK:- Properties
+    var isTblReload = false
     var isLoading = true {
         didSet {
             self.tblChat.isUserInteractionEnabled = !isLoading
@@ -29,7 +30,6 @@ class ChatViewController: BaseVC {
         }
     }
     var userData : ChatUserListDatum?
-    var isTblReload = false
     var arrayChatHistory = [chatHistoryDatum]()
     var filterListArr : [String: [chatHistoryDatum]] = [String(): [chatHistoryDatum]()]
     var filterKeysArr : [Date] = [Date]()

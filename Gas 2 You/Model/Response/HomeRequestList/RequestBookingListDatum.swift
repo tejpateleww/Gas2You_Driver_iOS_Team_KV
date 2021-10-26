@@ -35,6 +35,8 @@ class RequestBookingListDatum : Codable {
     let totalAmount : String?
     let totalGallon : String?
     let vehicleId : String?
+    let invoiceUrl : String?
+    
     
     enum CodingKeys: String, CodingKey {
         case colorName = "color_name"
@@ -65,6 +67,8 @@ class RequestBookingListDatum : Codable {
         case totalAmount = "total_amount"
         case totalGallon = "total_gallon"
         case vehicleId = "vehicle_id"
+        case invoiceUrl = "invoice_url"
+        
     }
     
     required init(from decoder: Decoder) throws {
@@ -97,6 +101,7 @@ class RequestBookingListDatum : Codable {
         totalAmount = try values.decodeIfPresent(String.self, forKey: .totalAmount)
         totalGallon = try values.decodeIfPresent(String.self, forKey: .totalGallon)
         vehicleId = try values.decodeIfPresent(String.self, forKey: .vehicleId)
+        invoiceUrl = try values.decodeIfPresent(String.self, forKey: .invoiceUrl)
     }
     
 }

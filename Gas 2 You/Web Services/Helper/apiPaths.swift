@@ -60,6 +60,7 @@ enum ApiKey: String {
     case getCompleteOrderList                 = "get_complete_order_list"
     case updateProfile                        = "update_profile"
     case messageList                          = "message_list/"
+    case downloadInvoice                          = "download_invoice"
     
 }
 

@@ -12,6 +12,7 @@ class WebViewVC: BaseVC {
     
     //MARK:- IBOutlets
     @IBOutlet weak var viewWeb: WKWebView!
+    @IBOutlet weak var Activity: UIActivityIndicatorView!
     
     //MARK:- VAriables and Properties
     var strUrl : String = "https://www.google.com"
@@ -24,6 +25,8 @@ class WebViewVC: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.Activity.color = UIColor.init(hexString: "#1F79CD")
         
         self.viewWeb.navigationDelegate = self
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Invoice", leftImage: "Back", rightImages: [], isTranslucent: true)
@@ -52,17 +55,17 @@ class WebViewVC: BaseVC {
 extension WebViewVC: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         //Utility.showHUD()
-        //self.Activity.startAnimating()
+        self.Activity.startAnimating()
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         //Utility.hideHUD()
-        //self.Activity.stopAnimating()
+        self.Activity.stopAnimating()
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         //Utility.hideHUD()
-       // self.Activity.stopAnimating()
+        self.Activity.stopAnimating()
     }
     
 }

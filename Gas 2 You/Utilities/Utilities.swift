@@ -334,6 +334,7 @@ class Utilities:NSObject{
         MKProgress.config.circleBorderColor = ThemeColorEnum.ThemeLoader.rawValue
         MKProgress.config.circleBorderWidth = 3.0
         MKProgress.config.backgroundColor = .clear
+        MKProgress.config.logoImage = #imageLiteral(resourceName: "Logo_image-1")
         MKProgress.show()
         
         
