@@ -102,6 +102,8 @@ class JobDetailsViewController: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.delegate = self
+        
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: strTitle == "" ? "Job Details" : strTitle, leftImage: "Back", rightImages: [], isTranslucent: true)
         self.setupData()
         self.prepareView()
@@ -109,6 +111,7 @@ class JobDetailsViewController: BaseVC {
         if(self.isfromhome){
             self.setupMap()
         }else{
+            self.setupTitleForDownload()
             self.setupMapForCompletedOrder()
         }
         
@@ -140,11 +143,20 @@ class JobDetailsViewController: BaseVC {
         self.LblCompleted.transform = CGAffineTransform(rotationAngle: -.pi/4)
     }
     
+    func setupTitleForDownload(){
+        if(self.pdfFileAlreadySaved(url: "http://www.africau.edu/images/default/sample.pdf", fileName: self.BookingDetail?.invoiceNumber ?? "") == true){
+            self.btnDownload.setTitle("VIEW INVOICE", for: .normal)
+        }else{
+            self.btnDownload.setTitle("DOWNLOAD INVOICE", for: .normal)
+        }
+    }
+    
     func setupMapForCompletedOrder(){
+        
         self.mapView.clear()
         self.path = GMSPath()
         self.polyline = GMSPolyline()
-  
+        
         self.PickLocLat = self.BookingDetail?.latitude ?? "0.0"
         self.PickLocLong = self.BookingDetail?.longitude ?? "0.0"
         
@@ -329,7 +341,7 @@ class JobDetailsViewController: BaseVC {
     
     // MARK: - --------- IBAction Methods ---------
     @IBAction func btnDownloadTap(_ sender: Any) {
-        
+        self.savePdf(urlString: "http://www.africau.edu/images/default/sample.pdf", fileName: self.BookingDetail?.invoiceNumber ?? "")
     }
     
     @IBAction func BtnStartJob(_ sender: ThemeButton) {
@@ -497,4 +509,11 @@ extension JobDetailsViewController{
         self.jobViewModel.webserviceOrderCompAPI(reqModel: JobComp)
     }
     
+}
+
+//MARK:- IncomingRideRequestViewDelegate
+extension JobDetailsViewController : CompletedTripDelgate{
+    func onSaveInvoice() {
+        self.setupTitleForDownload()
+    }
 }

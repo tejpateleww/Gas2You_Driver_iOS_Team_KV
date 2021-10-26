@@ -7,17 +7,24 @@
 
 import Foundation
 import UIKit
+import SDWebImage
+import PDFKit
+
+protocol CompletedTripDelgate {
+    func onSaveInvoice()
+}
 
 class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecognizerDelegate,SideMenuItemContent {
     
     //MARK:- Properties
+    var delegate : CompletedTripDelgate?
     var onTxtBtnPressed: ( (Int) -> () )?
     var pushToRoot = false
     let NavBackButton = UIButton()
+    
     //MARK:- Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         self.navigationController?.interactivePopGestureRecognizer?.delegate = self
         if pushToRoot {
@@ -27,42 +34,80 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
         }
         
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: CustomFont.PoppinsMedium.returnFont(16)]
-        
-        //        NotificationCenter.default.removeObserver(self, name: Notification.Name(rawValue: "UpdateCartValue"), object: nil)
+    }
+
+    
+    //MARK: - download file methods
+    func savePdf(urlString:String, fileName:String) {
+        if(urlString == ""){return}
+        if(self.pdfFileAlreadySaved(url: urlString, fileName: fileName) == true){
+            let vc : WebViewVC = WebViewVC.instantiate(fromAppStoryboard: .Main)
+            vc.isLoadFromURL = true
+            vc.strUrl = urlString
+            self.navigationController?.pushViewController(vc, animated: true)
+            return
+        }else{
+            DispatchQueue.main.async {
+                let url = URL(string: urlString)
+                let pdfData = try? Data.init(contentsOf: url!)
+                let resourceDocPath = (FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)).last! as URL
+                let pdfNameFromUrl = "\(AppName)_\(fileName).pdf"
+                let actualPath = resourceDocPath.appendingPathComponent(pdfNameFromUrl)
+                do {
+                    try pdfData?.write(to: actualPath, options: .atomic)
+                    Toast.show(title: UrlConstant.Success, message: "Invoice successfully downloaded!", state: .success)
+                    self.delegate?.onSaveInvoice()
+                } catch {
+                    Utilities.showAlertAction(message: "Pdf could not be saved!", vc: self)
+                }
+            }
+        }
     }
     
-    //MARK:- Methods
+    func showSavedPdf(url:String, fileName:String) {
+        if #available(iOS 10.0, *) {
+            do {
+                let docURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                let contents = try FileManager.default.contentsOfDirectory(at: docURL, includingPropertiesForKeys: [.fileResourceTypeKey], options: .skipsHiddenFiles)
+                for url in contents {
+                    if url.description.contains("\(AppName)_\(fileName).pdf".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "") {
+                        // its your file! do what you want with it!
+                        print(url)
+                        
+                        let pdfView = PDFView(frame: self.view.bounds)
+                        self.view.addSubview(pdfView)
+                        pdfView.autoScales = true
+                        let fileURL = url
+                        pdfView.document = PDFDocument(url: fileURL)
+                        
+                    }
+                }
+            } catch {
+                print("could not locate pdf file !!!!!!!")
+            }
+        }
+    }
     
-    //    func NavbarrightButton(){
-    //        let newBackButton = UIBarButtonItem(image: #imageLiteral(resourceName: "imgCart"), style: .plain, target: self, action: #selector(rightButtonAction(_:)))
-    //        newBackButton.tintColor = .white
-    //        navigationItem.rightBarButtonItem = newBackButton
-    //
-    //        let customView = UIView(frame: CGRect(x: 10.0, y: -10.0, width: 40, height: 40.0))
-    //        customView.backgroundColor = UIColor.clear
-    //
-    //        let button =  UIButton(type: .custom)
-    //        button.setImage(UIImage(named: "imgCart"), for: .normal)
-    //        button.addTarget(self, action: #selector(rightButtonAction(_:)), for: .touchUpInside)
-    //        button.frame = CGRect(x: 0, y: 20, width: 20, height: 20)
-    //        button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)   //move image to the right
-    //
-    //        customView.addSubview(button)
-    //
-    //        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-    //        label.text = String(SingletonClass.sharedInstance.CartValue)
-    //        label.textAlignment = .center
-    //        label.textColor = .white
-    //        label.backgroundColor =  .clear
-    ////        label.textContainerInset = UIEdgeInsetsMake(10, 0, 10, 0);
-    //
-    ////        button.backgroundColor = .red
-    //        customView.addSubview(label)
-    //
-    //        let barButton = UIBarButtonItem(customView: customView)
-    //        navigationItem.rightBarButtonItem = barButton
-    //    }
+    func pdfFileAlreadySaved(url:String, fileName:String)-> Bool {
+        var status = false
+        if #available(iOS 10.0, *) {
+            do {
+                let docURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                let contents = try FileManager.default.contentsOfDirectory(at: docURL, includingPropertiesForKeys: [.fileResourceTypeKey], options: .skipsHiddenFiles)
+                let fileName = "\(AppName)_\(fileName).pdf".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? ""
+                for url in contents {
+                    if url.description.contains(fileName) {
+                        status = true
+                    }
+                }
+            } catch {
+                print("could not locate pdf file !!!!!!!")
+            }
+        }
+        return status
+    }
     
+    //MARK:- NavbarrightButton Methods
     func NavbarrightButton() {
         
         let newBackButton = UIBarButtonItem(image: #imageLiteral(resourceName: "IC_chat"), style: .plain, target: self, action: #selector(rightButtonAction(_:)))
@@ -182,12 +227,15 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
         }
         
     }
-    func navBarRightImage() {
+    func navBarRightImage(imgURL: String) {
         
-        let viewFN = UIView(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
-        let userImage = UIButton(frame: CGRect.init(x: 0, y: 0, width: 30, height: 30))
-        userImage.setImage( #imageLiteral(resourceName: "IC_dummyImg2"), for: .normal)
-//        userImage.addTarget(self, action: #selector(rightProfileImageBtnTap(_:)), for: .touchUpInside)
+        let viewFN = UIView(frame: CGRect.init(x: 0, y: 0, width: 40, height: 40))
+        let userImage = UIButton(frame: CGRect.init(x: 0, y: 0, width: 40, height: 40))
+        
+        userImage.layer.cornerRadius = 0.5 * userImage.bounds.size.width
+        userImage.clipsToBounds = true
+        userImage.sd_imageIndicator = SDWebImageActivityIndicator.gray
+        userImage.sd_setBackgroundImage(with: URL(string:imgURL), for: .normal, placeholderImage: UIImage(named: "dummy_user"), options: [.continueInBackground, .refreshCached])
         userImage.isUserInteractionEnabled = false
         viewFN.addSubview(userImage)
         

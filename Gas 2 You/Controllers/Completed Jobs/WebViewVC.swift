@@ -2,21 +2,18 @@
 //  WebViewVC.swift
 //  Clotheslyners
 //
-//  Created by Raju Gupta on 11/02/21.
+//  Created by Tej on 11/02/21.
 //
 
 import UIKit
 import WebKit
 
-class WebViewVC: UIViewController {
+class WebViewVC: BaseVC {
     
     //MARK:- IBOutlets
     @IBOutlet weak var viewWeb: WKWebView!
-    @IBOutlet weak var heightTopGradientBar: NSLayoutConstraint!
-    @IBOutlet weak var Activity: UIActivityIndicatorView!
     
     //MARK:- VAriables and Properties
-    var strNavTitle : String = ""
     var strUrl : String = "https://www.google.com"
     var isLoadFromURL :Bool = false
     
@@ -29,13 +26,7 @@ class WebViewVC: UIViewController {
         super.viewDidLoad()
         
         self.viewWeb.navigationDelegate = self
-        
-        self.Activity.color = UIColor.black
-        self.Activity.hidesWhenStopped = true
-        self.viewWeb.addSubview(self.Activity)
-        
-        self.title = strNavTitle
-        self.heightTopGradientBar.constant = DeviceType.hasTopNotch ? ((self.navigationController?.navigationBar.frame.size.height ?? 44.0) + 44.0) : ((self.navigationController?.navigationBar.frame.size.height ?? 44.0) + 30.0)
+        self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Invoice", leftImage: "Back", rightImages: [], isTranslucent: true)
 
         if(isLoadFromURL){
             self.LoadFromURL(strUrl: strUrl)
@@ -61,17 +52,17 @@ class WebViewVC: UIViewController {
 extension WebViewVC: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         //Utility.showHUD()
-        self.Activity.startAnimating()
+        //self.Activity.startAnimating()
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         //Utility.hideHUD()
-        self.Activity.stopAnimating()
+        //self.Activity.stopAnimating()
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         //Utility.hideHUD()
-        self.Activity.stopAnimating()
+       // self.Activity.stopAnimating()
     }
     
 }

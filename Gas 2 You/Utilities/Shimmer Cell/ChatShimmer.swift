@@ -6,9 +6,22 @@
 //
 
 import UIKit
+import UIView_Shimmer
 
-class ChatShimmer: UITableViewCell {
-
+class ChatShimmer: UITableViewCell , ShimmeringViewProtocol {
+    
+    @IBOutlet weak var vWHeader: UIView!
+    @IBOutlet weak var vWReceiver: UIView!
+    @IBOutlet weak var vWSender: UIView!
+    
+    var shimmeringAnimatedItems: [UIView] {
+        [
+            self.vWHeader,
+            self.vWReceiver,
+            self.vWSender,
+        ]
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

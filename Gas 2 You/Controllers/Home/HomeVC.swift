@@ -91,7 +91,7 @@ class HomeVC: BaseVC {
     }
     
     func addRefreshControl(){
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Refreshing...")
+        self.refreshControl.attributedTitle = NSAttributedString(string: "")
         self.refreshControl.tintColor = UIColor.init(hexString: "#1F79CD")
         self.refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         self.refreshControl.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)

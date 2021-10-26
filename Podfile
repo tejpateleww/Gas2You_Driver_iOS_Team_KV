@@ -15,7 +15,6 @@ pod 'UIView-Shimmer', '~> 1.0'
 pod 'OTPFieldView'
 pod 'SwiftyJSON'
 pod 'Socket.IO-Client-Swift'
-
 pod 'Firebase/Messaging'
 pod 'Firebase/Crashlytics'
 

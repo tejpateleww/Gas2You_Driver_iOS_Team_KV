@@ -278,3 +278,42 @@ extension String{
            return ceil(boundingBox.height)
        }
 }
+
+extension String {
+    
+    var ampmDateString: String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        if let date = dateFormatter.date(from: self){
+            dateFormatter.dateFormat = "h:mm a"
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            return dateFormatter.string(from: date)
+        }
+        else{
+            return nil
+        }
+    }
+    
+    var serverDateStringToDateType1: Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        return dateFormatter.date(from: self)
+    }
+    
+    func convertDateString(inputFormat: DateFormatInputType, outputFormat: DateFormatOutputType) -> String {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.dateFormat = inputFormat.rawValue
+        
+        if let date = dateFormatter.date(from: self) {
+            dateFormatter.dateFormat = outputFormat.rawValue
+            return  dateFormatter.string(from: date)
+        }else{
+            print("Could not get the dat string from dateformattere")
+            return ""
+        }
+    }
+}

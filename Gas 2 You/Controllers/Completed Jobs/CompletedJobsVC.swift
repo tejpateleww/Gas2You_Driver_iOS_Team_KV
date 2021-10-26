@@ -6,11 +6,14 @@
 //
 
 import UIKit
+import PDFKit
 
 class CompletedJobsVC: BaseVC {
     
+    //MARK: - Outlets
     @IBOutlet weak var tblCompletedJobs: UITableView!
     
+    //MARK: - property
     var CurrentPage = 1
     var arrBookings = [RequestBookingListDatum]()
     var isApiProcessing = false
@@ -27,6 +30,7 @@ class CompletedJobsVC: BaseVC {
         }
     }
     
+    //MARK: - Life Cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.prepareView()
@@ -36,7 +40,10 @@ class CompletedJobsVC: BaseVC {
         self.callComplateBookingAPI()
     }
     
+    //MARK: - custom methods
     func prepareView(){
+        
+        self.delegate = self
         self.isLoading = true
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Completed Jobs", leftImage: "Back", rightImages: [], isTranslucent: true)
     }
@@ -58,7 +65,7 @@ class CompletedJobsVC: BaseVC {
     }
     
     func addRefreshControl(){
-        self.refreshControl.attributedTitle = NSAttributedString(string: "Refreshing...")
+        self.refreshControl.attributedTitle = NSAttributedString(string: "")
         self.refreshControl.tintColor = UIColor.init(hexString: "#1F79CD")
         self.refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         self.refreshControl.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
@@ -72,8 +79,10 @@ class CompletedJobsVC: BaseVC {
         self.isLoading = true
         self.callComplateBookingAPI()
     }
+    
 }
 
+//MARK: - UITableView Delegate methods
 extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,15 +112,16 @@ extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
                 let DateTime = "\(self.arrBookings[indexPath.row].time ?? "")" + ", " + "\(self.arrBookings[indexPath.row].date ?? "")"
                 cell.lblDateTime.text = DateTime
                 
+                if(self.pdfFileAlreadySaved(url: "http://www.africau.edu/images/default/sample.pdf", fileName: self.arrBookings[indexPath.row].invoiceNumber ?? "") == true){
+                    cell.btnDownload.setTitle("VIEW INVOICE", for: .normal)
+                }else{
+                    cell.btnDownload.setTitle("DOWNLOAD INVOICE", for: .normal)
+                }
                 
                 cell.btnDownloadTapCousure = {
-                    let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
-                    vc.isfromhome = false
-                    vc.strTitle = "Job Completed"
-                    vc.BookingDetail = self.arrBookings[indexPath.row]
-                    vc.orderStaus = "completed"
-                    self.navigationController?.pushViewController(vc, animated: true)
+                    self.savePdf(urlString: "http://www.africau.edu/images/default/sample.pdf", fileName: self.arrBookings[indexPath.row].invoiceNumber ?? "")
                 }
+                
                 return cell
             }else{
                 let NoDatacell = self.tblCompletedJobs.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
@@ -165,5 +175,12 @@ extension CompletedJobsVC{
         HomeBooking.page = "\(self.CurrentPage)"
         
         self.jobViewModel.webserviceCompBookingHistoryAPI(reqModel: HomeBooking)
+    }
+}
+
+//MARK:- IncomingRideRequestViewDelegate
+extension CompletedJobsVC : CompletedTripDelgate{
+    func onSaveInvoice() {
+        self.tblCompletedJobs.reloadData()
     }
 }
