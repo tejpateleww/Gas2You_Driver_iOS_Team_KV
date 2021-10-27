@@ -39,8 +39,12 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
     
     //MARK: - download file methods
     func savePdf(urlString:String, fileName:String) {
-        if(urlString == ""){return}
+        if(urlString == ""){
+            Utilities.hideHud()
+            return
+        }
         if(self.pdfFileAlreadySaved(url: urlString, fileName: fileName) == true){
+            Utilities.hideHud()
             let vc : WebViewVC = WebViewVC.instantiate(fromAppStoryboard: .Main)
             vc.isLoadFromURL = true
             vc.strUrl = urlString
@@ -55,11 +59,14 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
                 let actualPath = resourceDocPath.appendingPathComponent(pdfNameFromUrl)
                 do {
                     try pdfData?.write(to: actualPath, options: .atomic)
-                    Toast.show(title: UrlConstant.Success, message: "Invoice successfully downloaded!", state: .success)
                     self.delegate?.onSaveInvoice()
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        Toast.show(title: UrlConstant.Success, message: "Invoice successfully downloaded!", state: .success)
+                    }
                 } catch {
                     Utilities.showAlertAction(message: "Invoice could not be saved!", vc: self)
                 }
+                Utilities.hideHud()
             }
         }
     }

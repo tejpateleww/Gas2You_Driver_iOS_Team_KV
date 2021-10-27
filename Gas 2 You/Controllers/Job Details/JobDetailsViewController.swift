@@ -57,6 +57,7 @@ class JobDetailsViewController: BaseVC {
     var strTitle = ""
     var BookingDetail : RequestBookingListDatum?
     var CompBookingDetail : OrderComplateDatum?
+    var invoiceViewModel = InvoiceViewModel()
     
     var PickLocLong:String = "0.0"
     var PickLocLat:String = "0.0"
@@ -144,7 +145,7 @@ class JobDetailsViewController: BaseVC {
     }
     
     func setupTitleForDownload(){
-        if(self.pdfFileAlreadySaved(url: "http://www.africau.edu/images/default/sample.pdf", fileName: self.BookingDetail?.invoiceNumber ?? "") == true){
+        if(self.pdfFileAlreadySaved(url: self.BookingDetail?.invoiceUrl ?? "", fileName: self.BookingDetail?.invoiceNumber ?? "") == true){
             self.btnDownload.setTitle("VIEW INVOICE", for: .normal)
         }else{
             self.btnDownload.setTitle("DOWNLOAD INVOICE", for: .normal)
@@ -341,7 +342,13 @@ class JobDetailsViewController: BaseVC {
     
     // MARK: - --------- IBAction Methods ---------
     @IBAction func btnDownloadTap(_ sender: Any) {
-        self.savePdf(urlString: "http://www.africau.edu/images/default/sample.pdf", fileName: self.BookingDetail?.invoiceNumber ?? "")
+        
+        if(self.pdfFileAlreadySaved(url: self.BookingDetail?.invoiceUrl ?? "", fileName: self.BookingDetail?.invoiceNumber ?? "") == true){
+            self.savePdf(urlString: self.BookingDetail?.invoiceUrl ?? "", fileName: self.BookingDetail?.invoiceNumber ?? "")
+        }else{
+            self.callDownloadInvoiceAPI(bookingID: self.BookingDetail?.id ?? "")
+        }
+        
     }
     
     @IBAction func BtnStartJob(_ sender: ThemeButton) {
@@ -507,6 +514,16 @@ extension JobDetailsViewController{
         JobComp.pricePerGallon = self.BookingDetail?.price ?? ""
         
         self.jobViewModel.webserviceOrderCompAPI(reqModel: JobComp)
+    }
+    
+    
+    func callDownloadInvoiceAPI(bookingID: String){
+        self.invoiceViewModel.jobDetailsViewController = self
+        
+        let downloadInvoiceReqModel = DownloadInvoiceReqModel()
+        downloadInvoiceReqModel.bookingId = bookingID
+        
+        self.invoiceViewModel.webserviceOrderStatusUpdateFromJobAPI(reqModel: downloadInvoiceReqModel)
     }
     
 }
