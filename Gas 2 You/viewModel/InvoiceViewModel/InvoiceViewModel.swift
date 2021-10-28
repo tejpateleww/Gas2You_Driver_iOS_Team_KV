@@ -27,6 +27,7 @@ class InvoiceViewModel{
         Utilities.showHud()
         WebServiceSubClass.downloadInvoiceAPI(reqModel: reqModel) { (status, apiMessage, response, error) in
             if status{
+                self.jobDetailsViewController?.refreshOrderList()
                 self.jobDetailsViewController?.setupTitleForDownload()
                 self.jobDetailsViewController?.savePdf(urlString: response?.invoiceUrl ?? "", fileName: response?.invoiceNumber ?? "")
             }else{

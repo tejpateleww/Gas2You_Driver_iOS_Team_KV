@@ -153,6 +153,7 @@ extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
         vc.strTitle = "Job Completed"
         vc.BookingDetail = self.arrBookings[indexPath.row]
         vc.orderStaus = "completed"
+        vc.delegateDownloadInvoice = self
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -197,3 +198,11 @@ extension CompletedJobsVC : CompletedTripDelgate{
         self.tblCompletedJobs.reloadData()
     }
 }
+
+extension CompletedJobsVC : DownloadInvoiceDelgate{
+    func onCancelTripConfirm() {
+        self.CurrentPage = 1
+        self.callComplateBookingAPI()
+    }
+}
+

@@ -42,6 +42,10 @@ enum isFromHome {
     }
 }
 
+protocol DownloadInvoiceDelgate {
+    func onCancelTripConfirm()
+}
+
 class JobDetailsViewController: BaseVC {
     
     var orderStaus = ""
@@ -58,6 +62,7 @@ class JobDetailsViewController: BaseVC {
     var BookingDetail : RequestBookingListDatum?
     var CompBookingDetail : OrderComplateDatum?
     var invoiceViewModel = InvoiceViewModel()
+    var delegateDownloadInvoice : DownloadInvoiceDelgate?
     
     var PickLocLong:String = "0.0"
     var PickLocLat:String = "0.0"
@@ -138,6 +143,10 @@ class JobDetailsViewController: BaseVC {
         }else{
             self.isFromMyOrders()
         }
+    }
+    
+    func refreshOrderList(){
+        delegateDownloadInvoice?.onCancelTripConfirm()
     }
     
     func lblcompltedSetup() {
