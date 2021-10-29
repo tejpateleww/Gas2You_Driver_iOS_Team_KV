@@ -23,7 +23,7 @@ class UserInfoViewModel{
                 self.myProfileVC?.popBack()
                 Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
             }else{
-                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
+                Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
             }
         }
     }

@@ -53,7 +53,7 @@ extension ThemeColorEnum: RawRepresentable {
 
     var rawValue: RawValue {
         switch self {
-            case .Theme: return #colorLiteral(red: 0, green: 0.6666666667, blue: 0.4941176471, alpha: 1)
+            case .Theme: return #colorLiteral(red: 0.1098039216, green: 0.4588235294, blue: 0.7333333333, alpha: 1)
             case .ThemeLoader: return #colorLiteral(red: 0.1098039216, green: 0.4588235294, blue: 0.7333333333, alpha: 1)
             case .ThemeOrange: return #colorLiteral(red: 1, green: 0.5450980392, blue: 0.4823529412, alpha: 1)
             case .ThemeWhite: return #colorLiteral(red: 0.937254902, green: 0.9254901961, blue: 0.937254902, alpha: 1)
@@ -67,7 +67,7 @@ extension ThemeColorEnum: RawRepresentable {
             //MARK:- Tost Message Theme
             case .Success: return #colorLiteral(red: 0.3803921569, green: 0.631372549, blue: 0.09019607843, alpha: 1)
             case .Failure: return #colorLiteral(red: 0.9764705882, green: 0.2588235294, blue: 0.1843137255, alpha: 1)
-            case .Info: return #colorLiteral(red: 0.1882352941, green: 0.1882352941, blue: 0.1882352941, alpha: 1)
+            case .Info: return #colorLiteral(red: 0.9803921569, green: 0.6431372549, blue: 0.1294117647, alpha: 1)
         }
     }
 }

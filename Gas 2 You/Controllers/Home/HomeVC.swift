@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 import UIView_Shimmer
 
 class HomeVC: BaseVC {
@@ -35,12 +36,13 @@ class HomeVC: BaseVC {
             self.tblHome.isUserInteractionEnabled = !isLoading
             self.tblHome.reloadData()
         }
+        
     }
     
     //MARK:- VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+ 
         self.prepareView()
         self.registerNib()
         self.callBookingRequestAPI()

@@ -19,7 +19,7 @@ class JobViewModel{
             if status{
                 
             }else{
-                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
+                Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
                 self.JobDetailsVC?.popBack()
             }
         }
@@ -34,7 +34,7 @@ class JobViewModel{
                 self.JobDetailsVC?.CompBookingDetail = response?.data
                 self.JobDetailsVC?.JobCompleted()
             }else{
-                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
+                Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
                 self.JobDetailsVC?.popBack()
             }
         }
@@ -75,7 +75,7 @@ class JobViewModel{
                 }
                 self.completedJobsVC?.tblCompletedJobs.reloadData()
             }else{
-                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
+                Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
             }
         }
     }

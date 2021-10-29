@@ -33,7 +33,6 @@ class NotificationVC: BaseVC {
         arrNotification.append(notification(img: #imageLiteral(resourceName: "imgDarkBlueRight"), msg: "Your Order #1234 has been placed"))
         arrNotification.append(notification(img: #imageLiteral(resourceName: "imgDarkBlueRight"), msg: "Your Order #1234 has been placed"))
 
-        // Do any additional setup after loading the view.
     }
     
 }

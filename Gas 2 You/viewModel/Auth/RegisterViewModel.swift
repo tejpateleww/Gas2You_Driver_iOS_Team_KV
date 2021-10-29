@@ -39,7 +39,7 @@ class OTPUserModel{
                 self.signUpVCp?.goToOTP()
                 Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
             }else{
-                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
+                Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
             }
         }
     }
@@ -48,7 +48,7 @@ class OTPUserModel{
         self.otpVC?.btnVerify.showLoading()
         WebServiceSubClass.RegisterApi(reqModel: reqModel) { (status, apiMessage, response, error) in
             self.otpVC?.btnVerify.hideLoading()
-            Toast.show(title: status ? UrlConstant.Success : UrlConstant.Failed, message: apiMessage, state: status ? .success : .failure)
+            Toast.show(title: status ? UrlConstant.Success : UrlConstant.Error, message: apiMessage, state: status ? .success : .failure)
             
             if status{
                 userDefaults.setValue(true, forKey: UserDefaultsKey.isUserLogin.rawValue)
@@ -69,7 +69,7 @@ class OTPUserModel{
                 
                 appDel.navigateToHome()
             }else{
-                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
+                Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
             }
         }
     }

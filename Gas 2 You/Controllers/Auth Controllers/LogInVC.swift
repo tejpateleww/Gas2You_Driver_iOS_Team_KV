@@ -118,7 +118,7 @@ extension LogInVC{
         var strTitle : String?
         
         if(self.txtEmail.text == ""){
-            Toast.show(title: UrlConstant.Required, message: "Please enter email", state: .failure)
+            Toast.show(title: UrlConstant.Required, message: "Please enter email", state: .info)
             return false
         }
         let checkEmail = self.txtEmail.validatedText(validationType: .email)
@@ -131,7 +131,7 @@ extension LogInVC{
         }
         
         if let str = strTitle{
-            Toast.show(title: UrlConstant.Required, message: str, state: .failure)
+            Toast.show(title: UrlConstant.Required, message: str, state: .info)
             return false
         }
         

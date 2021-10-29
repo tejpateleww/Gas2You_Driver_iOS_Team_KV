@@ -43,6 +43,37 @@ extension NSAttributedString {
 }
 
 extension String {
+    func countInstances(of stringToFind: String) -> Int {
+        assert(!stringToFind.isEmpty)
+        var count = 0
+        var searchRange: Range<String.Index>?
+        while let foundRange = range(of: stringToFind, options: [], range: searchRange) {
+            count += 1
+            searchRange = Range(uncheckedBounds: (lower: foundRange.upperBound, upper: endIndex))
+        }
+        return count
+    }
+    
+    func replacingLastOccurrenceOfString(_ searchString: String,
+                with replacementString: String,
+                caseInsensitive: Bool = true) -> String
+        {
+            let options: String.CompareOptions
+            if caseInsensitive {
+                options = [.backwards, .caseInsensitive]
+            } else {
+                options = [.backwards]
+            }
+
+            if let range = self.range(of: searchString,
+                    options: options,
+                    range: nil,
+                    locale: nil) {
+
+                return self.replacingCharacters(in: range, with: replacementString)
+            }
+            return self
+        }
 
     // formatting text for currency textField
     func currencyInputFormatting(textfield : UITextField) -> String {

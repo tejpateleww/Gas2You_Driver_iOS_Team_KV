@@ -18,7 +18,7 @@ class InvoiceViewModel{
             if status{
                 self.completedJobsVC?.savePdf(urlString: response?.invoiceUrl ?? "", fileName: response?.invoiceNumber ?? "")
             }else{
-                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
+                Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
             }
         }
     }
@@ -31,7 +31,7 @@ class InvoiceViewModel{
                 self.jobDetailsViewController?.setupTitleForDownload()
                 self.jobDetailsViewController?.savePdf(urlString: response?.invoiceUrl ?? "", fileName: response?.invoiceNumber ?? "")
             }else{
-                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
+                Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
             }
         }
     }

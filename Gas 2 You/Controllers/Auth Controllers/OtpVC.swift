@@ -9,7 +9,7 @@ import UIKit
 import OTPFieldView
 
 class OtpVC: BaseVC {
-
+    
     //MARK:- IBOutlets
     @IBOutlet weak var btnResend: themeButton!
     @IBOutlet weak var lblCheckEmail: themeLabel!
@@ -19,9 +19,11 @@ class OtpVC: BaseVC {
     
     var strOtp = ""
     var strEnteredOtp = ""
+    var strEmail = ""
     var hasEnteredAllOTP:Bool = false
     var timer = Timer()
     var counter = 30
+    var countOfAstric = 0
     var arrTextFields : [UITextField] = []
     
     var otpUserModel = OTPUserModel()
@@ -61,11 +63,35 @@ class OtpVC: BaseVC {
     func prepareView() {
         let email = registerReqModel?.email ?? ""
         let components = email.components(separatedBy: "@")
-        let result = self.hideMidChars(components.first!) + "@" + components.last!
-        self.lblCheckEmail.text = "Check your email address. We've sent you the code at \(result)"
-
+        
+        if(components.first?.count ?? 0 <= 2){
+            self.strEmail = registerReqModel?.email ?? ""
+        }else{
+            self.strEmail = self.hideMidChars(components.first!) + "@" + components.last!
+            
+            print(self.strEmail.countInstances(of: "*"))
+            self.countOfAstric = self.strEmail.countInstances(of: "*")
+            if(self.countOfAstric != 5){
+                self.replaceEmail()
+            }
+        }
+        
+        self.lblCheckEmail.text = "Check your email address. We've sent you the code at \(self.strEmail)"
         self.otpToastDisplay()
         self.reversetimer()
+    }
+    
+    func replaceEmail(){
+        self.countOfAstric = self.strEmail.countInstances(of: "*")
+        if(self.countOfAstric == 5){return}
+        
+        if(self.countOfAstric < 5){
+            self.strEmail = self.strEmail.replaceCharacter(oldCharacter: "*", newCharacter: "**")
+            self.replaceEmail()
+        }else{
+            self.strEmail = self.strEmail.replacingLastOccurrenceOfString("*", with: "")
+            self.replaceEmail()
+        }
     }
     
     func reversetimer(){
@@ -118,7 +144,7 @@ class OtpVC: BaseVC {
     
     // MARK:- button action methods
     @IBAction func btnVerifyAction(_ sender: Any) {
-
+        
         if(self.hasEnteredAllOTP){
             if(self.strOtp != self.strEnteredOtp){
                 Utilities.showAlert(AppName, message: UrlConstant.ValidOtpNo, vc: self)
@@ -135,7 +161,7 @@ class OtpVC: BaseVC {
     }
     
     @IBAction func btnResendAction(_ sender: Any) {
-  
+        
         
         self.counter = 31
         self.callOtpApi()

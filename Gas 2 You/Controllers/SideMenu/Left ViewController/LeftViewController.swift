@@ -22,6 +22,7 @@ class LeftViewController: MenuViewController {
     @IBOutlet weak var lblUserActiveStatus: themeLabel!
     @IBOutlet weak var lblVersion: themeLabel!
     @IBOutlet weak var btnProfileTap: UIButton!
+    @IBOutlet weak var vwActive: UIView!
     
     //MARK:- Properties
     ///0 for menu name 1 for icon name
@@ -64,6 +65,9 @@ class LeftViewController: MenuViewController {
         
         let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         self.lblVersion.text = "V \(appVersion ?? "0.0")"
+
+        self.vwActive.layer.cornerRadius = self.vwActive.frame.size.width/2
+        self.vwActive.clipsToBounds = true
     }
     
     @IBAction func BtnProfileAction(_ sender: Any) {

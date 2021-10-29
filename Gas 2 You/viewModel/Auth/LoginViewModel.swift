@@ -34,7 +34,7 @@ class LoginUserModel{
                 }
                 appDel.navigateToHome()
             }else{
-                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
+                Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
             }
         }
     }

@@ -49,7 +49,7 @@ class HomeViewModel{
                 }
                 self.homeVC?.tblHome.reloadData()
             }else{
-                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
+                Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
             }
             
         }
@@ -93,7 +93,7 @@ class HomeViewModel{
                 }
                 self.homeVC?.tblHome.reloadData()
             }else{
-                Toast.show(title: UrlConstant.Failed, message: apiMessage, state: .failure)
+                Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
             }
         }
     }

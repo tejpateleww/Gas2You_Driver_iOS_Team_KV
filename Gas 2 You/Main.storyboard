@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xqy-4Y-0Nm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xqy-4Y-0Nm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
@@ -1518,7 +1518,7 @@ and Pr</string>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="ncT-ic-ZSk" customClass="ChatListCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="101"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ncT-ic-ZSk" id="Oer-Eh-Tdn">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
@@ -3628,7 +3628,7 @@ Send to Admin</string>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wi6-nb-dUx" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                        <rect key="frame" x="70" y="55.5" width="248.5" height="20.5"/>
+                                        <rect key="frame" x="70" y="55.5" width="100.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -3649,7 +3649,7 @@ Send to Admin</string>
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LeftViewMenuItemCell" id="E5w-oS-Odz" customClass="LeftViewMenuItemCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="24.5" width="303.5" height="70"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="303.5" height="70"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E5w-oS-Odz" id="D9r-Wf-cm8">
                                                     <rect key="frame" x="0.0" y="0.0" width="303.5" height="70"/>
@@ -3800,6 +3800,14 @@ Send to Admin</string>
                                             <action selector="btnLogoutTap:" destination="Et3-Z7-Nnx" eventType="touchUpInside" id="pUf-Qs-y77"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PU2-aH-JwE">
+                                        <rect key="frame" x="174.5" y="61" width="10" height="10"/>
+                                        <color key="backgroundColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="10" id="7Wg-Z5-dfy"/>
+                                            <constraint firstAttribute="width" secondItem="PU2-aH-JwE" secondAttribute="height" id="t5z-af-bSj"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -3808,15 +3816,17 @@ Send to Admin</string>
                                     <constraint firstItem="aXd-8V-X31" firstAttribute="top" secondItem="Wi6-nb-dUx" secondAttribute="bottom" constant="20" id="2Mw-eh-Z9P"/>
                                     <constraint firstItem="8gi-9S-fQn" firstAttribute="trailing" secondItem="BTX-FS-fUv" secondAttribute="trailing" id="42j-Mb-e5m"/>
                                     <constraint firstItem="sKu-aa-VPv" firstAttribute="leading" secondItem="aeK-WM-cKz" secondAttribute="leading" constant="15" id="4F9-my-VpW"/>
+                                    <constraint firstItem="aXd-8V-X31" firstAttribute="trailing" secondItem="Gk1-0f-nsw" secondAttribute="trailing" id="7b6-io-cTQ"/>
                                     <constraint firstItem="aXd-8V-X31" firstAttribute="leading" secondItem="sKu-aa-VPv" secondAttribute="leading" id="87h-s5-IaX"/>
                                     <constraint firstItem="sKu-aa-VPv" firstAttribute="top" secondItem="aeK-WM-cKz" secondAttribute="top" constant="30" id="8ZJ-Jr-8GS"/>
                                     <constraint firstItem="BTX-FS-fUv" firstAttribute="leading" secondItem="ae7-QV-4uM" secondAttribute="leading" id="CzJ-sS-At7"/>
                                     <constraint firstItem="8gi-9S-fQn" firstAttribute="bottom" secondItem="BTX-FS-fUv" secondAttribute="bottom" id="H9R-Rl-i5Y"/>
                                     <constraint firstAttribute="bottom" secondItem="BTX-FS-fUv" secondAttribute="bottom" constant="25" id="Mep-WB-Mdb"/>
                                     <constraint firstItem="XGj-Xz-Dp9" firstAttribute="top" secondItem="sKu-aa-VPv" secondAttribute="top" id="Qv7-5v-N4s"/>
+                                    <constraint firstItem="PU2-aH-JwE" firstAttribute="leading" secondItem="Wi6-nb-dUx" secondAttribute="trailing" constant="4" id="S2F-5v-mcY"/>
                                     <constraint firstItem="ae7-QV-4uM" firstAttribute="leading" secondItem="aXd-8V-X31" secondAttribute="leading" id="Wcd-Og-IF6"/>
+                                    <constraint firstItem="PU2-aH-JwE" firstAttribute="centerY" secondItem="Wi6-nb-dUx" secondAttribute="centerY" id="Y6A-El-TC8"/>
                                     <constraint firstItem="BTX-FS-fUv" firstAttribute="top" secondItem="ae7-QV-4uM" secondAttribute="bottom" constant="20" id="Z4Z-O6-Xao"/>
-                                    <constraint firstItem="Wi6-nb-dUx" firstAttribute="trailing" secondItem="Gk1-0f-nsw" secondAttribute="trailing" id="ZK5-IW-I6R"/>
                                     <constraint firstItem="XGj-Xz-Dp9" firstAttribute="bottom" secondItem="Wi6-nb-dUx" secondAttribute="bottom" id="dAv-4Q-cER"/>
                                     <constraint firstItem="Wi6-nb-dUx" firstAttribute="leading" secondItem="Gk1-0f-nsw" secondAttribute="leading" id="f1b-5x-fvE"/>
                                     <constraint firstItem="BTX-FS-fUv" firstAttribute="trailing" secondItem="ae7-QV-4uM" secondAttribute="trailing" id="hBw-XL-3lc"/>
@@ -3825,7 +3835,6 @@ Send to Admin</string>
                                     <constraint firstItem="8gi-9S-fQn" firstAttribute="leading" secondItem="BTX-FS-fUv" secondAttribute="leading" id="mZH-Ei-aZH"/>
                                     <constraint firstItem="ae7-QV-4uM" firstAttribute="trailing" secondItem="aXd-8V-X31" secondAttribute="trailing" id="oPy-5M-guU"/>
                                     <constraint firstItem="Gk1-0f-nsw" firstAttribute="leading" secondItem="sKu-aa-VPv" secondAttribute="trailing" constant="10" id="osG-83-rhq"/>
-                                    <constraint firstItem="aXd-8V-X31" firstAttribute="trailing" secondItem="Wi6-nb-dUx" secondAttribute="trailing" id="utD-K3-Zpt"/>
                                     <constraint firstItem="Gk1-0f-nsw" firstAttribute="width" secondItem="aeK-WM-cKz" secondAttribute="width" multiplier="0.6" id="yQt-ox-akF"/>
                                     <constraint firstItem="XGj-Xz-Dp9" firstAttribute="trailing" secondItem="Gk1-0f-nsw" secondAttribute="trailing" id="z3C-oc-Krj"/>
                                 </constraints>
@@ -3853,11 +3862,12 @@ Send to Admin</string>
                         <outlet property="lblUserActiveStatus" destination="Wi6-nb-dUx" id="d0v-Wu-xet"/>
                         <outlet property="lblUserName" destination="Gk1-0f-nsw" id="ztH-4M-ukb"/>
                         <outlet property="lblVersion" destination="ae7-QV-4uM" id="Q3r-8x-LwQ"/>
+                        <outlet property="vwActive" destination="PU2-aH-JwE" id="q7n-EO-cDZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HZ4-TR-Vpc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1247" y="802"/>
+            <point key="canvasLocation" x="-1247.8260869565217" y="801.5625"/>
         </scene>
         <!--Job Details View Controller-->
         <scene sceneID="9xX-rW-WcE">
@@ -3902,10 +3912,10 @@ Send to Admin</string>
                                                                 <rect key="frame" x="0.0" y="5" width="384" height="45"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbF-uB-tWA">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="45"/>
                                                                         <subviews>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_gas" translatesAutoresizingMaskIntoConstraints="NO" id="6yX-nH-w9i">
-                                                                                <rect key="frame" x="0.0" y="5" width="45" height="37"/>
+                                                                                <rect key="frame" x="0.0" y="5" width="44" height="35"/>
                                                                             </imageView>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3918,7 +3928,7 @@ Send to Admin</string>
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCG-Qe-ta1" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                        <rect key="frame" x="48" y="0.0" width="336" height="45"/>
+                                                                        <rect key="frame" x="47" y="0.0" width="337" height="45"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -3988,7 +3998,7 @@ Send to Admin</string>
                                                         <rect key="frame" x="0.0" y="58" width="384" height="91"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hag-Hi-rkE">
-                                                                <rect key="frame" x="2" y="30" width="31" height="31"/>
+                                                                <rect key="frame" x="1" y="30" width="31" height="31"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_location" translatesAutoresizingMaskIntoConstraints="NO" id="4aN-RG-Drr">
                                                                         <rect key="frame" x="5" y="5" width="21" height="21"/>
@@ -4004,7 +4014,7 @@ Send to Admin</string>
                                                                 </constraints>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123. West St, 46203123. West St, 46203123. West St, 46203123. West St, 46203" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZG-L7-kk7" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                <rect key="frame" x="48" y="3" width="331" height="85"/>
+                                                                <rect key="frame" x="47" y="3" width="332" height="85"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -5341,7 +5351,7 @@ Send to Admin</string>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatHeaderCell" id="mNw-LN-vI8" customClass="chatHeaderCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="24.5" width="414" height="44.5"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="414" height="44.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mNw-LN-vI8" id="dDU-pL-XFX">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
@@ -5386,7 +5396,7 @@ Send to Admin</string>
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatSenderCell" id="YZX-Dg-E3U" customClass="chatSenderCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="69" width="414" height="70.5"/>
+                                                <rect key="frame" x="0.0" y="89" width="414" height="70.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YZX-Dg-E3U" id="mQz-zI-axr">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="70.5"/>
@@ -5476,7 +5486,7 @@ Send to Admin</string>
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatReciverCell" id="t5D-Vl-s0J" customClass="chatReciverCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="139.5" width="414" height="70.5"/>
+                                                <rect key="frame" x="0.0" y="159.5" width="414" height="70.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t5D-Vl-s0J" id="YrE-U1-zbc">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="70.5"/>

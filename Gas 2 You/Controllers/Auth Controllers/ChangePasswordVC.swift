@@ -39,7 +39,7 @@ class ChangePasswordVC: BaseVC {
     @IBAction func btnSaveTap(_ sender: ThemeButton) {
         if self.validation(){
             if(self.txtReEnterPassword.text == "" ){
-                Toast.show(title: UrlConstant.Required, message: "Please re-enter password", state: .failure)
+                Toast.show(title: UrlConstant.Required, message: "Please re-enter password", state: .info)
                 return
             }else{
                 self.callChangePasswordApi()
@@ -48,7 +48,8 @@ class ChangePasswordVC: BaseVC {
     }
     
     //MARK:- Extra methods
-    func popBack(){
+    func popBack(strMsg:String){
+        Toast.show(title:UrlConstant.Success, message: strMsg, state: .success)
         self.navigationController?.popViewController(animated: true)
     }
 }
@@ -73,7 +74,7 @@ extension ChangePasswordVC{
         }
         
         if let str = strTitle{
-            Toast.show(title: UrlConstant.Required, message: str, state: .failure)
+            Toast.show(title: UrlConstant.Required, message: str, state: .info)
             return false
         }
         

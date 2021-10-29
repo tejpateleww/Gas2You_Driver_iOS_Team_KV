@@ -21,7 +21,7 @@ class PasswordUserModel{
                     self.forgotPasswordVC?.popBack()
                 }
             }else{
-                Toast.show(title:UrlConstant.Failed, message: apiMessage, state: .failure)
+                Toast.show(title:UrlConstant.Error, message: apiMessage, state: .failure)
             }
         }
     }
@@ -35,11 +35,9 @@ class PasswordUserModel{
                     click()
                 }
                 self.clearAllFields()
-                Utilities.showAlertAction(AppName, message: apiMessage, vc: self.changePasswordVC!) {
-                    self.changePasswordVC?.popBack()
-                }
+                self.changePasswordVC?.popBack(strMsg: apiMessage ?? "")
             }else{
-                Toast.show(title:UrlConstant.Failed, message: apiMessage, state: .failure)
+                Toast.show(title:UrlConstant.Error, message: apiMessage, state: .failure)
             }
     
         }
