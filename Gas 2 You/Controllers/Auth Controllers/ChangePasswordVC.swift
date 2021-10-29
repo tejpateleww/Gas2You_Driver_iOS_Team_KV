@@ -61,7 +61,7 @@ extension ChangePasswordVC{
         var strTitle : String?
         let oldPassword = self.txtCurrentPassword.validatedText(validationType: .password(field: self.txtCurrentPassword.placeholder?.lowercased() ?? ""))
         let newPassword = self.txtNewPassword.validatedText(validationType: .password(field: self.txtNewPassword.placeholder?.lowercased() ?? ""))
-        let confirmPassword = self.txtReEnterPassword.validatedText(validationType: .requiredField(field: self.txtReEnterPassword.placeholder?.lowercased() ?? ""))
+        let confirmPassword = self.txtReEnterPassword.validatedText(validationType: .password(field: self.txtReEnterPassword.placeholder?.lowercased() ?? ""))
         
         if !oldPassword.0{
             strTitle = oldPassword.1

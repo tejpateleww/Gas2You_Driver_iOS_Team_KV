@@ -122,7 +122,11 @@ struct PasswordValidator: ValidatorConvertible {
     }
     
     func validated(_ value: String) -> (Bool,String) {
-        guard value != "" else {return (false,ValidationError("Please enter " + fieldName.lowercased()).message)}
+        if fieldName.lowercased().contains("re-enter") {
+            guard value != "" else {return (false,ValidationError("Please " + fieldName.lowercased()).message)}
+        }else{
+            guard value != "" else {return (false,ValidationError("Please enter " + fieldName.lowercased()).message)}
+        }
         guard value.count >= 8 else { return (false,ValidationError( fieldName.capitalizingFirstLetter() + " must contain at least 8 characters").message)}
         guard value.count <= 15 else {
             return (false , ValidationError("\(fieldName) shoudn't contain more than 15 characters").message)
