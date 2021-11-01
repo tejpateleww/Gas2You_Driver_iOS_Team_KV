@@ -12,6 +12,7 @@ class ChatUserListDatum : Codable {
     let fullName : String?
     let image : String?
     let message : String?
+    let receiverId : String?
     
     enum CodingKeys: String, CodingKey {
         case bookingId = "booking_id"
@@ -19,6 +20,8 @@ class ChatUserListDatum : Codable {
         case fullName = "full_name"
         case image = "image"
         case message = "message"
+        case receiverId = "receiver_id"
+        
     }
     
     required init(from decoder: Decoder) throws {
@@ -28,6 +31,7 @@ class ChatUserListDatum : Codable {
         fullName = try values.decodeIfPresent(String.self, forKey: .fullName)
         image = try values.decodeIfPresent(String.self, forKey: .image)
         message = try values.decodeIfPresent(String.self, forKey: .message)
+        receiverId = try values.decodeIfPresent(String.self, forKey: .receiverId)
     }
     
 }

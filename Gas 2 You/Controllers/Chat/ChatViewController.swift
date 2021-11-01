@@ -136,6 +136,24 @@ class ChatViewController: BaseVC {
         self.filterKeysArr.sort(by: <)
         isFromDidLoad ? self.scrollToBottom() : self.scrollAt()
     }
+    
+    func validations() -> Bool{
+        if(self.txtviewComment.text == "Start Typing..." || self.txtviewComment.text.trimmedString == ""){
+            return false
+        }
+        return true
+    }
+    
+    //MARK:- Button action methods
+    @IBAction func btnChatAction(_ sender: Any) {
+        if(self.validations()){
+            print(self.txtviewComment.text ?? "")
+            txtviewComment.text = ""
+        }else{
+            Toast.show(title: UrlConstant.Required, message: "Please enter message", state: .info)
+        }
+    }
+    
 }
 
 
@@ -224,6 +242,8 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
                 }
             }else{
                 let NoDatacell = self.tblChat.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
+                NoDatacell.imgNoData.image = UIImage(named: "ic_chat")
+                NoDatacell.lblNoDataTitle.text = "No chat available"
                 return NoDatacell
             }
         }

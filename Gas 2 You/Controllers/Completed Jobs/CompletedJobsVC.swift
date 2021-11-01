@@ -129,6 +129,8 @@ extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
                 return cell
             }else{
                 let NoDatacell = self.tblCompletedJobs.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
+                NoDatacell.imgNoData.image = UIImage(named: "ic_MyOrders")?.withTintColor(UIColor.init(hexString: "#1F79CD"))
+                NoDatacell.lblNoDataTitle.text = "No completed order available"
                 return NoDatacell
             }
         }
