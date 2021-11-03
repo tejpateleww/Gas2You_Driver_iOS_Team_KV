@@ -3912,10 +3912,10 @@ Send to Admin</string>
                                                                 <rect key="frame" x="0.0" y="5" width="384" height="45"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sbF-uB-tWA">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="63.5" height="45"/>
+                                                                        <rect key="frame" x="0.0" y="0.0" width="44" height="45"/>
                                                                         <subviews>
                                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_gas" translatesAutoresizingMaskIntoConstraints="NO" id="6yX-nH-w9i">
-                                                                                <rect key="frame" x="0.0" y="5" width="63.5" height="37"/>
+                                                                                <rect key="frame" x="0.0" y="5" width="44" height="35"/>
                                                                             </imageView>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -3928,7 +3928,7 @@ Send to Admin</string>
                                                                         </constraints>
                                                                     </view>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCG-Qe-ta1" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                        <rect key="frame" x="66.5" y="0.0" width="317.5" height="45"/>
+                                                                        <rect key="frame" x="47" y="0.0" width="337" height="45"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <nil key="textColor"/>
                                                                         <nil key="highlightedColor"/>
@@ -3998,7 +3998,7 @@ Send to Admin</string>
                                                         <rect key="frame" x="0.0" y="58" width="384" height="91"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hag-Hi-rkE">
-                                                                <rect key="frame" x="13.5" y="26.5" width="38" height="38"/>
+                                                                <rect key="frame" x="-6" y="26.5" width="38" height="38"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_location" translatesAutoresizingMaskIntoConstraints="NO" id="4aN-RG-Drr">
                                                                         <rect key="frame" x="5" y="5" width="28" height="28"/>
@@ -4014,7 +4014,7 @@ Send to Admin</string>
                                                                 </constraints>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123. West St, 46203123. West St, 46203123. West St, 46203123. West St, 46203" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ZG-L7-kk7" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                <rect key="frame" x="66.5" y="3" width="312.5" height="85"/>
+                                                                <rect key="frame" x="47" y="3" width="332" height="85"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -5396,23 +5396,23 @@ Send to Admin</string>
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatSenderCell" id="YZX-Dg-E3U" customClass="chatSenderCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="89" width="414" height="70.5"/>
+                                                <rect key="frame" x="0.0" y="89" width="414" height="95"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YZX-Dg-E3U" id="mQz-zI-axr">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="95"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdB-ao-npA">
-                                                            <rect key="frame" x="119" y="0.0" width="279" height="70.5"/>
+                                                            <rect key="frame" x="119" y="5" width="279" height="90"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ThO-4u-zJY">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="279" height="70.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="279" height="90"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3L7-XQ-xA1" customClass="chatScreenView" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="279" height="60.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="279" height="80"/>
                                                                             <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmW-ll-eh3" customClass="chatScreenLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                                    <rect key="frame" x="20" y="20" width="41.5" height="20.5"/>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmW-ll-eh3" customClass="chatScreenLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                                                    <rect key="frame" x="20" y="10" width="204" height="60"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -5420,8 +5420,11 @@ Send to Admin</string>
                                                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="lblSender" value="YES"/>
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </label>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUN-e9-o9Q">
-                                                                                    <rect key="frame" x="69.5" y="28.5" width="199.5" height="12"/>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUN-e9-o9Q">
+                                                                                    <rect key="frame" x="229" y="58" width="40" height="12"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" constant="40" id="mml-vA-d41"/>
+                                                                                    </constraints>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                     <nil key="highlightedColor"/>
@@ -5429,19 +5432,19 @@ Send to Admin</string>
                                                                             </subviews>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="bottom" secondItem="KmW-ll-eh3" secondAttribute="bottom" constant="20" symbolic="YES" id="2NA-Xp-iYZ"/>
-                                                                                <constraint firstItem="KmW-ll-eh3" firstAttribute="top" secondItem="3L7-XQ-xA1" secondAttribute="top" constant="20" symbolic="YES" id="7zT-fE-ppB"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="vUN-e9-o9Q" secondAttribute="trailing" constant="10" id="35j-BM-eAa"/>
+                                                                                <constraint firstItem="KmW-ll-eh3" firstAttribute="top" secondItem="3L7-XQ-xA1" secondAttribute="top" constant="10" id="7zT-fE-ppB"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="vUN-e9-o9Q" secondAttribute="bottom" constant="10" id="C0V-Ff-UPP"/>
                                                                                 <constraint firstItem="KmW-ll-eh3" firstAttribute="leading" secondItem="3L7-XQ-xA1" secondAttribute="leading" constant="20" symbolic="YES" id="MnH-MU-w9l"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="vUN-e9-o9Q" secondAttribute="trailing" constant="10" id="W3X-5H-2Na"/>
-                                                                                <constraint firstItem="vUN-e9-o9Q" firstAttribute="bottom" secondItem="KmW-ll-eh3" secondAttribute="bottom" id="W7I-jP-GN9"/>
-                                                                                <constraint firstItem="vUN-e9-o9Q" firstAttribute="leading" secondItem="KmW-ll-eh3" secondAttribute="trailing" constant="8" id="ZCo-c9-Ogo"/>
+                                                                                <constraint firstItem="vUN-e9-o9Q" firstAttribute="leading" secondItem="KmW-ll-eh3" secondAttribute="trailing" constant="5" id="RRV-qn-upS"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="KmW-ll-eh3" secondAttribute="bottom" constant="10" id="sle-4f-7QO"/>
                                                                             </constraints>
                                                                             <userDefinedRuntimeAttributes>
                                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isSenderView" value="YES"/>
                                                                             </userDefinedRuntimeAttributes>
                                                                         </view>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8jA-au-OPb">
-                                                                            <rect key="frame" x="0.0" y="60.5" width="279" height="10"/>
+                                                                            <rect key="frame" x="0.0" y="80" width="279" height="10"/>
                                                                             <subviews>
                                                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ybb-Vd-vPG">
                                                                                     <rect key="frame" x="259" y="-10" width="20" height="20"/>
@@ -5473,7 +5476,7 @@ Send to Admin</string>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="sdB-ao-npA" secondAttribute="trailing" constant="16" id="DKt-ii-SQg"/>
-                                                        <constraint firstItem="sdB-ao-npA" firstAttribute="top" secondItem="mQz-zI-axr" secondAttribute="top" id="eDg-Eb-tt9"/>
+                                                        <constraint firstItem="sdB-ao-npA" firstAttribute="top" secondItem="mQz-zI-axr" secondAttribute="top" constant="5" id="eDg-Eb-tt9"/>
                                                         <constraint firstItem="sdB-ao-npA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mQz-zI-axr" secondAttribute="leading" constant="80" id="ha6-MF-MJd"/>
                                                         <constraint firstAttribute="bottom" secondItem="sdB-ao-npA" secondAttribute="bottom" id="hhE-xR-3Dx"/>
                                                     </constraints>
@@ -5486,14 +5489,14 @@ Send to Admin</string>
                                                 </connections>
                                             </tableViewCell>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="chatReciverCell" id="t5D-Vl-s0J" customClass="chatReciverCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="159.5" width="414" height="70.5"/>
+                                                <rect key="frame" x="0.0" y="184" width="414" height="75.5"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="t5D-Vl-s0J" id="YrE-U1-zbc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="70.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="75.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QCo-8j-6V3">
-                                                            <rect key="frame" x="16" y="0.0" width="279" height="70.5"/>
+                                                            <rect key="frame" x="16" y="5" width="279" height="70.5"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="vcs-iK-2UW">
                                                                     <rect key="frame" x="0.0" y="0.0" width="279" height="70.5"/>
@@ -5502,7 +5505,7 @@ Send to Admin</string>
                                                                             <rect key="frame" x="0.0" y="0.0" width="279" height="60.5"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JsL-U5-hpV" customClass="chatScreenLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                                    <rect key="frame" x="20" y="20" width="213.5" height="20.5"/>
+                                                                                    <rect key="frame" x="10" y="10" width="226.5" height="40.5"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -5511,7 +5514,7 @@ Send to Admin</string>
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZB-Bt-gxm">
-                                                                                    <rect key="frame" x="241.5" y="28.5" width="27.5" height="12"/>
+                                                                                    <rect key="frame" x="241.5" y="38.5" width="27.5" height="12"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                                     <nil key="highlightedColor"/>
@@ -5519,12 +5522,12 @@ Send to Admin</string>
                                                                             </subviews>
                                                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                             <constraints>
-                                                                                <constraint firstItem="cZB-Bt-gxm" firstAttribute="leading" secondItem="JsL-U5-hpV" secondAttribute="trailing" constant="8" id="7o5-7h-q0I"/>
-                                                                                <constraint firstItem="cZB-Bt-gxm" firstAttribute="bottom" secondItem="JsL-U5-hpV" secondAttribute="bottom" id="Dal-Ns-SwN"/>
-                                                                                <constraint firstAttribute="trailing" secondItem="cZB-Bt-gxm" secondAttribute="trailing" constant="10" id="cnH-5n-lLS"/>
-                                                                                <constraint firstItem="JsL-U5-hpV" firstAttribute="top" secondItem="tPG-cf-jmQ" secondAttribute="top" constant="20" symbolic="YES" id="fBU-Gf-GXU"/>
-                                                                                <constraint firstAttribute="bottom" secondItem="JsL-U5-hpV" secondAttribute="bottom" constant="20" symbolic="YES" id="mSR-zw-81O"/>
-                                                                                <constraint firstItem="JsL-U5-hpV" firstAttribute="leading" secondItem="tPG-cf-jmQ" secondAttribute="leading" constant="20" symbolic="YES" id="uf1-4a-Trb"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="cZB-Bt-gxm" secondAttribute="bottom" constant="10" id="Cqq-pD-pWb"/>
+                                                                                <constraint firstItem="cZB-Bt-gxm" firstAttribute="leading" secondItem="JsL-U5-hpV" secondAttribute="trailing" constant="5" id="NQ0-lz-omT"/>
+                                                                                <constraint firstItem="JsL-U5-hpV" firstAttribute="top" secondItem="tPG-cf-jmQ" secondAttribute="top" constant="10" id="fBU-Gf-GXU"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="cZB-Bt-gxm" secondAttribute="trailing" constant="10" id="uVo-xB-fwK"/>
+                                                                                <constraint firstItem="JsL-U5-hpV" firstAttribute="leading" secondItem="tPG-cf-jmQ" secondAttribute="leading" constant="10" id="uf1-4a-Trb"/>
+                                                                                <constraint firstAttribute="bottom" secondItem="JsL-U5-hpV" secondAttribute="bottom" constant="10" id="vn5-a2-eQK"/>
                                                                             </constraints>
                                                                             <userDefinedRuntimeAttributes>
                                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="isReciverView" value="YES"/>
@@ -5565,7 +5568,7 @@ Send to Admin</string>
                                                         <constraint firstAttribute="bottom" secondItem="QCo-8j-6V3" secondAttribute="bottom" id="2qW-ht-eM8"/>
                                                         <constraint firstItem="QCo-8j-6V3" firstAttribute="leading" secondItem="YrE-U1-zbc" secondAttribute="leading" constant="16" id="FEt-6Z-tqD"/>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QCo-8j-6V3" secondAttribute="trailing" constant="80" id="pUf-FJ-Ovs"/>
-                                                        <constraint firstItem="QCo-8j-6V3" firstAttribute="top" secondItem="YrE-U1-zbc" secondAttribute="top" id="qrp-9z-Gxd"/>
+                                                        <constraint firstItem="QCo-8j-6V3" firstAttribute="top" secondItem="YrE-U1-zbc" secondAttribute="top" constant="5" id="qrp-9z-Gxd"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -5727,7 +5730,7 @@ Send to Admin</string>
                 </view>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oFc-7J-mIy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="406" y="-699"/>
+            <point key="canvasLocation" x="405.79710144927537" y="-699.10714285714278"/>
         </scene>
         <!--SplashVC-->
         <scene sceneID="DiE-tn-5OM">
@@ -5987,7 +5990,7 @@ Send to Admin</string>
         <image name="ic_color" width="20" height="20"/>
         <image name="ic_downloadInvoice" width="13" height="13"/>
         <image name="ic_gas" width="34.5" height="37"/>
-        <image name="ic_location" width="28" height="28"/>
+        <image name="ic_location" width="18.5" height="21"/>
         <image name="ic_logout" width="26" height="26"/>
         <image name="icon_ReCenter" width="38" height="38"/>
         <image name="imgBlueBackGround" width="327" height="169.5"/>

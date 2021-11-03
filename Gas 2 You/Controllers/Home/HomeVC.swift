@@ -42,10 +42,16 @@ class HomeVC: BaseVC {
     //MARK:- VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
- 
+        
+        self.checkForNotification()
         self.prepareView()
         self.registerNib()
         self.callBookingRequestAPI()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -64,6 +70,17 @@ class HomeVC: BaseVC {
         
         NotificationCenter.default.removeObserver(self, name: .refreshHomeScreen, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(initUrlAndRefreshRequestList), name: .refreshHomeScreen, object: nil)
+        
+        NotificationCenter.default.removeObserver(self, name: .goToChatScreen, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(goToChatScreen), name: .goToChatScreen, object: nil)
+    }
+    
+    func checkForNotification(){
+        if(AppDelegate.pushNotificationObj != nil){
+            if(AppDelegate.pushNotificationType == NotificationTypes.newMessage.rawValue){
+                self.goToChatScreen()
+            }
+        }
     }
     
     @objc func initUrlAndRefreshRequestList() {
@@ -75,6 +92,19 @@ class HomeVC: BaseVC {
     @objc func ReloadData() {
         self.CurrentPageInProgress = 1
         self.callBookingInProgressAPI()
+    }
+    
+    @objc func goToChatScreen() {
+        
+        let bookingId =  AppDelegate.pushNotificationObj?.booking_id ?? ""
+       
+        let vc : ChatViewController = ChatViewController.instantiate(fromAppStoryboard: .Main)
+        vc.isFromPush = true
+        vc.bookingID = bookingId
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        AppDelegate.pushNotificationObj = nil
+        AppDelegate.pushNotificationType = nil
     }
     
     func prepareView(){

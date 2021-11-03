@@ -22,6 +22,9 @@ class ChatViewController: BaseVC {
     @IBOutlet weak var lblInfo: UILabel!
     
     //MARK:- Properties
+    var isFromPush = false
+    var bookingID = ""
+    var senderID = ""
     var isTblReload = false
     var isLoading = true {
         didSet {
@@ -35,10 +38,12 @@ class ChatViewController: BaseVC {
     var filterKeysArr : [Date] = [Date]()
     var oldChatSectionTitle = Date()
     var oldChatId = String()
+    var chatUserModel = ChatUserModel()
     
-    //MARK:- LifeCycle methods
+    //MARK: - LifeCycle methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        appDel.isChatScreen = true
         
         //self.ChatSocketOnMethods()
         self.setupKeyboard(false)
@@ -48,6 +53,7 @@ class ChatViewController: BaseVC {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        appDel.isChatScreen = false
         
         //self.ChatSocketOffMethods()
         self.setupKeyboard(true)
@@ -58,25 +64,22 @@ class ChatViewController: BaseVC {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.isLoading = false
-            self.isTblReload = true
-            self.tblChat.reloadData()
-        }
-        
+
         self.prepareView()
         self.registerNib()
-        self.setProfileInfo()
+        self.addNotificationObs()
+        self.callChatHistoryAPI()
     }
     
     //MARK:- Custom methods
     func prepareView(){
-        self.NavBarTitle(isOnlyTitle: false, isMenuButton: false, title: self.userData?.fullName ?? "", controller: self)
-        self.navBarRightImage(imgURL: self.userData?.image ?? "")
+        
         self.txtviewComment.delegate = self
         self.txtviewComment.font = CustomFont.PoppinsRegular.returnFont(16)
         self.txtviewComment.textColor = txtviewComment.text == "" ? .black : .gray
+        self.tblChat.isUserInteractionEnabled = false
+        
+        self.bookingID = self.userData?.bookingId ?? ""
     }
     
     func registerNib(){
@@ -86,8 +89,21 @@ class ChatViewController: BaseVC {
         self.tblChat.register(nib1, forCellReuseIdentifier: ChatShimmer.className)
     }
     
-    func setProfileInfo(){
+    func addNotificationObs(){
+        NotificationCenter.default.removeObserver(self, name: .refreshChatScreen, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(callHistory), name: .refreshChatScreen, object: nil)
+    }
+    
+    @objc func callHistory(){
+        self.callChatHistoryAPI()
         
+        AppDelegate.pushNotificationObj = nil
+        AppDelegate.pushNotificationType = nil
+    }
+    
+    func setProfileInfo(name:String, profile:String){
+        self.NavBarTitle(isOnlyTitle: false, isMenuButton: false, title: name, controller: self)
+        self.navBarRightImage(imgURL: profile)
     }
     
     func scrollToBottom(){
@@ -147,7 +163,7 @@ class ChatViewController: BaseVC {
     //MARK:- Button action methods
     @IBAction func btnChatAction(_ sender: Any) {
         if(self.validations()){
-            print(self.txtviewComment.text ?? "")
+            self.callSendMsgAPI()
             txtviewComment.text = ""
         }else{
             Toast.show(title: UrlConstant.Required, message: "Please enter message", state: .info)
@@ -208,12 +224,22 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView(frame: CGRect(x: 0, y: 0, width: screenWidth, height:30.0))
         if(self.arrayChatHistory.count > 0){
-            let cell = tblChat.dequeueReusableCell(withIdentifier: chatHeaderCell.className) as! chatHeaderCell
+        
+            let lblDate = UILabel(frame: CGRect(x: 0, y: 0, width: 150, height: 30))
+            lblDate.backgroundColor = UIColor.lightGray
+            lblDate.textColor = UIColor.white
+            lblDate.layer.cornerRadius = lblDate.frame.height/2.0
+            lblDate.layer.masksToBounds = true
+            
             let obj = self.filterKeysArr[section]
-            cell.vwMain.layer.cornerRadius = 15
-            cell.lblDateTime.text = obj.timeAgoSinceDate(isForNotification: true)
-            cell.lblDateTime.textAlignment = .center
-            headerView.addSubview(cell)
+            lblDate.text = obj.timeAgoSinceDate(isForNotification: true)
+            
+            lblDate.textAlignment = .center
+            lblDate.font = FontBook.regular.of(size: 12.0)
+            
+            headerView.addSubview(lblDate)
+            lblDate.center = headerView.center
+        
         }
         return headerView
     }
@@ -357,5 +383,24 @@ extension ChatViewController {
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
+    }
+}
+
+//MARK:- Api Calls
+extension ChatViewController{
+    
+    func callChatHistoryAPI(){
+        self.chatUserModel.chatViewController = self
+        self.chatUserModel.webservicegetChatHistoryAPI(BookingId: self.bookingID)
+    }
+    
+    func callSendMsgAPI(){
+        self.chatUserModel.chatViewController = self
+        let SendMsgReqModel = SendMsgReqModel()
+        SendMsgReqModel.bookingId = self.bookingID
+        SendMsgReqModel.receiverId = self.senderID
+        SendMsgReqModel.message = self.txtviewComment.text ?? ""
+        
+        self.chatUserModel.webserviceSendMsgAPI(reqModel: SendMsgReqModel)
     }
 }

@@ -25,3 +25,17 @@ class DownloadInvoiceReqModel: Encodable{
     }
 }
 
+class SendMsgReqModel: Encodable{
+    var bookingId : String?
+    var senderId : String? = Singleton.sharedInstance.UserId
+    var receiverId : String?
+    var message : String?
+    
+    enum CodingKeys: String, CodingKey {
+        case bookingId = "booking_id"
+        case senderId = "sender_id"
+        case receiverId = "receiver_id"
+        case message = "message"
+    }
+}
+

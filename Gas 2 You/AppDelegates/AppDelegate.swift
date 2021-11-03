@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     static var shared: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
+    var isChatScreen : Bool = false
     static var pushNotificationObj : NotificationObjectModel?
     static var pushNotificationType : String?
     

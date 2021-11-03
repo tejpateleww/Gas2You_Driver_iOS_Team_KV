@@ -91,9 +91,23 @@ class WebServiceSubClass{
         }
     }
     
+    class func getChatHistoryApi(BookingId:String, completion: @escaping (Bool,String,chatHistoryModel?,Any) -> ()) {
+        URLSessionRequestManager.makeGetRequest(urlString: ApiKey.chatHistory.rawValue + BookingId, responseModel: chatHistoryModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
+    class func sendMsgAPI(reqModel : SendMsgReqModel , completion: @escaping (Bool,String,ChatSendMsgModel?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.sendMessage.rawValue, requestModel: reqModel, responseModel: ChatSendMsgModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
     class func downloadInvoiceAPI(reqModel : DownloadInvoiceReqModel , completion: @escaping (Bool,String,DownloadInvoiceModel?,Any) -> ()){
         URLSessionRequestManager.makePostRequest(urlString: ApiKey.downloadInvoice.rawValue, requestModel: reqModel, responseModel: DownloadInvoiceModel.self) { (status, message, response, error) in
             completion(status, message, response, error)
         }
     }
+    
+    
 }

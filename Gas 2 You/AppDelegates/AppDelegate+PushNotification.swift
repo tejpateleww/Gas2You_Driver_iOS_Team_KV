@@ -99,6 +99,15 @@ extension AppDelegate{
                 }
                 return
             }
+            
+            if pushObj.type == NotificationTypes.newMessage.rawValue {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    if (appDel.isChatScreen){
+                        NotificationCenter.default.post(name: .refreshChatScreen, object: nil)
+                    }
+                }
+                return
+            }
         }
     }
     
@@ -131,6 +140,18 @@ extension AppDelegate{
                 completionHandler()
                 return
             }
+            
+            if pushObj.type == NotificationTypes.newMessage.rawValue {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    if (appDel.isChatScreen){
+                        AppDelegate.pushNotificationType = nil
+                        AppDelegate.pushNotificationObj = nil
+                    }else{
+                        NotificationCenter.default.post(name: .goToChatScreen, object: nil)
+                    }
+                }
+                return
+            }
 
         }
     }
@@ -139,11 +160,14 @@ extension AppDelegate{
 extension Notification.Name {
     static let sessionExpire = NSNotification.Name("sessionExpire")
     static let refreshHomeScreen = NSNotification.Name("refreshHomeScreen")
+    static let refreshChatScreen = NSNotification.Name("refreshChatScreen")
+    static let goToChatScreen = NSNotification.Name("goToChatScreen")
 }
 
 enum NotificationTypes : String {
     case notifLoggedOut = "sessionTimeout"
     case newBooking = "newBooking"
+    case newMessage = "newMessage"
 }
 
 class NotificationObjectModel: Codable {
