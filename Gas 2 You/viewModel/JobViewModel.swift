@@ -30,6 +30,9 @@ class JobViewModel{
         WebServiceSubClass.OrderCompAPI(reqModel: reqModel) { (status, apiMessage, response, error) in
             Utilities.hideHud()
             if status{
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
+                }
                 
                 self.JobDetailsVC?.CompBookingDetail = response?.data
                 self.JobDetailsVC?.JobCompleted()

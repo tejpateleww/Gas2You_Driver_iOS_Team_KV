@@ -157,6 +157,16 @@ struct EmailValidator: ValidatorConvertible {
 }
 struct PhoneNoValidator: ValidatorConvertible {
     func validated(_ value: String) -> (Bool,String) {
+        
+        var phnNO:String = ""
+        if(value.contains("+91") || value.contains("+1")){
+            let splits = value.components(separatedBy: " ")
+            phnNO = splits[1]
+            
+            guard phnNO != "" else {return (false,ValidationError("Please enter mobile number").message)}
+            guard phnNO.count >= 10 else { return (false,ValidationError("Minimum 10 digits are required").message)}
+        }
+        
         guard value != "" else {return (false,ValidationError("Please enter mobile number").message)}
         guard value.count >= 10 else { return (false,ValidationError("Minimum 10 digits are required").message)}
         

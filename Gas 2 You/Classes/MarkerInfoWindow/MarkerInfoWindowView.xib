@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="KL6-l8-ndY"/>
                 <outlet property="imgArrow" destination="lie-SW-Ytr" id="hsp-6E-Gwe"/>
+                <outlet property="imgArrowHeight" destination="Tih-MY-VQA" id="yqp-QX-oKU"/>
                 <outlet property="titleLabel" destination="I8n-7e-JkP" id="r5Y-Xu-j3a"/>
             </connections>
         </placeholder>
@@ -25,7 +26,7 @@
                     <rect key="frame" x="3" y="3" width="411" height="86"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8n-7e-JkP">
-                            <rect key="frame" x="10" y="10" width="391" height="66"/>
+                            <rect key="frame" x="10" y="10" width="366" height="66"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -41,8 +42,8 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="lie-SW-Ytr" secondAttribute="trailing" constant="10" id="CO3-sV-ohb"/>
+                        <constraint firstItem="lie-SW-Ytr" firstAttribute="leading" secondItem="I8n-7e-JkP" secondAttribute="trailing" constant="5" id="ZWu-Th-LrW"/>
                         <constraint firstItem="lie-SW-Ytr" firstAttribute="centerY" secondItem="g5A-3h-f89" secondAttribute="centerY" id="bfG-es-q6R"/>
-                        <constraint firstAttribute="trailing" secondItem="I8n-7e-JkP" secondAttribute="trailing" constant="10" id="bnZ-bM-zAb"/>
                         <constraint firstItem="I8n-7e-JkP" firstAttribute="leading" secondItem="g5A-3h-f89" secondAttribute="leading" constant="10" id="mDs-cF-9Ra"/>
                         <constraint firstItem="I8n-7e-JkP" firstAttribute="top" secondItem="g5A-3h-f89" secondAttribute="top" constant="10" id="nA2-nI-2hx"/>
                         <constraint firstAttribute="bottom" secondItem="I8n-7e-JkP" secondAttribute="bottom" constant="10" id="puS-2W-hwG"/>

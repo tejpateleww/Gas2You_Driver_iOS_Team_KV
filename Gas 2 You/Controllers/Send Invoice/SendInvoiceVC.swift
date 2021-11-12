@@ -18,16 +18,19 @@ class SendInvoiceVC: UIViewController {
     @IBOutlet weak var lblTimeData: themeLabel!
     @IBOutlet weak var lblInvoiceData: themeLabel!
     @IBOutlet weak var lblItem: themeLabel!
-    
-    @IBOutlet weak var btnSendInvoice: ThemeButton!
     @IBOutlet weak var lblAmount: themeLabel!
     @IBOutlet weak var lblPrice: themeLabel!
+    @IBOutlet weak var lblPricePerGallon: themeLabel!
+    
+    @IBOutlet weak var btnSendInvoice: ThemeButton!
+   
+    
     @IBOutlet weak var lblQuentity: UIView!
     @IBOutlet weak var lblPlatnumberData: themeLabel!
     @IBOutlet weak var lblPlatNumber: themeLabel!
     @IBOutlet weak var lblInvoiceNo: themeLabel!
     @IBOutlet weak var lblTime: themeLabel!
-    @IBOutlet weak var lblPricePerGallon: themeLabel!
+    
     //MARK:- Variables and Properties
     
     var btnSubmitTapClosure : (()->())?

@@ -9,6 +9,7 @@
 import UIKit
 import UIView_Shimmer
 import IQKeyboardManagerSwift
+import SafariServices
 
 class ChatViewController: BaseVC {
 
@@ -28,7 +29,6 @@ class ChatViewController: BaseVC {
     var isTblReload = false
     var isLoading = true {
         didSet {
-            self.tblChat.isUserInteractionEnabled = !isLoading
             self.tblChat.reloadData()
         }
     }
@@ -71,15 +71,15 @@ class ChatViewController: BaseVC {
         self.callChatHistoryAPI()
     }
     
-    //MARK:- Custom methods
+    //MARK: - Custom methods
     func prepareView(){
         
         self.txtviewComment.delegate = self
         self.txtviewComment.font = CustomFont.PoppinsRegular.returnFont(16)
         self.txtviewComment.textColor = txtviewComment.text == "" ? .black : .gray
-        self.tblChat.isUserInteractionEnabled = false
-        
-        self.bookingID = self.userData?.bookingId ?? ""
+        if(!isFromPush){
+            self.bookingID = self.userData?.bookingId ?? ""
+        }
     }
     
     func registerNib(){
@@ -106,6 +106,19 @@ class ChatViewController: BaseVC {
         self.navBarRightImage(imgURL: profile)
     }
     
+    func isValidUrl(url: String) -> Bool {
+        let urlRegEx = "^(https?://)?(www\\.)?([-a-z0-9]{1,63}\\.)*?[a-z0-9][-a-z0-9]{0,61}[a-z0-9]\\.[a-z]{2,6}(/[-\\w@\\+\\.~#\\?&/=%]*)?$"
+        let urlTest = NSPredicate(format:"SELF MATCHES %@", urlRegEx)
+        let result = urlTest.evaluate(with: url)
+        return result
+    }
+    
+    func previewDocument(strURL : String){
+        guard let url = URL(string: strURL) else {return}
+        let svc = SFSafariViewController(url: url)
+        present(svc, animated: true, completion: nil)
+    }
+    
     func scrollToBottom(){
         DispatchQueue.main.async {
             if self.arrayChatHistory.count > 0 {
@@ -115,6 +128,8 @@ class ChatViewController: BaseVC {
                 let indexPath = IndexPath(row: rowIndex, section: self.filterKeysArr.count - 1)
                 self.tblChat.reloadData()
                 self.tblChat.scrollToRow(at: indexPath, at: .bottom, animated: false)
+            }else{
+                self.tblChat.reloadData()
             }
         }
     }
@@ -127,6 +142,8 @@ class ChatViewController: BaseVC {
             let indexPath = IndexPath(row: row, section: section)
             self.tblChat.reloadData()
             self.tblChat.scrollToRow(at: indexPath, at: .top, animated: false)
+        }else{
+            self.tblChat.reloadData()
         }
     }
     
@@ -167,6 +184,16 @@ class ChatViewController: BaseVC {
             txtviewComment.text = ""
         }else{
             Toast.show(title: UrlConstant.Required, message: "Please enter message", state: .info)
+        }
+    }
+    
+    func canOpenURL(string: String?) -> Bool {
+        guard let urlString = string else {return false}
+        guard let url = NSURL(string: urlString) else {return false}
+        if !UIApplication.shared.canOpenURL(url as URL) {
+            return false
+        }else{
+            return true
         }
     }
     
@@ -258,18 +285,58 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
                 if(isDriver){
                     let cell = tblChat.dequeueReusableCell(withIdentifier: chatSenderCell.className, for: indexPath) as! chatSenderCell
                     cell.selectionStyle = .none
-                    cell.lblSenderMessage.text = obj?.message ?? ""
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    dateFormatter.timeZone = TimeZone(identifier: "Europe/London")
+                    let dateObj = dateFormatter.date(from: obj?.createdAt ?? "")
+                    dateFormatter.dateFormat = "hh:mm a"
+                    cell.lblSenderTime.text = (dateFormatter.string(from: dateObj!))
+                    
+                    if(canOpenURL(string: obj?.message ?? "")){
+                        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue, .foregroundColor : UIColor.white] as [NSAttributedString.Key : Any]
+                        let underlineAttributedString = NSAttributedString(string: obj?.message ?? "", attributes: underlineAttribute)
+                        cell.lblSenderMessage.attributedText = underlineAttributedString
+                    } else {
+                        cell.lblSenderMessage.text = obj?.message ?? ""
+                    }
+                    
+                    cell.btnSenderTapCousure = {
+                        if(self.isValidUrl(url: obj?.message ?? "")){
+                            self.previewDocument(strURL: obj?.message ?? "")
+                        }
+                    }
                     return cell
                 }else{
                     let cell = tblChat.dequeueReusableCell(withIdentifier: chatReciverCell.className, for: indexPath) as! chatReciverCell
                     cell.selectionStyle = .none
-                    cell.lblReciverMessage.text = obj?.message ?? ""
+                    
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    dateFormatter.timeZone = TimeZone(identifier: "Europe/London")
+                    let dateObj = dateFormatter.date(from: obj?.createdAt ?? "")
+                    dateFormatter.dateFormat = "hh:mm a"
+                    cell.lblReciverTime.text = (dateFormatter.string(from: dateObj!))
+                    
+                    if(canOpenURL(string: obj?.message ?? "")){
+                        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue, .foregroundColor : UIColor.white] as [NSAttributedString.Key : Any]
+                        let underlineAttributedString = NSAttributedString(string: obj?.message ?? "", attributes: underlineAttribute)
+                        cell.lblReciverMessage.attributedText = underlineAttributedString
+                    } else {
+                        cell.lblReciverMessage.text = obj?.message ?? ""
+                    }
+                
+                    cell.btnSenderTapCousure = {
+                        if(self.isValidUrl(url: obj?.message ?? "")){
+                            self.previewDocument(strURL: obj?.message ?? "")
+                        }
+                    }
                     return cell
                 }
             }else{
                 let NoDatacell = self.tblChat.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
                 NoDatacell.imgNoData.image = UIImage(named: "ic_chat")
-                NoDatacell.lblNoDataTitle.text = "No chat available"
+                NoDatacell.lblNoDataTitle.text = "No chat available!"
                 return NoDatacell
             }
         }
@@ -301,11 +368,33 @@ class chatSenderCell : UITableViewCell {
     @IBOutlet weak var lblBottomView: UIView!
     @IBOutlet weak var lblSenderView: chatScreenView!
     @IBOutlet weak var lblSenderMessage: chatScreenLabel!
+    @IBOutlet weak var lblSenderTime: UILabel!
+    @IBOutlet weak var btnSender: UIButton!
+    
+    var btnSenderTapCousure : (()->())?
+    
+    @IBAction func btnSenderTap(_ sender: UIButton) {
+        if let obj = self.btnSenderTapCousure{
+            obj()
+        }
+    }
+    
 }
 class chatReciverCell : UITableViewCell {
     @IBOutlet weak var lblBottomView: UIView!
     @IBOutlet weak var lblReciverView: chatScreenView!
     @IBOutlet weak var lblReciverMessage: chatScreenLabel!
+    @IBOutlet weak var lblReciverTime: UILabel!
+    @IBOutlet weak var btnReciver: UIButton!
+    
+    var btnSenderTapCousure : (()->())?
+    
+    @IBAction func btnReciverTap(_ sender: UIButton) {
+        if let obj = self.btnSenderTapCousure{
+            obj()
+        }
+    }
+    
 }
 class chatHeaderCell : UITableViewCell {
     @IBOutlet weak var lblDateTime: chatScreenLabel!

@@ -3219,6 +3219,9 @@ Send to Admin</string>
                                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="EiU-yH-99D" id="Olx-0B-3fU"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1N-NE-lF5" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="12" y="0.0" width="362" height="14.5"/>
@@ -3273,6 +3276,9 @@ Send to Admin</string>
                                                                         <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="EiU-yH-99D" id="QUg-R9-Ynm"/>
+                                                                </connections>
                                                             </textField>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mobile Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mv-7y-r8F" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                 <rect key="frame" x="12" y="0.0" width="362" height="14.5"/>
@@ -3998,10 +4004,10 @@ Send to Admin</string>
                                                         <rect key="frame" x="0.0" y="58" width="384" height="91"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hag-Hi-rkE">
-                                                                <rect key="frame" x="-6" y="26.5" width="38" height="38"/>
+                                                                <rect key="frame" x="1" y="30" width="31" height="31"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_location" translatesAutoresizingMaskIntoConstraints="NO" id="4aN-RG-Drr">
-                                                                        <rect key="frame" x="5" y="5" width="28" height="28"/>
+                                                                        <rect key="frame" x="5" y="5" width="21" height="21"/>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4337,7 +4343,7 @@ Send to Admin</string>
                                                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NS3-Jx-YdL">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="4" height="213"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12.000 Gallon" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erC-Us-O9m" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erC-Us-O9m" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                         <rect key="frame" x="2" y="2" width="0.0" height="208"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                         <nil key="textColor"/>
@@ -5021,11 +5027,15 @@ Send to Admin</string>
                         <outlet property="btnReCenter" destination="hQH-b1-Wax" id="DRy-th-EjT"/>
                         <outlet property="imgCompleted" destination="eje-UL-1yo" id="7dn-De-GQa"/>
                         <outlet property="lblAddress" destination="8ZG-L7-kk7" id="EOo-hk-F1s"/>
+                        <outlet property="lblAmount" destination="szP-et-PpM" id="5s1-aD-g40"/>
                         <outlet property="lblCarName" destination="S2U-JP-s7r" id="fOx-HV-KwG"/>
                         <outlet property="lblColor" destination="MsD-ck-SnH" id="4gd-4W-WH4"/>
                         <outlet property="lblFuelType" destination="wCG-Qe-ta1" id="iWy-9Z-a9Y"/>
+                        <outlet property="lblItem" destination="sdH-gw-mzh" id="Wlt-m6-Izp"/>
                         <outlet property="lblLine" destination="V5A-Vx-UeA" id="8Ub-dc-SRZ"/>
                         <outlet property="lblPlateNumber" destination="uy7-8U-VoY" id="vq3-eg-eJK"/>
+                        <outlet property="lblPrice" destination="yOK-nl-ZDJ" id="3Cg-ks-F2J"/>
+                        <outlet property="lblPricePerGallon" destination="ibv-Gc-MI9" id="ka4-NB-Aol"/>
                         <outlet property="lblplateNumberDashLineHeight" destination="Inw-Nm-Qdj" id="NQz-Zm-urp"/>
                         <outlet property="mapView" destination="02b-Xx-Wxl" id="yaf-an-1Z0"/>
                         <outlet property="stackItem" destination="uCX-wa-7R5" id="jAl-xz-ePK"/>
@@ -5412,7 +5422,7 @@ Send to Admin</string>
                                                                             <rect key="frame" x="0.0" y="0.0" width="279" height="80"/>
                                                                             <subviews>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KmW-ll-eh3" customClass="chatScreenLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                                    <rect key="frame" x="20" y="10" width="204" height="60"/>
+                                                                                    <rect key="frame" x="20" y="10" width="194" height="60"/>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
@@ -5421,9 +5431,9 @@ Send to Admin</string>
                                                                                     </userDefinedRuntimeAttributes>
                                                                                 </label>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="01:30" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUN-e9-o9Q">
-                                                                                    <rect key="frame" x="229" y="58" width="40" height="12"/>
+                                                                                    <rect key="frame" x="219" y="58" width="50" height="12"/>
                                                                                     <constraints>
-                                                                                        <constraint firstAttribute="width" constant="40" id="mml-vA-d41"/>
+                                                                                        <constraint firstAttribute="width" constant="50" id="mml-vA-d41"/>
                                                                                     </constraints>
                                                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                                     <color key="textColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -5472,10 +5482,24 @@ Send to Admin</string>
                                                                 <constraint firstItem="ThO-4u-zJY" firstAttribute="leading" secondItem="sdB-ao-npA" secondAttribute="leading" id="d2q-eA-eTN"/>
                                                             </constraints>
                                                         </view>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JTG-oD-67B">
+                                                            <rect key="frame" x="119" y="5" width="279" height="90"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain"/>
+                                                            <connections>
+                                                                <action selector="btnSenderTap:" destination="YZX-Dg-E3U" eventType="touchUpInside" id="CHJ-LT-J2n"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
+                                                        <constraint firstItem="JTG-oD-67B" firstAttribute="bottom" secondItem="sdB-ao-npA" secondAttribute="bottom" id="1H0-CE-qIz"/>
                                                         <constraint firstAttribute="trailing" secondItem="sdB-ao-npA" secondAttribute="trailing" constant="16" id="DKt-ii-SQg"/>
+                                                        <constraint firstItem="JTG-oD-67B" firstAttribute="top" secondItem="sdB-ao-npA" secondAttribute="top" id="DSY-Rx-pHE"/>
+                                                        <constraint firstItem="JTG-oD-67B" firstAttribute="trailing" secondItem="sdB-ao-npA" secondAttribute="trailing" id="Tid-Al-tjB"/>
+                                                        <constraint firstItem="JTG-oD-67B" firstAttribute="leading" secondItem="sdB-ao-npA" secondAttribute="leading" id="bKY-Fu-G9C"/>
                                                         <constraint firstItem="sdB-ao-npA" firstAttribute="top" secondItem="mQz-zI-axr" secondAttribute="top" constant="5" id="eDg-Eb-tt9"/>
                                                         <constraint firstItem="sdB-ao-npA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="mQz-zI-axr" secondAttribute="leading" constant="80" id="ha6-MF-MJd"/>
                                                         <constraint firstAttribute="bottom" secondItem="sdB-ao-npA" secondAttribute="bottom" id="hhE-xR-3Dx"/>
@@ -5483,8 +5507,10 @@ Send to Admin</string>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <connections>
+                                                    <outlet property="btnSender" destination="JTG-oD-67B" id="edb-yo-L2M"/>
                                                     <outlet property="lblBottomView" destination="8jA-au-OPb" id="53C-us-iDU"/>
                                                     <outlet property="lblSenderMessage" destination="KmW-ll-eh3" id="BjY-me-A4D"/>
+                                                    <outlet property="lblSenderTime" destination="vUN-e9-o9Q" id="lVJ-cW-0tA"/>
                                                     <outlet property="lblSenderView" destination="3L7-XQ-xA1" id="Pa9-bQ-jFW"/>
                                                 </connections>
                                             </tableViewCell>
@@ -5562,19 +5588,35 @@ Send to Admin</string>
                                                                 <constraint firstItem="vcs-iK-2UW" firstAttribute="leading" secondItem="QCo-8j-6V3" secondAttribute="leading" id="rro-wo-ha0"/>
                                                             </constraints>
                                                         </view>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gj6-k4-bOv">
+                                                            <rect key="frame" x="16" y="5" width="279" height="70.5"/>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <state key="normal" title="Button"/>
+                                                            <buttonConfiguration key="configuration" style="plain"/>
+                                                            <connections>
+                                                                <action selector="btnReciverTap:" destination="t5D-Vl-s0J" eventType="touchUpInside" id="tvl-T0-pOj"/>
+                                                            </connections>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="QCo-8j-6V3" secondAttribute="bottom" id="2qW-ht-eM8"/>
+                                                        <constraint firstItem="Gj6-k4-bOv" firstAttribute="bottom" secondItem="QCo-8j-6V3" secondAttribute="bottom" id="61E-cH-hA8"/>
                                                         <constraint firstItem="QCo-8j-6V3" firstAttribute="leading" secondItem="YrE-U1-zbc" secondAttribute="leading" constant="16" id="FEt-6Z-tqD"/>
+                                                        <constraint firstItem="Gj6-k4-bOv" firstAttribute="leading" secondItem="QCo-8j-6V3" secondAttribute="leading" id="SFX-XL-bRo"/>
+                                                        <constraint firstItem="Gj6-k4-bOv" firstAttribute="trailing" secondItem="QCo-8j-6V3" secondAttribute="trailing" id="jGj-iV-Usx"/>
+                                                        <constraint firstItem="Gj6-k4-bOv" firstAttribute="top" secondItem="QCo-8j-6V3" secondAttribute="top" id="jq5-gL-5V0"/>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QCo-8j-6V3" secondAttribute="trailing" constant="80" id="pUf-FJ-Ovs"/>
                                                         <constraint firstItem="QCo-8j-6V3" firstAttribute="top" secondItem="YrE-U1-zbc" secondAttribute="top" constant="5" id="qrp-9z-Gxd"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <connections>
+                                                    <outlet property="btnReciver" destination="Gj6-k4-bOv" id="FFd-gA-hSr"/>
                                                     <outlet property="lblBottomView" destination="TbU-NU-g4W" id="vjQ-mn-PeO"/>
                                                     <outlet property="lblReciverMessage" destination="JsL-U5-hpV" id="zcM-6y-b5U"/>
+                                                    <outlet property="lblReciverTime" destination="cZB-Bt-gxm" id="qZP-7y-sYn"/>
                                                     <outlet property="lblReciverView" destination="tPG-cf-jmQ" id="BuA-em-Mr3"/>
                                                 </connections>
                                             </tableViewCell>

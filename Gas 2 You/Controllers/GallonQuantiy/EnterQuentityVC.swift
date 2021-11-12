@@ -41,11 +41,16 @@ class EnterQuentityVC: BaseVC{
         }
     }
     
+    
+    
     //MARK:- IBActions
     @IBAction func btnSubmitTap(_ sender: Any) {
         if(self.txtPrice.text == ""){
             Utilities.showAlert("Gas2You", message: "Please enter quantity", vc: self)
             return
+        }
+        if(self.txtPrice.text?.last == "."){
+            self.txtPrice.text = String((self.txtPrice.text?.dropLast())!)
         }
         self.dismiss(animated: false, completion: {
             if let obj = self.btnSubmitClosure{

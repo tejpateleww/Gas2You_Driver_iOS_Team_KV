@@ -23,6 +23,7 @@ class MyProfileVC: BaseVC {
     @IBOutlet weak var lblRating: themeLabel!
     
     let ACCEPTABLE_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz"
+    let ACCEPTABLE_CHARACTERS_FOR_PHONE = "0123456789"
     var imagePicker = UIImagePickerController()
     var userInfoViewModel = UserInfoViewModel()
     
@@ -62,7 +63,6 @@ class MyProfileVC: BaseVC {
         self.txtPhone.fontColor = .black
         
         self.txtEmail.isUserInteractionEnabled = false
-        self.txtPhone.isUserInteractionEnabled = false
     }
     
     func setupDate(){
@@ -112,11 +112,14 @@ class MyProfileVC: BaseVC {
         var strTitle : String?
         let firstName = self.txtName.validatedText(validationType: .username(field: self.txtName.placeholder?.lowercased() ?? ""))
         let checkEmail = self.txtEmail.validatedText(validationType: .email)
+        let mobileNo = self.txtPhone.validatedText(validationType: .phoneNo)
         
         if !firstName.0{
             strTitle = firstName.1
         }else if !checkEmail.0{
             strTitle = checkEmail.1
+        }else if !mobileNo.0{
+            strTitle = mobileNo.1
         }
         
         if let str = strTitle{
@@ -264,6 +267,23 @@ extension MyProfileVC: UITextFieldDelegate{
             let currentString: NSString = textField.text as NSString? ?? ""
             let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
             return (string == filtered) ? (newString.length <= TEXTFIELD_MaximumLimit) : false
+            
+        case self.txtPhone :
+            
+            if let char = string.cString(using: String.Encoding.utf8) {
+                let isBackSpace = strcmp(char, "\\b")
+                if (isBackSpace == -92) {
+                    if(textField.text?.last == " "){
+                        return false
+                    }
+                }
+            }
+    
+            let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_FOR_PHONE).inverted
+            let filtered = string.components(separatedBy: cs).joined(separator: "")
+            let currentString: NSString = textField.text as NSString? ?? ""
+            let newString: NSString = currentString.replacingCharacters(in: range, with: string) as NSString
+            return (string == filtered) ? (newString.length <= MAX_PHONE_DIGITS_PROFILE) : false
             
         default:
             print("")

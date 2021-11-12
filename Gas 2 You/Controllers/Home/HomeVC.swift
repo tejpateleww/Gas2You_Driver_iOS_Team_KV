@@ -303,16 +303,18 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
         }
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if(self.isSelectedRequest){
+        
+        if(self.arrBookings[indexPath.row].orderStatus == "Start Job"){
+            self.RedirectToJobs(index: indexPath)
+        }else{
             let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
-            vc.isfrom = isInProcess ? isFromHome.InProcess : isFromHome.Request
+            vc.isfrom = (self.arrBookings[indexPath.row].orderStatus == "Start Job") ? isFromHome.InProcess : isFromHome.Request //isInProcess ? isFromHome.InProcess : isFromHome.Request
             vc.strTitle = !isInProcess ? "Request Detail" : ""
             vc.BookingDetail = self.arrBookings[indexPath.row]
             vc.orderStaus = "Pending"
             self.navigationController?.pushViewController(vc, animated: true)
-        }else{
-            self.RedirectToJobs(index: indexPath)
         }
     }
     

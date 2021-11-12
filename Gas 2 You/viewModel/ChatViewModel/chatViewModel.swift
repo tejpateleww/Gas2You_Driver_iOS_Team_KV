@@ -43,7 +43,6 @@ class ChatUserModel{
     func webservicegetChatHistoryAPI(BookingId:String){
        WebServiceSubClass.getChatHistoryApi(BookingId: BookingId, completion:{ (status, apiMessage, response, error) in
            self.chatViewController?.isTblReload = true
-           self.chatViewController?.tblChat.isUserInteractionEnabled = true
             if status{
                 self.chatViewController?.bookingID = response?.bookingId ?? ""
                 self.chatViewController?.senderID = response?.customerId ?? ""

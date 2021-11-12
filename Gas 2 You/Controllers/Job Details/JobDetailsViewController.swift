@@ -103,6 +103,11 @@ class JobDetailsViewController: BaseVC {
     @IBOutlet weak var lblPlateNumber: themeLabel!
     @IBOutlet weak var btnReCenter: UIButton!
     
+    @IBOutlet weak var lblItem: themeLabel!
+    @IBOutlet weak var lblAmount: themeLabel!
+    @IBOutlet weak var lblPrice: themeLabel!
+    @IBOutlet weak var lblPricePerGallon: themeLabel!
+    
     
     // MARK: - --------- Life-cycle Methods ---------
     override func viewDidLoad() {
@@ -236,7 +241,7 @@ class JobDetailsViewController: BaseVC {
         for marker in self.arrMarkers{
             bounds = bounds.includingCoordinate(marker.position)
         }
-        let update = GMSCameraUpdate.fit(bounds, withPadding: 30)
+        let update = GMSCameraUpdate.fit(bounds, withPadding: 50)
         self.mapView.animate(with: update)
         
         self.fetchRoute(currentlat: currentlat, currentlong: currentlong, droplat: droplat, droplog: droplog)
@@ -322,6 +327,14 @@ class JobDetailsViewController: BaseVC {
         let PlateNumber = self.BookingDetail?.plateNumber ?? ""
         self.lblPlateNumber.text = "Plate Number : \(PlateNumber)"
         
+        if(self.orderStaus == "completed"){
+            self.lblItem.text = self.BookingDetail?.mainServiceName ?? ""
+            self.lblAmount.text = "$\(self.BookingDetail?.finalAmount ?? "")"
+            self.lblPrice.text = self.BookingDetail?.totalGallon ?? ""
+            self.lblPricePerGallon.text = "$\(self.BookingDetail?.price ?? "") Per Gallon"
+        }
+        
+        
         if(self.orderStaus == "In Progress"){
             self.setupInProcessOrderFlow()
         }else if(self.orderStaus == "Start Job"){
@@ -378,7 +391,9 @@ class JobDetailsViewController: BaseVC {
     }
     
     @IBAction func btnChatTap(_ sender: Any) {
-        let vc : ChatListVC = ChatListVC.instantiate(fromAppStoryboard: .Main)
+        let vc : ChatViewController = ChatViewController.instantiate(fromAppStoryboard: .Main)
+        vc.bookingID = self.BookingDetail?.id ?? ""
+        vc.isFromPush = true
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -469,6 +484,8 @@ extension JobDetailsViewController{
         }
         self.present(vc, animated: false, completion: nil)
     }
+    
+
 }
 
 // MARK: - --------- GMSMapViewDelegate ---------
@@ -482,15 +499,17 @@ extension JobDetailsViewController: GMSMapViewDelegate {
             view.titleLabel.text = "You"
             view.titleLabel.textAlignment = .center
             view.imgArrow.isHidden = true
-            view.frame.size.width = view.titleLabel.intrinsicContentSize.width + 45
+            view.imgArrowHeight.constant = 0
+            view.frame.size.width = 60
             view.frame.size.height = view.titleLabel.bounds.size.height - 15
             view.sizeToFit()
         }else{
             view.titleLabel.text = self.BookingDetail?.parkingLocation ?? "Parking Location"
             view.titleLabel.textAlignment = .left
             view.imgArrow.isHidden = false
-            view.frame.size.width = UIScreen.main.bounds.size.width - 100
-            view.frame.size.height = view.titleLabel.bounds.size.height + 30
+            view.imgArrowHeight.constant = 20
+            let width = view.titleLabel.text?.stringWidth // 74.6
+            view.frame = CGRect(x: 0, y: 0, width: width ?? 0, height: 50)
             view.sizeToFit()
         }
         return view
@@ -499,7 +518,15 @@ extension JobDetailsViewController: GMSMapViewDelegate {
     func mapView(_ mapView: GMSMapView, didTap marker: GMSMarker) -> Bool {
         return false
     }
+    
+    func mapView(_ mapView: GMSMapView, didTapInfoWindowOf marker: GMSMarker) {
+        if(marker != self.CurrentLocMarker){
+            Utilities.showAlert("Parking Location", message: self.BookingDetail?.parkingLocation ?? "Parking Location", vc: self)
+        }
+    }
 }
+
+
 
 //MARK:- Api Calls
 extension JobDetailsViewController{
