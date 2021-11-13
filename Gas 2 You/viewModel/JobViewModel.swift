@@ -17,7 +17,11 @@ class JobViewModel{
         WebServiceSubClass.OrderStatusUpdateAPI(reqModel: reqModel) { (status, apiMessage, response, error) in
             Utilities.hideHud()
             if status{
-                
+                self.JobDetailsVC?.BtnStartJob.setTitle(StartJobButtonTitle.FilledUp.Name, for: .normal)
+                self.JobDetailsVC?.vwChatCall.isHidden = false
+                self.JobDetailsVC?.stackStatus.isHidden = false
+                self.JobDetailsVC?.vwUpdateStatus.isHidden = false
+                NotificationCenter.default.post(name: Notification.Name("ReloadData"), object: nil)
             }else{
                 Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
                 self.JobDetailsVC?.popBack()

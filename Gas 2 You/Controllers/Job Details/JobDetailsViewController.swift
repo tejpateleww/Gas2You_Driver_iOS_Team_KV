@@ -116,8 +116,8 @@ class JobDetailsViewController: BaseVC {
         self.delegate = self
         
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: strTitle == "" ? "Job Details" : strTitle, leftImage: "Back", rightImages: [], isTranslucent: true)
-        self.setupData()
         self.prepareView()
+        self.setupData()
         
         if(self.isfromhome){
             self.setupMap()
@@ -135,6 +135,10 @@ class JobDetailsViewController: BaseVC {
     // MARK: - --------- Custom Methods ---------
     func prepareView() {
         self.lblcompltedSetup()
+        
+        self.BtnStartJob.isUserInteractionEnabled = true
+        self.vwStartJob.isHidden = false
+        
         self.ViewDateTime.isHidden = false
         self.mapView.delegate = self
         
@@ -335,9 +339,20 @@ class JobDetailsViewController: BaseVC {
         }
         
         
-        if(self.orderStaus == "In Progress"){
+        if(self.orderStaus == "Start Job" || self.orderStaus == "In Progress"){
+            self.BtnStartJob.setTitle(StartJobButtonTitle.FilledUp.Name, for: .normal)
             self.setupInProcessOrderFlow()
-        }else if(self.orderStaus == "Start Job"){
+        }else if(self.orderStaus == "Pending"){
+            
+            if(self.BookingDetail?.statusLabel == "Upcoming"){
+                self.BtnStartJob.isUserInteractionEnabled = false
+                self.vwStartJob.isHidden = true
+            }else{
+                self.BtnStartJob.isUserInteractionEnabled = true
+                self.vwStartJob.isHidden = false
+            }
+            
+            self.BtnStartJob.setTitle(StartJobButtonTitle.StartJob.Name, for: .normal)
             self.setupInProcessOrderFlow()
         }
     }
@@ -346,19 +361,17 @@ class JobDetailsViewController: BaseVC {
     func setupInProcessOrderFlow(){
         self.vwGasPriceDetail.isHidden = true
         self.stackItem.isHidden = true
-        self.btnJobDone.isHidden = true
         self.ViewDateTime.isHidden = false
         self.btnJobDone.isHidden = false
         self.LblFilledGallon.text = ""
         
-        self.BtnStartJob.setTitle(StartJobButtonTitle.FilledUp.Name, for: .normal)
-        self.BtnStartJob.isUserInteractionEnabled = false
+        
         self.ImgViewOntheway.image = UIImage(named: "ic_checkBoxSelected")
         
-        if(self.orderStaus == "Start Job"){
+        if(self.orderStaus == "In Progress" || self.orderStaus == "Pending"){
             
         }else{
-            self.callOrderStatusUpdateAPI(strStatus: "Start Job")
+            self.callOrderStatusUpdateAPI(strStatus: "In Progress")
         }
     }
     
@@ -374,8 +387,15 @@ class JobDetailsViewController: BaseVC {
     }
     
     @IBAction func BtnStartJob(_ sender: ThemeButton) {
-        if(self.orderStaus == "Start Job"){
+        
+        if(self.BtnStartJob.titleLabel?.text == StartJobButtonTitle.CompleteJob.Name){
             self.callOrderCompAPI()
+        }else if(self.BtnStartJob.titleLabel?.text == StartJobButtonTitle.StartJob.Name){
+            HomeVC.showAlertWithTitleFromVC(vc: self, title: "Gas2YouDriver", message: "Are you sure you want to start job ?", buttons: ["Cancel", "OK"]) { index in
+                if index == 1{
+                    self.callOrderStatusUpdateAPI(strStatus: "In Progress")
+                }
+            }
         }else{
             
         }
@@ -452,7 +472,6 @@ extension JobDetailsViewController{
     }
     
     func isFromRequest(){
-        vwStartJob.isHidden = true
         vwChatCall.isHidden = true
         vwUpdateStatus.isHidden = true
         vwGasPriceDetail.isHidden = true
@@ -467,7 +486,7 @@ extension JobDetailsViewController{
             self.ImgViewJobDone.image = UIImage(named: "ic_checkBoxSelected")
             self.BtnStartJob.setTitle(StartJobButtonTitle.CompleteJob.Name, for: .normal)
             self.BtnStartJob.isUserInteractionEnabled = true
-            self.orderStaus = (self.orderStaus == "Start Job") ? self.orderStaus : "Start Job"
+            self.orderStaus = (self.orderStaus == "In Progress") ? self.orderStaus : "In Progress"
         }
         vc.Quantity = self.LblFilledGallon.text ?? ""
         vc.modalPresentationStyle = .overFullScreen

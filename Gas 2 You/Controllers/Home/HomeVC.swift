@@ -265,7 +265,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
                 cell.btnAccept.setTitle(isInProcess ? self.arrBookings[indexPath.row].statusLabel ?? "IN PROGRESS" : "ACCEPT", for: .normal)
                 
                 cell.btnAcceptTapClosure = {
-                    if(self.arrBookings[indexPath.row].statusLabel == "Start Job"){
+                    if(self.arrBookings[indexPath.row].statusLabel == "In Progress"){
                         self.RedirectToJobs(index: indexPath)
                     }else{
                         HomeVC.showAlertWithTitleFromVC(vc: self, title: "Gas2YouDriver", message: "Are you sure you want to start job ?", buttons: ["Cancel", "OK"]) { index in
@@ -306,11 +306,11 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if(self.arrBookings[indexPath.row].orderStatus == "Start Job"){
+        if(self.arrBookings[indexPath.row].orderStatus == "In Progress"){
             self.RedirectToJobs(index: indexPath)
         }else{
             let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
-            vc.isfrom = (self.arrBookings[indexPath.row].orderStatus == "Start Job") ? isFromHome.InProcess : isFromHome.Request //isInProcess ? isFromHome.InProcess : isFromHome.Request
+            vc.isfrom = (self.arrBookings[indexPath.row].orderStatus == "In Progress") ? isFromHome.InProcess : isFromHome.Request //isInProcess ? isFromHome.InProcess : isFromHome.Request
             vc.strTitle = !isInProcess ? "Request Detail" : ""
             vc.BookingDetail = self.arrBookings[indexPath.row]
             vc.orderStaus = "Pending"
