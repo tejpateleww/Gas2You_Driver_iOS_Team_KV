@@ -72,10 +72,17 @@ class SignUpVC: BaseVC {
         reqModel.phone = self.txtMobile.text ?? ""
         reqModel.password = self.txtPassword.text ?? ""
         
-        let OtpVC = storyboard?.instantiateViewController(identifier: OtpVC.className) as! OtpVC
-        OtpVC.registerReqModel = reqModel
-        OtpVC.strOtp = self.strOtp
-        navigationController?.pushViewController(OtpVC, animated: true)
+        if #available(iOS 13.0, *) {
+            let OtpVC = storyboard?.instantiateViewController(identifier: OtpVC.className) as! OtpVC
+            OtpVC.registerReqModel = reqModel
+            OtpVC.strOtp = self.strOtp
+            navigationController?.pushViewController(OtpVC, animated: true)
+        }else{
+            let OtpVC = storyboard?.instantiateViewController(withIdentifier: OtpVC.className) as! OtpVC
+            OtpVC.registerReqModel = reqModel
+            OtpVC.strOtp = self.strOtp
+            navigationController?.pushViewController(OtpVC, animated: true)
+        }
     }
     
     func previewDocument(strURL : String){

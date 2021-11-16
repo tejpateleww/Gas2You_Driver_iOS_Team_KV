@@ -205,7 +205,6 @@ class JobDetailsViewController: BaseVC {
         self.PickLocLong = self.BookingDetail?.longitude ?? "0.0"
         
         self.MapSetup(currentlat: CurrentLocLat, currentlong: CurrentLocLong, droplat: PickLocLat, droplog: PickLocLong)
-        
     }
     
     func MapSetup(currentlat: String, currentlong:String, droplat: String, droplog:String){

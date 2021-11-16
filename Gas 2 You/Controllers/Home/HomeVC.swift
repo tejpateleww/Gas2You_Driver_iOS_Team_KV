@@ -139,7 +139,11 @@ class HomeVC: BaseVC {
     }
     
     func addTableFooter(){
-        self.pagingSpinner = UIActivityIndicatorView(style: .medium)
+        if #available(iOS 13.0, *) {
+            self.pagingSpinner = UIActivityIndicatorView(style: .medium)
+        } else {
+            self.pagingSpinner.style = .whiteLarge
+        }
         self.pagingSpinner.stopAnimating()
         self.pagingSpinner.color = UIColor.init(hexString: "#1F79CD")
         self.pagingSpinner.hidesWhenStopped = true
@@ -280,10 +284,20 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
             }else {
                 let NoDatacell = self.tblHome.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
                 if(self.isSelectedRequest){
-                    NoDatacell.imgNoData.image = UIImage(named: "ic_MyOrders")?.withTintColor(UIColor.init(hexString: "#1F79CD"))
+                    if #available(iOS 13.0, *) {
+                        NoDatacell.imgNoData.image = UIImage(named: "ic_MyOrders")?.withTintColor(UIColor.init(hexString: "#1F79CD"))
+                    } else {
+                        NoDatacell.imgNoData.image =  UIImage(named: "ic_MyOrders")?.withRenderingMode(.alwaysTemplate)
+                        NoDatacell.imgNoData.tintColor = UIColor.init(hexString: "#1F79CD")
+                    }
                     NoDatacell.lblNoDataTitle.text = "No upcoming order available"
                 }else{
-                    NoDatacell.imgNoData.image = UIImage(named: "ic_MyOrders")?.withTintColor(UIColor.init(hexString: "#1F79CD"))
+                    if #available(iOS 13.0, *) {
+                        NoDatacell.imgNoData.image = UIImage(named: "ic_MyOrders")?.withTintColor(UIColor.init(hexString: "#1F79CD"))
+                    } else {
+                        NoDatacell.imgNoData.image =  UIImage(named: "ic_MyOrders")?.withRenderingMode(.alwaysTemplate)
+                        NoDatacell.imgNoData.tintColor = UIColor.init(hexString: "#1F79CD")
+                    }
                     NoDatacell.lblNoDataTitle.text = "No in-progress order available"
                 }
                 return NoDatacell
@@ -319,7 +333,11 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.setTemplateWithSubviews(isLoading, animate: true, viewBackgroundColor: .systemBackground)
+        if #available(iOS 13.0, *) {
+            cell.setTemplateWithSubviews(isLoading, animate: true, viewBackgroundColor: .systemBackground)
+        } else {
+            cell.setTemplateWithSubviews(isLoading, animate: true, viewBackgroundColor: UIColor.lightGray.withAlphaComponent(0.3))
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

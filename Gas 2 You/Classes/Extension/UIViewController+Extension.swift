@@ -103,7 +103,11 @@ extension UIViewController {
         activityIndicator.layer.cornerRadius = 6
         activityIndicator.center = self.view.center
         activityIndicator.hidesWhenStopped = true
-        activityIndicator.style = .large
+        if #available(iOS 13.0, *) {
+            activityIndicator.style = .large
+        } else {
+            activityIndicator.style = .whiteLarge
+        }
         activityIndicator.color = UIColor.appColor(ThemeColor.themeBlue)
         activityIndicator.tag = 1001
         self.view.addSubview(activityIndicator)

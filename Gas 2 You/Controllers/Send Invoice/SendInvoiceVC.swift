@@ -21,10 +21,7 @@ class SendInvoiceVC: UIViewController {
     @IBOutlet weak var lblAmount: themeLabel!
     @IBOutlet weak var lblPrice: themeLabel!
     @IBOutlet weak var lblPricePerGallon: themeLabel!
-    
     @IBOutlet weak var btnSendInvoice: ThemeButton!
-   
-    
     @IBOutlet weak var lblQuentity: UIView!
     @IBOutlet weak var lblPlatnumberData: themeLabel!
     @IBOutlet weak var lblPlatNumber: themeLabel!
@@ -41,8 +38,6 @@ class SendInvoiceVC: UIViewController {
         self.prepareView()
         self.setupData()
     }
-    
-    
     
     //MARK:- Custome Methods
     func prepareView(){

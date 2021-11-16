@@ -20,7 +20,7 @@ class themeLabel: UILabel{
     @IBInspectable public var isLight: Bool = false
     @IBInspectable public var isMedium: Bool = false
     @IBInspectable public var isRegular: Bool = false
-    @IBInspectable public var fontColor: UIColor = .label
+    @IBInspectable public var fontColor: UIColor = .black
     @IBInspectable public var isThemeColour : Bool = false
     @IBInspectable public var is50Oppacity : Bool = false
     @IBInspectable public var is8ppacity : Bool = false

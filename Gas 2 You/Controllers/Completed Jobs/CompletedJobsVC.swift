@@ -50,7 +50,11 @@ class CompletedJobsVC: BaseVC {
     }
     
     func addTableFooter(){
-        self.pagingSpinner = UIActivityIndicatorView(style: .medium)
+        if #available(iOS 13.0, *) {
+            self.pagingSpinner = UIActivityIndicatorView(style: .medium)
+        } else {
+            self.pagingSpinner.style = .whiteLarge
+        }
         self.pagingSpinner.stopAnimating()
         self.pagingSpinner.color = UIColor.init(hexString: "#1F79CD")
         self.pagingSpinner.hidesWhenStopped = true
@@ -129,7 +133,12 @@ extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
                 return cell
             }else{
                 let NoDatacell = self.tblCompletedJobs.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
-                NoDatacell.imgNoData.image = UIImage(named: "ic_MyOrders")?.withTintColor(UIColor.init(hexString: "#1F79CD"))
+                if #available(iOS 13.0, *) {
+                    NoDatacell.imgNoData.image = UIImage(named: "ic_MyOrders")?.withTintColor(UIColor.init(hexString: "#1F79CD"))
+                } else {
+                    NoDatacell.imgNoData.image = UIImage(named: "ic_MyOrders")?.withRenderingMode(.alwaysTemplate)
+                    NoDatacell.imgNoData.tintColor = UIColor.init(hexString: "#1F79CD")
+                }
                 NoDatacell.lblNoDataTitle.text = "No completed order available"
                 return NoDatacell
             }
@@ -160,7 +169,11 @@ extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.setTemplateWithSubviews(isLoading, animate: true, viewBackgroundColor: .systemBackground)
+        if #available(iOS 13.0, *) {
+            cell.setTemplateWithSubviews(isLoading, animate: true, viewBackgroundColor: .systemBackground)
+        } else {
+            cell.setTemplateWithSubviews(isLoading, animate: true, viewBackgroundColor: UIColor.lightGray.withAlphaComponent(0.3))
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {

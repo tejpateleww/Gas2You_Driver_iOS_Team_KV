@@ -23,7 +23,9 @@ class JobViewModel{
                 self.JobDetailsVC?.vwUpdateStatus.isHidden = false
                 NotificationCenter.default.post(name: Notification.Name("ReloadData"), object: nil)
             }else{
-                Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
+                }
                 self.JobDetailsVC?.popBack()
             }
         }
@@ -37,7 +39,6 @@ class JobViewModel{
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     Toast.show(title: UrlConstant.Success, message: apiMessage, state: .success)
                 }
-                
                 self.JobDetailsVC?.CompBookingDetail = response?.data
                 self.JobDetailsVC?.JobCompleted()
             }else{

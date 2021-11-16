@@ -73,8 +73,13 @@ class LogInVC: UIViewController {
     
     @objc func navigateToForgotPassword(){
         let loginStory = UIStoryboard(name: "Main", bundle: nil)
-        let forgotpassVC = loginStory.instantiateViewController(identifier: ForgotPasswordVC.className) as! ForgotPasswordVC
-        navigationController?.pushViewController(forgotpassVC, animated: true)
+        if #available(iOS 13.0, *) {
+            let forgotpassVC = loginStory.instantiateViewController(identifier: ForgotPasswordVC.className) as! ForgotPasswordVC
+            navigationController?.pushViewController(forgotpassVC, animated: true)
+        }else{
+            let forgotpassVC = loginStory.instantiateViewController(withIdentifier: ForgotPasswordVC.className) as! ForgotPasswordVC
+            navigationController?.pushViewController(forgotpassVC, animated: true)
+        }
     }
     
     //MARK:- Button actions
@@ -87,8 +92,14 @@ class LogInVC: UIViewController {
     }
     
     @IBAction func signUpButtonPressed(_ sender: themeButton) {
-        let signUpVC = storyboard?.instantiateViewController(identifier: SignUpVC.className) as! SignUpVC
-        navigationController?.pushViewController(signUpVC, animated: true)
+        
+        if #available(iOS 13.0, *) {
+            let signUpVC = storyboard?.instantiateViewController(identifier: SignUpVC.className) as! SignUpVC
+            navigationController?.pushViewController(signUpVC, animated: true)
+        }else{
+            let signUpVC = storyboard?.instantiateViewController(withIdentifier: SignUpVC.className) as! SignUpVC
+            navigationController?.pushViewController(signUpVC, animated: true)
+        }
     }
     
     @IBAction func btnTCAction(_ sender: Any) {

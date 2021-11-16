@@ -205,7 +205,11 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
             if isTitlewhite {
                 label.textColor = .white
             } else {
-                label.textColor = .label
+                if #available(iOS 13.0, *) {
+                    label.textColor = .label
+                } else {
+                    label.textColor = .black
+                }
             }
             
             label.font = CustomFont.PoppinsBold.returnFont(16)
