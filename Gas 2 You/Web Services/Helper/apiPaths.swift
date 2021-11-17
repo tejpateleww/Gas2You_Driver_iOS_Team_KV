@@ -63,6 +63,7 @@ enum ApiKey: String {
     case downloadInvoice                      = "download_invoice"
     case sendMessage                          = "send_message"
     case chatHistory                          = "chat_history/"
+    case notification                          = "notification"
     
 }
 

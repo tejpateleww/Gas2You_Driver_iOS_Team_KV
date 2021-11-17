@@ -59,3 +59,43 @@ class ChatUserModel{
     }
     
 }
+
+class NotificationModelClass{
+    
+    weak var notificationVC : NotificationVC? = nil
+    
+    func webserviceNotificationListAPI(reqModel: NotificationReqModel){
+        
+        self.notificationVC?.isApiProcessing = true
+        WebServiceSubClass.getNotificationListApi(reqModel: reqModel) { (status, apiMessage, response, error) in
+            
+            DispatchQueue.main.async {
+                self.notificationVC?.refreshControl.endRefreshing()
+            }
+            self.notificationVC?.isLoading = false
+            self.notificationVC?.isTblReload = true
+            
+            if status{
+                self.notificationVC?.isApiProcessing = false
+                
+                if(response?.data?.count == 0){
+                    if(self.notificationVC?.CurrentPage == 1){
+                        self.notificationVC?.arrNotification = response?.data ?? []
+                    }else{
+                        self.notificationVC?.isStopPaging = true
+                    }
+                }else{
+                    if(self.notificationVC?.CurrentPage == 1){
+                        self.notificationVC?.arrNotification = response?.data ?? []
+                    }else{
+                        self.notificationVC?.arrNotification.append(contentsOf: response?.data ?? [])
+                    }
+                }
+                self.notificationVC?.reloadData()
+            }else{
+                Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
+            }
+        }
+    }
+    
+}

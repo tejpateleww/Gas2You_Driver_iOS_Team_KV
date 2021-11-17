@@ -66,6 +66,10 @@
 		885C691526F88BD700844561 /* HomeBookingReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885C691426F88BD700844561 /* HomeBookingReqModel.swift */; };
 		885C691926F89AF600844561 /* NoDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885C691726F89AF600844561 /* NoDataTableViewCell.swift */; };
 		885C691A26F89AF600844561 /* NoDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885C691826F89AF600844561 /* NoDataTableViewCell.xib */; };
+		8865407A2744CB23006C8B30 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886540782744CB23006C8B30 /* NotificationModel.swift */; };
+		8865407B2744CB23006C8B30 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886540792744CB23006C8B30 /* Notification.swift */; };
+		886540862744DB1B006C8B30 /* NotiShimmerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886540842744DB1B006C8B30 /* NotiShimmerCell.swift */; };
+		886540872744DB1B006C8B30 /* NotiShimmerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 886540852744DB1B006C8B30 /* NotiShimmerCell.xib */; };
 		8865B85626DF4420005F7F36 /* CommonResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8865B85326DF4420005F7F36 /* CommonResponseModel.swift */; };
 		8865B85826DF4420005F7F36 /* InitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8865B85526DF4420005F7F36 /* InitModel.swift */; };
 		8865B85F26DF44FF005F7F36 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8865B85A26DF44FF005F7F36 /* LoginModel.swift */; };
@@ -222,6 +226,10 @@
 		885C691426F88BD700844561 /* HomeBookingReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBookingReqModel.swift; sourceTree = "<group>"; };
 		885C691726F89AF600844561 /* NoDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoDataTableViewCell.swift; sourceTree = "<group>"; };
 		885C691826F89AF600844561 /* NoDataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoDataTableViewCell.xib; sourceTree = "<group>"; };
+		886540782744CB23006C8B30 /* NotificationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
+		886540792744CB23006C8B30 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		886540842744DB1B006C8B30 /* NotiShimmerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiShimmerCell.swift; sourceTree = "<group>"; };
+		886540852744DB1B006C8B30 /* NotiShimmerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotiShimmerCell.xib; sourceTree = "<group>"; };
 		8865B85326DF4420005F7F36 /* CommonResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonResponseModel.swift; sourceTree = "<group>"; };
 		8865B85526DF4420005F7F36 /* InitModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitModel.swift; sourceTree = "<group>"; };
 		8865B85A26DF44FF005F7F36 /* LoginModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -334,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				1802708126C2988B003337F1 /* NotificationVC.swift */,
+				886540892744DECC006C8B30 /* Cell */,
 			);
 			path = Notification;
 			sourceTree = "<group>";
@@ -354,7 +363,6 @@
 				9A3A913A26C140AA0041D7D9 /* ChatListCell.swift */,
 				184658A926C15E4900958397 /* MyEarningsCell.swift */,
 				184658F926C16E7800958397 /* JobsCell.swift */,
-				1802707C26C28683003337F1 /* NotificationCell.swift */,
 			);
 			path = "View Class";
 			sourceTree = "<group>";
@@ -365,7 +373,6 @@
 				18E5E47026C54C73004E79C4 /* CompletedCell.xib */,
 				184658AA26C15E4900958397 /* MyEarningsCell.xib */,
 				184658FA26C16E7800958397 /* JobsCell.xib */,
-				1802707D26C28683003337F1 /* NotificationCell.xib */,
 			);
 			path = Xib;
 			sourceTree = "<group>";
@@ -474,6 +481,7 @@
 		885C690926F88A1C00844561 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				886540772744CAD7006C8B30 /* Notification */,
 				8849612927280D7500ABD917 /* Download Invoice */,
 				88367A28270C697C0034D5F1 /* Chat */,
 				88DC2785270ACC0300359438 /* User Profile update */,
@@ -524,6 +532,51 @@
 				885C691826F89AF600844561 /* NoDataTableViewCell.xib */,
 			);
 			path = "No Data Found Cell";
+			sourceTree = "<group>";
+		};
+		886540772744CAD7006C8B30 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				886540782744CB23006C8B30 /* NotificationModel.swift */,
+				886540792744CB23006C8B30 /* Notification.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		886540882744DDAE006C8B30 /* Notification Shimmer */ = {
+			isa = PBXGroup;
+			children = (
+				886540842744DB1B006C8B30 /* NotiShimmerCell.swift */,
+				886540852744DB1B006C8B30 /* NotiShimmerCell.xib */,
+			);
+			path = "Notification Shimmer";
+			sourceTree = "<group>";
+		};
+		886540892744DECC006C8B30 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				1802707D26C28683003337F1 /* NotificationCell.xib */,
+				1802707C26C28683003337F1 /* NotificationCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		8865408A2744E3CF006C8B30 /* Chat Shimmer */ = {
+			isa = PBXGroup;
+			children = (
+				8853A99C2726735A00456181 /* ChatShimmer.swift */,
+				8853A99D2726735A00456181 /* ChatShimmer.xib */,
+			);
+			path = "Chat Shimmer";
+			sourceTree = "<group>";
+		};
+		8865408B2744E3DF006C8B30 /* Home Shimmer */ = {
+			isa = PBXGroup;
+			children = (
+				88DC278D270B29F300359438 /* ShimmerCell.swift */,
+				88DC278E270B29F300359438 /* ShimmerCell.xib */,
+			);
+			path = "Home Shimmer";
 			sourceTree = "<group>";
 		};
 		8865B85126DF4415005F7F36 /* Model */ = {
@@ -698,10 +751,9 @@
 		88DC2788270B296C00359438 /* Shimmer Cell */ = {
 			isa = PBXGroup;
 			children = (
-				8853A99C2726735A00456181 /* ChatShimmer.swift */,
-				8853A99D2726735A00456181 /* ChatShimmer.xib */,
-				88DC278D270B29F300359438 /* ShimmerCell.swift */,
-				88DC278E270B29F300359438 /* ShimmerCell.xib */,
+				8865408B2744E3DF006C8B30 /* Home Shimmer */,
+				8865408A2744E3CF006C8B30 /* Chat Shimmer */,
+				886540882744DDAE006C8B30 /* Notification Shimmer */,
 			);
 			path = "Shimmer Cell";
 			sourceTree = "<group>";
@@ -1077,6 +1129,7 @@
 				9A5B08B826B266EA00BA0CB4 /* LaunchScreen.storyboard in Resources */,
 				184658EA26C1633600958397 /* Poppins-ExtraLightItalic.ttf in Resources */,
 				184658E626C1633600958397 /* Poppins-LightItalic.ttf in Resources */,
+				886540872744DB1B006C8B30 /* NotiShimmerCell.xib in Resources */,
 				184658F526C1633600958397 /* Poppins-Light.ttf in Resources */,
 				184658F626C1633600958397 /* Poppins-ThinItalic.ttf in Resources */,
 				184658F726C1633600958397 /* Poppins-SemiBold.ttf in Resources */,
@@ -1213,6 +1266,7 @@
 				888D124B26DE24A70034D277 /* ColorsTypes.swift in Sources */,
 				9A81083726B963B5003DE6CC /* CarParkingLocationVC.swift in Sources */,
 				888D126126DE25150034D277 /* LocationService.swift in Sources */,
+				8865407A2744CB23006C8B30 /* NotificationModel.swift in Sources */,
 				8896B1A526E0C08C0011D62F /* PasswordViewModel.swift in Sources */,
 				888D123A26DE23B40034D277 /* UrlServiceConstant.swift in Sources */,
 				186D4A6326C3DE3900ABAE19 /* SendRequestToAdminPopUpVC.swift in Sources */,
@@ -1271,12 +1325,14 @@
 				888D126326DE26FF0034D277 /* String+Operation.swift in Sources */,
 				9A3A913D26C141700041D7D9 /* ChatListVC.swift in Sources */,
 				9A5B093C26B2788500BA0CB4 /* UIImage+Extension.swift in Sources */,
+				886540862744DB1B006C8B30 /* NotiShimmerCell.swift in Sources */,
 				18C2FAD626C69330005E1D07 /* ChangePasswordVC.swift in Sources */,
 				88FCC9CF2706E9C70006C838 /* CommonModel.swift in Sources */,
 				9A0D9FBF26CCEBB30038E45B /* ChatViewController.swift in Sources */,
 				18E5E47326C54C73004E79C4 /* CompletedCell.swift in Sources */,
 				9A5B08E826B26C7800BA0CB4 /* Themes.swift in Sources */,
 				888D123E26DE23B40034D277 /* CodableResponseServiceClass.swift in Sources */,
+				8865407B2744CB23006C8B30 /* Notification.swift in Sources */,
 				888D124326DE24440034D277 /* String+Functionality.swift in Sources */,
 				88593F0B2728108000C98220 /* InvoiceViewModel.swift in Sources */,
 				8865B86F26DF5468005F7F36 /* AppDelegate+Methods.swift in Sources */,

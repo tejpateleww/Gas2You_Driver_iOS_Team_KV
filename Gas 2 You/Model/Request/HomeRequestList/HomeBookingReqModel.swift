@@ -39,3 +39,12 @@ class SendMsgReqModel: Encodable{
     }
 }
 
+class NotificationReqModel: Encodable{
+    var driverId : String? = Singleton.sharedInstance.UserId
+    var page : String?
+    
+    enum CodingKeys: String, CodingKey {
+        case driverId = "driver_id"
+        case page = "page"
+    }
+}
