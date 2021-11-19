@@ -121,7 +121,7 @@ class HomeVC: BaseVC {
         self.addRefreshControl()
         
     }
-    
+
     func addRefreshControl(){
         self.refreshControl.attributedTitle = NSAttributedString(string: "")
         self.refreshControl.tintColor = UIColor.init(hexString: "#1F79CD")

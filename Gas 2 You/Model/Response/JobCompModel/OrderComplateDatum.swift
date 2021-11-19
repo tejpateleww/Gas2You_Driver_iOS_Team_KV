@@ -35,6 +35,7 @@ class OrderComplateDatum : Codable {
     let totalAmount : String?
     let totalGallon : String?
     let vehicleId : String?
+    let services : [OrderComplateService]?
     
     enum CodingKeys: String, CodingKey {
         case colorName = "color_name"
@@ -65,6 +66,7 @@ class OrderComplateDatum : Codable {
         case totalAmount = "total_amount"
         case totalGallon = "total_gallon"
         case vehicleId = "vehicle_id"
+        case services = "services"
     }
     
     required init(from decoder: Decoder) throws {
@@ -97,6 +99,7 @@ class OrderComplateDatum : Codable {
         totalAmount = try values.decodeIfPresent(String.self, forKey: .totalAmount)
         totalGallon = try values.decodeIfPresent(String.self, forKey: .totalGallon)
         vehicleId = try values.decodeIfPresent(String.self, forKey: .vehicleId)
+        services = try values.decodeIfPresent([OrderComplateService].self, forKey: .services)
     }
     
 }

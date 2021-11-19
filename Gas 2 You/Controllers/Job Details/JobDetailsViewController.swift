@@ -72,6 +72,8 @@ class JobDetailsViewController: BaseVC {
     var DropLocMarker: GMSMarker?
     var arrMarkers: [GMSMarker] = []
     
+    var arrService:[OrderComplateService] = []
+    
     // MARK: - --------- IBOutlets ---------
     @IBOutlet weak var lblLine: UILabel!
     @IBOutlet weak var LblFilledGallon: themeLabel!
@@ -89,8 +91,6 @@ class JobDetailsViewController: BaseVC {
     @IBOutlet weak var vwUpdateStatus: UIView!
     @IBOutlet weak var BtnStartJob: ThemeButton!
     @IBOutlet weak var ImgViewOntheway: UIImageView!
-    @IBOutlet weak var vwGasPriceDetail: UIView!
-    @IBOutlet weak var stackItem: UIStackView!
     @IBOutlet weak var btnJobDone: UIButton!
     @IBOutlet weak var stackJobDetails: UIStackView!
     @IBOutlet weak var ImgViewJobDone: UIImageView!
@@ -103,17 +103,36 @@ class JobDetailsViewController: BaseVC {
     @IBOutlet weak var lblPlateNumber: themeLabel!
     @IBOutlet weak var btnReCenter: UIButton!
     
-    @IBOutlet weak var lblItem: themeLabel!
-    @IBOutlet weak var lblAmount: themeLabel!
-    @IBOutlet weak var lblPrice: themeLabel!
-    @IBOutlet weak var lblPricePerGallon: themeLabel!
-    
+    @IBOutlet weak var tblAddon: UITableView!
+    @IBOutlet weak var tblAddonHeight: NSLayoutConstraint!
+    @IBOutlet weak var btnMapType: UIButton!
+    @IBOutlet weak var lblTitleTotal: themeLabel!
+    @IBOutlet weak var lblTotal: themeLabel!
+    @IBOutlet weak var VwLine: UIView!
     
     // MARK: - --------- Life-cycle Methods ---------
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.delegate = self
+        self.btnMapType.clipsToBounds = true
+        self.btnMapType.layer.cornerRadius = 5
+        
+        self.arrService.append(contentsOf: self.BookingDetail?.services ?? [])
+        if(self.arrService.count == 0){
+            self.tblAddon.isHidden = true
+            self.tblAddonHeight.constant = 0
+            self.VwLine.isHidden = true
+        }
+        
+        self.registerNib()
+        self.tblAddon.delegate = self
+        self.tblAddon.dataSource = self
+        self.tblAddon.separatorStyle = .none
+        self.tblAddon.showsVerticalScrollIndicator = false
+        self.tblAddon.isScrollEnabled = false
+        self.tblAddon.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.new, context: nil)
+        self.tblAddon.reloadData()
         
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: strTitle == "" ? "Job Details" : strTitle, leftImage: "Back", rightImages: [], isTranslucent: true)
         self.prepareView()
@@ -126,6 +145,14 @@ class JobDetailsViewController: BaseVC {
             self.setupMapForCompletedOrder()
         }
         
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        self.tblAddon.layer.removeAllAnimations()
+        self.tblAddonHeight.constant = self.tblAddon.contentSize.height
+        UIView.animate(withDuration: 0.5) {
+            self.updateViewConstraints()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -152,6 +179,11 @@ class JobDetailsViewController: BaseVC {
         }else{
             self.isFromMyOrders()
         }
+    }
+    
+    func registerNib(){
+        let nib = UINib(nibName: AddonCell.className, bundle: nil)
+        self.tblAddon.register(nib, forCellReuseIdentifier: AddonCell.className)
     }
     
     func refreshOrderList(){
@@ -198,6 +230,7 @@ class JobDetailsViewController: BaseVC {
     
     func setupMap(){
         self.mapView.clear()
+
         
         self.CurrentLocLat = String(appDel.locationService.currentLocation?.coordinate.latitude ?? 0.0)
         self.CurrentLocLong = String(appDel.locationService.currentLocation?.coordinate.longitude ?? 0.0)
@@ -330,12 +363,12 @@ class JobDetailsViewController: BaseVC {
         let PlateNumber = self.BookingDetail?.plateNumber ?? ""
         self.lblPlateNumber.text = "Plate Number : \(PlateNumber)"
         
-        if(self.orderStaus == "completed"){
-            self.lblItem.text = self.BookingDetail?.mainServiceName ?? ""
-            self.lblAmount.text = "$\(self.BookingDetail?.finalAmount ?? "")"
-            self.lblPrice.text = self.BookingDetail?.totalGallon ?? ""
-            self.lblPricePerGallon.text = "$\(self.BookingDetail?.price ?? "") Per Gallon"
-        }
+//        if(self.orderStaus == "completed"){
+//            self.lblItem.text = self.BookingDetail?.mainServiceName ?? ""
+//            self.lblAmount.text = "$\(self.BookingDetail?.finalAmount ?? "")"
+//            self.lblPrice.text = self.BookingDetail?.totalGallon ?? ""
+//            self.lblPricePerGallon.text = "$\(self.BookingDetail?.price ?? "") Per Gallon"
+//        }
         
         
         if(self.orderStaus == "Start Job" || self.orderStaus == "In Progress"){
@@ -357,10 +390,7 @@ class JobDetailsViewController: BaseVC {
     }
     
     // MARK: - --------- InProcessOrderFlow Methods ---------
-    func setupInProcessOrderFlow(){
-        self.vwGasPriceDetail.isHidden = true
-        self.stackItem.isHidden = true
-        self.ViewDateTime.isHidden = false
+    func setupInProcessOrderFlow(){        self.ViewDateTime.isHidden = false
         self.btnJobDone.isHidden = false
         self.LblFilledGallon.text = ""
         
@@ -431,6 +461,16 @@ class JobDetailsViewController: BaseVC {
         }
     }
     
+    @IBAction func btnMapTypeAction(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        if(sender.isSelected){
+            self.mapView.mapType = .satellite
+        }else{
+            self.mapView.mapType = .normal
+        }
+    }
+    
+    
 }
 
 // MARK: - --------- Extension Methods ---------
@@ -452,8 +492,6 @@ extension JobDetailsViewController{
         self.btnDownload.isHidden = false
         self.vwChatCall.isHidden = true
         self.lblplateNumberDashLineHeight.constant = 0
-        self.stackItem.isHidden = false
-        self.vwGasPriceDetail.isHidden = false
         self.imgCompleted.isHidden = false
         self.LblCompleted.isHidden = false
         self.stackStatus.isHidden = true
@@ -473,8 +511,6 @@ extension JobDetailsViewController{
     func isFromRequest(){
         vwChatCall.isHidden = true
         vwUpdateStatus.isHidden = true
-        vwGasPriceDetail.isHidden = true
-        stackItem.isHidden = true
     }
     
     func JobDoneTapped(strGallon : String){
@@ -564,7 +600,8 @@ extension JobDetailsViewController{
         
         let JobComp = JobCompReqModel()
         JobComp.orderId = self.BookingDetail?.id ?? ""
-        JobComp.totalGallon = self.LblFilledGallon.text ?? "0.0"
+        let newString = self.LblFilledGallon.text?.replacingOccurrences(of: " Gallon", with: "")
+        JobComp.totalGallon = newString
         JobComp.pricePerGallon = self.BookingDetail?.price ?? ""
         
         self.jobViewModel.webserviceOrderCompAPI(reqModel: JobComp)
@@ -586,5 +623,59 @@ extension JobDetailsViewController{
 extension JobDetailsViewController : CompletedTripDelgate{
     func onSaveInvoice() {
         self.setupTitleForDownload()
+    }
+}
+
+//MARK: - UITableview Methods
+extension JobDetailsViewController : UITableViewDelegate, UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.arrService.count + 2
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tblAddon.dequeueReusableCell(withIdentifier: AddonCell.className) as! AddonCell
+        cell.selectionStyle = .none
+        cell.vWHighLight.isHidden = true
+        
+        if(indexPath.row == 0){
+            cell.lblAddonTitile.fontColor = UIColor(hexString: "1F79CD")
+            cell.lblAddonText.fontColor = UIColor(hexString: "1F79CD")
+            cell.lblAddonPrice.fontColor = UIColor(hexString: "1F79CD")
+            
+            cell.lblAddonTitile.text = "Item"
+            cell.lblAddonText.text = "Qty & Rate"
+            cell.lblAddonPrice.text = "Amount"
+        }else{
+            
+            if(indexPath.row == self.arrService.count + 1){
+                cell.lblAddonText.font = CustomFont.PoppinsSemiBold.returnFont(14)
+                cell.lblAddonTitile.text = ""
+                cell.lblAddonText.text = "Total"
+                cell.lblAddonPrice.text = "$\(self.BookingDetail?.finalAmount ?? "")"
+            }else{
+                cell.lblAddonTitile.font = CustomFont.PoppinsRegular.returnFont(14)
+                cell.lblAddonText.font = CustomFont.PoppinsRegular.returnFont(14)
+
+                let newString = self.arrService[indexPath.row - 1].title?.replacingOccurrences(of: "/", with: "\n")
+                let newString1 = self.arrService[indexPath.row - 1].descriptionField?.replacingOccurrences(of: "/", with: "\n")
+                cell.lblAddonTitile.text = newString ?? ""
+                cell.lblAddonText.text = newString1 ?? ""
+                cell.lblAddonPrice.text = "$\(self.arrService[indexPath.row - 1].price ?? "")"
+                
+                if(indexPath.row == self.arrService.count){
+                    cell.vWHighLight.isHidden = false
+                }
+            }
+            
+
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
 }

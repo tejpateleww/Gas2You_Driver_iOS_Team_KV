@@ -48,6 +48,9 @@ class HomeViewModel{
                     }
                 }
                 self.homeVC?.tblHome.reloadData()
+                if(self.homeVC?.arrBookings.count ?? 0 > 0){
+                    self.homeVC?.tblHome.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+                }
             }else{
                 Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
             }
@@ -92,6 +95,10 @@ class HomeViewModel{
                     }
                 }
                 self.homeVC?.tblHome.reloadData()
+                if(self.homeVC?.arrBookings.count ?? 0 > 0){
+                    self.homeVC?.tblHome.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: false)
+                }
+
             }else{
                 Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
             }

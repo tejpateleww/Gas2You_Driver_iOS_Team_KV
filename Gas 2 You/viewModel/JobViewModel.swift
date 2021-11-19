@@ -21,6 +21,9 @@ class JobViewModel{
                 self.JobDetailsVC?.vwChatCall.isHidden = false
                 self.JobDetailsVC?.stackStatus.isHidden = false
                 self.JobDetailsVC?.vwUpdateStatus.isHidden = false
+                
+
+                
                 NotificationCenter.default.post(name: Notification.Name("ReloadData"), object: nil)
             }else{
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {

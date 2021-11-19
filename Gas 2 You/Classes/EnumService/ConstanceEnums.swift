@@ -79,7 +79,7 @@ enum ReachedOTPScreenBy {
 enum viewComponentsTags : Int{
     case ActivityIndicator = 1001
     case ToastView = 2002
-    
+
 }
 
 enum webserviceResponse {

@@ -59,6 +59,9 @@
 		8853A99F2726735A00456181 /* ChatShimmer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8853A99D2726735A00456181 /* ChatShimmer.xib */; };
 		8853A9A3272678D000456181 /* chatHistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8853A9A1272678D000456181 /* chatHistoryModel.swift */; };
 		8853A9A4272678D000456181 /* chatHistoryDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8853A9A2272678D000456181 /* chatHistoryDatum.swift */; };
+		885461BF27477447009105E5 /* AddonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885461BD27477447009105E5 /* AddonCell.swift */; };
+		885461C027477447009105E5 /* AddonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885461BE27477447009105E5 /* AddonCell.xib */; };
+		885461C22747A2BF009105E5 /* OrderComplateService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885461C12747A2BF009105E5 /* OrderComplateService.swift */; };
 		88593F0B2728108000C98220 /* InvoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88593F0A2728108000C98220 /* InvoiceViewModel.swift */; };
 		885C690D26F88A6000844561 /* RequestBookingListDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885C690B26F88A6000844561 /* RequestBookingListDatum.swift */; };
 		885C690E26F88A6000844561 /* RequestBookingListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885C690C26F88A6000844561 /* RequestBookingListModel.swift */; };
@@ -219,6 +222,9 @@
 		8853A99D2726735A00456181 /* ChatShimmer.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatShimmer.xib; sourceTree = "<group>"; };
 		8853A9A1272678D000456181 /* chatHistoryModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatHistoryModel.swift; sourceTree = "<group>"; };
 		8853A9A2272678D000456181 /* chatHistoryDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatHistoryDatum.swift; sourceTree = "<group>"; };
+		885461BD27477447009105E5 /* AddonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddonCell.swift; sourceTree = "<group>"; };
+		885461BE27477447009105E5 /* AddonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddonCell.xib; sourceTree = "<group>"; };
+		885461C12747A2BF009105E5 /* OrderComplateService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderComplateService.swift; sourceTree = "<group>"; };
 		88593F0A2728108000C98220 /* InvoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvoiceViewModel.swift; sourceTree = "<group>"; };
 		885C690B26F88A6000844561 /* RequestBookingListDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBookingListDatum.swift; sourceTree = "<group>"; };
 		885C690C26F88A6000844561 /* RequestBookingListModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBookingListModel.swift; sourceTree = "<group>"; };
@@ -788,6 +794,7 @@
 			children = (
 				88FCC9D227071B210006C838 /* OrderComplateDatum.swift */,
 				88FCC9D127071B210006C838 /* OrderComplateModel.swift */,
+				885461C12747A2BF009105E5 /* OrderComplateService.swift */,
 			);
 			path = JobCompModel;
 			sourceTree = "<group>";
@@ -796,6 +803,8 @@
 			isa = PBXGroup;
 			children = (
 				187CE6DB26C512B100C8E765 /* JobDetailsViewController.swift */,
+				885461BD27477447009105E5 /* AddonCell.swift */,
+				885461BE27477447009105E5 /* AddonCell.xib */,
 			);
 			path = "Job Details";
 			sourceTree = "<group>";
@@ -1131,6 +1140,7 @@
 				184658E626C1633600958397 /* Poppins-LightItalic.ttf in Resources */,
 				886540872744DB1B006C8B30 /* NotiShimmerCell.xib in Resources */,
 				184658F526C1633600958397 /* Poppins-Light.ttf in Resources */,
+				885461C027477447009105E5 /* AddonCell.xib in Resources */,
 				184658F626C1633600958397 /* Poppins-ThinItalic.ttf in Resources */,
 				184658F726C1633600958397 /* Poppins-SemiBold.ttf in Resources */,
 				9A5B08B526B266EA00BA0CB4 /* Assets.xcassets in Resources */,
@@ -1245,6 +1255,7 @@
 				9A3A913126C133AC0041D7D9 /* MenuContainerViewController.swift in Sources */,
 				886E920C2731137B00F3F1BF /* ChatSendMsgDatum.swift in Sources */,
 				888D125926DE25140034D277 /* Utilities.swift in Sources */,
+				885461C22747A2BF009105E5 /* OrderComplateService.swift in Sources */,
 				885C690D26F88A6000844561 /* RequestBookingListDatum.swift in Sources */,
 				18E5E46D26C535A0004E79C4 /* MyProfileVC.swift in Sources */,
 				88367A2C270C69B20034D5F1 /* ChatUserListDatum.swift in Sources */,
@@ -1336,6 +1347,7 @@
 				888D124326DE24440034D277 /* String+Functionality.swift in Sources */,
 				88593F0B2728108000C98220 /* InvoiceViewModel.swift in Sources */,
 				8865B86F26DF5468005F7F36 /* AppDelegate+Methods.swift in Sources */,
+				885461BF27477447009105E5 /* AddonCell.swift in Sources */,
 				8853A9A3272678D000456181 /* chatHistoryModel.swift in Sources */,
 				9A3A913226C133AC0041D7D9 /* MenuAnimator.swift in Sources */,
 				882C591326F9CA2600E18644 /* MarkerInfoWindowView.swift in Sources */,
@@ -1501,7 +1513,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gas2you.driver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1528,7 +1540,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.5;
+				MARKETING_VERSION = 1.0.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.gas2you.driver;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

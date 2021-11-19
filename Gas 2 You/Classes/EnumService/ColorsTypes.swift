@@ -67,7 +67,7 @@ extension ThemeColorEnum: RawRepresentable {
             //MARK:- Tost Message Theme
             case .Success: return #colorLiteral(red: 0.3803921569, green: 0.631372549, blue: 0.09019607843, alpha: 1)
             case .Failure: return #colorLiteral(red: 0.9764705882, green: 0.2588235294, blue: 0.1843137255, alpha: 1)
-            case .Info: return #colorLiteral(red: 0.9803921569, green: 0.6431372549, blue: 0.1294117647, alpha: 1)
+            case .Info: return #colorLiteral(red: 0.8901960784, green: 0.2901960784, blue: 0.1450980392, alpha: 1)
         }
     }
 }
