@@ -14,8 +14,15 @@ class LoginRequestModel: Encodable{
     var password : String?
     var deviceType : String? = Singleton.sharedInstance.DeviceType
     var deviceToken : String? = Singleton.sharedInstance.DeviceToken
+   
+    
+#if IOS_SIMULATOR
+    var latitude : String? = "23.071775"
+    var longitude : String? = "72.517008"
+#else
     var latitude : String? = Singleton.sharedInstance.locationString().latitude
     var longitude : String? = Singleton.sharedInstance.locationString().longitude
+#endif
     
     enum CodingKeys: String, CodingKey {
         case userName = "username"

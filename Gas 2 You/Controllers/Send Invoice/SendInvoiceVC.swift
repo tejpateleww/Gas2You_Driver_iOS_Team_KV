@@ -107,7 +107,7 @@ extension SendInvoiceVC : UITableViewDelegate, UITableViewDataSource{
             cell.lblAddonTitile.text = "Item"
             cell.lblAddonText.text = "Qty & Rate"
             cell.lblAddonPrice.text = "Amount"
-        }else{
+        }else{ 
             
             if(indexPath.row == self.arrService.count + 1){
                 cell.lblAddonText.font = CustomFont.PoppinsSemiBold.returnFont(14)

@@ -26,8 +26,9 @@ class SplashVC: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
             self.webserviceInit()
         }
+        
     }
-
+    
 }
 
 //MARK:- Apis
