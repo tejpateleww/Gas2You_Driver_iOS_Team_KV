@@ -6,8 +6,9 @@
 //
 
 import UIKit
+import UIView_Shimmer
 
-class MyEarningsCell: UITableViewCell {
+class MyEarningsCell: UITableViewCell, ShimmeringViewProtocol {
 
     //MARK:- IBOutlets
     
@@ -15,7 +16,17 @@ class MyEarningsCell: UITableViewCell {
     @IBOutlet weak var lblDate: themeLabel!
     @IBOutlet weak var imgCurrency: UIImageView!
     @IBOutlet weak var vwMain: UIView!
+    @IBOutlet weak var lblAmount: themeLabel!
     //MARK:- Variables
+    
+    var shimmeringAnimatedItems: [UIView] {
+        [
+            self.imgCurrency,
+            self.lblPaymentDone,
+            self.lblDate,
+            self.lblAmount
+        ]
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

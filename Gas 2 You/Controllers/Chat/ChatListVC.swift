@@ -17,8 +17,8 @@ class ChatListVC: BaseVC {
     
     var arrUserList = [ChatUserListDatum]()
     var chatUserModel = ChatUserModel()
-    var isTblReload = false
     let refreshControl = UIRefreshControl()
+    var isTblReload = false
     var isLoading = true {
         didSet {
             self.tblUserList.isUserInteractionEnabled = !isLoading

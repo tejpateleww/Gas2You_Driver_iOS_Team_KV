@@ -9,59 +9,149 @@ import UIKit
 
 class MyEarningsVC: BaseVC {
     
-    //MARK:- IBOutlets:-
-    
+    //MARK: - IBOutlets:-
     @IBOutlet weak var lblTotalEarningsPrice: themeLabel!
     @IBOutlet weak var lblTotalEarnings: themeLabel!
     @IBOutlet weak var lblHistory: themeLabel!
     @IBOutlet weak var tblMyEarnings: UITableView!
+    @IBOutlet weak var tblMyEarningsHeight: NSLayoutConstraint!
     @IBOutlet weak var imgBackground: UIImageView!
     @IBOutlet weak var vwTotalEarning: UIView!
-    //MARK:- Variables And Properties:-
+    @IBOutlet weak var scrollVw: UIScrollView!
     
-
-    //MARK:- View Life Cycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "My Earnings", leftImage: "Back", rightImages: [], isTranslucent: true)
-        vwTotalEarning.addGeneralShaddow()
-        tblMyEarnings.delegate = self
-        tblMyEarnings.dataSource = self
-        let uinib = UINib(nibName: MyEarningsCell.className, bundle: nil)
-        tblMyEarnings.register(uinib, forCellReuseIdentifier: MyEarningsCell.className)
-        vwTotalEarning.layer.cornerRadius = 9
-        imgBackground.layer.cornerRadius = 9
-        let buttonHeight = vwTotalEarning.frame.height
-           let buttonWidth = vwTotalEarning.frame.width
-
-           let shadowSize: CGFloat = 15
-           let contactRect = CGRect(x: -shadowSize, y: buttonHeight - (shadowSize * 0.2), width: buttonWidth + shadowSize * 2, height: shadowSize)
-//        vwTotalEarning.layer.shadowPath = UIBezierPath(ovalIn: contactRect).cgPath
-//        vwTotalEarning.layer.shadowRadius = 5
-//        vwTotalEarning.layer.shadowOpacity = 0.6
-        // Do any additional setup after loading the view.
+    //MARK: - Variables And Properties:-
+    var earningViewModel = EarningViewModel()
+    var arrEarning : [EarningResDatum] = []
+    
+    let refreshControl = UIRefreshControl()
+    
+    var isTblReload = false
+    var isLoading = true {
+        didSet {
+            self.tblMyEarnings.isUserInteractionEnabled = !isLoading
+            self.tblMyEarnings.reloadData()
+        }
     }
     
-    //MARK:- Custom Methods
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        vwTotalEarning.addBlueShadow()
-//    }
+    //MARK: - View Life Cycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.prepareView()
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        self.tblMyEarnings.layer.removeAllAnimations()
+        self.tblMyEarningsHeight.constant = self.tblMyEarnings.contentSize.height
+        UIView.animate(withDuration: 0.5) {
+            self.updateViewConstraints()
+        }
+    }
+    
+    //MARK: - Custom Methods
+    func prepareView(){
+        self.registerNib()
+        self.addRefreshControl()
+        self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "My Earnings", leftImage: "Back", rightImages: [], isTranslucent: true)
+        
+        self.tblMyEarnings.delegate = self
+        self.tblMyEarnings.dataSource = self
+        self.tblMyEarnings.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.new, context: nil)
+        self.tblMyEarnings.separatorStyle = .none
+        
+        self.vwTotalEarning.addGeneralShaddow()
+        self.vwTotalEarning.layer.cornerRadius = 9
+        self.imgBackground.layer.cornerRadius = 9
+        
+        self.callEArningListApi()
+    }
+    
+    func addRefreshControl(){
+        self.refreshControl.attributedTitle = NSAttributedString(string: "")
+        self.refreshControl.tintColor = UIColor.init(hexString: "#1F79CD")
+        self.refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        self.refreshControl.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+        self.tblMyEarnings.addSubview(self.refreshControl)
+    }
+    
+    
+    @objc func refresh(_ sender: AnyObject) {
+        self.isLoading = true
+        self.isTblReload = false
+        self.callEArningListApi()
+    }
+    
+    func registerNib(){
+        let nib = UINib(nibName: MyEarningsCell.className, bundle: nil)
+        self.tblMyEarnings.register(nib, forCellReuseIdentifier: MyEarningsCell.className)
+        
+        let nib2 = UINib(nibName: NoDataTableViewCell.className, bundle: nil)
+        self.tblMyEarnings.register(nib2, forCellReuseIdentifier: NoDataTableViewCell.className)
+    }
 }
-//MARK:- UITableView Delegate and Data Sourse Methods
+
+//MARK: - UITableView Delegate and Data Sourse Methods
 extension MyEarningsVC : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if self.arrEarning.count > 0 {
+            return self.arrEarning.count
+        } else {
+            return (!self.isTblReload) ? 5 : 1
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tblMyEarnings.dequeueReusableCell(withIdentifier: MyEarningsCell.className) as! MyEarningsCell
-        return cell
-    }
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 84
+        if(!self.isTblReload){
+            cell.lblPaymentDone.text = "Payment Done"
+            cell.lblAmount.text = "123 Hello 123"
+            cell.lblDate.text = "06:58 AM"
+            return cell
+        }else{
+            if(self.arrEarning.count > 0){
+                
+                cell.lblAmount.text = "$\(self.arrEarning[indexPath.row].amount ?? "0")"
+                cell.lblDate.text = self.arrEarning[indexPath.row].date
+                return cell
+            }else{
+                let NoDatacell = self.tblMyEarnings.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
+                NoDatacell.lblNoDataTitle.text = "Earnings not found."
+                return NoDatacell
+            }
+            
+        }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if(!self.isTblReload){
+            return UITableView.automaticDimension
+        }else{
+            if self.arrEarning.count != 0 {
+                return UITableView.automaticDimension
+            }else{
+                return tableView.frame.height
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if #available(iOS 13.0, *) {
+            cell.setTemplateWithSubviews(isLoading, animate: true, viewBackgroundColor: .systemBackground)
+        } else {
+            cell.setTemplateWithSubviews(isLoading, animate: true, viewBackgroundColor: UIColor.lightGray.withAlphaComponent(0.3))
+        }
+    }
     
 }
+
+//MARK: - API call
+extension MyEarningsVC {
+    func callEArningListApi(){
+        self.earningViewModel.myEarningsVC = self
+        
+        let reqModel = EarningReqModel()
+        self.earningViewModel.webserviceEarningListAPI(reqModel: reqModel)
+    }
+}
+

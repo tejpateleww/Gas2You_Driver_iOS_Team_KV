@@ -1,37 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="135" id="KGk-i7-Jjw" customClass="MyEarningsCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="782" height="135"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="139" id="KGk-i7-Jjw" customClass="MyEarningsCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="717" height="139"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="782" height="135"/>
+                <rect key="frame" x="0.0" y="0.0" width="717" height="139"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ziS-8I-ed4">
-                        <rect key="frame" x="5" y="5" width="772" height="125"/>
+                        <rect key="frame" x="5" y="5" width="707" height="129"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imgDolor" translatesAutoresizingMaskIntoConstraints="NO" id="d3l-GR-AAM">
-                                <rect key="frame" x="22" y="46.5" width="32" height="32"/>
+                                <rect key="frame" x="20" y="47" width="35" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="Ytn-HY-UnH"/>
-                                    <constraint firstAttribute="width" secondItem="d3l-GR-AAM" secondAttribute="height" multiplier="1:1" id="epf-Wh-5jK"/>
+                                    <constraint firstAttribute="height" constant="35" id="Ytn-HY-UnH"/>
+                                    <constraint firstAttribute="width" secondItem="d3l-GR-AAM" secondAttribute="height" id="epf-Wh-5jK"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Qsp-Wz-Jxd">
-                                <rect key="frame" x="66" y="38" width="162.5" height="49"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$200.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ych-xL-ZTM" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                <rect key="frame" x="592" y="54.5" width="100" height="20.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="100" id="YX7-Lu-MZL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                        <color key="value" red="0.2196078431372549" green="0.70980392156862748" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isBold" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                        <real key="value" value="14"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UWE-RJ-tUd">
+                                <rect key="frame" x="65" y="10" width="517" height="109"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Done" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTL-73-g2e" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="162.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="517" height="52"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -43,7 +61,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aug 04, 2020 - 13:22" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uiM-mp-BBp" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28.5" width="162.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="57" width="517" height="52"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -58,31 +76,17 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$200.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ych-xL-ZTM" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                <rect key="frame" x="692.5" y="52.5" width="64.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                        <color key="value" red="0.2196078431372549" green="0.70980392156862748" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isBold" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                        <real key="value" value="14"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Qsp-Wz-Jxd" firstAttribute="centerY" secondItem="d3l-GR-AAM" secondAttribute="centerY" id="ILh-GB-RFt"/>
-                            <constraint firstItem="Qsp-Wz-Jxd" firstAttribute="leading" secondItem="d3l-GR-AAM" secondAttribute="trailing" constant="12" id="MPR-y5-R2o"/>
+                            <constraint firstAttribute="bottom" secondItem="UWE-RJ-tUd" secondAttribute="bottom" constant="10" id="1nk-AV-iUw"/>
+                            <constraint firstItem="UWE-RJ-tUd" firstAttribute="leading" secondItem="d3l-GR-AAM" secondAttribute="trailing" constant="10" id="Syd-pI-VwO"/>
+                            <constraint firstItem="UWE-RJ-tUd" firstAttribute="top" secondItem="ziS-8I-ed4" secondAttribute="top" constant="10" id="T8U-jn-ZsN"/>
                             <constraint firstAttribute="trailing" secondItem="ych-xL-ZTM" secondAttribute="trailing" constant="15" id="WW1-W2-r7X"/>
-                            <constraint firstItem="d3l-GR-AAM" firstAttribute="leading" secondItem="ziS-8I-ed4" secondAttribute="leading" constant="22" id="YYJ-mc-VwY"/>
+                            <constraint firstItem="d3l-GR-AAM" firstAttribute="leading" secondItem="ziS-8I-ed4" secondAttribute="leading" constant="20" id="YYJ-mc-VwY"/>
                             <constraint firstItem="d3l-GR-AAM" firstAttribute="centerY" secondItem="ziS-8I-ed4" secondAttribute="centerY" id="buU-Oq-cTo"/>
-                            <constraint firstItem="ych-xL-ZTM" firstAttribute="centerY" secondItem="Qsp-Wz-Jxd" secondAttribute="centerY" id="cd5-ya-zxC"/>
-                            <constraint firstItem="ych-xL-ZTM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Qsp-Wz-Jxd" secondAttribute="trailing" constant="10" id="fPY-17-mwh"/>
+                            <constraint firstItem="ych-xL-ZTM" firstAttribute="leading" secondItem="UWE-RJ-tUd" secondAttribute="trailing" constant="10" id="rDn-UF-tTF"/>
+                            <constraint firstItem="ych-xL-ZTM" firstAttribute="centerY" secondItem="ziS-8I-ed4" secondAttribute="centerY" id="uZZ-vi-yhQ"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -96,11 +100,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="imgCurrency" destination="d3l-GR-AAM" id="6fj-4Y-wQZ"/>
+                <outlet property="lblAmount" destination="ych-xL-ZTM" id="TLR-qX-xnm"/>
                 <outlet property="lblDate" destination="uiM-mp-BBp" id="9a8-L2-x9w"/>
                 <outlet property="lblPaymentDone" destination="MTL-73-g2e" id="5sI-hC-Em7"/>
                 <outlet property="vwMain" destination="ziS-8I-ed4" id="cSq-nP-8C5"/>
             </connections>
-            <point key="canvasLocation" x="472.46376811594206" y="183.14732142857142"/>
+            <point key="canvasLocation" x="425.36231884057975" y="184.48660714285714"/>
         </tableViewCell>
     </objects>
     <resources>

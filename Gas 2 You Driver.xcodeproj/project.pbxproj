@@ -86,6 +86,9 @@
 		886CBDF5270D6A5C004F1132 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 886CBDF4270D6A5C004F1132 /* GoogleService-Info.plist */; };
 		886E920C2731137B00F3F1BF /* ChatSendMsgDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886E920A2731137B00F3F1BF /* ChatSendMsgDatum.swift */; };
 		886E920D2731137B00F3F1BF /* ChatSendMsgModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886E920B2731137B00F3F1BF /* ChatSendMsgModel.swift */; };
+		886ED1B1274F502700971F75 /* EarningResDatum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ED1AF274F502700971F75 /* EarningResDatum.swift */; };
+		886ED1B2274F502700971F75 /* EarningResModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ED1B0274F502700971F75 /* EarningResModel.swift */; };
+		886ED1B5274F50F200971F75 /* EarningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ED1B4274F50F200971F75 /* EarningViewModel.swift */; };
 		8875E03F26E0DDBC00E45B82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8875E03E26E0DDBC00E45B82 /* Main.storyboard */; };
 		888D122F26DE183C0034D277 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888D122E26DE183C0034D277 /* SplashVC.swift */; };
 		888D123A26DE23B40034D277 /* UrlServiceConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888D123126DE23B40034D277 /* UrlServiceConstant.swift */; };
@@ -249,6 +252,9 @@
 		886CBDF4270D6A5C004F1132 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		886E920A2731137B00F3F1BF /* ChatSendMsgDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatSendMsgDatum.swift; sourceTree = "<group>"; };
 		886E920B2731137B00F3F1BF /* ChatSendMsgModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatSendMsgModel.swift; sourceTree = "<group>"; };
+		886ED1AF274F502700971F75 /* EarningResDatum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarningResDatum.swift; sourceTree = "<group>"; };
+		886ED1B0274F502700971F75 /* EarningResModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarningResModel.swift; sourceTree = "<group>"; };
+		886ED1B4274F50F200971F75 /* EarningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningViewModel.swift; sourceTree = "<group>"; };
 		8875E03E26E0DDBC00E45B82 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		888D122E26DE183C0034D277 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		888D123126DE23B40034D277 /* UrlServiceConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlServiceConstant.swift; sourceTree = "<group>"; };
@@ -439,6 +445,7 @@
 		884912D126E0915500D7A917 /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
+				886ED1B3274F50D300971F75 /* Earning */,
 				88593F092728106F00C98220 /* InvoiceViewModel */,
 				88367A2E270C6A820034D5F1 /* ChatViewModel */,
 				88DC2782270ACB9A00359438 /* UserInfoViewModel */,
@@ -487,6 +494,7 @@
 		885C690926F88A1C00844561 /* Response */ = {
 			isa = PBXGroup;
 			children = (
+				886ED1AE274F501D00971F75 /* Earning */,
 				886540772744CAD7006C8B30 /* Notification */,
 				8849612927280D7500ABD917 /* Download Invoice */,
 				88367A28270C697C0034D5F1 /* Chat */,
@@ -624,6 +632,23 @@
 				886E920B2731137B00F3F1BF /* ChatSendMsgModel.swift */,
 			);
 			path = ChatSendMsg;
+			sourceTree = "<group>";
+		};
+		886ED1AE274F501D00971F75 /* Earning */ = {
+			isa = PBXGroup;
+			children = (
+				886ED1B0274F502700971F75 /* EarningResModel.swift */,
+				886ED1AF274F502700971F75 /* EarningResDatum.swift */,
+			);
+			path = Earning;
+			sourceTree = "<group>";
+		};
+		886ED1B3274F50D300971F75 /* Earning */ = {
+			isa = PBXGroup;
+			children = (
+				886ED1B4274F50F200971F75 /* EarningViewModel.swift */,
+			);
+			path = Earning;
 			sourceTree = "<group>";
 		};
 		888D122D26DE18290034D277 /* Splash */ = {
@@ -1298,6 +1323,7 @@
 				88EC9CE626E0F6E400A4AC50 /* OtpVC.swift in Sources */,
 				884912D426E0916900D7A917 /* LoginViewModel.swift in Sources */,
 				9A3A913326C133AC0041D7D9 /* SideMenuItemContent.swift in Sources */,
+				886ED1B1274F502700971F75 /* EarningResDatum.swift in Sources */,
 				888D125826DE25140034D277 /* Constants.swift in Sources */,
 				9A5B093A26B2788500BA0CB4 /* Date+Extension.swift in Sources */,
 				888D126026DE25150034D277 /* Toast.swift in Sources */,
@@ -1342,10 +1368,12 @@
 				9A0D9FBF26CCEBB30038E45B /* ChatViewController.swift in Sources */,
 				18E5E47326C54C73004E79C4 /* CompletedCell.swift in Sources */,
 				9A5B08E826B26C7800BA0CB4 /* Themes.swift in Sources */,
+				886ED1B5274F50F200971F75 /* EarningViewModel.swift in Sources */,
 				888D123E26DE23B40034D277 /* CodableResponseServiceClass.swift in Sources */,
 				8865407B2744CB23006C8B30 /* Notification.swift in Sources */,
 				888D124326DE24440034D277 /* String+Functionality.swift in Sources */,
 				88593F0B2728108000C98220 /* InvoiceViewModel.swift in Sources */,
+				886ED1B2274F502700971F75 /* EarningResModel.swift in Sources */,
 				8865B86F26DF5468005F7F36 /* AppDelegate+Methods.swift in Sources */,
 				885461BF27477447009105E5 /* AddonCell.swift in Sources */,
 				8853A9A3272678D000456181 /* chatHistoryModel.swift in Sources */,

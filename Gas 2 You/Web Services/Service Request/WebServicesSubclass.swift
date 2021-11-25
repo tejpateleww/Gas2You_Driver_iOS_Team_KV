@@ -115,5 +115,11 @@ class WebServiceSubClass{
         }
     }
     
+    class func getEarningListApi(reqModel : EarningReqModel , completion: @escaping (Bool,String,EarningResModel?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.earningList.rawValue, requestModel: reqModel, responseModel: EarningResModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
     
 }
