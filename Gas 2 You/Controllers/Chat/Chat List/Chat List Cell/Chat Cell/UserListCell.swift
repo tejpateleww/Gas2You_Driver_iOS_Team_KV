@@ -1,14 +1,14 @@
 //
-//  ChatListCell.swift
-//  Gas 2 You
+//  UserListCell.swift
+//  Gas 2 You Driver
 //
-//  Created by MacMini on 09/08/21.
+//  Created by Tej P on 25/11/21.
 //
 
 import UIKit
 import UIView_Shimmer
 
-class ChatListCell: UITableViewCell, ShimmeringViewProtocol {
+class UserListCell: UITableViewCell, ShimmeringViewProtocol {
 
     @IBOutlet weak var userImg: UIImageView!
     @IBOutlet weak var lblMsg: themeLabel!

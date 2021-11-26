@@ -83,7 +83,6 @@ class JobDetailsViewController: BaseVC {
     @IBOutlet weak var imgCompleted: UIImageView!
     @IBOutlet weak var LblCompleted: themeLabel!
     @IBOutlet weak var LblDateTime: themeLabel!
-    @IBOutlet weak var ViewDateTime: UIView!
     @IBOutlet weak var vwStartJob: UIView!
     @IBOutlet weak var vwChatCall: UIView!
     @IBOutlet weak var stackStatus: UIStackView!
@@ -166,7 +165,6 @@ class JobDetailsViewController: BaseVC {
         self.BtnStartJob.isUserInteractionEnabled = true
         self.vwStartJob.isHidden = false
         
-        self.ViewDateTime.isHidden = false
         self.mapView.delegate = self
         
         if self.isfromhome{
@@ -242,9 +240,6 @@ class JobDetailsViewController: BaseVC {
     
     func MapSetup(currentlat: String, currentlong:String, droplat: String, droplog:String){
         
-        let camera = GMSCameraPosition.camera(withLatitude: Double(currentlat) ?? 0.0, longitude:  Double(currentlong) ?? 0.0, zoom: 13.8)
-        self.mapView.camera = camera
-        
         //Drop Location pin setup
         self.DropLocMarker = GMSMarker()
         self.DropLocMarker?.position = CLLocationCoordinate2D(latitude: Double(droplat) ?? 0.0, longitude: Double(droplog) ?? 0.0)
@@ -273,15 +268,33 @@ class JobDetailsViewController: BaseVC {
         //For Displaying both markers in screen centered
         self.arrMarkers.append(self.CurrentLocMarker!)
         self.arrMarkers.append(self.DropLocMarker!)
-        var bounds = GMSCoordinateBounds()
-        for marker in self.arrMarkers{
-            bounds = bounds.includingCoordinate(marker.position)
-        }
-        let update = GMSCameraUpdate.fit(bounds, withPadding: 50)
-        self.mapView.animate(with: update)
+        self.focusMapToShowAllMarkers()
+//        var bounds = GMSCoordinateBounds()
+//        for marker in self.arrMarkers{
+//            bounds = bounds.includingCoordinate(marker.position)
+//        }
+//        let update = GMSCameraUpdate.fit(bounds, withPadding: 120)
+//        self.mapView.animate(with: update)
+//
+//        let camera = GMSCameraPosition.camera(withLatitude: Double(currentlat) ?? 0.0, longitude:  Double(currentlong) ?? 0.0, zoom: 17.5)
+//        self.mapView.camera = camera
         
         self.fetchRoute(currentlat: currentlat, currentlong: currentlong, droplat: droplat, droplog: droplog)
     }
+    
+    func focusMapToShowAllMarkers() {
+        if arrMarkers.count > 0 {
+              let firstLocation = (arrMarkers.first!).position
+              var bounds = GMSCoordinateBounds(coordinate: firstLocation, coordinate: firstLocation)
+
+              for marker in arrMarkers {
+                bounds = bounds.includingCoordinate(marker.position)
+              }
+
+             let update = GMSCameraUpdate.fit(bounds, withPadding: CGFloat(15))
+             self.mapView.animate(with: update)
+          }
+      }
     
     func fetchRoute(currentlat: String, currentlong:String, droplat: String, droplog:String) {
         
@@ -375,7 +388,7 @@ class JobDetailsViewController: BaseVC {
             self.BtnStartJob.setTitle(StartJobButtonTitle.FilledUp.Name, for: .normal)
             self.setupInProcessOrderFlow()
         }else if(self.orderStaus == "Pending"){
-            
+             
             if(self.BookingDetail?.statusLabel == "Upcoming"){
                 self.BtnStartJob.isUserInteractionEnabled = false
                 self.vwStartJob.isHidden = true
@@ -390,7 +403,7 @@ class JobDetailsViewController: BaseVC {
     }
     
     // MARK: - --------- InProcessOrderFlow Methods ---------
-    func setupInProcessOrderFlow(){        self.ViewDateTime.isHidden = false
+    func setupInProcessOrderFlow(){
         self.btnJobDone.isHidden = false
         self.LblFilledGallon.text = ""
         
@@ -501,7 +514,6 @@ extension JobDetailsViewController{
         if sender.titleLabel?.text == StartJobButtonTitle.StartJob.Name {
             
         } else if sender.titleLabel?.text == StartJobButtonTitle.FilledUp.Name {
-            ViewDateTime.isHidden = false
             ViewFilledGallon.isHidden = false
         } else if sender.titleLabel?.text == StartJobButtonTitle.CompleteJob.Name {
             
@@ -662,7 +674,11 @@ extension JobDetailsViewController : UITableViewDelegate, UITableViewDataSource{
                 let newString1 = self.arrService[indexPath.row - 1].descriptionField?.replacingOccurrences(of: "/", with: "\n")
                 cell.lblAddonTitile.text = newString ?? ""
                 cell.lblAddonText.text = newString1 ?? ""
-                cell.lblAddonPrice.text = "$\(self.arrService[indexPath.row - 1].price ?? "")"
+                if(self.arrService[indexPath.row - 1].price == "FREE"){
+                    cell.lblAddonPrice.text = "\(self.arrService[indexPath.row - 1].price ?? "")"
+                }else{
+                    cell.lblAddonPrice.text = "$\(self.arrService[indexPath.row - 1].price ?? "")"
+                }
                 
                 if(indexPath.row == self.arrService.count){
                     cell.vWHighLight.isHidden = false

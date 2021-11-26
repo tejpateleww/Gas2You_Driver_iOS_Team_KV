@@ -122,7 +122,12 @@ extension SendInvoiceVC : UITableViewDelegate, UITableViewDataSource{
                 let newString1 = self.arrService[indexPath.row - 1].descriptionField?.replacingOccurrences(of: "/", with: "\n")
                 cell.lblAddonTitile.text = newString ?? ""
                 cell.lblAddonText.text = newString1 ?? ""
-                cell.lblAddonPrice.text = "$\(self.arrService[indexPath.row - 1].price ?? "")"
+                
+                if(self.arrService[indexPath.row - 1].price == "FREE"){
+                    cell.lblAddonPrice.text = "\(self.arrService[indexPath.row - 1].price ?? "")"
+                }else{
+                    cell.lblAddonPrice.text = "$\(self.arrService[indexPath.row - 1].price ?? "")"
+                }
                 
                 if(indexPath.row == self.arrService.count){
                     cell.vWHighLight.isHidden = false

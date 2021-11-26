@@ -53,6 +53,9 @@ class ChatListVC: BaseVC {
     func registerNib(){
         let nib1 = UINib(nibName: NoDataTableViewCell.className, bundle: nil)
         self.tblUserList.register(nib1, forCellReuseIdentifier: NoDataTableViewCell.className)
+        
+        let nib = UINib(nibName: UserListCell.className, bundle: nil)
+        self.tblUserList.register(nib, forCellReuseIdentifier: UserListCell.className)
     }
     
     func addRefreshControl(){
@@ -84,7 +87,8 @@ extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = self.tblUserList.dequeueReusableCell(withIdentifier: "cell") as! ChatListCell
+        let cell = self.tblUserList.dequeueReusableCell(withIdentifier: UserListCell.className) as! UserListCell
+        cell.selectionStyle = .none
         
         if(!self.isTblReload){
             cell.lblUserName.text = "AAAAA AAAAA"

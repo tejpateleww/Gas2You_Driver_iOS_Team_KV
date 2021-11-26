@@ -22,9 +22,7 @@ class MyEarningsVC: BaseVC {
     //MARK: - Variables And Properties:-
     var earningViewModel = EarningViewModel()
     var arrEarning : [EarningResDatum] = []
-    
     let refreshControl = UIRefreshControl()
-    
     var isTblReload = false
     var isLoading = true {
         didSet {
@@ -36,7 +34,6 @@ class MyEarningsVC: BaseVC {
     //MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.prepareView()
     }
     
