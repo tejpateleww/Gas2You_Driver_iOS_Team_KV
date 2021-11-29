@@ -71,6 +71,7 @@
 		885C691526F88BD700844561 /* HomeBookingReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885C691426F88BD700844561 /* HomeBookingReqModel.swift */; };
 		885C691926F89AF600844561 /* NoDataTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 885C691726F89AF600844561 /* NoDataTableViewCell.swift */; };
 		885C691A26F89AF600844561 /* NoDataTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 885C691826F89AF600844561 /* NoDataTableViewCell.xib */; };
+		886445BC275496B50004D9E3 /* NotiStatusChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886445BB275496B50004D9E3 /* NotiStatusChangeViewModel.swift */; };
 		8865407A2744CB23006C8B30 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886540782744CB23006C8B30 /* NotificationModel.swift */; };
 		8865407B2744CB23006C8B30 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886540792744CB23006C8B30 /* Notification.swift */; };
 		886540862744DB1B006C8B30 /* NotiShimmerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886540842744DB1B006C8B30 /* NotiShimmerCell.swift */; };
@@ -238,6 +239,7 @@
 		885C691426F88BD700844561 /* HomeBookingReqModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBookingReqModel.swift; sourceTree = "<group>"; };
 		885C691726F89AF600844561 /* NoDataTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoDataTableViewCell.swift; sourceTree = "<group>"; };
 		885C691826F89AF600844561 /* NoDataTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoDataTableViewCell.xib; sourceTree = "<group>"; };
+		886445BB275496B50004D9E3 /* NotiStatusChangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiStatusChangeViewModel.swift; sourceTree = "<group>"; };
 		886540782744CB23006C8B30 /* NotificationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		886540792744CB23006C8B30 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		886540842744DB1B006C8B30 /* NotiShimmerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotiShimmerCell.swift; sourceTree = "<group>"; };
@@ -410,18 +412,9 @@
 		882AC6CB274FCB4600A8F033 /* Chat List */ = {
 			isa = PBXGroup;
 			children = (
-				882AC6D0274FCB7D00A8F033 /* Chat List Cell */,
-				9A3A913C26C141700041D7D9 /* ChatListVC.swift */,
+				886B24B32750C2F600BF2E88 /* Chat List */,
 			);
 			path = "Chat List";
-			sourceTree = "<group>";
-		};
-		882AC6D0274FCB7D00A8F033 /* Chat List Cell */ = {
-			isa = PBXGroup;
-			children = (
-				882AC6D1274FCC6100A8F033 /* Chat Cell */,
-			);
-			path = "Chat List Cell";
 			sourceTree = "<group>";
 		};
 		882AC6D1274FCC6100A8F033 /* Chat Cell */ = {
@@ -472,6 +465,7 @@
 		884912D126E0915500D7A917 /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
+				886445BA275496990004D9E3 /* Notification Status Change */,
 				886ED1B3274F50D300971F75 /* Earning */,
 				88593F092728106F00C98220 /* InvoiceViewModel */,
 				88367A2E270C6A820034D5F1 /* ChatViewModel */,
@@ -575,6 +569,14 @@
 			path = "No Data Found Cell";
 			sourceTree = "<group>";
 		};
+		886445BA275496990004D9E3 /* Notification Status Change */ = {
+			isa = PBXGroup;
+			children = (
+				886445BB275496B50004D9E3 /* NotiStatusChangeViewModel.swift */,
+			);
+			path = "Notification Status Change";
+			sourceTree = "<group>";
+		};
 		886540772744CAD7006C8B30 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -650,6 +652,15 @@
 				8865B85E26DF44FF005F7F36 /* ProfileModel.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		886B24B32750C2F600BF2E88 /* Chat List */ = {
+			isa = PBXGroup;
+			children = (
+				9A3A913C26C141700041D7D9 /* ChatListVC.swift */,
+				882AC6D1274FCC6100A8F033 /* Chat Cell */,
+			);
+			path = "Chat List";
 			sourceTree = "<group>";
 		};
 		886E92092731136300F3F1BF /* ChatSendMsg */ = {
@@ -1375,6 +1386,7 @@
 				888D122F26DE183C0034D277 /* SplashVC.swift in Sources */,
 				8853A99E2726735A00456181 /* ChatShimmer.swift in Sources */,
 				88367A2D270C69B20034D5F1 /* ChatUserListModel.swift in Sources */,
+				886445BC275496B50004D9E3 /* NotiStatusChangeViewModel.swift in Sources */,
 				9A5B094226B279AE00BA0CB4 /* Storyboards.swift in Sources */,
 				8853A9A4272678D000456181 /* chatHistoryDatum.swift in Sources */,
 				88DC278F270B29F300359438 /* ShimmerCell.swift in Sources */,

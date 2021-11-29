@@ -9,18 +9,18 @@ import UIKit
 import SafariServices
 
 class SettingsVC: BaseVC {
-
-    //MARK:- IBOutlet
-    @IBOutlet weak var switchNotification: UISwitch!
     
-    //MARK:- Life Cycle methods
+    //MARK: - IBOutlet
+    @IBOutlet weak var switchNotification: UISwitch!
+    var notiChangeViewModel = NotiChangeViewModel()
+    
+    //MARK: - Life Cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.prepareView()
     }
     
-    //MARK:- Custom methods
+    //MARK: - Custom methods
     func prepareView(){
         self.setNavigationBarInViewController(controller: self, naviColor: .white, naviTitle: "Settings", leftImage: "Back", rightImages: [], isTranslucent: true)
         
@@ -28,6 +28,13 @@ class SettingsVC: BaseVC {
         self.switchNotification.layer.borderWidth = 1
         self.switchNotification.layer.borderColor = #colorLiteral(red: 0.1801939905, green: 0.8354453444, blue: 0.6615549922, alpha: 1)
         self.switchNotification.tintColor = UIColor(hexString: "#EBFBF6")
+        self.switchNotification.addTarget(self, action: #selector(switchValueDidChange(_:)), for: .valueChanged)
+        
+        if(Singleton.sharedInstance.UserProfilData?.notification == "1"){
+            self.switchNotification.setOn(true, animated: true)
+        }else{
+            self.switchNotification.setOn(false, animated: true)
+        }
     }
     
     func previewDocument(strURL : String){
@@ -36,7 +43,11 @@ class SettingsVC: BaseVC {
         present(svc, animated: true, completion: nil)
     }
     
-    //MARK:- Button Action methods
+    @objc func switchValueDidChange(_ sender: UISwitch) {
+        self.callNotiChangeApi()
+    }
+    
+    //MARK: - Button Action methods
     @IBAction func btnPrivacyTap(_ sender: Any) {
         var PrivacyPolicy = ""
         if let PrivacyPolicyLink = Singleton.sharedInstance.AppInitModel?.appLinks?.filter({ $0.name == "privacy_policy"}) {
@@ -76,5 +87,21 @@ class SettingsVC: BaseVC {
             }
         }
         
+    }
+    
+    @IBAction func switchStatusChange(_ sender: Any) {
+        
+    }
+    
+}
+
+//MARK: - API call
+extension SettingsVC {
+    func callNotiChangeApi(){
+        self.notiChangeViewModel.settingsVC = self
+        
+        let reqModel = NotificationStatusReqModel()
+        reqModel.notification = (Singleton.sharedInstance.UserProfilData?.notification == "1") ? "0" : "1"
+        self.notiChangeViewModel.webserviceNotiStatusChangeAPI(reqModel: reqModel)
     }
 }

@@ -91,7 +91,7 @@ extension AppDelegate{
                 return
             }
             
-            if pushObj.type == NotificationTypes.newBooking.rawValue {
+            if pushObj.type == NotificationTypes.newBooking.rawValue || pushObj.type == NotificationTypes.jobInProgress.rawValue {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                     if (UIApplication.appTopViewController()?.isKind(of: MainViewController.self) ?? false){
                         NotificationCenter.default.post(name: .refreshHomeScreen, object: nil)
@@ -108,6 +108,25 @@ extension AppDelegate{
                 }
                 return
             }
+            
+            if pushObj.type == NotificationTypes.jobComplete.rawValue {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    if (UIApplication.appTopViewController()?.isKind(of: CompletedJobsVC.self) ?? false){
+                        NotificationCenter.default.post(name: .refreshCompJobsScreen, object: nil)
+                    }
+                }
+                return
+            }
+            
+            if pushObj.type == NotificationTypes.newEarning.rawValue {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    if (UIApplication.appTopViewController()?.isKind(of: MyEarningsVC.self) ?? false){
+                        NotificationCenter.default.post(name: .refreshEarningScreen, object: nil)
+                    }
+                }
+                return
+            }
+
         }
     }
     
@@ -141,6 +160,17 @@ extension AppDelegate{
                 return
             }
             
+            if pushObj.type == NotificationTypes.newBooking.rawValue || pushObj.type == NotificationTypes.jobInProgress.rawValue {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    if (UIApplication.appTopViewController()?.isKind(of: MainViewController.self) ?? false){
+                        NotificationCenter.default.post(name: .refreshHomeScreen, object: nil)
+                    }else{
+                        NotificationCenter.default.post(name: .refreshHomeScreen, object: nil)
+                    }
+                }
+                return
+            }
+            
             if pushObj.type == NotificationTypes.newMessage.rawValue {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     if (appDel.isChatScreen){
@@ -148,6 +178,30 @@ extension AppDelegate{
                         AppDelegate.pushNotificationObj = nil
                     }else{
                         NotificationCenter.default.post(name: .goToChatScreen, object: nil)
+                    }
+                }
+                return
+            }
+            
+            if pushObj.type == NotificationTypes.jobComplete.rawValue {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    if (UIApplication.appTopViewController()?.isKind(of: CompletedJobsVC.self) ?? false){
+                        AppDelegate.pushNotificationType = nil
+                        AppDelegate.pushNotificationObj = nil
+                    }else{
+                        NotificationCenter.default.post(name: .goToCompletedScreen, object: nil)
+                    }
+                }
+                return
+            }
+            
+            if pushObj.type == NotificationTypes.newEarning.rawValue {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    if (UIApplication.appTopViewController()?.isKind(of: MyEarningsVC.self) ?? false){
+                        AppDelegate.pushNotificationType = nil
+                        AppDelegate.pushNotificationObj = nil
+                    }else{
+                        NotificationCenter.default.post(name: .goToEarningScreen, object: nil)
                     }
                 }
                 return
@@ -160,14 +214,21 @@ extension AppDelegate{
 extension Notification.Name {
     static let sessionExpire = NSNotification.Name("sessionExpire")
     static let refreshHomeScreen = NSNotification.Name("refreshHomeScreen")
+    static let refreshCompJobsScreen = NSNotification.Name("refreshCompJobsScreen")
+    static let refreshEarningScreen = NSNotification.Name("refreshEarningScreen")
     static let refreshChatScreen = NSNotification.Name("refreshChatScreen")
     static let goToChatScreen = NSNotification.Name("goToChatScreen")
+    static let goToCompletedScreen = NSNotification.Name("goToCompletedScreen")
+    static let goToEarningScreen = NSNotification.Name("goToEarningScreen")
 }
 
 enum NotificationTypes : String {
     case notifLoggedOut = "sessionTimeout"
     case newBooking = "newBooking"
+    case jobInProgress = "jobInProgress"
+    case jobComplete = "jobComplete"
     case newMessage = "newMessage"
+    case newEarning = "newEarning"
 }
 
 class NotificationObjectModel: Codable {

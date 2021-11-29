@@ -121,5 +121,10 @@ class WebServiceSubClass{
         }
     }
     
+    class func changeNotificationStatusApi(reqModel : NotificationStatusReqModel , completion: @escaping (Bool,String,LoginResponseModel?,Any) -> ()){
+        URLSessionRequestManager.makePostRequest(urlString: ApiKey.changeNotification.rawValue, requestModel: reqModel, responseModel: LoginResponseModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
     
 }

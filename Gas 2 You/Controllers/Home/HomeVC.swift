@@ -29,6 +29,7 @@ class HomeVC: BaseVC {
     var isSelectedRequest = true
     var pagingSpinner = UIActivityIndicatorView()
     let refreshControl = UIRefreshControl()
+    var jobViewModel = JobViewModel()
     
     var isTblReload = false
     var isLoading = true {
@@ -68,18 +69,29 @@ class HomeVC: BaseVC {
     func addNotificationObs(){
         NotificationCenter.default.addObserver(self, selector: #selector(self.ReloadData), name: Notification.Name("ReloadData"), object: nil)
         
+        NotificationCenter.default.removeObserver(self, name: .goToCompletedScreen, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.goToCompletedScreen), name: .goToCompletedScreen, object: nil)
+        
         NotificationCenter.default.removeObserver(self, name: .refreshHomeScreen, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(initUrlAndRefreshRequestList), name: .refreshHomeScreen, object: nil)
         
         NotificationCenter.default.removeObserver(self, name: .goToChatScreen, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(goToChatScreen), name: .goToChatScreen, object: nil)
+        
+        NotificationCenter.default.removeObserver(self, name: .goToEarningScreen, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(goToEarningScreen), name: .goToEarningScreen, object: nil)
     }
     
     func checkForNotification(){
         if(AppDelegate.pushNotificationObj != nil){
             if(AppDelegate.pushNotificationType == NotificationTypes.newMessage.rawValue){
                 self.goToChatScreen()
+            }else if(AppDelegate.pushNotificationType == NotificationTypes.jobComplete.rawValue){
+                self.goToCompletedScreen()
+            }else if(AppDelegate.pushNotificationType == NotificationTypes.newEarning.rawValue){
+                self.goToEarningScreen()
             }
+            
         }
     }
     
@@ -94,6 +106,15 @@ class HomeVC: BaseVC {
         self.callBookingInProgressAPI()
     }
     
+    @objc func goToCompletedScreen() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+            let vc : CompletedJobsVC = CompletedJobsVC.instantiate(fromAppStoryboard: .Main)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        AppDelegate.pushNotificationObj = nil
+        AppDelegate.pushNotificationType = nil
+    }
+    
     @objc func goToChatScreen() {
         
         let bookingId =  AppDelegate.pushNotificationObj?.booking_id ?? ""
@@ -101,6 +122,15 @@ class HomeVC: BaseVC {
         let vc : ChatViewController = ChatViewController.instantiate(fromAppStoryboard: .Main)
         vc.isFromPush = true
         vc.bookingID = bookingId
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        AppDelegate.pushNotificationObj = nil
+        AppDelegate.pushNotificationType = nil
+    }
+    
+    @objc func goToEarningScreen() {
+        
+        let vc : MyEarningsVC = MyEarningsVC.instantiate(fromAppStoryboard: .Main)
         self.navigationController?.pushViewController(vc, animated: true)
         
         AppDelegate.pushNotificationObj = nil
@@ -274,7 +304,8 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
                     }else{
                         HomeVC.showAlertWithTitleFromVC(vc: self, title: "Gas2YouDriver", message: "Are you sure you want to start job ?", buttons: ["Cancel", "OK"]) { index in
                             if index == 1{
-                                self.RedirectToJobs(index: indexPath)
+                                //self.RedirectToJobs(index: indexPath)
+                                self.callOrderStatusUpdateAPI(strStatus: "In Progress", obj: self.arrBookings[indexPath.row], index: indexPath)
                             }
                         }
                     }
@@ -376,5 +407,15 @@ extension HomeVC{
         HomeBooking.page = "\(self.CurrentPageInProgress)"
         
         self.homeViewModel.webserviceBookingInProgressAPI(reqModel: HomeBooking)
+    }
+    
+    func callOrderStatusUpdateAPI(strStatus : String, obj:RequestBookingListDatum?, index : IndexPath){
+        self.jobViewModel.homeVC = self
+        
+        let JobStatus = JobStatusUpdateReqModel()
+        JobStatus.orderId = obj?.id ?? ""
+        JobStatus.orderStatus = strStatus
+        
+        self.jobViewModel.webserviceOrderStatusUpdateFromHomeAPI(reqModel: JobStatus, indexpath: index)
     }
 }

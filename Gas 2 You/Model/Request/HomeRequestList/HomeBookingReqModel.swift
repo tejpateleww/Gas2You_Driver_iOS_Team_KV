@@ -56,3 +56,13 @@ class EarningReqModel: Encodable{
         case driverId = "driver_id"
     }
 }
+
+class NotificationStatusReqModel: Encodable{
+    var driverId : String? = Singleton.sharedInstance.UserId
+    var notification : String?
+    
+    enum CodingKeys: String, CodingKey {
+        case driverId = "driver_id"
+        case notification = "notification"
+    }
+}

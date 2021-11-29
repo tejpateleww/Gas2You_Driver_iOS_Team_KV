@@ -28,7 +28,7 @@ class NotificationVC: BaseVC {
         }
     }
     
-    //Pagination
+    //Pull to refresh
     let refreshControl = UIRefreshControl()
 
     override func viewDidLoad() {
@@ -96,6 +96,7 @@ extension NotificationVC : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tblNotification.dequeueReusableCell(withIdentifier: "NotificationCell") as! NotificationCell
+        cell.selectionStyle = .none
         if(!self.isTblReload){
             let cell = self.tblNotification.dequeueReusableCell(withIdentifier: NotiShimmerCell.className) as! NotiShimmerCell
             cell.lblNoti.text = "Your Order #1234 has been suc..."

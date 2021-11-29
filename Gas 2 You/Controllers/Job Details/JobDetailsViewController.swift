@@ -268,33 +268,18 @@ class JobDetailsViewController: BaseVC {
         //For Displaying both markers in screen centered
         self.arrMarkers.append(self.CurrentLocMarker!)
         self.arrMarkers.append(self.DropLocMarker!)
-        self.focusMapToShowAllMarkers()
-//        var bounds = GMSCoordinateBounds()
-//        for marker in self.arrMarkers{
-//            bounds = bounds.includingCoordinate(marker.position)
-//        }
-//        let update = GMSCameraUpdate.fit(bounds, withPadding: 120)
-//        self.mapView.animate(with: update)
-//
-//        let camera = GMSCameraPosition.camera(withLatitude: Double(currentlat) ?? 0.0, longitude:  Double(currentlong) ?? 0.0, zoom: 17.5)
-//        self.mapView.camera = camera
+        var bounds = GMSCoordinateBounds()
+        for marker in self.arrMarkers
+        {
+            bounds = bounds.includingCoordinate(marker.position)
+        }
+        let update = GMSCameraUpdate.fit(bounds, withPadding: 80)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.mapView.animate(with: update)
+        }
         
         self.fetchRoute(currentlat: currentlat, currentlong: currentlong, droplat: droplat, droplog: droplog)
     }
-    
-    func focusMapToShowAllMarkers() {
-        if arrMarkers.count > 0 {
-              let firstLocation = (arrMarkers.first!).position
-              var bounds = GMSCoordinateBounds(coordinate: firstLocation, coordinate: firstLocation)
-
-              for marker in arrMarkers {
-                bounds = bounds.includingCoordinate(marker.position)
-              }
-
-             let update = GMSCameraUpdate.fit(bounds, withPadding: CGFloat(15))
-             self.mapView.animate(with: update)
-          }
-      }
     
     func fetchRoute(currentlat: String, currentlong:String, droplat: String, droplog:String) {
         
@@ -413,7 +398,7 @@ class JobDetailsViewController: BaseVC {
         if(self.orderStaus == "In Progress" || self.orderStaus == "Pending"){
             
         }else{
-            self.callOrderStatusUpdateAPI(strStatus: "In Progress")
+            //self.callOrderStatusUpdateAPI(strStatus: "In Progress")
         }
     }
     
@@ -546,6 +531,7 @@ extension JobDetailsViewController{
         vc.BookingDetail = self.CompBookingDetail
         vc.btnSubmitTapClosure = {
             NotificationCenter.default.post(name: Notification.Name("ReloadData"), object: nil)
+            NotificationCenter.default.post(name: .goToCompletedScreen, object: nil)
             self.navigationController?.popToRootViewController(animated: false)
         }
         self.present(vc, animated: false, completion: nil)

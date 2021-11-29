@@ -47,6 +47,17 @@ class CompletedJobsVC: BaseVC {
         self.delegate = self
         self.isLoading = true
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Completed Jobs", leftImage: "Back", rightImages: [], isTranslucent: true)
+        
+        NotificationCenter.default.removeObserver(self, name: .refreshCompJobsScreen, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ReloadData), name: .refreshCompJobsScreen, object: nil)
+    }
+    
+    @objc func ReloadData() {
+        self.CurrentPage = 1
+        self.isStopPaging = false
+        self.isTblReload = false
+        self.isLoading = true
+        self.callComplateBookingAPI()
     }
     
     func addTableFooter(){

@@ -60,6 +60,15 @@ class MyEarningsVC: BaseVC {
         self.vwTotalEarning.layer.cornerRadius = 9
         self.imgBackground.layer.cornerRadius = 9
         
+        NotificationCenter.default.removeObserver(self, name: .refreshEarningScreen, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ReloadData), name: .refreshEarningScreen, object: nil)
+        
+        self.callEArningListApi()
+    }
+    
+    @objc func ReloadData() {
+        self.isLoading = true
+        self.isTblReload = false
         self.callEArningListApi()
     }
     

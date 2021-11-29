@@ -293,13 +293,14 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
                     dateFormatter.dateFormat = "hh:mm a"
                     cell.lblSenderTime.text = (dateFormatter.string(from: dateObj!))
                     
-                    if(canOpenURL(string: obj?.message ?? "")){
-                        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue, .foregroundColor : UIColor.white] as [NSAttributedString.Key : Any]
-                        let underlineAttributedString = NSAttributedString(string: obj?.message ?? "", attributes: underlineAttribute)
-                        cell.lblSenderMessage.attributedText = underlineAttributedString
-                    } else {
-                        cell.lblSenderMessage.text = obj?.message ?? ""
-                    }
+//                    if(canOpenURL(string: obj?.message ?? "")){
+//                        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue, .foregroundColor : UIColor.white] as [NSAttributedString.Key : Any]
+//                        let underlineAttributedString = NSAttributedString(string: obj?.message ?? "", attributes: underlineAttribute)
+//                        cell.lblSenderMessage.attributedText = underlineAttributedString
+//                    } else {
+//
+//                    }
+                    cell.lblSenderMessage.text = obj?.message ?? ""
                     
                     cell.btnSenderTapCousure = {
                         if(self.isValidUrl(url: obj?.message ?? "")){
@@ -318,13 +319,14 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
                     dateFormatter.dateFormat = "hh:mm a"
                     cell.lblReciverTime.text = (dateFormatter.string(from: dateObj!))
                     
-                    if(canOpenURL(string: obj?.message ?? "")){
-                        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue, .foregroundColor : UIColor.white] as [NSAttributedString.Key : Any]
-                        let underlineAttributedString = NSAttributedString(string: obj?.message ?? "", attributes: underlineAttribute)
-                        cell.lblReciverMessage.attributedText = underlineAttributedString
-                    } else {
-                        cell.lblReciverMessage.text = obj?.message ?? ""
-                    }
+//                    if(canOpenURL(string: obj?.message ?? "")){
+//                        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue, .foregroundColor : UIColor.white] as [NSAttributedString.Key : Any]
+//                        let underlineAttributedString = NSAttributedString(string: obj?.message ?? "", attributes: underlineAttribute)
+//                        cell.lblReciverMessage.attributedText = underlineAttributedString
+//                    } else {
+//
+//                    }
+                    cell.lblReciverMessage.text = obj?.message ?? ""
                 
                     cell.btnSenderTapCousure = {
                         if(self.isValidUrl(url: obj?.message ?? "")){

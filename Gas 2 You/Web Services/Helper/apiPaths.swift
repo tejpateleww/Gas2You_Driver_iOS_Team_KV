@@ -65,6 +65,7 @@ enum ApiKey: String {
     case chatHistory                          = "chat_history/"
     case notification                         = "notification"
     case earningList                          = "earning_list"
+    case changeNotification                   = "change_notification"
     
 }
 

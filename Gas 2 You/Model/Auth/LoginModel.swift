@@ -57,6 +57,7 @@ class LoginResponseModel: Codable{
 // MARK: - DataClass
 class ProfileModel: Codable {
     var id, fullName: String?
+    var notification : String?
     var email, countryCode, mobileNo: String?
     var accountHolderName, bankName, ifscCode, accountNumber: String?
     var walletBalance, profileImage, deviceType: String?
@@ -95,6 +96,7 @@ class ProfileModel: Codable {
         case deletedAt = "deleted_at"
         case rating = "rating"
         case xAPIKey = "x-api-key"
+        case notification = "notification"
         
     }
     
@@ -130,6 +132,7 @@ class ProfileModel: Codable {
         deletedAt = try? values?.decodeIfPresent(String.self, forKey: .deletedAt)
         rating = try? values?.decodeIfPresent(String.self, forKey: .rating)
         xAPIKey = try? values?.decodeIfPresent(String.self, forKey: .xAPIKey)
+        notification = try? values?.decodeIfPresent(String.self, forKey: .notification)
         
     }
     

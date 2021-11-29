@@ -11,7 +11,8 @@ class JobViewModel{
     
     weak var JobDetailsVC : JobDetailsViewController? = nil
     weak var completedJobsVC : CompletedJobsVC? = nil
-    
+    weak var homeVC : HomeVC? = nil
+
     func webserviceOrderStatusUpdateAPI(reqModel: JobStatusUpdateReqModel){
         Utilities.showHud()
         WebServiceSubClass.OrderStatusUpdateAPI(reqModel: reqModel) { (status, apiMessage, response, error) in
@@ -21,15 +22,28 @@ class JobViewModel{
                 self.JobDetailsVC?.vwChatCall.isHidden = false
                 self.JobDetailsVC?.stackStatus.isHidden = false
                 self.JobDetailsVC?.vwUpdateStatus.isHidden = false
-                
 
-                
                 NotificationCenter.default.post(name: Notification.Name("ReloadData"), object: nil)
             }else{
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
                 }
                 self.JobDetailsVC?.popBack()
+            }
+        }
+    }
+    
+    func webserviceOrderStatusUpdateFromHomeAPI(reqModel: JobStatusUpdateReqModel, indexpath:IndexPath){
+        Utilities.showHud()
+        WebServiceSubClass.OrderStatusUpdateAPI(reqModel: reqModel) { (status, apiMessage, response, error) in
+            Utilities.hideHud()
+            if status{
+                self.homeVC?.RedirectToJobs(index: indexpath)
+                NotificationCenter.default.post(name: Notification.Name("ReloadData"), object: nil)
+            }else{
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
+                }
             }
         }
     }
