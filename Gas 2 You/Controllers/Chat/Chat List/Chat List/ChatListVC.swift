@@ -16,7 +16,7 @@ class ChatListVC: BaseVC {
     @IBOutlet weak var tblUserList: UITableView!
     
     var arrUserList = [ChatUserListDatum]()
-    var chatUserModel = ChatUserModel()
+    var chatUserModel = ChatUserListViewModel()
     let refreshControl = UIRefreshControl()
     var isTblReload = false
     var isLoading = true {
@@ -67,8 +67,10 @@ class ChatListVC: BaseVC {
     }
     
     @objc func refresh(_ sender: AnyObject) {
-        self.isLoading = true
+        self.arrUserList = []
         self.isTblReload = false
+        self.isLoading = true
+        
         self.callUserListAPI()
     }
     
@@ -81,7 +83,7 @@ extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
         if self.arrUserList.count > 0 {
             return self.arrUserList.count
         } else {
-            return (!self.isTblReload) ? 5 : 1
+            return (!self.isTblReload) ? 10 : 1
         }
     }
     
@@ -116,9 +118,11 @@ extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc : ChatViewController = ChatViewController.instantiate(fromAppStoryboard: .Main)
-        vc.userData = self.arrUserList[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: true)
+        if(self.arrUserList.count > 0){
+            let vc : ChatViewController = ChatViewController.instantiate(fromAppStoryboard: .Main)
+            vc.userData = self.arrUserList[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -147,6 +151,6 @@ extension ChatListVC{
     
     func callUserListAPI(){
         self.chatUserModel.chatListVC = self
-        self.chatUserModel.webservicegetChatUserListAPI()
+        self.chatUserModel.webserviceGetChatUserListAPI()
     }
 }

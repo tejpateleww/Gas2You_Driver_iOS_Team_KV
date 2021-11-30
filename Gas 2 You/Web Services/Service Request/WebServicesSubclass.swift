@@ -85,7 +85,13 @@ class WebServiceSubClass{
         }
     }
     
-    class func getChatUserListApi(completion: @escaping (Bool,String,ChatUserListModel?,Any) -> ()) {
+//    class func getChatUserListApi(completion: @escaping (Bool,String,ChatUserListModel?,Any) -> ()) {
+//        URLSessionRequestManager.makeGetRequest(urlString: ApiKey.messageList.rawValue + Singleton.sharedInstance.UserId, responseModel: ChatUserListModel.self) { (status, message, response, error) in
+//            completion(status, message, response, error)
+//        }
+//    }
+    
+    class func getChatUsersApi(completion: @escaping (Bool,String,ChatUserListModel?,Any) -> ()) {
         URLSessionRequestManager.makeGetRequest(urlString: ApiKey.messageList.rawValue + Singleton.sharedInstance.UserId, responseModel: ChatUserListModel.self) { (status, message, response, error) in
             completion(status, message, response, error)
         }
@@ -126,5 +132,6 @@ class WebServiceSubClass{
             completion(status, message, response, error)
         }
     }
+    
     
 }

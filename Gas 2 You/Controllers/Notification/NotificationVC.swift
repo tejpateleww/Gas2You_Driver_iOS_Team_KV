@@ -21,6 +21,7 @@ class NotificationVC: BaseVC {
     
     //Shimmer
     var isTblReload = false
+    
     var isLoading = true {
         didSet {
             self.tblNotification.isUserInteractionEnabled = !isLoading
@@ -71,10 +72,12 @@ class NotificationVC: BaseVC {
     }
     
     @objc func refresh(_ sender: AnyObject) {
-        self.CurrentPage = 1
-        self.isStopPaging = false
+        self.arrNotification = []
         self.isTblReload = false
         self.isLoading = true
+        
+        self.CurrentPage = 1
+        self.isStopPaging = false
         self.callNotificationListAPI()
     }
     
@@ -87,9 +90,9 @@ class NotificationVC: BaseVC {
 extension NotificationVC : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.arrNotification.count > 0 {
-            return arrNotification.count
+            return self.arrNotification.count
         } else {
-            return (isTblReload) ? 1 : 5
+            return (!self.isTblReload) ? 10 : 1
         }
     }
     

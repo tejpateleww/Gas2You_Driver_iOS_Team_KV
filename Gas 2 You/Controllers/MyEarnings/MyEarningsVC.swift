@@ -82,8 +82,9 @@ class MyEarningsVC: BaseVC {
     
     
     @objc func refresh(_ sender: AnyObject) {
-        self.isLoading = true
+        self.arrEarning = []
         self.isTblReload = false
+        self.isLoading = true
         self.callEArningListApi()
     }
     

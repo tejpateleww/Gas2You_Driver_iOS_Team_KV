@@ -170,13 +170,15 @@ extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
-        vc.isfromhome = false
-        vc.strTitle = "Job Completed"
-        vc.BookingDetail = self.arrBookings[indexPath.row]
-        vc.orderStaus = "completed"
-        vc.delegateDownloadInvoice = self
-        self.navigationController?.pushViewController(vc, animated: true)
+        if(self.arrBookings.count > 0){
+            let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
+            vc.isfromhome = false
+            vc.strTitle = "Job Completed"
+            vc.BookingDetail = self.arrBookings[indexPath.row]
+            vc.orderStaus = "completed"
+            vc.delegateDownloadInvoice = self
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

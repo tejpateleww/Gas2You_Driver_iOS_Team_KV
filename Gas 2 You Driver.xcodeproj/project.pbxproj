@@ -119,6 +119,7 @@
 		888D126326DE26FF0034D277 /* String+Operation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888D126226DE26FF0034D277 /* String+Operation.swift */; };
 		8896B1A326E0B1E00011D62F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8896B1A226E0B1E00011D62F /* RegisterViewModel.swift */; };
 		8896B1A526E0C08C0011D62F /* PasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8896B1A426E0C08C0011D62F /* PasswordViewModel.swift */; };
+		88BA40842755EF9A00FDA48E /* ChatUserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BA40832755EF9A00FDA48E /* ChatUserListViewModel.swift */; };
 		88C34AF62726B32D00257AAB /* WebViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C34AF52726B32D00257AAB /* WebViewVC.swift */; };
 		88DC2784270ACBAA00359438 /* userInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC2783270ACBAA00359438 /* userInfoViewModel.swift */; };
 		88DC2787270ACC1800359438 /* UpdateBasicInfoReqModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC2786270ACC1800359438 /* UpdateBasicInfoReqModel.swift */; };
@@ -288,6 +289,7 @@
 		8896B1A226E0B1E00011D62F /* RegisterViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		8896B1A426E0C08C0011D62F /* PasswordViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasswordViewModel.swift; sourceTree = "<group>"; };
 		88A38C3E271058A700C41E4D /* Gas 2 You Driver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Gas 2 You Driver.entitlements"; sourceTree = "<group>"; };
+		88BA40832755EF9A00FDA48E /* ChatUserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatUserListViewModel.swift; sourceTree = "<group>"; };
 		88C34AF52726B32D00257AAB /* WebViewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewVC.swift; sourceTree = "<group>"; };
 		88DC2783270ACBAA00359438 /* userInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userInfoViewModel.swift; sourceTree = "<group>"; };
 		88DC2786270ACC1800359438 /* UpdateBasicInfoReqModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateBasicInfoReqModel.swift; sourceTree = "<group>"; };
@@ -465,6 +467,7 @@
 		884912D126E0915500D7A917 /* viewModel */ = {
 			isa = PBXGroup;
 			children = (
+				88BA40822755EF7D00FDA48E /* ChatUserList */,
 				886445BA275496990004D9E3 /* Notification Status Change */,
 				886ED1B3274F50D300971F75 /* Earning */,
 				88593F092728106F00C98220 /* InvoiceViewModel */,
@@ -799,6 +802,14 @@
 				88C34AF52726B32D00257AAB /* WebViewVC.swift */,
 			);
 			path = "Completed Jobs";
+			sourceTree = "<group>";
+		};
+		88BA40822755EF7D00FDA48E /* ChatUserList */ = {
+			isa = PBXGroup;
+			children = (
+				88BA40832755EF9A00FDA48E /* ChatUserListViewModel.swift */,
+			);
+			path = ChatUserList;
 			sourceTree = "<group>";
 		};
 		88DC2782270ACB9A00359438 /* UserInfoViewModel */ = {
@@ -1367,6 +1378,7 @@
 				888D125826DE25140034D277 /* Constants.swift in Sources */,
 				9A5B093A26B2788500BA0CB4 /* Date+Extension.swift in Sources */,
 				888D126026DE25150034D277 /* Toast.swift in Sources */,
+				88BA40842755EF9A00FDA48E /* ChatUserListViewModel.swift in Sources */,
 				888D124A26DE24A70034D277 /* DateFormatsEnum.swift in Sources */,
 				9A3A913926C13B860041D7D9 /* AddressCell.swift in Sources */,
 				888D123D26DE23B40034D277 /* UploadMediaModel.swift in Sources */,

@@ -102,6 +102,10 @@ class HomeVC: BaseVC {
     }
     
     @objc func ReloadData() {
+        self.arrBookings = []
+        self.isTblReload = false
+        self.isLoading = true
+        
         self.CurrentPageInProgress = 1
         self.callBookingInProgressAPI()
     }
@@ -214,8 +218,10 @@ class HomeVC: BaseVC {
     }
     
     func refreshNewRequest(){
-        self.isLoading = true
+        self.arrBookings = []
         self.isTblReload = false
+        self.isLoading = true
+        
         self.tblHome.tableFooterView?.isHidden = true
         self.pagingSpinner.stopAnimating()
         
@@ -233,8 +239,10 @@ class HomeVC: BaseVC {
     }
     
     func refreshInprogresRequest(){
-        self.isLoading = true
+        self.arrBookings = []
         self.isTblReload = false
+        self.isLoading = true
+        
         self.tblHome.tableFooterView?.isHidden = true
         self.pagingSpinner.stopAnimating()
         
@@ -269,7 +277,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
         if self.arrBookings.count > 0 {
             return self.arrBookings.count
         } else {
-            return (isTblReload) ? 1 : 5
+            return (!self.isTblReload) ? 10 : 1
         }
     }
     
@@ -351,15 +359,17 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if(self.arrBookings[indexPath.row].orderStatus == "In Progress"){
-            self.RedirectToJobs(index: indexPath)
-        }else{
-            let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
-            vc.isfrom = (self.arrBookings[indexPath.row].orderStatus == "In Progress") ? isFromHome.InProcess : isFromHome.Request //isInProcess ? isFromHome.InProcess : isFromHome.Request
-            vc.strTitle = !isInProcess ? "Request Detail" : ""
-            vc.BookingDetail = self.arrBookings[indexPath.row]
-            vc.orderStaus = "Pending"
-            self.navigationController?.pushViewController(vc, animated: true)
+        if(self.arrBookings.count > 0){
+            if(self.arrBookings[indexPath.row].orderStatus == "In Progress"){
+                self.RedirectToJobs(index: indexPath)
+            }else{
+                let vc : JobDetailsViewController = JobDetailsViewController.instantiate(fromAppStoryboard: .Main)
+                vc.isfrom = (self.arrBookings[indexPath.row].orderStatus == "In Progress") ? isFromHome.InProcess : isFromHome.Request //isInProcess ? isFromHome.InProcess : isFromHome.Request
+                vc.strTitle = !isInProcess ? "Request Detail" : ""
+                vc.BookingDetail = self.arrBookings[indexPath.row]
+                vc.orderStaus = "Pending"
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
     }
     
