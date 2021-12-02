@@ -91,7 +91,7 @@ extension AppDelegate{
                 return
             }
             
-            if pushObj.type == NotificationTypes.newBooking.rawValue || pushObj.type == NotificationTypes.jobInProgress.rawValue {
+            if pushObj.type == NotificationTypes.newBooking.rawValue {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
                     if (UIApplication.appTopViewController()?.isKind(of: MainViewController.self) ?? false){
                         NotificationCenter.default.post(name: .refreshHomeScreen, object: nil)
@@ -99,6 +99,15 @@ extension AppDelegate{
                 }
                 return
             }
+            
+//            if pushObj.type == NotificationTypes.jobInProgress.rawValue {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+//                    if (UIApplication.appTopViewController()?.isKind(of: MainViewController.self) ?? false){
+//                        NotificationCenter.default.post(name: .refreshJobInProgressScreen, object: nil)
+//                    }
+//                }
+//                return
+//            }
             
             if pushObj.type == NotificationTypes.newMessage.rawValue {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
@@ -160,12 +169,23 @@ extension AppDelegate{
                 return
             }
             
-            if pushObj.type == NotificationTypes.newBooking.rawValue || pushObj.type == NotificationTypes.jobInProgress.rawValue {
+            if pushObj.type == NotificationTypes.newBooking.rawValue{
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     if (UIApplication.appTopViewController()?.isKind(of: MainViewController.self) ?? false){
                         NotificationCenter.default.post(name: .refreshHomeScreen, object: nil)
                     }else{
                         NotificationCenter.default.post(name: .refreshHomeScreen, object: nil)
+                    }
+                }
+                return
+            }
+            
+            if pushObj.type == NotificationTypes.jobInProgress.rawValue {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    if (UIApplication.appTopViewController()?.isKind(of: MainViewController.self) ?? false){
+                        NotificationCenter.default.post(name: .refreshJobInProgressScreen, object: nil)
+                    }else{
+                        NotificationCenter.default.post(name: .refreshJobInProgressScreen, object: nil)
                     }
                 }
                 return
@@ -214,6 +234,7 @@ extension AppDelegate{
 extension Notification.Name {
     static let sessionExpire = NSNotification.Name("sessionExpire")
     static let refreshHomeScreen = NSNotification.Name("refreshHomeScreen")
+    static let refreshJobInProgressScreen = NSNotification.Name("refreshJobInProgressScreen")
     static let refreshCompJobsScreen = NSNotification.Name("refreshCompJobsScreen")
     static let refreshEarningScreen = NSNotification.Name("refreshEarningScreen")
     static let refreshChatScreen = NSNotification.Name("refreshChatScreen")

@@ -75,6 +75,9 @@ class HomeVC: BaseVC {
         NotificationCenter.default.removeObserver(self, name: .refreshHomeScreen, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(initUrlAndRefreshRequestList), name: .refreshHomeScreen, object: nil)
         
+        NotificationCenter.default.removeObserver(self, name: .refreshJobInProgressScreen, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(initUrlAndRefreshJobInProgress), name: .refreshJobInProgressScreen, object: nil)
+        
         NotificationCenter.default.removeObserver(self, name: .goToChatScreen, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(goToChatScreen), name: .goToChatScreen, object: nil)
         
@@ -90,13 +93,23 @@ class HomeVC: BaseVC {
                 self.goToCompletedScreen()
             }else if(AppDelegate.pushNotificationType == NotificationTypes.newEarning.rawValue){
                 self.goToEarningScreen()
+            }else if(AppDelegate.pushNotificationType == NotificationTypes.jobInProgress.rawValue){
+                self.initUrlAndRefreshJobInProgress()
             }
-            
         }
     }
     
     @objc func initUrlAndRefreshRequestList() {
         self.refreshNewRequest()
+        AppDelegate.pushNotificationType = nil
+        AppDelegate.pushNotificationObj = nil
+    }
+    
+    @objc func initUrlAndRefreshJobInProgress() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.refreshInprogresRequest()
+        }
+        
         AppDelegate.pushNotificationType = nil
         AppDelegate.pushNotificationObj = nil
     }

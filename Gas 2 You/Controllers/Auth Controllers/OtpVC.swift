@@ -109,7 +109,7 @@ class OtpVC: BaseVC {
     }
     
     func otpToastDisplay(){
-        Utilities.showAlert(UrlConstant.OTPSent, message: self.strOtp, vc: self)
+        //Utilities.showAlert(UrlConstant.OTPSent, message: self.strOtp, vc: self)
     }
     
     func clearAllFields(){

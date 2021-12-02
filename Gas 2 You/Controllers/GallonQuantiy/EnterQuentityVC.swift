@@ -31,6 +31,7 @@ class EnterQuentityVC: BaseVC{
     
     //MARK:- Custom Methods
     func prepareView(){
+        self.lblGallon.isHidden = true
         self.vwMain.layer.cornerRadius = 20
         self.vwMain.layer.masksToBounds = true
         
@@ -82,6 +83,8 @@ extension EnterQuentityVC: UITextFieldDelegate{
             return false
         }
         
+
+        
         if (textField.text?.contains("."))! {
             let limitDecimalPlace = 3
             let decimalPlace = textField.text?.components(separatedBy: ".").last
@@ -94,6 +97,7 @@ extension EnterQuentityVC: UITextFieldDelegate{
         }else{
             let limitDecimalPlace = 4
             if(string == "."){
+                
                 return true
             }
             if (textField.text?.count)! >= limitDecimalPlace {
@@ -118,4 +122,13 @@ extension EnterQuentityVC: UITextFieldDelegate{
         
         return true
     }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if(textField.text == ""){
+            self.lblGallon.isHidden = true
+        }else{
+            self.lblGallon.isHidden = false
+        }
+    }
+    
 }

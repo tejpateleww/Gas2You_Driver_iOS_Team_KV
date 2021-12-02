@@ -46,7 +46,7 @@ class JobViewModel{
                 }
             }
         }
-    }
+    } 
     
     func webserviceOrderCompAPI(reqModel: JobCompReqModel){
         Utilities.showHud()
@@ -59,8 +59,11 @@ class JobViewModel{
                 self.JobDetailsVC?.CompBookingDetail = response?.data
                 self.JobDetailsVC?.JobCompleted()
             }else{
-                Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
                 self.JobDetailsVC?.popBack()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
+                }
+               
             }
         }
     }
@@ -100,7 +103,9 @@ class JobViewModel{
                 }
                 self.completedJobsVC?.tblCompletedJobs.reloadData()
             }else{
-                Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
+                }
             }
         }
     }

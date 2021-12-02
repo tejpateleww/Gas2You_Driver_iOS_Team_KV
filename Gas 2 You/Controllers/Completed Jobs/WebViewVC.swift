@@ -27,7 +27,6 @@ class WebViewVC: BaseVC {
         super.viewDidLoad()
         
         self.Activity.color = UIColor.init(hexString: "#1F79CD")
-        
         self.viewWeb.navigationDelegate = self
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Invoice", leftImage: "Back", rightImages: [], isTranslucent: true)
 
@@ -36,7 +35,6 @@ class WebViewVC: BaseVC {
         }else{
             self.LoadFromHTML(strUrl: strUrl)
         }
-       
     }
     
     func LoadFromURL(strUrl : String){
