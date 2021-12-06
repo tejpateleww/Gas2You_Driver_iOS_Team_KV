@@ -10,11 +10,14 @@ import SafariServices
 
 class LogInVC: UIViewController {
     
-    //MARK:- Variables
+    //MARK: - Variables
     @IBOutlet weak var btnLogin: ThemeButton!
     @IBOutlet weak var txtEmail: themeTextfield!
     @IBOutlet weak var txtPassword: themeTextfieldWithNoPaste!
     @IBOutlet weak var btnSignUp: themeButton!
+    @IBOutlet weak var lblByLoginText: themeLabel!
+    @IBOutlet weak var lblAnd: themeLabel!
+    @IBOutlet weak var lblDontHAveAcc: themeLabel!
     
     var loginUserModel = LoginUserModel()
     var locationManager : LocationService?
@@ -23,7 +26,7 @@ class LogInVC: UIViewController {
     let RISTRICTED_CHARACTERS_FOR_PASSWORD = " "
 
     
-    //MARK:- Life cycle methods
+    //MARK: - Life cycle methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         UIApplication.shared.statusBarStyle = .lightContent
@@ -33,7 +36,7 @@ class LogInVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupTextfields(textfield: txtPassword)
-        self.btnSignUp.setunderline(title: self.btnSignUp.titleLabel?.text ?? "", color: .white, font: CustomFont.PoppinsSemiBold.returnFont(16))
+        self.btnSignUp.setunderline(title: self.btnSignUp.titleLabel?.text ?? "", color: .white, font: ATFontManager.setFont(16, andFontName: FontName.regular.rawValue))
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -41,15 +44,15 @@ class LogInVC: UIViewController {
     }
     
  
-    //MARK:- Common methods
+    //MARK: - Common methods
     func setupTextfields(textfield : UITextField) {
         
         textfield.rightViewMode = .always
-        let button = UIButton(frame: CGRect(x: 10, y: 0, width: 60, height: 40))
+        let button = UIButton(frame: CGRect(x: 10, y: 0, width: 100, height: 40))
         button.setTitle("Forgot?", for: .normal)
-        button.setColorFont(color: .gray , font: CustomFont.PoppinsMedium.returnFont(14))
+        button.setColorFont(color: .gray , font: ATFontManager.setFont(14, andFontName: FontName.semibold.rawValue))
         button.addTarget(self, action: #selector(navigateToForgotPassword), for: .touchUpInside)
-        let view = UIView(frame : CGRect(x: 0, y: 0, width: 80, height: 40))
+        let view = UIView(frame : CGRect(x: 0, y: 0, width: 105, height: 40))
         view.addSubview(button)
         textfield.rightView = view
         
@@ -82,7 +85,7 @@ class LogInVC: UIViewController {
         }
     }
     
-    //MARK:- Button actions
+    //MARK: - Button actions
     @IBAction func logInButtonPreesed(_ sender: ThemeButton) {
         if self.validation(){
             if self.getLocation(){
@@ -123,7 +126,7 @@ class LogInVC: UIViewController {
     }
 }
 
-//MARK:- Validation & Api
+//MARK: - Validation & Api
 extension LogInVC{
     func validation()->Bool{
         var strTitle : String?
@@ -160,7 +163,7 @@ extension LogInVC{
     }
 }
 
-//MARK:- TextField Delegate
+//MARK: - TextField Delegate
 extension LogInVC: UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         

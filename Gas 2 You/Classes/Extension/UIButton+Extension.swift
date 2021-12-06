@@ -80,9 +80,7 @@ extension UIButton{
     }
     
     func setunderline(title:String ,color: UIColor, font: UIFont){
-        self.setAttributedTitle(NSMutableAttributedString(string: title, attributes:  [.font: font,
-                                                                                       .foregroundColor: color,
-             .underlineStyle: NSUnderlineStyle.single.rawValue]), for: .normal)
+        self.setAttributedTitle(NSMutableAttributedString(string: title, attributes:  [.font: font,.foregroundColor: color,.underlineStyle: NSUnderlineStyle.single.rawValue]), for: .normal)
     }
 }
 

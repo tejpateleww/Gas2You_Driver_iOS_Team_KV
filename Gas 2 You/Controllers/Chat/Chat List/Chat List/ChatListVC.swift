@@ -12,7 +12,7 @@ import SocketIO
 
 class ChatListVC: BaseVC {
     
-    //MARK: -Properties
+    //MARK: - Properties
     @IBOutlet weak var tblUserList: UITableView!
     
     var arrUserList = [ChatUserListDatum]()
@@ -146,7 +146,7 @@ extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-//MARK:- Api Calls
+//MARK: - Api Calls
 extension ChatListVC{
     
     func callUserListAPI(){

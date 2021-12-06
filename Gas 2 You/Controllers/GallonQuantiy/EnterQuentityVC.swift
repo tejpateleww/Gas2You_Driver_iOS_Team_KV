@@ -9,7 +9,7 @@ import UIKit
 
 class EnterQuentityVC: BaseVC{
     
-    //MARK:-IBOutlets
+    //MARK: - IBOutlets
     @IBOutlet weak var vwMain: UIView!
     @IBOutlet weak var txtPrice: themeTextfield!
     @IBOutlet weak var lblGallon: themeLabel!
@@ -17,19 +17,19 @@ class EnterQuentityVC: BaseVC{
     @IBOutlet weak var btnCancel: ThemeButton!
     @IBOutlet weak var lblEnterQuentity: themeLabel!
     
-    //MARK:- Variables
+    //MARK: - Variables
     var btnSubmitClosure : ((String)->())?
     var Quantity :String = ""
     let ACCEPTABLE_CHARACTERS_FOR_QUANTITY = "0123456789."
     
-    //MARK:- Life Cycle Methods
+    //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.prepareView()
     }
     
-    //MARK:- Custom Methods
+    //MARK: - Custom Methods
     func prepareView(){
         self.lblGallon.isHidden = true
         self.vwMain.layer.cornerRadius = 20
@@ -42,9 +42,7 @@ class EnterQuentityVC: BaseVC{
         }
     }
     
-    
-    
-    //MARK:- IBActions
+    //MARK: - IBActions
     @IBAction func btnSubmitTap(_ sender: Any) {
         if(self.txtPrice.text == ""){
             Utilities.showAlert("Gas2You", message: "Please enter quantity", vc: self)
@@ -63,11 +61,10 @@ class EnterQuentityVC: BaseVC{
     @IBAction func btnCancelTap(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
     }
-    
 }
 
 
-//MARK:- TextField Delegate
+//MARK: - TextField Delegate
 extension EnterQuentityVC: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -82,9 +79,7 @@ extension EnterQuentityVC: UITextFieldDelegate{
         if (textField.text?.contains("."))! && string == "." {
             return false
         }
-        
-
-        
+    
         if (textField.text?.contains("."))! {
             let limitDecimalPlace = 3
             let decimalPlace = textField.text?.components(separatedBy: ".").last
@@ -105,10 +100,7 @@ extension EnterQuentityVC: UITextFieldDelegate{
             }
         }
         
-        
-        
         switch textField {
-        
         case self.txtPrice :
             let cs = NSCharacterSet(charactersIn: ACCEPTABLE_CHARACTERS_FOR_QUANTITY).inverted
             let filtered = string.components(separatedBy: cs).joined(separator: "")
@@ -119,7 +111,6 @@ extension EnterQuentityVC: UITextFieldDelegate{
         default:
             print("")
         }
-        
         return true
     }
     
@@ -130,5 +121,4 @@ extension EnterQuentityVC: UITextFieldDelegate{
             self.lblGallon.isHidden = false
         }
     }
-    
 }

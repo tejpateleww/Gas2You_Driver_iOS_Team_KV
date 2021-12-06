@@ -30,15 +30,15 @@ class themeLabel: UILabel{
         super.awakeFromNib()
 
             if isBold {
-                self.font = CustomFont.PoppinsBold.returnFont(Font_Size)
+                self.font = ATFontManager.setFont(Font_Size, andFontName: FontName.bold.rawValue)
             } else if isSemibold {
-                self.font = CustomFont.PoppinsSemiBold.returnFont(Font_Size)
+                self.font = ATFontManager.setFont(Font_Size, andFontName: FontName.semibold.rawValue)
             } else if isMedium {
-                self.font = CustomFont.PoppinsMedium.returnFont(Font_Size)
+                self.font = ATFontManager.setFont(Font_Size, andFontName: FontName.medium.rawValue)
             } else if isLight {
-                self.font = CustomFont.PoppinsLight.returnFont(Font_Size)
+                self.font = ATFontManager.setFont(Font_Size, andFontName: FontName.light.rawValue)
             } else {
-                self.font = CustomFont.PoppinsRegular.returnFont(Font_Size)
+                self.font = ATFontManager.setFont(Font_Size, andFontName: FontName.regular.rawValue)
             }
         
         if IsUnderLine {
@@ -89,28 +89,28 @@ class ThemeButton: UIButton {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        self.titleLabel?.font = FontBook.semibold.staticFont(size: Font_Size)
+        self.titleLabel?.font =  ATFontManager.setFont(Font_Size, andFontName: FontName.medium.rawValue)
         self.backgroundColor = background
         self.tintColor = fontColor
         self.layer.cornerRadius = radius
         
         if isBold {
-            self.titleLabel?.font = CustomFont.PoppinsBold.returnFont(Font_Size)
+            self.titleLabel?.font =  ATFontManager.setFont(Font_Size, andFontName: FontName.bold.rawValue)
         } else if isSemibold {
-            self.titleLabel?.font = CustomFont.PoppinsSemiBold.returnFont(Font_Size)
+            self.titleLabel?.font =  ATFontManager.setFont(Font_Size, andFontName: FontName.semibold.rawValue)
         } else if isMedium {
-            self.titleLabel?.font = CustomFont.PoppinsMedium.returnFont(Font_Size)
+            self.titleLabel?.font =  ATFontManager.setFont(Font_Size, andFontName: FontName.medium.rawValue)
         } else if isLight {
-            self.titleLabel?.font = CustomFont.PoppinsLight.returnFont(Font_Size)
+            self.titleLabel?.font =  ATFontManager.setFont(Font_Size, andFontName: FontName.light.rawValue)
         } else if isRegular {
-            self.titleLabel?.font = CustomFont.PoppinsRegular.returnFont(Font_Size)
+            self.titleLabel?.font =  ATFontManager.setFont(Font_Size, andFontName: FontName.regular.rawValue)
         } else {
-            self.titleLabel?.font = CustomFont.PoppinsRegular.returnFont(Font_Size)
+            self.titleLabel?.font =  ATFontManager.setFont(Font_Size, andFontName: FontName.regular.rawValue)
         }
         
         
         if isbordered {
-            self.setunderline(title: self.titleLabel?.text ?? "", color: UIColor.appColor(ThemeColor.themeButtonBlue), font: CustomFont.PoppinsRegular.returnFont(Font_Size))
+            self.setunderline(title: self.titleLabel?.text ?? "", color: UIColor.appColor(ThemeColor.themeButtonBlue), font: ATFontManager.setFont(Font_Size, andFontName: FontName.regular.rawValue))
         }
 //        if shadow {
 //            addShadow(view: self, shadowColor: shadowColor)
@@ -192,18 +192,18 @@ class themeButton: UIButton {
         if IsSubmit {
             self.backgroundColor = UIColor.appColor(ThemeColor.themeButtonBlue)
             self.setTitleColor(fontColor, for: .normal)
-            self.titleLabel?.font = CustomFont.PoppinsBold.returnFont(Font_Size)
+            self.titleLabel?.font = ATFontManager.setFont(Font_Size, andFontName: FontName.bold.rawValue)
         } else if IsBlack {
             self.backgroundColor = UIColor.clear
             self.setTitleColor(fontColor, for: .normal)
-            self.titleLabel?.font = CustomFont.PoppinsMedium.returnFont(Font_Size)
+            self.titleLabel?.font = ATFontManager.setFont(Font_Size, andFontName: FontName.medium.rawValue)
         } else {
             self.backgroundColor = UIColor.clear
             self.setTitleColor(fontColor, for: .normal)
-            self.titleLabel?.font = CustomFont.PoppinsRegular.returnFont(Font_Size)
+            self.titleLabel?.font = ATFontManager.setFont(Font_Size, andFontName: FontName.regular.rawValue)
         }
         if IsUnderline {
-            self.setunderline(title: self.titleLabel?.text ?? "", color: fontColor, font: CustomFont.PoppinsRegular.returnFont(Font_Size))
+            self.setunderline(title: self.titleLabel?.text ?? "", color: fontColor, font: ATFontManager.setFont(Font_Size, andFontName: FontName.regular.rawValue))
         }
         
     }
@@ -416,7 +416,7 @@ class themeTextfieldWithNoPaste : UITextField{
                 rightViewMode = .always
                 let button = UIButton(frame: CGRect(x: 10, y: 0, width: 60, height: 40))
                 button.setTitle(titleText, for: .normal)
-                button.setColorFont(color: .gray , font: FontBook.regular.staticFont(size: Font_Size - 2))
+                button.setColorFont(color: .gray , font: ATFontManager.setFont(Font_Size, andFontName: FontName.semibold.rawValue))
                 button.addTarget(self, action: #selector(rightImageAction), for: .touchUpInside)
                 let view = UIView(frame : CGRect(x: 0, y: 0, width: 80, height: 40))
                 view.addSubview(button)
@@ -455,16 +455,17 @@ class themeTextfieldWithNoPaste : UITextField{
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.font = ATFontManager.setFont()
         if isBold {
-            self.font = CustomFont.PoppinsBold.returnFont(Font_Size)
+            self.font = ATFontManager.setFont(Font_Size, andFontName: FontName.bold.rawValue)
         } else if isSemibold {
-            self.font = CustomFont.PoppinsSemiBold.returnFont(Font_Size)
+            self.font = ATFontManager.setFont(Font_Size, andFontName: FontName.semibold.rawValue)
         } else if isMedium {
-            self.font = CustomFont.PoppinsMedium.returnFont(Font_Size)
+            self.font = ATFontManager.setFont(Font_Size, andFontName: FontName.medium.rawValue)
         } else if isLight {
-            self.font = CustomFont.PoppinsLight.returnFont(Font_Size)
+            self.font = ATFontManager.setFont(Font_Size, andFontName: FontName.light.rawValue)
         } else {
-            self.font = CustomFont.PoppinsRegular.returnFont(Font_Size)
+            self.font = ATFontManager.setFont(Font_Size, andFontName: FontName.regular.rawValue)
         }
         self.textColor = fontColor
        
@@ -577,16 +578,18 @@ class themeTextfield : UITextField{
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        self.font = ATFontManager.setFont()
         if isBold {
-            self.font = CustomFont.PoppinsBold.returnFont(Font_Size)
+            self.font = ATFontManager.setFont(Font_Size, andFontName: FontName.bold.rawValue)
         } else if isSemibold {
-            self.font = CustomFont.PoppinsSemiBold.returnFont(Font_Size)
+            self.font = ATFontManager.setFont(Font_Size, andFontName: FontName.semibold.rawValue)
         } else if isMedium {
-            self.font = CustomFont.PoppinsMedium.returnFont(Font_Size)
+            self.font = ATFontManager.setFont(Font_Size, andFontName: FontName.medium.rawValue)
         } else if isLight {
-            self.font = CustomFont.PoppinsLight.returnFont(Font_Size)
+            self.font = ATFontManager.setFont(Font_Size, andFontName: FontName.light.rawValue)
         } else {
-            self.font = CustomFont.PoppinsRegular.returnFont(Font_Size)
+            self.font = ATFontManager.setFont(Font_Size, andFontName: FontName.regular.rawValue)
         }
         self.textColor = fontColor
        

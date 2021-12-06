@@ -35,7 +35,6 @@ extension CarParkingLocationVC: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         var location = locationManager.location?.coordinate
-        
         cameraMoveToLocation(toLocation: location)
         
     }

@@ -9,7 +9,7 @@ import UIKit
 
 class MyEarningsVC: BaseVC {
     
-    //MARK: - IBOutlets:-
+    //MARK: - IBOutlets
     @IBOutlet weak var lblTotalEarningsPrice: themeLabel!
     @IBOutlet weak var lblTotalEarnings: themeLabel!
     @IBOutlet weak var lblHistory: themeLabel!

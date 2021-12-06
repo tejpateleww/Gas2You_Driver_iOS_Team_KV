@@ -9,7 +9,7 @@ import UIKit
 
 class ChangePasswordVC: BaseVC {
     
-    //MARK:- Variables
+    //MARK: - Variables
     @IBOutlet weak var imgG2U: UIImageView!
     @IBOutlet weak var imgBG: UIImageView!
     @IBOutlet weak var txtCurrentPassword: themeTextfield!
@@ -21,7 +21,7 @@ class ChangePasswordVC: BaseVC {
     var btnSubmitClosure : (() -> ())?
     let RISTRICTED_CHARACTERS_FOR_PASSWORD = " "
     
-    //MARK:- Life cycle methods
+    //MARK: - Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Change Password", leftImage: "Back", rightImages: [], isTranslucent: true, iswhiteTitle: true)
@@ -35,7 +35,7 @@ class ChangePasswordVC: BaseVC {
         UIApplication.shared.statusBarStyle = .default
     }
     
-    //MARK:- Button action methods
+    //MARK: - Button action methods
     @IBAction func btnSaveTap(_ sender: ThemeButton) {
         if self.validation(){
             if(self.txtReEnterPassword.text == "" ){
@@ -47,21 +47,22 @@ class ChangePasswordVC: BaseVC {
         }
     }
     
-    //MARK:- Extra methods
+    //MARK: - Extra methods
     func popBack(strMsg:String){
         Toast.show(title:UrlConstant.Success, message: strMsg, state: .success)
         self.navigationController?.popViewController(animated: true)
     }
 }
 
-//MARK:- Validation & Api
+//MARK: - Validation & Api
 extension ChangePasswordVC{
     
     func validation()->Bool{
         var strTitle : String?
         let oldPassword = self.txtCurrentPassword.validatedText(validationType: .password(field: self.txtCurrentPassword.placeholder?.lowercased() ?? ""))
         let newPassword = self.txtNewPassword.validatedText(validationType: .password(field: self.txtNewPassword.placeholder?.lowercased() ?? ""))
-        let confirmPassword = self.txtReEnterPassword.validatedText(validationType: .password(field: self.txtReEnterPassword.placeholder?.lowercased() ?? ""))
+        let confirmPassword = self.txtReEnterPassword.validatedText(validationType: .
+                                                                    password(field: self.txtReEnterPassword.placeholder?.lowercased() ?? ""))
         
         if !oldPassword.0{
             strTitle = oldPassword.1
@@ -92,7 +93,7 @@ extension ChangePasswordVC{
     }
 }
 
-//MARK:- TextField Delegate
+//MARK: - TextField Delegate
 extension ChangePasswordVC: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

@@ -13,7 +13,7 @@ import SafariServices
 
 class ChatViewController: BaseVC {
 
-    //MARK:- IBOutlets
+    //MARK: - IBOutlets
     @IBOutlet weak var tblChat: UITableView!
     @IBOutlet var keyboardHeightLayoutConstraint: NSLayoutConstraint?
     @IBOutlet weak var txtviewComment: ratingTextview!
@@ -22,7 +22,7 @@ class ChatViewController: BaseVC {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblInfo: UILabel!
     
-    //MARK:- Properties
+    //MARK: - Properties
     var isFromPush = false
     var bookingID = ""
     var senderID = ""
@@ -73,6 +73,15 @@ class ChatViewController: BaseVC {
     
     //MARK: - Custom methods
     func prepareView(){
+        
+        if(isFromPush){
+            if(self.bookingID == ""){
+                self.navigationController?.popViewController(animated: true)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    Toast.show(title: UrlConstant.Error, message: "Booking Id not found.", state: .failure)
+                }
+            }
+        }
         
         self.txtviewComment.delegate = self
         self.txtviewComment.font = CustomFont.PoppinsRegular.returnFont(16)
@@ -177,7 +186,7 @@ class ChatViewController: BaseVC {
         return true
     }
     
-    //MARK:- Button action methods
+    //MARK: - Button action methods
     @IBAction func btnChatAction(_ sender: Any) {
         if(self.validations()){
             self.callSendMsgAPI()
@@ -200,7 +209,7 @@ class ChatViewController: BaseVC {
 }
 
 
-//MARK:- Textview Delegate
+//MARK: - Textview Delegate
 extension ChatViewController : UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
@@ -224,7 +233,7 @@ extension ChatViewController : UITextViewDelegate {
 }
 
 
-//MARK: -tableviewDelegate
+//MARK: - tableviewDelegate
 extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -291,7 +300,7 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
                     dateFormatter.timeZone = TimeZone(identifier: "Europe/London")
                     let dateObj = dateFormatter.date(from: obj?.createdAt ?? "")
                     dateFormatter.dateFormat = "hh:mm a"
-                    cell.lblSenderTime.text = (dateFormatter.string(from: dateObj!))
+                    cell.lblSenderTime.text = (dateFormatter.string(from: dateObj ?? Date()))
                     
 //                    if(canOpenURL(string: obj?.message ?? "")){
 //                        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue, .foregroundColor : UIColor.white] as [NSAttributedString.Key : Any]
@@ -317,7 +326,7 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
                     dateFormatter.timeZone = TimeZone(identifier: "Europe/London")
                     let dateObj = dateFormatter.date(from: obj?.createdAt ?? "")
                     dateFormatter.dateFormat = "hh:mm a"
-                    cell.lblReciverTime.text = (dateFormatter.string(from: dateObj!))
+                    cell.lblReciverTime.text = (dateFormatter.string(from: dateObj ?? Date()))
                     
 //                    if(canOpenURL(string: obj?.message ?? "")){
 //                        let underlineAttribute = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.thick.rawValue, .foregroundColor : UIColor.white] as [NSAttributedString.Key : Any]
@@ -407,7 +416,7 @@ class chatHeaderCell : UITableViewCell {
     @IBOutlet weak var vwMain: UIView!
 }
 
-//MARK: KEYBOARD SETUP FOR CHATBOX
+//MARK: - KEYBOARD SETUP FOR CHATBOX
 extension ChatViewController {
     func registerForKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -481,7 +490,7 @@ extension ChatViewController {
     }
 }
 
-//MARK:- Api Calls
+//MARK: - Api Calls
 extension ChatViewController{
     
     func callChatHistoryAPI(){

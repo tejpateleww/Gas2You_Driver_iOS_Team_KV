@@ -10,7 +10,7 @@ import CoreLocation
 
 class SplashVC: UIViewController {
     
-    //MARK:- Variables
+    //MARK: - Variables
     var locationManager: CLLocationManager?
     
     //MARK:- Life cycle methods
@@ -31,7 +31,7 @@ class SplashVC: UIViewController {
     
 }
 
-//MARK:- Apis
+//MARK: - Apis
 extension SplashVC{
     func webserviceInit(){
         WebServiceSubClass.InitApi { (status, message, response, error) in
@@ -78,7 +78,7 @@ extension SplashVC{
     }
 }
 
-//MARK:- Common Methods
+//MARK: - Common Methods
 extension SplashVC{
     func openForceUpdateAlert(msg: String){
         Utilities.showAlertWithTitleFromWindow(title: AppName, andMessage: msg, buttons: [UrlConstant.Ok]) { (ind) in

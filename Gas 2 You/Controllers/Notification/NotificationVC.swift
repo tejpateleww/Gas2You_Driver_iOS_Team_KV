@@ -9,8 +9,10 @@ import UIKit
 
 class NotificationVC: BaseVC {
     
+    //MARK: - IBOutlets
     @IBOutlet weak var tblNotification: UITableView!
     
+    //MARK: - Properties
     var arrNotification = [NotificationDatum]()
     var notificationModelClass = NotificationModelClass()
     
@@ -32,11 +34,13 @@ class NotificationVC: BaseVC {
     //Pull to refresh
     let refreshControl = UIRefreshControl()
 
+    //MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.prepareView()
     }
     
+    //MARK: - Custom Methods
     func prepareView(){
         self.registerNib()
         self.setupUI()
@@ -86,7 +90,8 @@ class NotificationVC: BaseVC {
     }
     
 }
-//MARK:- UITableView Methods
+
+//MARK: - UITableView Methods
 extension NotificationVC : UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if self.arrNotification.count > 0 {
@@ -148,7 +153,7 @@ extension NotificationVC : UITableViewDelegate,UITableViewDataSource{
     
 }
 
-//MARK:- Api Calls
+//MARK: - Api Calls
 extension NotificationVC{
     
     func callNotificationListAPI(){

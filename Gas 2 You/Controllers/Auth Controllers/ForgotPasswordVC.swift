@@ -9,13 +9,13 @@ import UIKit
 
 class ForgotPasswordVC: BaseVC {
     
-    //MARK:- Variables
+    //MARK: - Variables
     @IBOutlet weak var txtEmail: themeTextfield!
     @IBOutlet weak var btnSubmit: ThemeButton!
     
     var forgotPasswordUserModel = PasswordUserModel()
     
-    //MARK:- Life cycle methods
+    //MARK: - Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Forgot Password", leftImage: "Back", rightImages: [], isTranslucent: true, iswhiteTitle: true)
@@ -31,21 +31,21 @@ class ForgotPasswordVC: BaseVC {
         UIApplication.shared.statusBarStyle = .default
     }
     
-    //MARK:- Button action methods
+    //MARK: - Button action methods
     @IBAction func btnSubmitTap(_ sender: ThemeButton) {
         if self.validation(){
             self.callForgotPasswordApi()
         }
     }
     
-    //MARK:- Extra methods
+    //MARK: - Extra methods
     func popBack(){
         self.navigationController?.popViewController(animated: true)
     }
     
 }
 
-//MARK:- Validation & Api
+//MARK: - Validation & Api
 extension ForgotPasswordVC{
     func validation()->Bool{
         var strTitle : String?

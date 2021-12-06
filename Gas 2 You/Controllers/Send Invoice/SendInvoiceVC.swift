@@ -9,7 +9,7 @@ import UIKit
 
 class SendInvoiceVC: UIViewController {
     
-    //MARK:- IBOutlets
+    //MARK: - IBOutlets
     @IBOutlet weak var vwMain: UIView!
     @IBOutlet weak var imgLogo: UIImageView!
     @IBOutlet weak var lblLocation: themeLabel!
@@ -21,7 +21,7 @@ class SendInvoiceVC: UIViewController {
     @IBOutlet weak var tblAddon: UITableView!
     @IBOutlet weak var tblAddonHeight: NSLayoutConstraint!
 
-    //MARK:- Variables and Properties
+    //MARK: - Variables and Properties
     var btnSubmitTapClosure : (()->())?
     var BookingDetail : OrderComplateDatum?
     var arrService:[OrderComplateService] = []
@@ -41,7 +41,7 @@ class SendInvoiceVC: UIViewController {
         }
     }
     
-    //MARK:- Custome Methods
+    //MARK: - Custome Methods
     func prepareView(){
         vwMain.layer.cornerRadius = 20
         vwMain.layer.masksToBounds = true
@@ -75,8 +75,7 @@ class SendInvoiceVC: UIViewController {
         
     }
     
-    //MARK:- IBAction
-    
+    //MARK: - IBAction
     @IBAction func btnSendInvoiceTap(_ sender: Any) {
         self.dismiss(animated: false, completion: {
             if let obj = self.btnSubmitTapClosure{

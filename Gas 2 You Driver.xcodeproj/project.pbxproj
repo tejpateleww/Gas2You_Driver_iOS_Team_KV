@@ -93,6 +93,7 @@
 		886ED1B2274F502700971F75 /* EarningResModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ED1B0274F502700971F75 /* EarningResModel.swift */; };
 		886ED1B5274F50F200971F75 /* EarningViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 886ED1B4274F50F200971F75 /* EarningViewModel.swift */; };
 		8875E03F26E0DDBC00E45B82 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8875E03E26E0DDBC00E45B82 /* Main.storyboard */; };
+		887F9C172759E71400BF75A2 /* ATFontManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 887F9C162759E71400BF75A2 /* ATFontManager.swift */; };
 		888D122F26DE183C0034D277 /* SplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888D122E26DE183C0034D277 /* SplashVC.swift */; };
 		888D123A26DE23B40034D277 /* UrlServiceConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888D123126DE23B40034D277 /* UrlServiceConstant.swift */; };
 		888D123B26DE23B40034D277 /* RequestBodyParamService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888D123226DE23B40034D277 /* RequestBodyParamService.swift */; };
@@ -262,6 +263,7 @@
 		886ED1B0274F502700971F75 /* EarningResModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarningResModel.swift; sourceTree = "<group>"; };
 		886ED1B4274F50F200971F75 /* EarningViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarningViewModel.swift; sourceTree = "<group>"; };
 		8875E03E26E0DDBC00E45B82 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		887F9C162759E71400BF75A2 /* ATFontManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ATFontManager.swift; sourceTree = "<group>"; };
 		888D122E26DE183C0034D277 /* SplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVC.swift; sourceTree = "<group>"; };
 		888D123126DE23B40034D277 /* UrlServiceConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlServiceConstant.swift; sourceTree = "<group>"; };
 		888D123226DE23B40034D277 /* RequestBodyParamService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBodyParamService.swift; sourceTree = "<group>"; };
@@ -692,6 +694,14 @@
 			path = Earning;
 			sourceTree = "<group>";
 		};
+		887F9C152759E70100BF75A2 /* Dynamic Font Size */ = {
+			isa = PBXGroup;
+			children = (
+				887F9C162759E71400BF75A2 /* ATFontManager.swift */,
+			);
+			path = "Dynamic Font Size";
+			sourceTree = "<group>";
+		};
 		888D122D26DE18290034D277 /* Splash */ = {
 			isa = PBXGroup;
 			children = (
@@ -736,6 +746,7 @@
 		888D124D26DE25140034D277 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				887F9C152759E70100BF75A2 /* Dynamic Font Size */,
 				88DC2788270B296C00359438 /* Shimmer Cell */,
 				885C691626F89AF600844561 /* No Data Found Cell */,
 				888D124E26DE25140034D277 /* Constants.swift */,
@@ -1400,6 +1411,7 @@
 				88367A2D270C69B20034D5F1 /* ChatUserListModel.swift in Sources */,
 				886445BC275496B50004D9E3 /* NotiStatusChangeViewModel.swift in Sources */,
 				9A5B094226B279AE00BA0CB4 /* Storyboards.swift in Sources */,
+				887F9C172759E71400BF75A2 /* ATFontManager.swift in Sources */,
 				8853A9A4272678D000456181 /* chatHistoryDatum.swift in Sources */,
 				88DC278F270B29F300359438 /* ShimmerCell.swift in Sources */,
 				886E920D2731137B00F3F1BF /* ChatSendMsgModel.swift in Sources */,

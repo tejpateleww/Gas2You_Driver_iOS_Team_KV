@@ -278,7 +278,7 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
             controller.navigationItem.titleView = UIView()
         } else {
             let lblNavTitle = UILabel()
-            lblNavTitle.font = CustomFont.PoppinsMedium.returnFont(18)
+            lblNavTitle.font = ATFontManager.setFont(18, andFontName: FontName.bold.rawValue)
             lblNavTitle.backgroundColor = UIColor.clear
             lblNavTitle.textColor =  iswhiteTitle ? .white : colors.black.value
             lblNavTitle.numberOfLines = 0

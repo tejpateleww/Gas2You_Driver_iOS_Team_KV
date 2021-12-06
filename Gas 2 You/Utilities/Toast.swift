@@ -230,9 +230,7 @@ private extension UILabel {
         // MARK: - Check if there's any text
 
         // MARK: - Create "NSMutableAttributedString" with your text
-        let attributedString = NSMutableAttributedString()
-            .bold(title , fontSize: 15.0 , fontColor: .white)
-            .normal(message, fontSize: 14.0 , fontColor: .white)
+        let attributedString = NSMutableAttributedString().bold(title , fontSize: 15.0 , fontColor: .white).normal(message, fontSize: 14.0 , fontColor: .white)
 
         // MARK: - Create instance of "NSMutableParagraphStyle"
         let paragraphStyle = NSMutableParagraphStyle()

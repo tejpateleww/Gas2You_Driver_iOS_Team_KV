@@ -10,11 +10,11 @@ import WebKit
 
 class WebViewVC: BaseVC {
     
-    //MARK:- IBOutlets
+    //MARK: - IBOutlets
     @IBOutlet weak var viewWeb: WKWebView!
     @IBOutlet weak var Activity: UIActivityIndicatorView!
     
-    //MARK:- VAriables and Properties
+    //MARK: - VAriables and Properties
     var strUrl : String = "https://www.google.com"
     var isLoadFromURL :Bool = false
     
@@ -37,6 +37,7 @@ class WebViewVC: BaseVC {
         }
     }
     
+    //MARK: - Custom Methods
     func LoadFromURL(strUrl : String){
         let url = URL(string: strUrl)
         let requestObj = URLRequest(url: url! as URL)
@@ -50,6 +51,7 @@ class WebViewVC: BaseVC {
     }
 }
 
+//MARK: - WKNavigationDelegate Methods
 extension WebViewVC: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         //Utility.showHUD()

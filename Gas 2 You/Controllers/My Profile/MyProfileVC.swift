@@ -43,7 +43,7 @@ class MyProfileVC: BaseVC {
     }
     
     func setupUI(){
-        
+        self.vwProfile.clipsToBounds = true
         self.vwProfile.layer.cornerRadius = self.vwProfile.frame.height/2
         self.vwProfile.addShadow()
         self.imgProfile.layer.cornerRadius = self.imgProfile.frame.height/2
@@ -154,7 +154,7 @@ class MyProfileVC: BaseVC {
     
 }
 
-//MARK:- UIImagePickerControllerDelegate Method
+//MARK: - UIImagePickerControllerDelegate Method
 extension MyProfileVC : UIImagePickerControllerDelegate{
     
     public func imagePickerController(_ picker: UIImagePickerController,
@@ -237,7 +237,7 @@ extension MyProfileVC : UIImagePickerControllerDelegate{
     }
 }
 
-//MARK:- Api Call
+//MARK: - Api Call
 extension MyProfileVC{
     
     func callUpdateUserInfo(){
@@ -254,7 +254,7 @@ extension MyProfileVC{
     
 }
 
-//MARK:- TextField Delegate
+//MARK: - TextField Delegate
 extension MyProfileVC: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

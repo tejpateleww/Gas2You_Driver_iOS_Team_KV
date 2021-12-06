@@ -11,14 +11,14 @@ import UIView_Shimmer
 
 class HomeVC: BaseVC {
     
-    //MARK:- OUTLETS
+    //MARK: - OUTLETS
     @IBOutlet weak var btnRequest: ThemeButton!
     @IBOutlet weak var btnInProgress: themeButton!
     @IBOutlet weak var vwInprogress: UIView!
     @IBOutlet weak var vwRequest: UIView!
     @IBOutlet weak var tblHome: UITableView!
     
-    //MARK:- GLOBAL PROPERTIES
+    //MARK: - GLOBAL PROPERTIES
     var isInProcess : Bool = false
     var homeViewModel = HomeViewModel()
     var CurrentPage = 1
@@ -37,10 +37,9 @@ class HomeVC: BaseVC {
             self.tblHome.isUserInteractionEnabled = !isLoading
             self.tblHome.reloadData()
         }
-        
     }
     
-    //MARK:- VIEW LIFE CYCLE
+    //MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,7 +64,7 @@ class HomeVC: BaseVC {
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
-    //MARK:- Custom methods
+    //MARK: - Custom methods
     func addNotificationObs(){
         NotificationCenter.default.addObserver(self, selector: #selector(self.ReloadData), name: Notification.Name("ReloadData"), object: nil)
         
@@ -272,7 +271,7 @@ class HomeVC: BaseVC {
         self.callBookingInProgressAPI()
     }
     
-    //MARK:- Button ACTIONS
+    //MARK: - Button ACTIONS
     @IBAction func btnRequestTap(_ sender: UIButton) {
         self.refreshNewRequest()
     }
@@ -283,7 +282,7 @@ class HomeVC: BaseVC {
     
 }
 
-//MARK:- UITableview Methods
+//MARK: - UITableview Methods
 extension HomeVC : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -411,7 +410,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
     
 }
 
-//MARK:- Api Calls
+//MARK: - Api Calls
 extension HomeVC{
     
     func callBookingRequestAPI(){

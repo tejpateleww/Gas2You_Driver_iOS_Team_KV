@@ -335,11 +335,13 @@ class JobDetailsViewController: BaseVC {
     }
     
     func drawPath(from polyStr: String){
-        self.path = GMSPath(fromEncodedPath: polyStr)!
-        self.polyline = GMSPolyline(path: self.path)
-        self.polyline.strokeWidth = 3.0
-        self.polyline.strokeColor = UIColor.init(hexString: "#faa421")
-        self.polyline.map = self.mapView
+        DispatchQueue.main.async {
+            self.path = GMSPath(fromEncodedPath: polyStr)!
+            self.polyline = GMSPolyline(path: self.path)
+            self.polyline.strokeWidth = 3.0
+            self.polyline.strokeColor = UIColor.init(hexString: "#faa421")
+            self.polyline.map = self.mapView
+        }
     }
     
     func popBack(){

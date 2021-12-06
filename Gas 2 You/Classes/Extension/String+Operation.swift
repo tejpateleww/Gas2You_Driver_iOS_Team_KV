@@ -109,7 +109,7 @@ extension NSMutableAttributedString {
     func bold(_ value:String , fontSize : CGFloat,  fontColor : UIColor = .white) -> NSMutableAttributedString {
         
         let attributes:[NSAttributedString.Key : Any] = [
-            .font : CustomFont.bold.returnFont(fontSize) ,//boldFont,
+            .font : ATFontManager.setFont(fontSize, andFontName: FontName.bold.rawValue) ,//boldFont,
             .foregroundColor : fontColor
         ]
         
@@ -120,7 +120,7 @@ extension NSMutableAttributedString {
     func normal(_ value:String, fontSize : CGFloat , fontColor : UIColor = .white) -> NSMutableAttributedString {
         
         let attributes:[NSAttributedString.Key : Any] = [
-            .font : CustomFont.medium.returnFont(fontSize),//normalFont,
+            .font : ATFontManager.setFont(fontSize, andFontName: FontName.medium.rawValue),//normalFont,
             .foregroundColor : fontColor
         ]
         

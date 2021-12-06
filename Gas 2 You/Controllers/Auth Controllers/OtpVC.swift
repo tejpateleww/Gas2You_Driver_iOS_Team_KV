@@ -10,7 +10,7 @@ import OTPFieldView
 
 class OtpVC: BaseVC {
     
-    //MARK:- IBOutlets
+    //MARK: - IBOutlets
     @IBOutlet weak var btnResend: themeButton!
     @IBOutlet weak var lblCheckEmail: themeLabel!
     @IBOutlet weak var lblTimer: themeLabel!
@@ -30,7 +30,7 @@ class OtpVC: BaseVC {
     var registerReqModel : RegisterRequestModel?
     var locationManager : LocationService?
     
-    //MARK:- Life Cycle methods
+    //MARK: - Life Cycle methods
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         UIApplication.shared.statusBarStyle = .lightContent
@@ -44,7 +44,7 @@ class OtpVC: BaseVC {
         self.prepareView()
     }
     
-    //MARK:- custom methods
+    //MARK: - custom methods
     func setupOtpView(){
         self.otpTextFieldView.fieldsCount = 4
         self.otpTextFieldView.fieldBorderWidth = 2
@@ -142,12 +142,12 @@ class OtpVC: BaseVC {
         }
     }
     
-    // MARK:- button action methods
+    // MARK: - button action methods
     @IBAction func btnVerifyAction(_ sender: Any) {
         
         if(self.hasEnteredAllOTP){
             if(self.strOtp != self.strEnteredOtp){
-                Utilities.showAlert(AppName, message: UrlConstant.ValidOtpNo, vc: self)
+                Toast.show(title: UrlConstant.Required, message: UrlConstant.ValidOtpNo, state: .info)
             }else{
                 self.timer.invalidate()
                 if self.getLocation(){
@@ -155,7 +155,7 @@ class OtpVC: BaseVC {
                 }
             }
         }else{
-            Utilities.showAlert(AppName, message: UrlConstant.ValidOtpNo, vc: self)
+            Toast.show(title: UrlConstant.Required, message: UrlConstant.ValidOtpNo, state: .info)
         }
         
     }
@@ -169,7 +169,7 @@ class OtpVC: BaseVC {
 }
 
 
-//MARK:- Api Call
+//MARK: - Api Call
 extension OtpVC{
     
     func callOtpApi(){
@@ -185,7 +185,7 @@ extension OtpVC{
     }
 }
 
-//MARK:- OTPFieldView
+//MARK: - OTPFieldView
 extension OtpVC: OTPFieldViewDelegate {
     func hasEnteredAllOTP(hasEnteredAll hasEntered: Bool) -> Bool {
         print("Has entered all OTP? \(hasEntered)")

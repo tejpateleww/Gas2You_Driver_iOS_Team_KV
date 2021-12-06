@@ -10,10 +10,10 @@ import SafariServices
 
 class SignUpVC: BaseVC {
     
-    //MARK:- IBOutlets
+    //MARK: - IBOutlets
     @IBOutlet weak var txtFirstName: themeTextfield!
     @IBOutlet weak var txtEmail: themeTextfield!
-    @IBOutlet weak var txtMobile: themeTextfield!
+    @IBOutlet weak var txtMobile: UITextField!
     @IBOutlet weak var txtPassword: themeTextfield!
     @IBOutlet weak var txtConfirmPassword: themeTextfield!
     @IBOutlet weak var btnSignUp: ThemeButton!
@@ -27,19 +27,20 @@ class SignUpVC: BaseVC {
     var strOtp = ""
     var otpUserModel = OTPUserModel()
     
-    //MARK:- Life cycle methods
+    //MARK: - Life cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Sign Up", leftImage: "Back", rightImages: [], isTranslucent: true, iswhiteTitle: true)
-        self.btnLoginNow.setunderline(title: "Login Now" , color: .white, font: CustomFont.PoppinsSemiBold.returnFont(16))
+        self.btnLoginNow.setunderline(title: "Login Now" , color: .white, font: ATFontManager.setFont(16, andFontName: FontName.regular.rawValue))
         
         //mobile no field +1 related code
-        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 20))
+        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: (UIDevice().userInterfaceIdiom == .phone) ? 30 : 40, height: 20))
         self.txtMobile.leftView = paddingView
         self.txtMobile.leftViewMode = .always
         self.txtMobile.layer.borderWidth = 1
         self.txtMobile.layer.borderColor = UIColor.white.cgColor
         self.txtMobile.layer.cornerRadius = 8
+        self.txtMobile.font =  ATFontManager.setFont(16, andFontName: FontName.regular.rawValue)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,7 +53,7 @@ class SignUpVC: BaseVC {
         UIApplication.shared.statusBarStyle = .default
     }
     
-    //MARK:- Custom Methods
+    //MARK: - Custom Methods
     func setupTextfields(textfield : UITextField) {
         let button = UIButton(type: .custom)
         button.isSelected = true
@@ -91,7 +92,7 @@ class SignUpVC: BaseVC {
         present(svc, animated: true, completion: nil)
     }
     
-    //MARK:- IBAction
+    //MARK :- IBAction
     @IBAction func btnTCAction(_ sender: Any) {
         var TC = ""
         if let TCLink = Singleton.sharedInstance.AppInitModel?.appLinks?.filter({ $0.name == "terms_and_condition"}) {
@@ -135,7 +136,7 @@ class SignUpVC: BaseVC {
     }
 }
 
-//MARK:- Validation & Api
+//MARK: - Validation & Api
 extension SignUpVC{
     func validation()->Bool{
         var strTitle : String?
@@ -165,7 +166,7 @@ extension SignUpVC{
     }
 }
 
-//MARK:- TextField Delegate
+//MARK: - TextField Delegate
 extension SignUpVC: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -219,7 +220,7 @@ extension SignUpVC: UITextFieldDelegate{
     }
 }
 
-//MARK:- Api Call
+//MARK: - Api Call
 extension SignUpVC{
     
     func callOtpApi(){
