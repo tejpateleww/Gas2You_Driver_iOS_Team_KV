@@ -134,14 +134,17 @@ class HomeVC: BaseVC {
     @objc func goToChatScreen() {
         
         let bookingId =  AppDelegate.pushNotificationObj?.booking_id ?? ""
+        if(bookingId == ""){
+            print(bookingId)
+        }
        
         let vc : ChatViewController = ChatViewController.instantiate(fromAppStoryboard: .Main)
         vc.isFromPush = true
         vc.bookingID = bookingId
         self.navigationController?.pushViewController(vc, animated: true)
         
-        AppDelegate.pushNotificationObj = nil
-        AppDelegate.pushNotificationType = nil
+//        AppDelegate.pushNotificationObj = nil
+//        AppDelegate.pushNotificationType = nil
     }
     
     @objc func goToEarningScreen() {

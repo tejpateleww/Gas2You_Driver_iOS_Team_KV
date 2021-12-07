@@ -64,7 +64,9 @@ extension AppDelegate{
         print(appDel.window?.rootViewController?.navigationController?.children.first as Any)
         
         NotificationCenter.default.post(name: NotificationBadges, object: content)
-        completionHandler([.alert, .sound])
+        if (!appDel.isChatScreen){
+            completionHandler([.alert, .sound])
+        }
         print(#function, notification)
         
         if let mainDic = userInfo as? [String: Any]{

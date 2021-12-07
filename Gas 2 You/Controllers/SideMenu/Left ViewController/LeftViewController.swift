@@ -24,7 +24,9 @@ class LeftViewController: MenuViewController {
     @IBOutlet weak var btnProfileTap: UIButton!
     @IBOutlet weak var vwActive: UIView!
     
-    //MARK:- Properties
+    //MARK: - Properties
+    
+    var logoutUserModel = LogoutUserModel()
     ///0 for menu name 1 for icon name
     private let titlesArray : [(String,String)] = [("Home","ic_Home"),
                                                    ("My Orders","ic_MyOrders"),
@@ -70,6 +72,10 @@ class LeftViewController: MenuViewController {
         self.vwActive.clipsToBounds = true
     }
     
+    func userLogout(){
+        AppDel.dologout()
+    }
+    
     @IBAction func BtnProfileAction(_ sender: Any) {
         guard let menuContainerViewController = self.menuContainerViewController else {
             return
@@ -99,7 +105,7 @@ class LeftViewController: MenuViewController {
         LeftViewController.showAlertWithTitleFromVC(vc: self, title: "Logout", message: "Are you sure want to Logout?", buttons: ["Cancel", "Logout"]) { index in
             menuContainerViewController.hideSideMenu()
             if index == 1 {
-                AppDel.dologout()
+                self.callUserLogoutAPI()
             } else {
                 self.dismiss(animated: true, completion: nil)
             }
@@ -117,6 +123,16 @@ class LeftViewController: MenuViewController {
     }
   
 }
+
+//MARK: - Api Calls
+extension LeftViewController{
+    
+    func callUserLogoutAPI(){
+        self.logoutUserModel.leftViewController = self
+        self.logoutUserModel.webserviceUserLogoutAPI()
+    }
+}
+
 extension LeftViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titlesArray.count

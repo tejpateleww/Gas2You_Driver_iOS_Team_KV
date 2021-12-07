@@ -40,3 +40,18 @@ class LoginUserModel{
     }
     
 }
+
+class LogoutUserModel{
+    
+    weak var leftViewController : LeftViewController? = nil
+
+    func webserviceUserLogoutAPI(){
+        WebServiceSubClass.userLogoutApi{ (status, apiMessage, response, error) in
+            if status{
+                self.leftViewController?.userLogout()
+            }else{
+                Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
+            }
+        }
+    }
+}

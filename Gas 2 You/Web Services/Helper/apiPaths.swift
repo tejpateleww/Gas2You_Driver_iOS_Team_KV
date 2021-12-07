@@ -66,6 +66,7 @@ enum ApiKey: String {
     case notification                         = "notification"
     case earningList                          = "earning_list"
     case changeNotification                   = "change_notification"
+    case logout                               = "logout/"
     
 }
 

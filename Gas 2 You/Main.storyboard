@@ -4768,7 +4768,7 @@ Send to Admin</string>
                                         <rect key="frame" x="16" y="10" width="382" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4pD-Uc-prP">
-                                                <rect key="frame" x="8" y="0.0" width="334" height="50"/>
+                                                <rect key="frame" x="8" y="0.0" width="326" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemPinkColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="100" id="HJA-p9-UJD"/>
@@ -4779,10 +4779,10 @@ Send to Admin</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeZ-o1-VZe">
-                                                <rect key="frame" x="354" y="15" width="20" height="20"/>
+                                                <rect key="frame" x="339" y="7.5" width="35" height="35"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="qeZ-o1-VZe" secondAttribute="height" multiplier="1:1" id="aFI-2B-G9X"/>
-                                                    <constraint firstAttribute="height" constant="20" id="v3P-wS-eu6"/>
+                                                    <constraint firstAttribute="width" secondItem="qeZ-o1-VZe" secondAttribute="height" id="aFI-2B-G9X"/>
+                                                    <constraint firstAttribute="height" constant="35" id="v3P-wS-eu6"/>
                                                 </constraints>
                                                 <state key="normal" image="IC_sendBtn"/>
                                                 <connections>
@@ -4790,7 +4790,7 @@ Send to Admin</string>
                                                 </connections>
                                             </button>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="V51-97-caj" customClass="ratingTextview" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="8" y="0.0" width="334" height="50"/>
+                                                <rect key="frame" x="8" y="0.0" width="326" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -4813,7 +4813,7 @@ Send to Admin</string>
                                             <constraint firstItem="4pD-Uc-prP" firstAttribute="bottom" secondItem="V51-97-caj" secondAttribute="bottom" id="Ojb-WX-AOg"/>
                                             <constraint firstItem="4pD-Uc-prP" firstAttribute="top" secondItem="V51-97-caj" secondAttribute="top" id="TPx-wC-4vD"/>
                                             <constraint firstItem="4pD-Uc-prP" firstAttribute="leading" secondItem="V51-97-caj" secondAttribute="leading" id="W2i-2h-EOE"/>
-                                            <constraint firstItem="qeZ-o1-VZe" firstAttribute="leading" secondItem="V51-97-caj" secondAttribute="trailing" constant="12" id="kcp-YJ-yZj"/>
+                                            <constraint firstItem="qeZ-o1-VZe" firstAttribute="leading" secondItem="V51-97-caj" secondAttribute="trailing" constant="5" id="kcp-YJ-yZj"/>
                                             <constraint firstItem="V51-97-caj" firstAttribute="top" secondItem="VNc-oh-mZV" secondAttribute="top" id="yw4-Tq-MbI"/>
                                         </constraints>
                                     </view>

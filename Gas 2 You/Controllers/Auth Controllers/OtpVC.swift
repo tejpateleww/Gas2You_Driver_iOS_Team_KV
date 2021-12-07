@@ -97,6 +97,7 @@ class OtpVC: BaseVC {
     func reversetimer(){
         self.timer.invalidate()
         self.lblTimer.isHidden = false
+        self.btnResend.setTitle("Resend code in", for: .normal)
         self.btnResend.isUserInteractionEnabled = false
         self.btnResend.setTitleColor(#colorLiteral(red: 0.1215686275, green: 0.5411764706, blue: 0.7803921569, alpha: 1).withAlphaComponent(0.7), for: .normal)
         self.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(timerAction), userInfo: nil, repeats: true)
@@ -136,6 +137,7 @@ class OtpVC: BaseVC {
             self.lblTimer.text =  self.counter > 9 ? "00:\(self.counter)" : "00:0\(self.counter)"
         } else {
             self.lblTimer.isHidden = true
+            self.btnResend.setTitle("Resend code", for: .normal)
             self.btnResend.isUserInteractionEnabled = true
             self.btnResend.setTitleColor(#colorLiteral(red: 0.1201425865, green: 0.5393100977, blue: 0.7819268107, alpha: 1), for: .normal)
             self.timer.invalidate()
@@ -157,7 +159,6 @@ class OtpVC: BaseVC {
         }else{
             Toast.show(title: UrlConstant.Required, message: UrlConstant.ValidOtpNo, state: .info)
         }
-        
     }
     
     @IBAction func btnResendAction(_ sender: Any) {
