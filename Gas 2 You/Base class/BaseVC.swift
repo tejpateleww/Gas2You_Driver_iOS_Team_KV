@@ -33,7 +33,7 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
             self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
         }
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: CustomFont.PoppinsMedium.returnFont(16)]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: ATFontManager.setFont(16, andFontName: FontName.medium.rawValue)]
     }
 
     
@@ -160,13 +160,13 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
             
             label.textAlignment = NSTextAlignment.left
             label.backgroundColor = UIColor.clear
-            label.font = CustomFont.PoppinsBold.returnFont(16.0)
+            label.font = ATFontManager.setFont(16, andFontName: FontName.bold.rawValue)
             customView.addSubview(label)
             
             let leftButton = UIBarButtonItem(customView: customView)
             self.navigationItem.leftBarButtonItem = leftButton
         }else{
-            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: CustomFont.PoppinsMedium.returnFont(16.0)]
+            self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: ATFontManager.setFont(16, andFontName: FontName.medium.rawValue)]
             let customView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.width - 40 - 40, height: 40.0))
             customView.backgroundColor = UIColor.clear
             
@@ -212,7 +212,7 @@ class BaseVC : UIViewController, UINavigationControllerDelegate, UIGestureRecogn
                 }
             }
             
-            label.font = CustomFont.PoppinsBold.returnFont(16)
+            label.font = ATFontManager.setFont(16, andFontName: FontName.bold.rawValue)
             customView.addSubview(label)
             customView.addSubview(button)
             

@@ -650,7 +650,7 @@ class SingleDigitField: UITextField {
         isSecureTextEntry = false
         isUserInteractionEnabled = false
         clipsToBounds = true
-        font = CustomFont.medium.returnFont(17)
+        font = ATFontManager.setFont(17, andFontName: FontName.medium.rawValue)
         tintColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
     }
     override func caretRect(for position: UITextPosition) -> CGRect { .zero }
@@ -852,15 +852,15 @@ class chatScreenLabel : UILabel {
     override func awakeFromNib() {
         self.numberOfLines = 0
         if lblSender {
-            self.font = CustomFont.PoppinsMedium.returnFont(12)
+            self.font = ATFontManager.setFont(12, andFontName: FontName.medium.rawValue)
             self.textColor = UIColor.white
             self.textAlignment = .right
         } else if lblReciver {
-            self.font = CustomFont.PoppinsMedium.returnFont(12)
+            self.font = ATFontManager.setFont(12, andFontName: FontName.medium.rawValue)
             self.textColor = UIColor.white
             self.textAlignment = .left
         } else if lblHeader {
-            self.font = CustomFont.PoppinsMedium.returnFont(9)
+            self.font = ATFontManager.setFont(9, andFontName: FontName.medium.rawValue)
             self.textColor = UIColor(hexString: "#ACB1C0")
             self.textAlignment = .center
         }

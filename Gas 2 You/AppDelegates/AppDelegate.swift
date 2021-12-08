@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     var isChatScreen : Bool = false
     static var pushNotificationObj : NotificationObjectModel?
     static var pushNotificationType : String?
+    public weak var menuContainerViewController: MenuContainerViewController?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         

@@ -650,13 +650,13 @@ extension JobDetailsViewController : UITableViewDelegate, UITableViewDataSource{
         }else{
             
             if(indexPath.row == self.arrService.count + 1){
-                cell.lblAddonText.font = CustomFont.PoppinsSemiBold.returnFont(14)
+                cell.lblAddonText.font = ATFontManager.setFont(14, andFontName: FontName.semibold.rawValue)
                 cell.lblAddonTitile.text = ""
                 cell.lblAddonText.text = "Total"
                 cell.lblAddonPrice.text = "$\(self.BookingDetail?.finalAmount ?? "")"
             }else{
-                cell.lblAddonTitile.font = CustomFont.PoppinsRegular.returnFont(14)
-                cell.lblAddonText.font = CustomFont.PoppinsRegular.returnFont(14)
+                cell.lblAddonTitile.font = ATFontManager.setFont(14, andFontName: FontName.regular.rawValue)
+                cell.lblAddonText.font = ATFontManager.setFont(14, andFontName: FontName.regular.rawValue)
 
                 let newString = self.arrService[indexPath.row - 1].title?.replacingOccurrences(of: "/", with: "\n")
                 let newString1 = self.arrService[indexPath.row - 1].descriptionField?.replacingOccurrences(of: "/", with: "\n")

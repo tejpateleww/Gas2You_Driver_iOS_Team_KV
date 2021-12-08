@@ -245,9 +245,9 @@ class HomeVC: BaseVC {
         self.isApiProcessing = false
         self.isStopPaging = false
         
-        self.btnRequest.titleLabel?.font = CustomFont.PoppinsBold.returnFont(14)
+        self.btnRequest.titleLabel?.font = ATFontManager.setFont(14, andFontName: FontName.bold.rawValue)
         self.vwRequest.backgroundColor = UIColor.init(hexString: "#1F79CD")
-        self.btnInProgress.titleLabel?.font = CustomFont.PoppinsSemiBold.returnFont(14)
+        self.btnInProgress.titleLabel?.font = ATFontManager.setFont(14, andFontName: FontName.semibold.rawValue)
         self.vwInprogress.backgroundColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 0.3)
         self.isInProcess = false
         self.callBookingRequestAPI()
@@ -266,9 +266,9 @@ class HomeVC: BaseVC {
         self.isApiProcessing = false
         self.isStopPaging = false
         
-        self.btnRequest.titleLabel?.font = CustomFont.PoppinsSemiBold.returnFont(14)
+        self.btnRequest.titleLabel?.font = ATFontManager.setFont(14, andFontName: FontName.semibold.rawValue)
         self.vwRequest.backgroundColor = #colorLiteral(red: 0.4392156863, green: 0.4392156863, blue: 0.4392156863, alpha: 0.3)
-        self.btnInProgress.titleLabel?.font = CustomFont.PoppinsBold.returnFont(14)
+        self.btnInProgress.titleLabel?.font = ATFontManager.setFont(14, andFontName: FontName.bold.rawValue)
         self.vwInprogress.backgroundColor = UIColor.init(hexString: "#1F79CD")
         self.isInProcess = true
         self.callBookingInProgressAPI()

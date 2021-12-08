@@ -353,7 +353,7 @@ private extension MenuInteractiveTransition {
         let containerView = transitionContext.containerView
         let screenWidth = containerView.frame.size.width
 
-        let totalWidth = screenWidth - options.visibleContentWidth
+        let totalWidth = screenWidth/1.5
 
         guard let contentSnapshotView = self.contentSnapshotView else {
             fatalError("Invalid `contentSnapshotView` value. This property should not be nil")

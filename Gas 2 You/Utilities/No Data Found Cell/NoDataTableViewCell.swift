@@ -18,7 +18,7 @@ class NoDataTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         imgNoData.tintColor = UIColor.init(hexString: "#43C787")
-        lblNoDataTitle.font = CustomFont.medium.returnFont(14)
+        lblNoDataTitle.font = ATFontManager.setFont(14, andFontName: FontName.medium.rawValue)
         
         lblTapToadd.isHidden = true
         

@@ -16,6 +16,7 @@ class EnterQuentityVC: BaseVC{
     @IBOutlet weak var btnSubmit: ThemeButton!
     @IBOutlet weak var btnCancel: ThemeButton!
     @IBOutlet weak var lblEnterQuentity: themeLabel!
+    @IBOutlet weak var txtWidth: NSLayoutConstraint!
     
     //MARK: - Variables
     var btnSubmitClosure : ((String)->())?
@@ -39,8 +40,25 @@ class EnterQuentityVC: BaseVC{
             let Gallon: String = self.Quantity
             let words = Gallon.components(separatedBy: " ")
             self.txtPrice.text = words[0]
+            
+            self.lblGallon.isHidden = false
+            var extraWidth = 20
+            if(UIDevice.current.userInterfaceIdiom == .phone){
+                extraWidth = 20
+            }else{
+                extraWidth = 50
+            }
+            self.txtWidth.constant = CGFloat(extraWidth) + getWidth(text: words[0])
+            self.view.layoutIfNeeded()
         }
     }
+    
+    func getWidth(text: String) -> CGFloat{
+       let txtField = UITextField(frame: .zero)
+       txtField.text = text
+       txtField.sizeToFit()
+       return txtField.frame.size.width
+   }
     
     //MARK: - IBActions
     @IBAction func btnSubmitTap(_ sender: Any) {
@@ -68,6 +86,7 @@ class EnterQuentityVC: BaseVC{
 extension EnterQuentityVC: UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
         if string == "" {
             return true
         }
@@ -117,8 +136,22 @@ extension EnterQuentityVC: UITextFieldDelegate{
     func textFieldDidChangeSelection(_ textField: UITextField) {
         if(textField.text == ""){
             self.lblGallon.isHidden = true
+            self.txtWidth.constant = 120
+            self.view.layoutIfNeeded()
         }else{
             self.lblGallon.isHidden = false
+            let text = textField.text ?? ""
+            
+            var extraWidth = 20
+            if(UIDevice.current.userInterfaceIdiom == .phone){
+                extraWidth = 20
+            }else{
+                extraWidth = 50
+            }
+            
+            self.txtWidth.constant = CGFloat(extraWidth) + getWidth(text: text)
+            self.view.layoutIfNeeded()
+            
         }
     }
 }

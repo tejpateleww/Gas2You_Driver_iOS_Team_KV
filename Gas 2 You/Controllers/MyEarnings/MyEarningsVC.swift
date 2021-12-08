@@ -103,7 +103,7 @@ extension MyEarningsVC : UITableViewDelegate, UITableViewDataSource {
         if self.arrEarning.count > 0 {
             return self.arrEarning.count
         } else {
-            return (!self.isTblReload) ? 5 : 1
+            return (!self.isTblReload) ? (UIDevice.current.userInterfaceIdiom == .phone) ? 5 : 10 : 1
         }
     }
     

@@ -39,6 +39,9 @@ class LeftViewController: MenuViewController {
         super.viewDidLoad()
         self.MenuTblView.addObserver(self, forKeyPath: "contentSize", options: NSKeyValueObservingOptions.new, context: nil)
         
+        NotificationCenter.default.removeObserver(self, name: .hideSideMenu, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(hideSideMenu), name: .hideSideMenu, object: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -74,6 +77,13 @@ class LeftViewController: MenuViewController {
     
     func userLogout(){
         AppDel.dologout()
+    }
+    
+    @objc func hideSideMenu(){
+        guard let menuContainerViewController = self.menuContainerViewController else {
+            return
+        }
+        menuContainerViewController.hideSideMenu()
     }
     
     @IBAction func BtnProfileAction(_ sender: Any) {

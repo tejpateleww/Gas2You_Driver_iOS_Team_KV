@@ -104,7 +104,7 @@ extension Date {
 
 extension NSMutableAttributedString {
  var fontSize:CGFloat { return 18 }
-    var normalFont:UIFont { return CustomFont.regular.returnFont(fontSize) }
+    var normalFont:UIFont { return ATFontManager.setFont(fontSize, andFontName: FontName.regular.rawValue) }
     
     func bold(_ value:String , fontSize : CGFloat,  fontColor : UIColor = .white) -> NSMutableAttributedString {
         

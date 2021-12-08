@@ -83,7 +83,7 @@ extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
         if self.arrUserList.count > 0 {
             return self.arrUserList.count
         } else {
-            return (!self.isTblReload) ? 10 : 1
+            return (!self.isTblReload) ? (UIDevice.current.userInterfaceIdiom == .phone) ? 10 : 15 : 1
         }
     }
     

@@ -17,7 +17,6 @@ class SplashVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         UIApplication.shared.statusBarStyle = .lightContent
         navigationController?.setNavigationBarHidden(true, animated: animated)
-        
     }
     
     override func viewDidLoad() {

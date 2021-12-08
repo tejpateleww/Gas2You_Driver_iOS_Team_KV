@@ -198,8 +198,14 @@ extension AppDelegate{
                     if (appDel.isChatScreen){
                         AppDelegate.pushNotificationType = nil
                         AppDelegate.pushNotificationObj = nil
+                        NotificationCenter.default.post(name: .refreshChatScreen, object: nil)
                     }else{
-                        NotificationCenter.default.post(name: .goToChatScreen, object: nil)
+                        if(UIApplication.appTopViewController()?.isKind(of: LeftViewController.self) ?? false){
+                            NotificationCenter.default.post(name: .goToChatScreen, object: nil)
+                            NotificationCenter.default.post(name: .hideSideMenu, object: nil)
+                        }else{
+                            NotificationCenter.default.post(name: .goToChatScreen, object: nil)
+                        }
                     }
                 }
                 return
@@ -243,6 +249,7 @@ extension Notification.Name {
     static let goToChatScreen = NSNotification.Name("goToChatScreen")
     static let goToCompletedScreen = NSNotification.Name("goToCompletedScreen")
     static let goToEarningScreen = NSNotification.Name("goToEarningScreen")
+    static let hideSideMenu = NSNotification.Name("hideSideMenu")
 }
 
 enum NotificationTypes : String {

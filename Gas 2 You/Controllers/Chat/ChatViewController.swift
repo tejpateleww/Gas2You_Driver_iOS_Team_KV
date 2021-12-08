@@ -84,7 +84,7 @@ class ChatViewController: BaseVC {
         }
         
         self.txtviewComment.delegate = self
-        self.txtviewComment.font = CustomFont.PoppinsRegular.returnFont(16)
+        self.txtviewComment.font = ATFontManager.setFont(16, andFontName: FontName.regular.rawValue)
         self.txtviewComment.textColor = txtviewComment.text == "" ? .black : .gray
         if(!isFromPush){
             self.bookingID = self.userData?.bookingId ?? ""
@@ -249,7 +249,7 @@ extension ChatViewController : UITableViewDelegate, UITableViewDataSource{
             let strDate = self.filterKeysArr[section].Date_In_DD_MM_YYYY_FORMAT ?? ""
             return self.filterListArr[strDate]?.count ?? 0
         } else {
-            return (!self.isTblReload) ? 5 : 1
+            return (!self.isTblReload) ? (UIDevice.current.userInterfaceIdiom == .phone) ? 5 : 10 : 1
         }
     }
     
