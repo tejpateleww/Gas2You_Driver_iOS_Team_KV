@@ -59,14 +59,8 @@ extension AppDelegate{
         print(#function, notification)
         let content = notification.request.content
         let userInfo = notification.request.content.userInfo
-        
-        print(userInfo)
-        print(appDel.window?.rootViewController?.navigationController?.children.first as Any)
-        
         NotificationCenter.default.post(name: NotificationBadges, object: content)
-        if (!appDel.isChatScreen){
-            completionHandler([.alert, .sound])
-        }
+
         print(#function, notification)
         
         if let mainDic = userInfo as? [String: Any]{
@@ -87,6 +81,15 @@ extension AppDelegate{
             
             AppDelegate.pushNotificationObj = pushObj
             AppDelegate.pushNotificationType = pushObj.type
+            
+            // handle chat notification for another user when chat screen is open
+            if(appDel.isChatScreen){
+                if(AppDelegate.pushNotificationObj?.booking_id != AppDelegate.shared.chatBookingId){
+                    completionHandler([.alert, .sound])
+                }
+            }else if(!appDel.isChatScreen){
+                completionHandler([.alert, .sound])
+            }
             
             if pushObj.type == NotificationTypes.notifLoggedOut.rawValue {
                 appDel.dologout()
@@ -196,9 +199,14 @@ extension AppDelegate{
             if pushObj.type == NotificationTypes.newMessage.rawValue {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     if (appDel.isChatScreen){
-                        AppDelegate.pushNotificationType = nil
-                        AppDelegate.pushNotificationObj = nil
-                        NotificationCenter.default.post(name: .refreshChatScreen, object: nil)
+                        if(AppDelegate.pushNotificationObj?.booking_id != AppDelegate.shared.chatBookingId){
+                            let dictData:[String: String] = ["Booking_Id": AppDelegate.pushNotificationObj?.booking_id ?? ""]
+                            NotificationCenter.default.post(name: .refreshChatScreenWithId, object: nil, userInfo: dictData)
+                        }else{
+                            AppDelegate.pushNotificationType = nil
+                            AppDelegate.pushNotificationObj = nil
+                            NotificationCenter.default.post(name: .refreshChatScreen, object: nil)
+                        }
                     }else{
                         if(UIApplication.appTopViewController()?.isKind(of: LeftViewController.self) ?? false){
                             NotificationCenter.default.post(name: .goToChatScreen, object: nil)
@@ -246,6 +254,7 @@ extension Notification.Name {
     static let refreshCompJobsScreen = NSNotification.Name("refreshCompJobsScreen")
     static let refreshEarningScreen = NSNotification.Name("refreshEarningScreen")
     static let refreshChatScreen = NSNotification.Name("refreshChatScreen")
+    static let refreshChatScreenWithId = NSNotification.Name("refreshChatScreenWithId")
     static let goToChatScreen = NSNotification.Name("goToChatScreen")
     static let goToCompletedScreen = NSNotification.Name("goToCompletedScreen")
     static let goToEarningScreen = NSNotification.Name("goToEarningScreen")

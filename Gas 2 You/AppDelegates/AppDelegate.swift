@@ -25,9 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         return UIApplication.shared.delegate as! AppDelegate
     }
     var isChatScreen : Bool = false
+    var chatBookingId : String = ""
     static var pushNotificationObj : NotificationObjectModel?
     static var pushNotificationType : String?
-    public weak var menuContainerViewController: MenuContainerViewController?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         

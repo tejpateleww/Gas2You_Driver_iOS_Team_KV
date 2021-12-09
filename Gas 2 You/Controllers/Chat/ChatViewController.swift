@@ -89,6 +89,8 @@ class ChatViewController: BaseVC {
         if(!isFromPush){
             self.bookingID = self.userData?.bookingId ?? ""
         }
+        
+        AppDelegate.shared.chatBookingId = self.bookingID
     }
     
     func registerNib(){
@@ -101,6 +103,16 @@ class ChatViewController: BaseVC {
     func addNotificationObs(){
         NotificationCenter.default.removeObserver(self, name: .refreshChatScreen, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(callHistory), name: .refreshChatScreen, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .refreshChatScreenWithId, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.showSpinningWheel(notification:)), name: .refreshChatScreenWithId, object: nil)
+    }
+    
+    @objc func showSpinningWheel(notification: NSNotification) {
+        if let bookingId = notification.userInfo?["Booking_Id"] as? String {
+            self.bookingID = bookingId
+            AppDelegate.shared.chatBookingId = self.bookingID
+            self.callChatHistoryAPI()
+        }
     }
     
     @objc func callHistory(){

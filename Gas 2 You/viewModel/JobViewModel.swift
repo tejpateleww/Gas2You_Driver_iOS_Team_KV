@@ -42,6 +42,9 @@ class JobViewModel{
                 NotificationCenter.default.post(name: Notification.Name("ReloadData"), object: nil)
             }else{
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    if(apiMessage == "Can not start another job as one job is in progress."){
+                        self.homeVC?.refreshInprogresRequest()
+                    }
                     Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
                 }
             }
