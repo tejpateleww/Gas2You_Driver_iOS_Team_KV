@@ -62,7 +62,6 @@ class JobViewModel{
                 self.JobDetailsVC?.CompBookingDetail = response?.data
                 self.JobDetailsVC?.JobCompleted()
             }else{
-                self.JobDetailsVC?.popBack()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     Toast.show(title: UrlConstant.Error, message: apiMessage, state: .failure)
                 }
