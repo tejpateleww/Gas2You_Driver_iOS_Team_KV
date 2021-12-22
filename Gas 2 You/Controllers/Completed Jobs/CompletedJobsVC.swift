@@ -121,6 +121,7 @@ extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
             return cell
         }else{
             if self.arrBookings.count != 0 {
+                cell.lblCarModelColor.text = "\(self.arrBookings[indexPath.row].modelName ?? "")" + " (" + "\(self.arrBookings[indexPath.row].modelYear ?? "")" + ")"
                 cell.lblServiceType.text = self.arrBookings[indexPath.row].mainServiceName ?? ""
                 let VehicleName = "\(self.arrBookings[indexPath.row].makeName ?? "")" + " (" + "\(self.arrBookings[indexPath.row].plateNumber ?? "")" + ")"
                 cell.lblCarName.text = VehicleName

@@ -151,14 +151,12 @@ class MyProfileVC: BaseVC {
         }
     }
     
-    
 }
 
 //MARK: - UIImagePickerControllerDelegate Method
 extension MyProfileVC : UIImagePickerControllerDelegate{
     
-    public func imagePickerController(_ picker: UIImagePickerController,
-                                      didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         let pickedImage  = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         if pickedImage == nil{
@@ -226,9 +224,7 @@ extension MyProfileVC : UIImagePickerControllerDelegate{
     func alertToEncourageCameraAccessInitially() {
         Utilities.showAlertWithTitleFromVC(vc: self, title: "", message: "Camera access required for capturing photos!", buttons: ["Cancel","Allow Camera"], isOkRed: false) { (ind) in
             if ind == 1{
-                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
-                    return
-                }
+                guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else { return }
                 if UIApplication.shared.canOpenURL(settingsUrl) {
                     UIApplication.shared.open(settingsUrl)
                 }

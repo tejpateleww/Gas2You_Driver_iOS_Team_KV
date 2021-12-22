@@ -36,6 +36,7 @@ class RequestBookingListDatum : Codable {
     let totalGallon : String?
     let vehicleId : String?
     let invoiceUrl : String?
+    let modelYear : String?
     let services : [OrderComplateService]?
     
     
@@ -69,6 +70,7 @@ class RequestBookingListDatum : Codable {
         case totalGallon = "total_gallon"
         case vehicleId = "vehicle_id"
         case invoiceUrl = "invoice_url"
+        case modelYear = "model_year"
         case services = "services"
         
     }
@@ -104,6 +106,7 @@ class RequestBookingListDatum : Codable {
         totalGallon = try values.decodeIfPresent(String.self, forKey: .totalGallon)
         vehicleId = try values.decodeIfPresent(String.self, forKey: .vehicleId)
         invoiceUrl = try values.decodeIfPresent(String.self, forKey: .invoiceUrl)
+        modelYear = try values.decodeIfPresent(String.self, forKey: .modelYear)
         services = try values.decodeIfPresent([OrderComplateService].self, forKey: .services)
     }
     

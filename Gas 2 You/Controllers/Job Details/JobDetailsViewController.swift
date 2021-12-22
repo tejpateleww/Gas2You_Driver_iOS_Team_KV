@@ -108,6 +108,7 @@ class JobDetailsViewController: BaseVC {
     @IBOutlet weak var lblTitleTotal: themeLabel!
     @IBOutlet weak var lblTotal: themeLabel!
     @IBOutlet weak var VwLine: UIView!
+    @IBOutlet weak var lblCarModelColor: themeLabel!
     
     // MARK: - --------- Life-cycle Methods ---------
     override func viewDidLoad() {
@@ -360,6 +361,8 @@ class JobDetailsViewController: BaseVC {
         self.LblDateTime.text = "\(self.BookingDetail?.date ?? "") \n \(self.BookingDetail?.time ?? "")"
         let VehicleName = "\(self.BookingDetail?.makeName ?? "")" + " (" + "\(self.BookingDetail?.plateNumber ?? "")" + ")"
         self.lblCarName.text = VehicleName
+        let VehicleModelColor = "\(self.BookingDetail?.modelName ?? "")" + " (" + "\(self.BookingDetail?.modelYear ?? "")" + ")"
+        self.lblCarModelColor.text = VehicleModelColor
         let PlateNumber = self.BookingDetail?.plateNumber ?? ""
         self.lblPlateNumber.text = "Plate Number : \(PlateNumber)"
         

@@ -91,7 +91,7 @@ extension EnterQuentityVC: UITextFieldDelegate{
             return true
         }
         
-        if (textField.text?.count == 0 && string == "0") || (textField.text?.count == 0 && string == "."){
+        if (textField.text?.count == 0 && string == "."){ //(textField.text?.count == 0 && string == "0") ||
             return false
         }
         
@@ -111,7 +111,6 @@ extension EnterQuentityVC: UITextFieldDelegate{
         }else{
             let limitDecimalPlace = 4
             if(string == "."){
-                
                 return true
             }
             if (textField.text?.count)! >= limitDecimalPlace {

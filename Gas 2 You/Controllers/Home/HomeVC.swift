@@ -309,6 +309,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
             let cell = tblHome.dequeueReusableCell(withIdentifier: JobsCell.className) as! JobsCell
             if self.arrBookings.count != 0 {
                 
+                cell.lblYearModel.text = "\(self.arrBookings[indexPath.row].modelName ?? "")" + " (" + "\(self.arrBookings[indexPath.row].modelYear ?? "")" + ")"
                 cell.lblFuelType.text = self.arrBookings[indexPath.row].mainServiceName ?? ""
                 let VehicleName = "\(self.arrBookings[indexPath.row].makeName ?? "")" + " (" + "\(self.arrBookings[indexPath.row].plateNumber ?? "")" + ")"
                 cell.lblVehicle.text = VehicleName

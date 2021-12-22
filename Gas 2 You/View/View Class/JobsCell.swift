@@ -27,6 +27,9 @@ class JobsCell: UITableViewCell, ShimmeringViewProtocol {
     @IBOutlet weak var imgAddress: UIImageView!
     @IBOutlet weak var imgDateTime: UIImageView!
     
+    @IBOutlet weak var lblYearModel: themeLabel!
+    
+    
     //MARK:- Variables and Properties
     var btnAcceptTapClosure : (()->())?
     

@@ -23,6 +23,9 @@ class CompletedCell: UITableViewCell, ShimmeringViewProtocol {
     @IBOutlet weak var imgAddress: UIImageView!
     @IBOutlet weak var imgDateTime: UIImageView!
     
+    @IBOutlet weak var imgCarModel: UIImageView!
+    @IBOutlet weak var lblCarModelColor: themeLabel!
+    
     
     //MARK:- Variables
     var btnDownloadTapCousure : (()->())?
@@ -34,8 +37,10 @@ class CompletedCell: UITableViewCell, ShimmeringViewProtocol {
             self.lblCarName,
             self.lblAddress,
             self.lblDateTime,
+            self.lblCarModelColor,
             self.btnDownload,
             self.imgService,
+            self.imgCarModel,
             self.imgCar,
             self.imgAddress,
             self.imgDateTime

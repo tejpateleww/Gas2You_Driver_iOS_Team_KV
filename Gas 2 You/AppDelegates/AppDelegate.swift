@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
     
     var window: UIWindow?
     var locationService = LocationService()
-    static var shared: AppDelegate {
+    static var shared: AppDelegate{
         return UIApplication.shared.delegate as! AppDelegate
     }
     var isChatScreen : Bool = false

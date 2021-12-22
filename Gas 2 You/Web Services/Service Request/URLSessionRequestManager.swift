@@ -23,7 +23,7 @@ class URLSessionRequestManager {
             completion(false, UrlConstant.NoInternetConnection, nil, NoInternetResponseDic)
             return
         }
-        
+         
         guard let url = URL(string: APIEnvironment.baseURL + urlString) else {
             completion(false, UrlConstant.SomethingWentWrong, nil, SomethingWentWrongResponseDic)
             return
