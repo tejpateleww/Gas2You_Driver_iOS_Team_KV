@@ -112,6 +112,8 @@ extension ChatListVC: UITableViewDelegate, UITableViewDataSource {
                 return cell
             }else{
                 let NoDatacell = self.tblUserList.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
+                NoDatacell.imgNoData.image = UIImage(named: "ic_chat")
+                NoDatacell.lblNoDataTitle.text = "No chat available!"
                 return NoDatacell
             }
         }

@@ -155,7 +155,7 @@ extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
                 return NoDatacell
             }
         }
-        
+            
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

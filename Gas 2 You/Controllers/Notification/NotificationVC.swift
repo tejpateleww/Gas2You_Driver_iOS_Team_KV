@@ -116,6 +116,12 @@ extension NotificationVC : UITableViewDelegate,UITableViewDataSource{
                 return cell
             }else{
                 let NoDatacell = self.tblNotification.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
+                if #available(iOS 13.0, *) {
+                    NoDatacell.imgNoData.image = UIImage(named: "ic_Notifications")?.withTintColor(UIColor.init(hexString: "#1F79CD"))
+                } else {
+                    NoDatacell.imgNoData.image =  UIImage(named: "ic_Notifications")?.withRenderingMode(.alwaysTemplate)
+                    NoDatacell.imgNoData.tintColor = UIColor.init(hexString: "#1F79CD")
+                }
                 NoDatacell.lblNoDataTitle.text = "No notification available"
                 return NoDatacell
             }

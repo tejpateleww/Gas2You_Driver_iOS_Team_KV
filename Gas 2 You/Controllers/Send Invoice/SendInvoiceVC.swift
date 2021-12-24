@@ -77,6 +77,9 @@ class SendInvoiceVC: UIViewController {
     
     //MARK: - IBAction
     @IBAction func btnSendInvoiceTap(_ sender: Any) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            Toast.show(title: UrlConstant.Success, message: "Invoice sent successfully", state: .success)
+        }
         self.dismiss(animated: false, completion: {
             if let obj = self.btnSubmitTapClosure{
                 obj()

@@ -42,11 +42,11 @@ class EnterQuentityVC: BaseVC{
             self.txtPrice.text = words[0]
             
             self.lblGallon.isHidden = false
-            var extraWidth = 20
+            var extraWidth = 30
             if(UIDevice.current.userInterfaceIdiom == .phone){
-                extraWidth = 20
+                extraWidth = 30
             }else{
-                extraWidth = 50
+                extraWidth = 60
             }
             self.txtWidth.constant = CGFloat(extraWidth) + getWidth(text: words[0])
             self.view.layoutIfNeeded()
@@ -141,11 +141,11 @@ extension EnterQuentityVC: UITextFieldDelegate{
             self.lblGallon.isHidden = false
             let text = textField.text ?? ""
             
-            var extraWidth = 20
+            var extraWidth = 30
             if(UIDevice.current.userInterfaceIdiom == .phone){
-                extraWidth = 20
+                extraWidth = 30
             }else{
-                extraWidth = 50
+                extraWidth = 60
             }
             
             self.txtWidth.constant = CGFloat(extraWidth) + getWidth(text: text)
