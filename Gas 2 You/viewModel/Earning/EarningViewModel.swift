@@ -7,8 +7,6 @@
 
 import Foundation
 
-import Foundation
-
 class EarningViewModel{
     
     weak var myEarningsVC : MyEarningsVC? = nil

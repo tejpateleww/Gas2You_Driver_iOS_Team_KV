@@ -139,4 +139,10 @@ class WebServiceSubClass{
         }
     }
     
+    class func userRatingApi(completion: @escaping (Bool,String,UserRatingResModel?,Any) -> ()) {
+        URLSessionRequestManager.makeGetRequest(urlString: ApiKey.rating.rawValue + Singleton.sharedInstance.UserId, responseModel: UserRatingResModel.self) { (status, message, response, error) in
+            completion(status, message, response, error)
+        }
+    }
+    
 }

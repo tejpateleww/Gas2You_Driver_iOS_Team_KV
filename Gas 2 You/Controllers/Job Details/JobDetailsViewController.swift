@@ -366,14 +366,6 @@ class JobDetailsViewController: BaseVC {
         let PlateNumber = self.BookingDetail?.plateNumber ?? ""
         self.lblPlateNumber.text = "Plate Number : \(PlateNumber)"
         
-//        if(self.orderStaus == "completed"){
-//            self.lblItem.text = self.BookingDetail?.mainServiceName ?? ""
-//            self.lblAmount.text = "$\(self.BookingDetail?.finalAmount ?? "")"
-//            self.lblPrice.text = self.BookingDetail?.totalGallon ?? ""
-//            self.lblPricePerGallon.text = "$\(self.BookingDetail?.price ?? "") Per Gallon"
-//        }
-        
-        
         if(self.orderStaus == "Start Job" || self.orderStaus == "In Progress"){
             self.BtnStartJob.setTitle(StartJobButtonTitle.FilledUp.Name, for: .normal)
             self.setupInProcessOrderFlow()
@@ -396,12 +388,8 @@ class JobDetailsViewController: BaseVC {
     func setupInProcessOrderFlow(){
         self.btnJobDone.isHidden = false
         self.LblFilledGallon.text = ""
-        
-        
         self.ImgViewOntheway.image = UIImage(named: "ic_checkBoxSelected")
-        
         if(self.orderStaus == "In Progress" || self.orderStaus == "Pending"){
-            
         }else{
             //self.callOrderStatusUpdateAPI(strStatus: "In Progress")
         }
@@ -541,8 +529,6 @@ extension JobDetailsViewController{
         }
         self.present(vc, animated: false, completion: nil)
     }
-    
-
 }
 
 // MARK: - --------- GMSMapViewDelegate ---------
@@ -675,8 +661,6 @@ extension JobDetailsViewController : UITableViewDelegate, UITableViewDataSource{
                     cell.vWHighLight.isHidden = false
                 }
             }
-            
-
         }
         
         return cell

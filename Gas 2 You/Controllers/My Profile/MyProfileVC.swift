@@ -26,6 +26,7 @@ class MyProfileVC: BaseVC {
     let ACCEPTABLE_CHARACTERS_FOR_PHONE = "0123456789"
     var imagePicker = UIImagePickerController()
     var userInfoViewModel = UserInfoViewModel()
+    var userRatingViewModel = UserRatingViewModel()
     
     // MARK: - --------- Life-cycle Methods ---------
     override func viewDidLoad() {
@@ -33,6 +34,10 @@ class MyProfileVC: BaseVC {
         
         self.setNavigationBarInViewController(controller: self, naviColor: .white, naviTitle: "My Profile", leftImage: "Back", rightImages: [], isTranslucent: true)
         self.prepareView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.callUserRating()
     }
     
     // MARK: - --------- Custom methods ---------
@@ -72,7 +77,7 @@ class MyProfileVC: BaseVC {
         let countryCode = obj?.countryCode ?? ""
         let Code = countryCode.replacingOccurrences(of: " ", with: "+")
         self.txtPhone.text = "\(Code) \(obj?.mobileNo ?? "")"
-        self.lblRating.text = (obj?.rating == "") ? "0.0" : obj?.rating
+        self.lblRating.text = "0.0"
         
         let strUrl = "\(APIEnvironment.Profilebu.rawValue)" + "\(obj?.profileImage ?? "")"
         let strURl = URL(string: strUrl)
@@ -82,6 +87,10 @@ class MyProfileVC: BaseVC {
     
     func popBack(){
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    func updateUserRating(rating : String){
+        self.lblRating.text = rating
     }
     
     func UploadImage(){
@@ -246,6 +255,11 @@ extension MyProfileVC{
         UploadReq.mobileNo = splits?[1] ?? ""
         
         self.userInfoViewModel.webserviceUserInfoUpdateAPI(reqModel: UploadReq, reqImage: self.imgProfile.image!)
+    }
+    
+    func callUserRating(){
+        self.userRatingViewModel.myProfileVC = self
+        self.userRatingViewModel.webserviceUserRatingAPI()
     }
     
 }

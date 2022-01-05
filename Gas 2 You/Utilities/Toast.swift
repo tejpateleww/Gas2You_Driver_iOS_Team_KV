@@ -121,9 +121,6 @@ class Toast {
         guard let window = UIApplication.shared.keyWindow else { return}
         
         let toastContainer = UIView(frame: CGRect())
-        if(UIDevice.current.userInterfaceIdiom == .pad){
-            toastContainer.layer.frame.size.width = UIScreen.main.bounds.size.width / 2
-        }
         toastContainer.tag = viewComponentsTags.ToastView.rawValue
         if (window.viewWithTag(viewComponentsTags.ToastView.rawValue) != nil ){
             return
