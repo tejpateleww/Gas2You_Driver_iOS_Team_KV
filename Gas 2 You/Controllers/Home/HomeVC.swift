@@ -82,6 +82,9 @@ class HomeVC: BaseVC {
         
         NotificationCenter.default.removeObserver(self, name: .goToEarningScreen, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(goToEarningScreen), name: .goToEarningScreen, object: nil)
+        
+        NotificationCenter.default.removeObserver(self, name: .goToNotificationScreen, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(goToNotificationScreen), name: .goToNotificationScreen, object: nil)
     }
     
     func checkForNotification(){
@@ -92,6 +95,8 @@ class HomeVC: BaseVC {
                 self.goToCompletedScreen()
             }else if(AppDelegate.pushNotificationType == NotificationTypes.newEarning.rawValue){
                 self.goToEarningScreen()
+            }else if(AppDelegate.pushNotificationType == NotificationTypes.sendBulkPushNotification.rawValue){
+                self.goToNotificationScreen()
             }else if(AppDelegate.pushNotificationType == NotificationTypes.jobInProgress.rawValue){
                 self.initUrlAndRefreshJobInProgress()
             }
@@ -150,6 +155,15 @@ class HomeVC: BaseVC {
     @objc func goToEarningScreen() {
         
         let vc : MyEarningsVC = MyEarningsVC.instantiate(fromAppStoryboard: .Main)
+        self.navigationController?.pushViewController(vc, animated: true)
+        
+        AppDelegate.pushNotificationObj = nil
+        AppDelegate.pushNotificationType = nil
+    }
+    
+    @objc func goToNotificationScreen() {
+        
+        let vc : NotificationVC = NotificationVC.instantiate(fromAppStoryboard: .Main)
         self.navigationController?.pushViewController(vc, animated: true)
         
         AppDelegate.pushNotificationObj = nil

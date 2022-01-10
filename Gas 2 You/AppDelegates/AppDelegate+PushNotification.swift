@@ -134,8 +134,17 @@ extension AppDelegate{
             
             if pushObj.type == NotificationTypes.newEarning.rawValue {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                    if (UIApplication.appTopViewController()?.isKind(of: MyEarningsVC.self) ?? false){
+                   if(AppDel.isEarningScreen){
                         NotificationCenter.default.post(name: .refreshEarningScreen, object: nil)
+                    }
+                }
+                return
+            }
+            
+            if pushObj.type == NotificationTypes.sendBulkPushNotification.rawValue {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    if(appDel.isNotificationScreen){
+                        NotificationCenter.default.post(name: .refreshNotificationScreen, object: nil)
                     }
                 }
                 return
@@ -233,11 +242,23 @@ extension AppDelegate{
             
             if pushObj.type == NotificationTypes.newEarning.rawValue {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    if (UIApplication.appTopViewController()?.isKind(of: MyEarningsVC.self) ?? false){
+                    if(AppDel.isEarningScreen){
                         AppDelegate.pushNotificationType = nil
                         AppDelegate.pushNotificationObj = nil
                     }else{
                         NotificationCenter.default.post(name: .goToEarningScreen, object: nil)
+                    }
+                }
+                return
+            }
+            
+            if pushObj.type == NotificationTypes.sendBulkPushNotification.rawValue {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    if(appDel.isNotificationScreen){
+                        AppDelegate.pushNotificationType = nil
+                        AppDelegate.pushNotificationObj = nil
+                    }else{
+                        NotificationCenter.default.post(name: .goToNotificationScreen, object: nil)
                     }
                 }
                 return
@@ -258,7 +279,9 @@ extension Notification.Name {
     static let goToChatScreen = NSNotification.Name("goToChatScreen")
     static let goToCompletedScreen = NSNotification.Name("goToCompletedScreen")
     static let goToEarningScreen = NSNotification.Name("goToEarningScreen")
+    static let goToNotificationScreen = NSNotification.Name("goToNotificationScreen")
     static let hideSideMenu = NSNotification.Name("hideSideMenu")
+    static let refreshNotificationScreen = NSNotification.Name("refreshNotificationScreen")
 }
 
 enum NotificationTypes : String {
@@ -268,6 +291,7 @@ enum NotificationTypes : String {
     case jobComplete = "jobComplete"
     case newMessage = "newMessage"
     case newEarning = "newEarning"
+    case sendBulkPushNotification = "SendBulkPushNotification"
 }
 
 class NotificationObjectModel: Codable {

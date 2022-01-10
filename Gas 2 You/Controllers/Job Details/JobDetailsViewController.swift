@@ -63,6 +63,7 @@ class JobDetailsViewController: BaseVC {
     var CompBookingDetail : OrderComplateDatum?
     var invoiceViewModel = InvoiceViewModel()
     var delegateDownloadInvoice : DownloadInvoiceDelgate?
+    var locationManager : LocationService?
     
     var PickLocLong:String = "0.0"
     var PickLocLat:String = "0.0"
@@ -240,6 +241,12 @@ class JobDetailsViewController: BaseVC {
     }
     
     func MapSetup(currentlat: String, currentlong:String, droplat: String, droplog:String){
+        
+        if Singleton.sharedInstance.userCurrentLocation == nil{
+            self.locationManager = LocationService()
+            self.locationManager?.startUpdatingLocation()
+            return
+        }
         
         //Drop Location pin setup
         self.DropLocMarker = GMSMarker()
@@ -569,9 +576,7 @@ extension JobDetailsViewController: GMSMapViewDelegate {
     }
 }
 
-
-
-//MARK:- Api Calls
+//MARK: - Api Calls
 extension JobDetailsViewController{
     
     func callOrderStatusUpdateAPI(strStatus : String){

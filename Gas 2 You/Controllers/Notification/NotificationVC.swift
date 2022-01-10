@@ -35,6 +35,14 @@ class NotificationVC: BaseVC {
     let refreshControl = UIRefreshControl()
 
     //MARK: - Life Cycle Methods
+    override func viewWillAppear(_ animated: Bool) {
+        appDel.isNotificationScreen = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        appDel.isNotificationScreen = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.prepareView()
@@ -42,6 +50,7 @@ class NotificationVC: BaseVC {
     
     //MARK: - Custom Methods
     func prepareView(){
+        self.addObserver()
         self.registerNib()
         self.setupUI()
         self.setupData()
@@ -56,6 +65,12 @@ class NotificationVC: BaseVC {
     
     func setupData(){
         self.callNotificationListAPI()
+    }
+    
+    func addObserver(){
+        NotificationCenter.default.removeObserver(self, name: .refreshNotificationScreen, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ReloadData), name: .refreshNotificationScreen, object: nil)
+        
     }
     
     func registerNib(){
@@ -73,6 +88,16 @@ class NotificationVC: BaseVC {
         self.refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         self.refreshControl.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
         self.tblNotification.addSubview(self.refreshControl)
+    }
+    
+    @objc func ReloadData() {
+        self.arrNotification = []
+        self.isTblReload = false
+        self.isLoading = true
+        
+        self.CurrentPage = 1
+        self.isStopPaging = false
+        self.callNotificationListAPI()
     }
     
     @objc func refresh(_ sender: AnyObject) {

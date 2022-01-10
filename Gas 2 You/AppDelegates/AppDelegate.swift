@@ -25,6 +25,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate,UNUserNotificationCenterDe
         return UIApplication.shared.delegate as! AppDelegate
     }
     var isChatScreen : Bool = false
+    var isEarningScreen : Bool = false
+    var isNotificationScreen : Bool = false
+    
     var chatBookingId : String = ""
     static var pushNotificationObj : NotificationObjectModel?
     static var pushNotificationType : String?

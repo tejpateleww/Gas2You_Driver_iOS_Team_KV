@@ -32,6 +32,12 @@ class MyEarningsVC: BaseVC {
     }
     
     //MARK: - View Life Cycle
+    override func viewWillAppear(_ animated: Bool) {
+        appDel.isEarningScreen = true
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        appDel.isEarningScreen = false
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.prepareView()
