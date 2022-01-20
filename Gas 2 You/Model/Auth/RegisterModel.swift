@@ -42,7 +42,7 @@ class RegisterRequestModel: Encodable{
     var email : String?
     var password : String?
     var phone : String?
-    var countryCode : String?
+    var countryCode : String? = "+1"
     var deviceType : String? = Singleton.sharedInstance.DeviceType
     var deviceToken : String? = Singleton.sharedInstance.DeviceToken
     var latitude : String? = Singleton.sharedInstance.locationString().latitude

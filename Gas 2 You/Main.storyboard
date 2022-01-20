@@ -2993,7 +2993,7 @@ Send to Admin</string>
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGj-Xz-Dp9">
-                                        <rect key="frame" x="15" y="30" width="303.5" height="46"/>
+                                        <rect key="frame" x="15" y="30" width="241.5" height="46"/>
                                         <connections>
                                             <action selector="BtnProfileAction:" destination="Et3-Z7-Nnx" eventType="touchUpInside" id="6dT-Qt-jbb"/>
                                         </connections>
@@ -3006,7 +3006,7 @@ Send to Admin</string>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Johnathan Doe" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gk1-0f-nsw" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                        <rect key="frame" x="70" y="30" width="248.5" height="20.5"/>
+                                        <rect key="frame" x="70" y="30" width="186.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -3035,24 +3035,24 @@ Send to Admin</string>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aXd-8V-X31">
-                                        <rect key="frame" x="15" y="96" width="303.5" height="100"/>
+                                        <rect key="frame" x="15" y="96" width="241.5" height="100"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="02e-8l-6hV"/>
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="LeftViewMenuItemCell" id="E5w-oS-Odz" customClass="LeftViewMenuItemCell" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="44.5" width="303.5" height="70"/>
+                                                <rect key="frame" x="0.0" y="44.5" width="241.5" height="70"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="E5w-oS-Odz" id="D9r-Wf-cm8">
-                                                    <rect key="frame" x="0.0" y="0.0" width="303.5" height="70"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="241.5" height="70"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWR-MC-4rg">
-                                                            <rect key="frame" x="0.0" y="15" width="303.5" height="40"/>
+                                                            <rect key="frame" x="0.0" y="15" width="241.5" height="40"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="c4b-W9-Tyq">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="303.5" height="40"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="241.5" height="40"/>
                                                                     <subviews>
                                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kwk-qj-MRQ">
                                                                             <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -3071,7 +3071,7 @@ Send to Admin</string>
                                                                             </constraints>
                                                                         </view>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Logout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3BK-yt-4bo" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                                            <rect key="frame" x="52" y="0.0" width="251.5" height="40"/>
+                                                                            <rect key="frame" x="52" y="0.0" width="189.5" height="40"/>
                                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                             <nil key="textColor"/>
                                                                             <nil key="highlightedColor"/>
@@ -3134,7 +3134,7 @@ Send to Admin</string>
                                         </connections>
                                     </tableView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version : 1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ae7-QV-4uM" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="673.5" width="303.5" height="20.5"/>
+                                        <rect key="frame" x="15" y="673.5" width="241.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -3149,7 +3149,7 @@ Send to Admin</string>
                                         </userDefinedRuntimeAttributes>
                                     </label>
                                     <stackView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="BTX-FS-fUv">
-                                        <rect key="frame" x="15" y="714" width="303.5" height="35"/>
+                                        <rect key="frame" x="15" y="714" width="241.5" height="35"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mSz-vN-pOR">
                                                 <rect key="frame" x="0.0" y="0.0" width="35" height="35"/>
@@ -3168,7 +3168,7 @@ Send to Admin</string>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MR7-qb-KAm" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                                <rect key="frame" x="47" y="0.0" width="256.5" height="35"/>
+                                                <rect key="frame" x="47" y="0.0" width="194.5" height="35"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -3188,7 +3188,7 @@ Send to Admin</string>
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gi-9S-fQn">
-                                        <rect key="frame" x="15" y="714" width="303.5" height="35"/>
+                                        <rect key="frame" x="15" y="714" width="241.5" height="35"/>
                                         <connections>
                                             <action selector="btnLogoutTap:" destination="Et3-Z7-Nnx" eventType="touchUpInside" id="pUf-Qs-y77"/>
                                         </connections>
@@ -3228,7 +3228,7 @@ Send to Admin</string>
                                     <constraint firstItem="8gi-9S-fQn" firstAttribute="leading" secondItem="BTX-FS-fUv" secondAttribute="leading" id="mZH-Ei-aZH"/>
                                     <constraint firstItem="ae7-QV-4uM" firstAttribute="trailing" secondItem="aXd-8V-X31" secondAttribute="trailing" id="oPy-5M-guU"/>
                                     <constraint firstItem="Gk1-0f-nsw" firstAttribute="leading" secondItem="sKu-aa-VPv" secondAttribute="trailing" constant="10" id="osG-83-rhq"/>
-                                    <constraint firstItem="Gk1-0f-nsw" firstAttribute="width" secondItem="aeK-WM-cKz" secondAttribute="width" multiplier="0.6" id="yQt-ox-akF"/>
+                                    <constraint firstItem="Gk1-0f-nsw" firstAttribute="width" secondItem="aeK-WM-cKz" secondAttribute="width" multiplier="0.45" id="yQt-ox-akF"/>
                                     <constraint firstItem="XGj-Xz-Dp9" firstAttribute="trailing" secondItem="Gk1-0f-nsw" secondAttribute="trailing" id="z3C-oc-Krj"/>
                                 </constraints>
                             </view>
@@ -3394,10 +3394,10 @@ Send to Admin</string>
                                                         <rect key="frame" x="0.0" y="58" width="384" height="73"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hag-Hi-rkE">
-                                                                <rect key="frame" x="2" y="21" width="31" height="31"/>
+                                                                <rect key="frame" x="-5" y="17.5" width="38" height="38"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_location" translatesAutoresizingMaskIntoConstraints="NO" id="4aN-RG-Drr">
-                                                                        <rect key="frame" x="5" y="5" width="21" height="21"/>
+                                                                        <rect key="frame" x="5" y="5" width="28" height="28"/>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -4003,7 +4003,7 @@ Send to Admin</string>
                                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TrR-AF-c5m" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="187" height="41"/>
                                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="15" maxY="0.0"/>
-                                                                                <state key="normal" title="Chat" image="ic_chat">
+                                                                                <state key="normal" title="Chat" image="IC_chat">
                                                                                     <color key="titleColor" red="0.1215686275" green="0.47450980390000003" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 </state>
                                                                                 <userDefinedRuntimeAttributes>
@@ -5473,6 +5473,7 @@ Send to Admin</string>
         <image name="IC_arrowRightBlack" width="6.5" height="11"/>
         <image name="IC_bellNotification" width="31" height="31"/>
         <image name="IC_car" width="20.5" height="16.5"/>
+        <image name="IC_chat" width="33" height="33"/>
         <image name="IC_gasPump" width="19" height="20.5"/>
         <image name="IC_locationTarget" width="28" height="28"/>
         <image name="IC_locoations" width="18.5" height="21"/>
@@ -5490,13 +5491,12 @@ Send to Admin</string>
         <image name="dummy_user" width="74" height="75.5"/>
         <image name="ic_Call" width="17.5" height="17.5"/>
         <image name="ic_Car" width="20.5" height="16.5"/>
-        <image name="ic_chat" width="22" height="21"/>
         <image name="ic_checkBoxSelected" width="20" height="20"/>
         <image name="ic_checkBoxUnSelected" width="20" height="20"/>
         <image name="ic_color" width="20" height="20"/>
         <image name="ic_downloadInvoice" width="13" height="13"/>
         <image name="ic_gas" width="34.5" height="37"/>
-        <image name="ic_location" width="18.5" height="21"/>
+        <image name="ic_location" width="28" height="28"/>
         <image name="ic_logout" width="26" height="26"/>
         <image name="icon_Default" width="102" height="102"/>
         <image name="icon_ReCenter" width="38" height="38"/>

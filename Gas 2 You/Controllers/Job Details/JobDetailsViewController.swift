@@ -511,6 +511,7 @@ extension JobDetailsViewController{
     }
     
     func JobDoneTapped(strGallon : String){
+        self.ImgViewJobDone.image = UIImage(named: "ic_checkBoxSelected")
         let vc : EnterQuentityVC = EnterQuentityVC.instantiate(fromAppStoryboard: .Main)
         vc.btnSubmitClosure = { name in
             self.ViewFilledGallon.isHidden = false
@@ -519,6 +520,11 @@ extension JobDetailsViewController{
             self.BtnStartJob.setTitle(StartJobButtonTitle.CompleteJob.Name, for: .normal)
             self.BtnStartJob.isUserInteractionEnabled = true
             self.orderStaus = (self.orderStaus == "In Progress") ? self.orderStaus : "In Progress"
+        }
+        vc.btnCancelClosure = {
+            if(self.LblFilledGallon.text == ""){
+                self.ImgViewJobDone.image = UIImage(named: "ic_checkBoxUnSelected")
+            }
         }
         vc.Quantity = self.LblFilledGallon.text ?? ""
         vc.modalPresentationStyle = .overFullScreen

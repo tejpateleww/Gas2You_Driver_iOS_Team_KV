@@ -30,6 +30,10 @@ class SplashVC: UIViewController {
     
 }
 
+enum VersionError: Error {
+    case invalidResponse, invalidBundleInfo
+}
+
 //MARK: - Apis
 extension SplashVC{
     func webserviceInit(){

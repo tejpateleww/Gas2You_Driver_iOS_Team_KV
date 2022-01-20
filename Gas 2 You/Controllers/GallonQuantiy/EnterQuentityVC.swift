@@ -20,6 +20,7 @@ class EnterQuentityVC: BaseVC{
     
     //MARK: - Variables
     var btnSubmitClosure : ((String)->())?
+    var btnCancelClosure : (()->())?
     var Quantity :String = ""
     let ACCEPTABLE_CHARACTERS_FOR_QUANTITY = "0123456789."
     
@@ -84,7 +85,13 @@ class EnterQuentityVC: BaseVC{
     }
     
     @IBAction func btnCancelTap(_ sender: Any) {
-        self.dismiss(animated: false, completion: nil)
+        //self.dismiss(animated: false, completion: nil)
+        
+        self.dismiss(animated: false, completion: {
+            if let obj = self.btnCancelClosure{
+                obj()
+            }
+        })
     }
 }
 

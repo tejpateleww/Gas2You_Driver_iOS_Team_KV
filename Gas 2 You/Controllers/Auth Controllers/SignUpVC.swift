@@ -69,7 +69,6 @@ class SignUpVC: BaseVC {
         let reqModel = RegisterRequestModel()
         reqModel.fullName = self.txtFirstName.text?.trimmingCharacters(in: .whitespaces)
         reqModel.email = self.txtEmail.text ?? ""
-        reqModel.countryCode = DefaultCouuntryCode
         reqModel.phone = self.txtMobile.text ?? ""
         reqModel.password = self.txtPassword.text ?? ""
         
