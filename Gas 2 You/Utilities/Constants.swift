@@ -13,7 +13,7 @@ import UIKit
 let keywindow = UIApplication.shared.keyWindow
 
 let appDel = UIApplication.shared.delegate as! AppDelegate
-let kAPPVesion = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as! String
+let kAPPVesion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
 let AppName = "Gas2You Driver"
 let AppURL = "itms-apps://itunes.apple.com/app/id1488928328"
 

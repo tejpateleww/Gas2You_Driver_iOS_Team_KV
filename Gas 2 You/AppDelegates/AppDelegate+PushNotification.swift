@@ -105,6 +105,15 @@ extension AppDelegate{
                 return
             }
             
+            if pushObj.type == NotificationTypes.cancelRequest.rawValue {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                    if (UIApplication.appTopViewController()?.isKind(of: MainViewController.self) ?? false){
+                        NotificationCenter.default.post(name: .refreshHomeScreen, object: nil)
+                    }
+                }
+                return
+            }
+            
 //            if pushObj.type == NotificationTypes.jobInProgress.rawValue {
 //                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
 //                    if (UIApplication.appTopViewController()?.isKind(of: MainViewController.self) ?? false){
@@ -292,6 +301,7 @@ enum NotificationTypes : String {
     case newMessage = "newMessage"
     case newEarning = "newEarning"
     case sendBulkPushNotification = "SendBulkPushNotification"
+    case cancelRequest = "cancelRequest"
 }
 
 class NotificationObjectModel: Codable {
