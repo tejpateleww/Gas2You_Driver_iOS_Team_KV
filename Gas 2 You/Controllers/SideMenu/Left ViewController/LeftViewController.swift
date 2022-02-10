@@ -68,8 +68,9 @@ class LeftViewController: MenuViewController {
         self.lblUserName.text = "\(obj?.fullName ?? "")"
         self.lblUserActiveStatus.text = (obj?.status ?? "" == "1") ? "Active" : "Deactive"
         
-        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
-        self.lblVersion.text = "V \(appVersion ?? "0.0")"
+        
+        let Version = "Version : \(Bundle.main.releaseVersionNumber ?? "")(\(Bundle.main.buildVersionNumber ?? ""))"
+        self.lblVersion.text = Version
 
         self.vwActive.layer.cornerRadius = self.vwActive.frame.size.width/2
         self.vwActive.clipsToBounds = true

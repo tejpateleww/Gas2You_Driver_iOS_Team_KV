@@ -84,6 +84,15 @@ extension String {
     }
 
 }
+
+extension Bundle {
+    var releaseVersionNumber: String? {
+        return infoDictionary?["CFBundleShortVersionString"] as? String
+    }
+    var buildVersionNumber: String? {
+        return infoDictionary?["CFBundleVersion"] as? String
+    }
+}
 extension StringProtocol {
     
     /// Returns the string with only [0-9], all other characters are filtered out

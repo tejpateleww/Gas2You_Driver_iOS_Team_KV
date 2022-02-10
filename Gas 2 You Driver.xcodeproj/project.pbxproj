@@ -1620,7 +1620,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Gas 2 You Driver.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 1.0.9;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8U3VM88NZ7;
 				INFOPLIST_FILE = "Gas 2 You/Info.plist";
@@ -1648,7 +1648,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Gas 2 You Driver.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.8;
+				CURRENT_PROJECT_VERSION = 1.0.9;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 8U3VM88NZ7;
 				INFOPLIST_FILE = "Gas 2 You/Info.plist";

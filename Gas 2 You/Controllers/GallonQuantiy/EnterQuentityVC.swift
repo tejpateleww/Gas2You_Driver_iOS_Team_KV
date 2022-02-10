@@ -72,7 +72,7 @@ class EnterQuentityVC: BaseVC{
         }
         
         let doubleVal = Double(self.txtPrice.text ?? "0.0") ?? 0.0
-        if(doubleVal <= 0){
+        if(doubleVal < 0){
             Toast.show(title: UrlConstant.Required, message: "Please enter valid quantity", state: .info)
             return
         }
