@@ -324,7 +324,12 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
             if self.arrBookings.count != 0 {
                 
                 cell.lblYearModel.text = "\(self.arrBookings[indexPath.row].modelName ?? "")" + " (" + "\(self.arrBookings[indexPath.row].modelYear ?? "")" + ")"
-                cell.lblFuelType.text = self.arrBookings[indexPath.row].mainServiceName ?? ""
+                
+                
+                let FuelType = self.arrBookings[indexPath.row].mainServiceName ?? ""
+                let FuelSubType = " (" + "\(self.arrBookings[indexPath.row].subServiceName ?? "")" + ")"
+                cell.lblFuelType.text = (self.arrBookings[indexPath.row].subServiceName != "") ? FuelType + FuelSubType : FuelType
+                
                 let VehicleName = "\(self.arrBookings[indexPath.row].makeName ?? "")" + " (" + "\(self.arrBookings[indexPath.row].plateNumber ?? "")" + ")"
                 cell.lblVehicle.text = VehicleName
                 cell.lblAddress.text = self.arrBookings[indexPath.row].parkingLocation ?? ""

@@ -362,7 +362,11 @@ class JobDetailsViewController: BaseVC {
             return
         }
         
-        self.lblFuelType.text = self.BookingDetail?.mainServiceName ?? ""
+        let FuelType = self.BookingDetail?.mainServiceName ?? ""
+        let FuelSubType = " (" + "\(self.BookingDetail?.subServiceName ?? "")" + ")"
+        self.lblFuelType.text = (self.BookingDetail?.subServiceName ?? "" != "") ? FuelType + FuelSubType : FuelType
+        
+        //self.lblFuelType.text = self.BookingDetail?.mainServiceName ?? ""
         self.lblAddress.text = self.BookingDetail?.parkingLocation ?? ""
         self.lblColor.text = "Color : \(self.BookingDetail?.colorName ?? "")"
         self.LblDateTime.text = "\(self.BookingDetail?.date ?? "") \n \(self.BookingDetail?.time ?? "")"
