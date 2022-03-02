@@ -510,7 +510,7 @@ extension JobDetailsViewController{
     }
     
     func isFromRequest(){
-        vwChatCall.isHidden = true
+        vwChatCall.isHidden = false
         vwUpdateStatus.isHidden = true
     }
     

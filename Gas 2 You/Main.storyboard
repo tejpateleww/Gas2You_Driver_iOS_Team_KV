@@ -3394,10 +3394,10 @@ Send to Admin</string>
                                                         <rect key="frame" x="0.0" y="58" width="384" height="73"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hag-Hi-rkE">
-                                                                <rect key="frame" x="-5" y="17.5" width="38" height="38"/>
+                                                                <rect key="frame" x="2" y="21" width="31" height="31"/>
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_location" translatesAutoresizingMaskIntoConstraints="NO" id="4aN-RG-Drr">
-                                                                        <rect key="frame" x="5" y="5" width="28" height="28"/>
+                                                                        <rect key="frame" x="5" y="5" width="21" height="21"/>
                                                                     </imageView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -5496,7 +5496,7 @@ Send to Admin</string>
         <image name="ic_color" width="20" height="20"/>
         <image name="ic_downloadInvoice" width="13" height="13"/>
         <image name="ic_gas" width="34.5" height="37"/>
-        <image name="ic_location" width="28" height="28"/>
+        <image name="ic_location" width="18.5" height="21"/>
         <image name="ic_logout" width="26" height="26"/>
         <image name="icon_Default" width="102" height="102"/>
         <image name="icon_ReCenter" width="38" height="38"/>

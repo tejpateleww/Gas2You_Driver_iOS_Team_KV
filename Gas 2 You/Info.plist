@@ -30,9 +30,15 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>gas2You Driver Would like to Access Your  Camera</string>
+	<string>gas2You would like to access your camera to upload photos for profile picture</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>gas2You would like to access your location to display route to destination</string>
+	<key>NSLocationUsageDescription</key>
+	<string>gas2You would like to access your location to display route to destination</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Use Location</string>
+	<string>gas2You would like to access your location to display route to destination</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>gas2You would like to access your photo library to upload photos for profile picture</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Poppins-Black.ttf</string>
