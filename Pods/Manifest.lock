@@ -62,6 +62,7 @@ PODS:
     - GoogleUtilities/Logger
   - IQKeyboardManagerSwift (6.5.6)
   - MKProgress (1.1.0)
+  - MKToolTip (1.0.6)
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
     - nanopb/encode (= 2.30908.0)
@@ -84,6 +85,7 @@ DEPENDENCIES:
   - GoogleMaps
   - IQKeyboardManagerSwift
   - MKProgress
+  - MKToolTip
   - OTPFieldView
   - SDWebImage
   - Socket.IO-Client-Swift
@@ -103,6 +105,7 @@ SPEC REPOS:
     - GoogleUtilities
     - IQKeyboardManagerSwift
     - MKProgress
+    - MKToolTip
     - nanopb
     - OTPFieldView
     - PromisesObjC
@@ -124,6 +127,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: eea970f4a389963963bffe8d8fabe43540678b9c
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   MKProgress: 260d166200323f3d991190a73ab2dc3a04b0f52f
+  MKToolTip: 69509b1cada10f96bd9f4ab559a768e7c6557933
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   OTPFieldView: 700a752fe62c41d1c4914c78aa500fb30d97c255
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
@@ -133,6 +137,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   UIView-Shimmer: ff0a32c73d67c7dbdea3d9e530538b10d18aea56
 
-PODFILE CHECKSUM: 46dbdca05b06d644ee3d5f6d18e366cf9fb8e162
+PODFILE CHECKSUM: f93a85cc2eb15dfadd9e326e31d5115acf783642
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

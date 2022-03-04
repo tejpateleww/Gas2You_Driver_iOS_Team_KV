@@ -17,5 +17,6 @@ pod 'SwiftyJSON'
 pod 'Socket.IO-Client-Swift'
 pod 'Firebase/Messaging'
 pod 'Firebase/Crashlytics'
+pod 'MKToolTip'
 
 end

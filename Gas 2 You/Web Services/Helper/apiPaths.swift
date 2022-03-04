@@ -22,7 +22,7 @@ enum APIEnvironment : String {
     }
     
     static var environment: APIEnvironment{
-        return .Development
+        return .Live
     }
     
     static var headers : [String:String]{

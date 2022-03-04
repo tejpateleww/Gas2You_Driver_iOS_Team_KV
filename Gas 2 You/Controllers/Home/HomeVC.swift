@@ -243,6 +243,7 @@ class HomeVC: BaseVC {
         vc.isfrom = .InProcess
         vc.BookingDetail = self.arrBookings[index.row]
         vc.orderStaus = self.arrBookings[index.row].statusLabel ?? ""
+        vc.isDisplayAddon = !self.isSelectedRequest
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -403,6 +404,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
                 vc.strTitle = !isInProcess ? "Request Detail" : ""
                 vc.BookingDetail = self.arrBookings[indexPath.row]
                 vc.orderStaus = "Pending"
+                vc.isDisplayAddon = !self.isSelectedRequest
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }

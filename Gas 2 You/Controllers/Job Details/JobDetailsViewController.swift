@@ -7,6 +7,7 @@
 
 import UIKit
 import GoogleMaps
+import MKToolTip
 
 enum StartJobButtonTitle {
     case StartJob
@@ -64,6 +65,7 @@ class JobDetailsViewController: BaseVC {
     var invoiceViewModel = InvoiceViewModel()
     var delegateDownloadInvoice : DownloadInvoiceDelgate?
     var locationManager : LocationService?
+    var isDisplayAddon = false
     
     var PickLocLong:String = "0.0"
     var PickLocLat:String = "0.0"
@@ -72,6 +74,7 @@ class JobDetailsViewController: BaseVC {
     var CurrentLocMarker: GMSMarker?
     var DropLocMarker: GMSMarker?
     var arrMarkers: [GMSMarker] = []
+    var RightNavButton = UIButton()
     
     var arrService:[OrderComplateService] = []
     
@@ -136,6 +139,10 @@ class JobDetailsViewController: BaseVC {
         self.tblAddon.reloadData()
         
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: strTitle == "" ? "Job Details" : strTitle, leftImage: "Back", rightImages: [], isTranslucent: true)
+        
+        if self.isDisplayAddon && self.BookingDetail?.addon != ""{
+            self.rightNavBarButton()
+        }
         self.prepareView()
         self.setupData()
         
@@ -179,6 +186,27 @@ class JobDetailsViewController: BaseVC {
         }else{
             self.isFromMyOrders()
         }
+    }
+    
+    func rightNavBarButton(){
+        RightNavButton = UIButton(type: UIButton.ButtonType.custom)
+        let image = UIImage(named: "imgAlertInfo")?.withRenderingMode(.alwaysTemplate)
+        RightNavButton.setImage(image, for: .normal)
+        RightNavButton.imageView?.contentMode = .scaleAspectFit
+        RightNavButton.imageView?.tintColor = colors.themecolor.value
+        RightNavButton.addTarget(self, action:#selector(callMethod), for: .touchUpInside)
+        RightNavButton.frame = CGRect(x: 0, y: 0, width: 40, height: 40)
+        let barButton = UIBarButtonItem(customView: RightNavButton)
+        self.navigationItem.rightBarButtonItems = [barButton]
+        
+    }
+    
+    @objc func callMethod(){
+        let preference = ToolTipPreferences()
+        preference.drawing.bubble.color = colors.themecolor.value
+        preference.drawing.message.color = .white
+        
+        RightNavButton.showToolTip(identifier: "", title: nil, message: self.BookingDetail?.addon?.replacingOccurrences(of: ",", with: "\n", options: .literal, range: nil) ?? "", button: nil, arrowPosition: .top, preferences: preference, delegate: nil)
     }
     
     func registerNib(){
@@ -510,7 +538,7 @@ extension JobDetailsViewController{
     }
     
     func isFromRequest(){
-        vwChatCall.isHidden = false
+        vwChatCall.isHidden = true
         vwUpdateStatus.isHidden = true
     }
     
