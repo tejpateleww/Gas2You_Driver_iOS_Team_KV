@@ -131,6 +131,12 @@ class OtpVC: BaseVC {
         self.navigationController?.popViewController(animated: true)
     }
     
+    func openAlert(strInfo : String){
+        OtpVC.showAlertWithTitleFromVC(vc: self, title: "Registration Successful", message: strInfo, buttons: ["Ok"]) { index in
+            AppDelegate.shared.navigateToLogin()
+        }
+    }
+    
     @objc func timerAction() {
         if self.counter > 0{
             self.counter -= 1
