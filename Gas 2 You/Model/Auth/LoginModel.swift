@@ -17,8 +17,8 @@ class LoginRequestModel: Encodable{
    
     
 #if IOS_SIMULATOR
-    var latitude : String? = "23.071775"
-    var longitude : String? = "72.517008"
+    var latitude : String? = "0.0"
+    var longitude : String? = "0.0"
 #else
     var latitude : String? = Singleton.sharedInstance.locationString().latitude
     var longitude : String? = Singleton.sharedInstance.locationString().longitude

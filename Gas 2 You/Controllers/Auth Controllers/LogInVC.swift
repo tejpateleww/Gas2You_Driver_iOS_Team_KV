@@ -88,9 +88,10 @@ class LogInVC: UIViewController {
     //MARK: - Button actions
     @IBAction func logInButtonPreesed(_ sender: ThemeButton) {
         if self.validation(){
-            if self.getLocation(){
-                self.callLoginApi()
-            }
+            self.callLoginApi()
+//            if self.getLocation(){
+//                self.callLoginApi()
+//            }
         }
     }
     

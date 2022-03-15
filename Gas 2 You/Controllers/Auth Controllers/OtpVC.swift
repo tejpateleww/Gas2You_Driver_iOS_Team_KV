@@ -158,9 +158,10 @@ class OtpVC: BaseVC {
                 Toast.show(title: UrlConstant.Required, message: UrlConstant.ValidOtpNo, state: .info)
             }else{
                 self.timer.invalidate()
-                if self.getLocation(){
-                    self.callRegisterApi()
-                }
+                self.callRegisterApi()
+//                if self.getLocation(){
+//                    self.callRegisterApi()
+//                }
             }
         }else{
             Toast.show(title: UrlConstant.Required, message: UrlConstant.ValidOtpNo, state: .info)
