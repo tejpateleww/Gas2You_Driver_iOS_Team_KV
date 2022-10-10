@@ -8,8 +8,8 @@ target 'Gas 2 You Driver' do
   # Pods for Gas 2 You
 
 pod 'IQKeyboardManagerSwift'
-pod 'GoogleMaps'
 pod 'MKProgress'
+pod 'GoogleMaps'
 pod 'SDWebImage'
 pod 'UIView-Shimmer', '~> 1.0'
 pod 'OTPFieldView'
@@ -18,5 +18,6 @@ pod 'Socket.IO-Client-Swift'
 pod 'Firebase/Messaging'
 pod 'Firebase/Crashlytics'
 pod 'MKToolTip'
+pod 'EasyTipView'
 
 end

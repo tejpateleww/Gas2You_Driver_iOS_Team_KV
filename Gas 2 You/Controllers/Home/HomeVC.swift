@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 import UIView_Shimmer
+import EasyTipView
 
 class HomeVC: BaseVC {
     
@@ -31,6 +32,7 @@ class HomeVC: BaseVC {
     let refreshControl = UIRefreshControl()
     var jobViewModel = JobViewModel()
     
+    //Shimmer
     var isTblReload = false
     var isLoading = true {
         didSet {
@@ -38,6 +40,11 @@ class HomeVC: BaseVC {
             self.tblHome.reloadData()
         }
     }
+    
+    //TipView
+    var preferences = EasyTipView.Preferences()
+    var tipView: EasyTipView?
+    var timerHidePop : Timer?
     
     //MARK: - VIEW LIFE CYCLE
     override func viewDidLoad() {
@@ -61,6 +68,17 @@ class HomeVC: BaseVC {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        if let tipView = self.tipView {
+            tipView.dismiss(withCompletion: {
+                self.tipView = nil
+            })
+        }
+        
+        if(self.timerHidePop != nil){
+            self.timerHidePop?.invalidate()
+            self.timerHidePop = nil
+        }
+        
         navigationController?.interactivePopGestureRecognizer?.isEnabled = true
     }
     
@@ -183,6 +201,7 @@ class HomeVC: BaseVC {
         self.addTableFooter()
         self.addRefreshControl()
         
+        self.setUpPopTip()
     }
 
     func addRefreshControl(){
@@ -289,6 +308,42 @@ class HomeVC: BaseVC {
         self.callBookingInProgressAPI()
     }
     
+    //MARK: - TipView methods
+    func setUpPopTip() {
+        self.preferences.drawing.font = CustomFont.regular.returnFont(14)
+        self.preferences.drawing.foregroundColor = UIColor.white
+        self.preferences.drawing.backgroundColor = UIColor.init(hexString: "#1F79CD")
+        self.preferences.drawing.arrowPosition = EasyTipView.ArrowPosition.bottom
+    }
+    
+    func showPopTip(index : IndexPath, sender: UIButton){
+        if let tipView = self.tipView {
+            tipView.dismiss(withCompletion: {
+                self.tipView = nil
+                self.timerHidePop?.invalidate()
+                self.timerHidePop = nil
+            })
+        } else {
+            let view = EasyTipView(text: self.arrBookings[index.row].note ?? "", preferences: self.preferences, delegate: self)
+            view.show(forView: sender, withinSuperview: self.navigationController?.view)
+            self.tipView = view
+        }
+    }
+    
+    func startTimer() {
+        if(self.timerHidePop == nil){
+            self.timerHidePop = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in
+                if let tipView = self.tipView {
+                    tipView.dismiss(withCompletion: {
+                        self.tipView = nil
+                        self.timerHidePop?.invalidate()
+                        self.timerHidePop = nil
+                    })
+                }
+            })
+        }
+    }
+    
     //MARK: - Button ACTIONS
     @IBAction func btnRequestTap(_ sender: UIButton) {
         self.refreshNewRequest()
@@ -338,6 +393,7 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
                 cell.lblDateAndTime.text = DateTime
                 
                 cell.stackbtn.isHidden = isInProcess ? false : true
+                cell.vWSeperator.isHidden = cell.stackbtn.isHidden
                 cell.stackButtomHeight.constant = cell.stackbtn.isHidden ? 0 : 45
                 cell.btnReject.isHidden = isInProcess ? true : false
                 cell.btnAccept.setTitle(isInProcess ? self.arrBookings[indexPath.row].statusLabel ?? "IN PROGRESS" : "ACCEPT", for: .normal)
@@ -353,6 +409,13 @@ extension HomeVC : UITableViewDelegate, UITableViewDataSource{
                             }
                         }
                     }
+                }
+                
+                cell.btnNotes.isHidden = (self.arrBookings[indexPath.row].note == "")
+                cell.btnNotesTapClosure = {
+                    self.showPopTip(index: indexPath, sender: cell.btnNotes)
+                    self.startTimer()
+                    self.tblHome.isScrollEnabled = false
                 }
                 return cell
                 
@@ -465,4 +528,19 @@ extension HomeVC{
         
         self.jobViewModel.webserviceOrderStatusUpdateFromHomeAPI(reqModel: JobStatus, indexpath: index)
     }
+}
+
+extension HomeVC : EasyTipViewDelegate {
+    func easyTipViewDidTap(_ tipView: EasyTipView) {
+        self.tblHome.isScrollEnabled = true
+    }
+    
+    func easyTipViewDidDismiss(_ tipView: EasyTipView) {
+        self.tblHome.isScrollEnabled = true
+        self.tipView = nil
+        self.timerHidePop?.invalidate()
+        self.timerHidePop = nil
+    }
+    
+    
 }

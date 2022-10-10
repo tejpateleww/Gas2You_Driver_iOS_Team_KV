@@ -28,10 +28,13 @@ class JobsCell: UITableViewCell, ShimmeringViewProtocol {
     @IBOutlet weak var imgDateTime: UIImageView!
     
     @IBOutlet weak var lblYearModel: themeLabel!
+    @IBOutlet weak var btnNotes: UIButton!
+    @IBOutlet weak var vWSeperator: UIView!
     
     
     //MARK:- Variables and Properties
     var btnAcceptTapClosure : (()->())?
+    var btnNotesTapClosure : (()->())?
     
     var shimmeringAnimatedItems: [UIView] {
         [
@@ -50,6 +53,9 @@ class JobsCell: UITableViewCell, ShimmeringViewProtocol {
     override func awakeFromNib() {
         super.awakeFromNib()
         vwMain.layer.cornerRadius = 15
+        self.btnNotes.isHidden = true
+        self.vWSeperator.isHidden = true
+        
 //        vwButtons.layer.masksToBounds = true
         
 //        vwButtonsHeight.constant = 0
@@ -75,6 +81,13 @@ class JobsCell: UITableViewCell, ShimmeringViewProtocol {
         
     }
     @IBAction func btnRejectTap(_ sender: Any) {
+        
+    }
+    
+    @IBAction func btnNoteTap(_ sender: Any) {
+        if let obj = btnNotesTapClosure{
+            obj()
+        }
         
     }
     

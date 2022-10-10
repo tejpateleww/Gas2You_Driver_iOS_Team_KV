@@ -1,4 +1,5 @@
 PODS:
+  - EasyTipView (2.1.0)
   - Firebase/CoreOnly (8.3.0):
     - FirebaseCore (= 8.3.0)
   - Firebase/Crashlytics (8.3.0):
@@ -80,6 +81,7 @@ PODS:
   - UIView-Shimmer (1.0.4)
 
 DEPENDENCIES:
+  - EasyTipView
   - Firebase/Crashlytics
   - Firebase/Messaging
   - GoogleMaps
@@ -94,6 +96,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - EasyTipView
     - Firebase
     - FirebaseCore
     - FirebaseCoreDiagnostics
@@ -116,6 +119,7 @@ SPEC REPOS:
     - UIView-Shimmer
 
 SPEC CHECKSUMS:
+  EasyTipView: a92b6edc377b81c5ac18e9fd35d5ee78e9409488
   Firebase: 817b9171d0d51dccc458b94a5e8edff6b1dd323d
   FirebaseCore: a6dba751680d7033b9d3831e1cfc95ead0605118
   FirebaseCoreDiagnostics: cad03be1904b975f845e632f2720c3337da27faf
@@ -137,6 +141,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   UIView-Shimmer: ff0a32c73d67c7dbdea3d9e530538b10d18aea56
 
-PODFILE CHECKSUM: f93a85cc2eb15dfadd9e326e31d5115acf783642
+PODFILE CHECKSUM: 3aba788c6b3706d63534143346155ff9099119b8
 
 COCOAPODS: 1.11.2

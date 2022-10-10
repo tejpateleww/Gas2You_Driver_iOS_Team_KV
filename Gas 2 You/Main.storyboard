@@ -3270,10 +3270,6 @@ Send to Admin</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XDH-0D-T4M">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ree-Oj-oee">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="966"/>
                                 <subviews>
@@ -3304,6 +3300,24 @@ Send to Admin</string>
                                             <action selector="btnMapTypeAction:" destination="SZL-Ra-6J9" eventType="touchUpInside" id="rJn-PB-Lww"/>
                                         </connections>
                                     </button>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eje-UL-1yo">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="924"/>
+                                    </imageView>
+                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMPLETED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="acZ-k3-d2p" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="924"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                <real key="value" value="51"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                <color key="value" red="0.019607843140000001" green="0.61568627450000002" blue="0.098039215690000001" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSemibold" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6M-e3-MyC">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="966"/>
                                         <subviews>
@@ -4166,24 +4180,6 @@ Send to Admin</string>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eje-UL-1yo">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="924"/>
-                                    </imageView>
-                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COMPLETED" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="acZ-k3-d2p" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="924"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                <real key="value" value="51"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                                <color key="value" red="0.019607843140000001" green="0.61568627450000002" blue="0.098039215690000001" alpha="0.12" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSemibold" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -4214,11 +4210,7 @@ Send to Admin</string>
                             <constraint firstItem="ree-Oj-oee" firstAttribute="top" secondItem="JXv-SG-a21" secondAttribute="top" id="1gU-Am-mGD"/>
                             <constraint firstItem="ree-Oj-oee" firstAttribute="leading" secondItem="199-56-bBd" secondAttribute="leading" id="ATs-Oh-DKp"/>
                             <constraint firstItem="199-56-bBd" firstAttribute="trailing" secondItem="ree-Oj-oee" secondAttribute="trailing" id="DUk-WH-Ab0"/>
-                            <constraint firstItem="XDH-0D-T4M" firstAttribute="top" secondItem="JXv-SG-a21" secondAttribute="top" id="HgO-Fu-63g"/>
                             <constraint firstItem="02b-Xx-Wxl" firstAttribute="top" secondItem="ree-Oj-oee" secondAttribute="top" id="RZe-Vr-heB"/>
-                            <constraint firstItem="XDH-0D-T4M" firstAttribute="leading" secondItem="199-56-bBd" secondAttribute="leading" id="XTE-lS-HQK"/>
-                            <constraint firstItem="XDH-0D-T4M" firstAttribute="trailing" secondItem="199-56-bBd" secondAttribute="trailing" id="ZX4-XI-L5N"/>
-                            <constraint firstAttribute="bottom" secondItem="XDH-0D-T4M" secondAttribute="bottom" id="arG-ax-XLf"/>
                             <constraint firstItem="199-56-bBd" firstAttribute="bottom" secondItem="ree-Oj-oee" secondAttribute="bottom" id="wv1-lH-Be1"/>
                         </constraints>
                     </view>

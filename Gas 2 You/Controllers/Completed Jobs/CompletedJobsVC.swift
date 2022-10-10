@@ -7,6 +7,7 @@
 
 import UIKit
 import PDFKit
+import EasyTipView
 
 class CompletedJobsVC: BaseVC {
     
@@ -31,6 +32,11 @@ class CompletedJobsVC: BaseVC {
         }
     }
     
+    //TipView
+    var preferences = EasyTipView.Preferences()
+    var tipView: EasyTipView?
+    var timerHidePop : Timer?
+    
     //MARK: - Life Cycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,12 +47,27 @@ class CompletedJobsVC: BaseVC {
         self.callComplateBookingAPI()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        if let tipView = self.tipView {
+            tipView.dismiss(withCompletion: {
+                self.tipView = nil
+            })
+        }
+        
+        if(self.timerHidePop != nil){
+            self.timerHidePop?.invalidate()
+            self.timerHidePop = nil
+        }
+        
+    }
+    
     //MARK: - custom methods
     func prepareView(){
         
         self.delegate = self
         self.isLoading = true
         self.setNavigationBarInViewController(controller: self, naviColor: .clear, naviTitle: "Completed Jobs", leftImage: "Back", rightImages: [], isTranslucent: true)
+        self.setUpPopTip()
         
         NotificationCenter.default.removeObserver(self, name: .refreshCompJobsScreen, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ReloadData), name: .refreshCompJobsScreen, object: nil)
@@ -96,6 +117,42 @@ class CompletedJobsVC: BaseVC {
         self.callComplateBookingAPI()
     }
     
+    //MARK: - TipView methods
+    func setUpPopTip() {
+        self.preferences.drawing.font = CustomFont.regular.returnFont(14)
+        self.preferences.drawing.foregroundColor = UIColor.white
+        self.preferences.drawing.backgroundColor = UIColor.init(hexString: "#1F79CD")
+        self.preferences.drawing.arrowPosition = EasyTipView.ArrowPosition.bottom
+    }
+    
+    func showPopTip(index : IndexPath, sender: UIButton){
+        if let tipView = self.tipView {
+            tipView.dismiss(withCompletion: {
+                self.tipView = nil
+                self.timerHidePop?.invalidate()
+                self.timerHidePop = nil
+            })
+        } else {
+            let view = EasyTipView(text: self.arrBookings[index.row].note ?? "", preferences: self.preferences, delegate: self)
+            view.show(forView: sender, withinSuperview: self.navigationController?.view)
+            self.tipView = view
+        }
+    }
+    
+    func startTimer() {
+        if(self.timerHidePop == nil){
+            self.timerHidePop = Timer.scheduledTimer(withTimeInterval: 5, repeats: true, block: { (timer) in
+                if let tipView = self.tipView {
+                    tipView.dismiss(withCompletion: {
+                        self.tipView = nil
+                        self.timerHidePop?.invalidate()
+                        self.timerHidePop = nil
+                    })
+                }
+            })
+        }
+    }
+    
 }
 
 //MARK: - UITableView Delegate methods
@@ -142,6 +199,14 @@ extension CompletedJobsVC: UITableViewDelegate, UITableViewDataSource {
                         self.callDownloadInvoiceAPI(bookingID: self.arrBookings[indexPath.row].id ?? "")
                     }
                 }
+                
+                cell.btnNotes.isHidden = (self.arrBookings[indexPath.row].note == "")
+                cell.btnNotesTapCousure = {
+                    self.showPopTip(index: indexPath, sender: cell.btnNotes)
+                    self.startTimer()
+                    self.tblCompletedJobs.isScrollEnabled = false
+                }
+                
                 return cell
             }else{
                 let NoDatacell = self.tblCompletedJobs.dequeueReusableCell(withIdentifier: "NoDataTableViewCell", for: indexPath) as! NoDataTableViewCell
@@ -235,3 +300,18 @@ extension CompletedJobsVC : DownloadInvoiceDelgate{
     }
 }
 
+
+extension CompletedJobsVC : EasyTipViewDelegate {
+    func easyTipViewDidTap(_ tipView: EasyTipView) {
+        self.tblCompletedJobs.isScrollEnabled = true
+    }
+    
+    func easyTipViewDidDismiss(_ tipView: EasyTipView) {
+        self.tblCompletedJobs.isScrollEnabled = true
+        self.tipView = nil
+        self.timerHidePop?.invalidate()
+        self.timerHidePop = nil
+    }
+    
+    
+}

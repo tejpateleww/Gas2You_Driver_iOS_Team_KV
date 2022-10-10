@@ -25,10 +25,12 @@ class CompletedCell: UITableViewCell, ShimmeringViewProtocol {
     
     @IBOutlet weak var imgCarModel: UIImageView!
     @IBOutlet weak var lblCarModelColor: themeLabel!
+    @IBOutlet weak var btnNotes: UIButton!
     
     
     //MARK:- Variables
     var btnDownloadTapCousure : (()->())?
+    var btnNotesTapCousure : (()->())?
     
     var shimmeringAnimatedItems: [UIView] {
         [
@@ -51,6 +53,7 @@ class CompletedCell: UITableViewCell, ShimmeringViewProtocol {
         super.awakeFromNib()
         lblTopHalf.layer.masksToBounds = true
         lblTopHalf.layer.cornerRadius = 5
+        self.btnNotes.isHidden = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -64,4 +67,11 @@ class CompletedCell: UITableViewCell, ShimmeringViewProtocol {
             obj()
         }
     }
+    
+    @IBAction func btnNotesAction(_ sender: Any) {
+        if let obj = self.btnNotesTapCousure{
+            obj()
+        }
+    }
+    
 }

@@ -37,8 +37,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8fl-uE-UIZ" customClass="ThemeView" customModule="Gas_2_You_Driver" customModuleProvider="target">
                         <rect key="frame" x="20" y="47" width="602" height="232"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="88h-9c-Gvh">
-                                <rect key="frame" x="0.0" y="181" width="602" height="1"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="88h-9c-Gvh">
+                                <rect key="frame" x="0.0" y="141" width="602" height="1"/>
                                 <color key="backgroundColor" red="0.10980392156862745" green="0.45882352941176469" blue="0.73333333333333328" alpha="0.070000000000000007" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="ueP-bJ-A40"/>
@@ -193,34 +193,54 @@
                                             <constraint firstItem="79y-cn-gMA" firstAttribute="leading" secondItem="21W-Ej-y8r" secondAttribute="leading" id="kb4-m3-5m9"/>
                                         </constraints>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JmN-uT-udg" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="z87-Rg-qJ0">
                                         <rect key="frame" x="0.0" y="170" width="568" height="40"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JmN-uT-udg" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="515.5" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Tgi-gv-PDa"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
+                                                <state key="normal" title="DOWNLOAD INVOICE" image="ic_downloadInvoice">
+                                                    <color key="titleColor" red="0.20392156862745098" green="0.5607843137254902" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
+                                                        <real key="value" value="13"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isSemibold" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="background">
+                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                        <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                        <color key="value" red="0.20392156862745098" green="0.5607843137254902" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="btnDownloadTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6XE-wy-Wo1"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uz0-Vk-PjW">
+                                                <rect key="frame" x="525.5" y="-2.5" width="42.5" height="42.5"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="30" id="0gu-eU-sxH"/>
+                                                    <constraint firstAttribute="width" secondItem="uz0-Vk-PjW" secondAttribute="height" id="ZdU-n2-59v"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="icon_notes"/>
+                                                <connections>
+                                                    <action selector="btnNotesAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7aI-HK-2Q2"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="Tgi-gv-PDa"/>
+                                            <constraint firstItem="uz0-Vk-PjW" firstAttribute="width" secondItem="uz0-Vk-PjW" secondAttribute="height" id="ncw-Gq-QL9"/>
                                         </constraints>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="20" maxY="0.0"/>
-                                        <state key="normal" title="DOWNLOAD INVOICE" image="ic_downloadInvoice">
-                                            <color key="titleColor" red="0.20392156862745098" green="0.5607843137254902" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="Font_Size">
-                                                <real key="value" value="13"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSemibold" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="background">
-                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
-                                                <color key="value" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
-                                                <color key="value" red="0.20392156862745098" green="0.5607843137254902" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="btnDownloadTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="6XE-wy-Wo1"/>
-                                        </connections>
-                                    </button>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -231,7 +251,6 @@
                             <constraint firstAttribute="bottom" secondItem="wPj-kp-34N" secondAttribute="bottom" constant="5" id="XcZ-Kc-NgH"/>
                             <constraint firstAttribute="trailing" secondItem="88h-9c-Gvh" secondAttribute="trailing" id="YDz-C5-d5T"/>
                             <constraint firstAttribute="trailing" secondItem="wPj-kp-34N" secondAttribute="trailing" constant="17" id="gJ1-Gp-7v3"/>
-                            <constraint firstItem="88h-9c-Gvh" firstAttribute="top" secondItem="JmN-uT-udg" secondAttribute="top" constant="-6" id="jqD-a6-2Gk"/>
                             <constraint firstItem="wPj-kp-34N" firstAttribute="leading" secondItem="8fl-uE-UIZ" secondAttribute="leading" constant="17" id="y7B-aJ-9us"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -256,6 +275,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="btnDownload" destination="JmN-uT-udg" id="S58-qb-MTm"/>
+                <outlet property="btnNotes" destination="uz0-Vk-PjW" id="9te-2k-dto"/>
                 <outlet property="imgAddress" destination="YNc-ln-tSt" id="nBi-k6-dXm"/>
                 <outlet property="imgCar" destination="Deo-7l-5OD" id="c0v-58-OzY"/>
                 <outlet property="imgCarModel" destination="yj0-hT-b89" id="rsV-N4-zyG"/>
@@ -277,6 +297,7 @@
         <image name="IC_gasPump" width="19" height="20.5"/>
         <image name="IC_locoations" width="18.5" height="21"/>
         <image name="ic_downloadInvoice" width="13" height="13"/>
+        <image name="icon_notes" width="42.5" height="42.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

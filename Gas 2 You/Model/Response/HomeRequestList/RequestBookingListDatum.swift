@@ -39,6 +39,8 @@ class RequestBookingListDatum : Codable {
     let modelYear : String?
     let services : [OrderComplateService]?
     let addon : String?
+    let note : String?
+    
     
     
     enum CodingKeys: String, CodingKey {
@@ -74,6 +76,7 @@ class RequestBookingListDatum : Codable {
         case modelYear = "model_year"
         case services = "services"
         case addon = "addon"
+        case note = "note"
         
     }
     
@@ -111,6 +114,7 @@ class RequestBookingListDatum : Codable {
         modelYear = try values.decodeIfPresent(String.self, forKey: .modelYear)
         services = try values.decodeIfPresent([OrderComplateService].self, forKey: .services)
         addon = try values.decodeIfPresent(String.self, forKey: .addon)
+        note = try values.decodeIfPresent(String.self, forKey: .note)
     }
     
 }

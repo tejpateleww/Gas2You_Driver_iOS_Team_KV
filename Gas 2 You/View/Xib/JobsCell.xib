@@ -29,7 +29,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BMW (MD 0245)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71s-AF-RAG" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                <rect key="frame" x="37" y="11.5" width="577" height="17"/>
+                                <rect key="frame" x="37" y="11.5" width="552" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -40,6 +40,18 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSemibold" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cUI-Yq-P1Z">
+                                <rect key="frame" x="594" y="5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="cUI-Yq-P1Z" secondAttribute="height" id="Rx6-5U-0mS"/>
+                                    <constraint firstAttribute="width" constant="30" id="hq3-tO-FEf"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="icon_notes"/>
+                                <connections>
+                                    <action selector="btnNoteTap:" destination="uBd-JE-I96" eventType="touchUpInside" id="JQf-Xm-Vek"/>
+                                </connections>
+                            </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_Car" translatesAutoresizingMaskIntoConstraints="NO" id="f4t-va-frE">
                                 <rect key="frame" x="12" y="37" width="20" height="20"/>
                                 <constraints>
@@ -48,7 +60,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kP6-gj-frO" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                <rect key="frame" x="37" y="38.5" width="577" height="17"/>
+                                <rect key="frame" x="37" y="38.5" width="552" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -63,7 +75,7 @@
                                 <rect key="frame" x="12" y="102.5" width="20" height="20"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="123. West St, 46203 123. West St123. West St, 46203 123. West St123. West St, 46203 123. West St" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z8o-Fa-pRL" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                <rect key="frame" x="37" y="95.5" width="577" height="33.5"/>
+                                <rect key="frame" x="37" y="95.5" width="552" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -82,7 +94,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="11:00 AM,  12 Aug, 2020" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTj-bf-kwo" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                <rect key="frame" x="37" y="137" width="577" height="17"/>
+                                <rect key="frame" x="37" y="137" width="552" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -97,7 +109,7 @@
                                 <rect key="frame" x="12" y="66.5" width="20" height="20"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Audi (2010)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bla-19-HyW" customClass="themeLabel" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                <rect key="frame" x="37" y="65.5" width="577" height="22"/>
+                                <rect key="frame" x="37" y="65.5" width="552" height="22"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="22" id="acD-qp-lsF"/>
                                 </constraints>
@@ -112,17 +124,17 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dw-BE-YKi">
-                                <rect key="frame" x="12" y="169" width="602" height="1"/>
+                                <rect key="frame" x="12" y="169" width="577" height="1"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="aOh-vx-JRQ"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Cpp-M4-1uq">
-                                <rect key="frame" x="12" y="170" width="602" height="40"/>
+                                <rect key="frame" x="12" y="170" width="577" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wix-cB-Cj7" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="303.5" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="291" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="ACCEPT"/>
                                         <userDefinedRuntimeAttributes>
@@ -142,7 +154,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TKN-7n-RWZ" customClass="ThemeButton" customModule="Gas_2_You_Driver" customModuleProvider="target">
-                                        <rect key="frame" x="305.5" y="0.0" width="296.5" height="40"/>
+                                        <rect key="frame" x="293" y="0.0" width="284" height="40"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="REJECT"/>
                                         <userDefinedRuntimeAttributes>
@@ -171,12 +183,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Bh3-Vx-YJB" firstAttribute="leading" secondItem="4Kw-aR-QuK" secondAttribute="leading" id="0NK-UH-F1g"/>
-                            <constraint firstAttribute="trailing" secondItem="71s-AF-RAG" secondAttribute="trailing" constant="20" id="0h2-LR-lC2"/>
                             <constraint firstItem="kP6-gj-frO" firstAttribute="trailing" secondItem="71s-AF-RAG" secondAttribute="trailing" id="37s-Co-Odz"/>
                             <constraint firstItem="Z8o-Fa-pRL" firstAttribute="top" secondItem="bla-19-HyW" secondAttribute="bottom" constant="8" id="5uF-ej-acC"/>
                             <constraint firstItem="oTj-bf-kwo" firstAttribute="leading" secondItem="Z8o-Fa-pRL" secondAttribute="leading" id="70K-YJ-3Kh"/>
                             <constraint firstItem="Z8o-Fa-pRL" firstAttribute="leading" secondItem="4Kw-aR-QuK" secondAttribute="trailing" constant="5" id="74G-Ym-jXO"/>
-                            <constraint firstAttribute="trailing" secondItem="Z8o-Fa-pRL" secondAttribute="trailing" constant="20" id="7wW-NT-UZd"/>
                             <constraint firstItem="2dw-BE-YKi" firstAttribute="top" secondItem="oTj-bf-kwo" secondAttribute="bottom" constant="15" id="928-QQ-VBc"/>
                             <constraint firstItem="f4t-va-frE" firstAttribute="leading" secondItem="aFZ-Mn-Vyn" secondAttribute="leading" id="ANB-iq-qOn"/>
                             <constraint firstItem="Cpp-M4-1uq" firstAttribute="leading" secondItem="2dw-BE-YKi" secondAttribute="leading" id="Cmk-41-kjg"/>
@@ -197,6 +207,7 @@
                             <constraint firstItem="bla-19-HyW" firstAttribute="top" secondItem="kP6-gj-frO" secondAttribute="bottom" constant="10" id="bCR-7N-W60"/>
                             <constraint firstItem="oTj-bf-kwo" firstAttribute="leading" secondItem="Bh3-Vx-YJB" secondAttribute="trailing" constant="5" id="bfV-jt-iHs"/>
                             <constraint firstItem="Bh3-Vx-YJB" firstAttribute="width" secondItem="4Kw-aR-QuK" secondAttribute="width" id="cwE-Pb-vk5"/>
+                            <constraint firstItem="cUI-Yq-P1Z" firstAttribute="centerY" secondItem="71s-AF-RAG" secondAttribute="centerY" id="dO7-vn-GDM"/>
                             <constraint firstItem="Z8o-Fa-pRL" firstAttribute="trailing" secondItem="kP6-gj-frO" secondAttribute="trailing" id="fzH-1o-uqj"/>
                             <constraint firstItem="kP6-gj-frO" firstAttribute="centerY" secondItem="f4t-va-frE" secondAttribute="centerY" id="gt0-ni-222"/>
                             <constraint firstItem="Cpp-M4-1uq" firstAttribute="trailing" secondItem="2dw-BE-YKi" secondAttribute="trailing" id="k7u-1z-7T5"/>
@@ -205,8 +216,10 @@
                             <constraint firstItem="Z8o-Fa-pRL" firstAttribute="leading" secondItem="kP6-gj-frO" secondAttribute="leading" id="mog-yH-gbi"/>
                             <constraint firstItem="bla-19-HyW" firstAttribute="centerY" secondItem="ua2-l5-TWV" secondAttribute="centerY" id="pyX-vD-lZt"/>
                             <constraint firstItem="ua2-l5-TWV" firstAttribute="width" secondItem="f4t-va-frE" secondAttribute="width" id="sZE-Bz-s6f"/>
+                            <constraint firstItem="cUI-Yq-P1Z" firstAttribute="leading" secondItem="71s-AF-RAG" secondAttribute="trailing" constant="5" id="tBQ-19-lF9"/>
                             <constraint firstItem="Bh3-Vx-YJB" firstAttribute="height" secondItem="4Kw-aR-QuK" secondAttribute="height" id="wE9-xg-CJ1"/>
                             <constraint firstItem="aFZ-Mn-Vyn" firstAttribute="leading" secondItem="pUk-yA-MUG" secondAttribute="leading" constant="12" id="woO-cV-zEk"/>
+                            <constraint firstAttribute="trailing" secondItem="cUI-Yq-P1Z" secondAttribute="trailing" constant="10" id="xaF-az-pTW"/>
                             <constraint firstItem="2dw-BE-YKi" firstAttribute="trailing" secondItem="oTj-bf-kwo" secondAttribute="trailing" id="zXp-Sr-vVa"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
@@ -227,6 +240,7 @@
             <viewLayoutGuide key="safeArea" id="Het-pj-qYx"/>
             <connections>
                 <outlet property="btnAccept" destination="wix-cB-Cj7" id="KOp-mf-WKe"/>
+                <outlet property="btnNotes" destination="cUI-Yq-P1Z" id="JdF-9F-C3b"/>
                 <outlet property="btnReject" destination="TKN-7n-RWZ" id="M6Y-Df-dvk"/>
                 <outlet property="imgAddress" destination="4Kw-aR-QuK" id="U8E-Rm-fXy"/>
                 <outlet property="imgCar" destination="aFZ-Mn-Vyn" id="AhI-Ft-PWz"/>
@@ -239,9 +253,10 @@
                 <outlet property="lblYearModel" destination="bla-19-HyW" id="Nth-gi-8QZ"/>
                 <outlet property="stackButtomHeight" destination="4f6-PR-bQt" id="qh8-CG-MnC"/>
                 <outlet property="stackbtn" destination="Cpp-M4-1uq" id="eNp-4Z-Ygy"/>
+                <outlet property="vWSeperator" destination="2dw-BE-YKi" id="7q1-Vo-tBb"/>
                 <outlet property="vwMain" destination="pUk-yA-MUG" id="76V-MP-q4L"/>
             </connections>
-            <point key="canvasLocation" x="147.82608695652175" y="140.29017857142856"/>
+            <point key="canvasLocation" x="147.82608695652175" y="139.62053571428569"/>
         </tableViewCell>
     </objects>
     <resources>
@@ -249,6 +264,7 @@
         <image name="IC_gasPump" width="19" height="20.5"/>
         <image name="IC_locoations" width="18.5" height="21"/>
         <image name="ic_Car" width="20.5" height="16.5"/>
+        <image name="icon_notes" width="42.5" height="42.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

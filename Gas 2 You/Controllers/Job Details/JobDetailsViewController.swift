@@ -7,7 +7,7 @@
 
 import UIKit
 import GoogleMaps
-import MKToolTip
+import EasyTipView
 
 enum StartJobButtonTitle {
     case StartJob
@@ -77,6 +77,11 @@ class JobDetailsViewController: BaseVC {
     var RightNavButton = UIButton()
     
     var arrService:[OrderComplateService] = []
+    
+    //TipView
+    var preferences = EasyTipView.Preferences()
+    var tipView: EasyTipView?
+    var timerHidePop : Timer?
     
     // MARK: - --------- IBOutlets ---------
     @IBOutlet weak var lblLine: UILabel!
@@ -186,6 +191,8 @@ class JobDetailsViewController: BaseVC {
         }else{
             self.isFromMyOrders()
         }
+
+        self.setUpPopTip()
     }
     
     func rightNavBarButton(){
@@ -201,12 +208,25 @@ class JobDetailsViewController: BaseVC {
         
     }
     
+    func setUpPopTip() {
+        self.preferences.drawing.font = CustomFont.regular.returnFont(14)
+        self.preferences.drawing.foregroundColor = UIColor.white
+        self.preferences.drawing.backgroundColor = UIColor.init(hexString: "#1F79CD")
+        self.preferences.drawing.arrowPosition = EasyTipView.ArrowPosition.top
+    }
+    
     @objc func callMethod(){
-        let preference = ToolTipPreferences()
-        preference.drawing.bubble.color = colors.themecolor.value
-        preference.drawing.message.color = .white
-        
-        RightNavButton.showToolTip(identifier: "", title: nil, message: self.BookingDetail?.addon?.replacingOccurrences(of: ",", with: "\n", options: .literal, range: nil) ?? "", button: nil, arrowPosition: .top, preferences: preference, delegate: nil)
+        if let tipView = self.tipView {
+            tipView.dismiss(withCompletion: {
+                self.tipView = nil
+                self.timerHidePop?.invalidate()
+                self.timerHidePop = nil
+            })
+        } else {
+            let view = EasyTipView(text: self.BookingDetail?.addon?.replacingOccurrences(of: ",", with: "\n", options: .literal, range: nil) ?? "", preferences: self.preferences, delegate: self)
+            view.show(forView: RightNavButton, withinSuperview: self.navigationController?.view)
+            self.tipView = view
+        }
     }
     
     func registerNib(){
@@ -259,7 +279,6 @@ class JobDetailsViewController: BaseVC {
     func setupMap(){
         self.mapView.clear()
 
-        
         self.CurrentLocLat = String(appDel.locationService.currentLocation?.coordinate.latitude ?? 0.0)
         self.CurrentLocLong = String(appDel.locationService.currentLocation?.coordinate.longitude ?? 0.0)
         self.PickLocLat = self.BookingDetail?.latitude ?? "0.0"
@@ -500,7 +519,6 @@ class JobDetailsViewController: BaseVC {
         }
     }
     
-    
 }
 
 // MARK: - --------- Extension Methods ---------
@@ -711,5 +729,13 @@ extension JobDetailsViewController : UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
+    }
+}
+
+extension JobDetailsViewController : EasyTipViewDelegate {
+    func easyTipViewDidTap(_ tipView: EasyTipView) {
+    }
+    
+    func easyTipViewDidDismiss(_ tipView: EasyTipView) {
     }
 }
